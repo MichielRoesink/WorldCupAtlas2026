@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>World Cup Atlas 2026</title>
+    <h2>World Map</h2>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,6 +32,17 @@ Which countries are still in the running, which have qualified, and which have b
 <section class="dashboard">
     <!-- World Map -->
     <div class="map-card">
+        <div class="world-stats">
+    <div class="stat">
+        <span id="in-race-count">3</span>
+        <small>In the race</small>
+    </div>
+
+    <div class="stat">
+        <span id="out-count">0</span>
+        <small>Out</small>
+    </div>
+</div>
         <h2>Wereldkaart</h2>
         <div class="map-placeholder">
     <svg viewBox="0 0 900 430" class="world-map-preview" aria-label="World map preview">
@@ -53,10 +64,9 @@ Which countries are still in the running, which have qualified, and which have b
 </div>
 <div class="legend-card">
     <h2>Legend</h2>
-    <p><span class="dot host"></span> Host nation</p>
-    <p><span class="dot qualified"></span> Qualified</p>
-    <p><span class="dot alive"></span> Still alive</p>
-    <p><span class="dot eliminated"></span> Eliminated</p>
+    <p><span class="dot in-race"></span> In the race</p>
+    <p><span class="dot out"></span> Out</p>
+    <p><span class="dot not-participating"></span> Not participating</p>
 </div>
 </section>
 </main>

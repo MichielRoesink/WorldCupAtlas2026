@@ -1,24 +1,28 @@
 const mapContainer = document.querySelector(".map-placeholder");
 const countryPanel = document.getElementById("country-panel");
+const inRaceCount = document.getElementById("in-race-count");
+const outCount = document.getElementById("out-count");
 
 const statusColors = {
-  host: "#2e7d32",
-  qualified: "#2e7d32",
-  alive: "#facc15",
-  eliminated: "#d1d5db",
+  host: "#15803d",
+  qualified: "#15803d",
+  in_race: "#15803d",
+  out: "#dc2626",
+  not_participating: "#e5e7eb",
   unknown: "#e5e7eb"
 };
 
 async function loadData() {
-  const [world, countryStatus] = await Promise.all([
-    d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-    d3.json("data/countries.json")
-  ]);
+  const [world, countries, tournament] = await Promise.all([
+  d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
+  d3.json("data/countries.json"),
+  d3.json("data/tournaments/world-cup-2026.json")
+]);
 
-  return { world, countryStatus };
+return { world, countries, tournament };
 }
 
-function drawMap(world, countryStatus) {
+function drawMap(world, tournament) {
   mapContainer.innerHTML = "";
 
   const width = mapContainer.clientWidth;
@@ -44,12 +48,12 @@ function drawMap(world, countryStatus) {
     .attr("d", path)
     .attr("class", "country")
      .attr("fill", d => {
-      const data = countryStatus[d.id];
+      const data = tournament[d.id];
       const status = data ? data.status : "unknown";
       return statusColors[status] || statusColors.unknown;
     })
     .on("click", (event, d) => {
-      const country = countryStatus[d.id];
+      const country = tournament[d.id];
 
       if (!country) {
         countryPanel.innerHTML = `
@@ -67,7 +71,23 @@ function drawMap(world, countryStatus) {
 `;
     });
 }
+loadData().then(({ world, countries, tournament }) => {
 
-loadData().then(({ world, countryStatus }) => {
-  drawMap(world, countryStatus);
+    const tournamentCountries = Object.values(tournament);
+
+    const inRace = tournamentCountries.filter(country =>
+        country.status === "host" ||
+        country.status === "in_race" ||
+        country.status === "qualified"
+    ).length;
+
+    const out = tournamentCountries.filter(country =>
+        country.status === "out"
+    ).length;
+
+    inRaceCount.textContent = inRace;
+    outCount.textContent = out;
+
+    drawMap(world, tournament);
+
 });

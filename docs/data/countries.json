@@ -22,5 +22,61 @@
     "status": "host",
     "confederation": "CONCACAF",
     "note": "Host nation for the 2026 World Cup"
+  },
+  "528": {
+    "code": "NED",
+    "name": "Netherlands",
+    "flag": "🇳🇱",
+    "status": "in_race",
+    "confederation": "UEFA",
+    "note": "Still in the race for the 2026 World Cup"
+  },
+  "056": {
+    "code": "BEL",
+    "name": "Belgium",
+    "flag": "🇧🇪",
+    "status": "in_race",
+    "confederation": "UEFA",
+    "note": "Still in the race for the 2026 World Cup"
+  },
+  "276": {
+    "code": "GER",
+    "name": "Germany",
+    "flag": "🇩🇪",
+    "status": "in_race",
+    "confederation": "UEFA",
+    "note": "Still in the race for the 2026 World Cup"
+  },
+  "250": {
+    "code": "FRA",
+    "name": "France",
+    "flag": "🇫🇷",
+    "status": "in_race",
+    "confederation": "UEFA",
+    "note": "Still in the race for the 2026 World Cup"
+  },
+  "724": {
+    "code": "ESP",
+    "name": "Spain",
+    "flag": "🇪🇸",
+    "status": "in_race",
+    "confederation": "UEFA",
+    "note": "Still in the race for the 2026 World Cup"
+  },
+  "620": {
+    "code": "POR",
+    "name": "Portugal",
+    "flag": "🇵🇹",
+    "status": "in_race",
+    "confederation": "UEFA",
+    "note": "Still in the race for the 2026 World Cup"
+  },
+  "380": {
+    "code": "ITA",
+    "name": "Italy",
+    "flag": "🇮🇹",
+    "status": "out",
+    "confederation": "UEFA",
+    "note": "Out of the race for the 2026 World Cup"
   }
 }
