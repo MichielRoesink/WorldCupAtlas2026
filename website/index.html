@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>World Cup Atlas 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ================= HEADER ================= -->
+<header>
+    <h1>World Cup Atlas 2026</h1>
+
+    <p class="subtitle">
+        Follow the World Cup through one living map.
+    </p>
+
+    <p class="tagline">
+        When every match changes the world.
+    </p>
+
+    <p class="intro">
+        A visual World Cup atlas for everyone — even if you do not follow football.
+    </p>
+</header>
+
+<main>
+
+<h2>Welkom!</h2>
+Which countries are still in the running, which have qualified, and which have been eliminated?
+</p>
+<!-- ================= DASHBOARD ================= -->
+<section class="dashboard">
+    <!-- World Map -->
+    <div class="map-card">
+        <h2>Wereldkaart</h2>
+        <div class="map-placeholder">
+    <svg viewBox="0 0 900 430" class="world-map-preview" aria-label="World map preview">
+        <rect x="0" y="0" width="900" height="430" rx="20"></rect>
+
+        <ellipse class="continent" cx="210" cy="165" rx="110" ry="70"></ellipse>
+        <ellipse class="continent" cx="285" cy="280" rx="70" ry="110"></ellipse>
+        <ellipse class="continent" cx="470" cy="155" rx="95" ry="55"></ellipse>
+        <ellipse class="continent" cx="570" cy="190" rx="150" ry="85"></ellipse>
+        <ellipse class="continent" cx="620" cy="300" rx="80" ry="95"></ellipse>
+        <ellipse class="continent" cx="760" cy="295" rx="75" ry="45"></ellipse>
+    </svg>
+</div>
+
+    <!-- Statistics -->
+    <div class="stats-card" id="country-panel">
+    <h2>Select a country</h2>
+    <p>Click a country on the map to see its World Cup status.</p>
+</div>
+<div class="legend-card">
+    <h2>Legend</h2>
+    <p><span class="dot host"></span> Host nation</p>
+    <p><span class="dot qualified"></span> Qualified</p>
+    <p><span class="dot alive"></span> Still alive</p>
+    <p><span class="dot eliminated"></span> Eliminated</p>
+</div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script src="app.js"></script>
+</body>
+</html>
