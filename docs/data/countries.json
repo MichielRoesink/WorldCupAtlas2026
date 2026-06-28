@@ -1,82 +1,1496 @@
 {
-  "124": {
-    "code": "CAN",
-    "name": "Canada",
-    "flag": "🇨🇦",
-    "status": "host",
-    "confederation": "CONCACAF",
-    "note": "Host nation for the 2026 World Cup"
+  "004": {
+    "code": "AFG",
+    "name": "Afghanistan",
+    "flag": "",
+    "confederation": ""
   },
-  "484": {
-    "code": "MEX",
-    "name": "Mexico",
-    "flag": "🇲🇽",
-    "status": "host",
-    "confederation": "CONCACAF",
-    "note": "Host nation for the 2026 World Cup"
+  "248": {
+    "code": "ALA",
+    "name": "Åland Islands",
+    "flag": "",
+    "confederation": ""
   },
-  "840": {
-    "code": "USA",
-    "name": "United States",
-    "flag": "🇺🇸",
-    "status": "host",
-    "confederation": "CONCACAF",
-    "note": "Host nation for the 2026 World Cup"
+  "008": {
+    "code": "ALB",
+    "name": "Albania",
+    "flag": "",
+    "confederation": ""
   },
-  "528": {
-    "code": "NED",
-    "name": "Netherlands",
-    "flag": "🇳🇱",
-    "status": "in_race",
-    "confederation": "UEFA",
-    "note": "Still in the race for the 2026 World Cup"
+  "012": {
+    "code": "DZA",
+    "name": "Algeria",
+    "flag": "",
+    "confederation": ""
+  },
+  "016": {
+    "code": "ASM",
+    "name": "American Samoa",
+    "flag": "",
+    "confederation": ""
+  },
+  "020": {
+    "code": "AND",
+    "name": "Andorra",
+    "flag": "",
+    "confederation": ""
+  },
+  "024": {
+    "code": "AGO",
+    "name": "Angola",
+    "flag": "",
+    "confederation": ""
+  },
+  "660": {
+    "code": "AIA",
+    "name": "Anguilla",
+    "flag": "",
+    "confederation": ""
+  },
+  "010": {
+    "code": "ATA",
+    "name": "Antarctica",
+    "flag": "",
+    "confederation": ""
+  },
+  "028": {
+    "code": "ATG",
+    "name": "Antigua & Barbuda",
+    "flag": "",
+    "confederation": ""
+  },
+  "032": {
+    "code": "ARG",
+    "name": "Argentina",
+    "flag": "",
+    "confederation": ""
+  },
+  "051": {
+    "code": "ARM",
+    "name": "Armenia",
+    "flag": "",
+    "confederation": ""
+  },
+  "533": {
+    "code": "ABW",
+    "name": "Aruba",
+    "flag": "",
+    "confederation": ""
+  },
+  "036": {
+    "code": "AUS",
+    "name": "Australia",
+    "flag": "",
+    "confederation": ""
+  },
+  "040": {
+    "code": "AUT",
+    "name": "Austria",
+    "flag": "",
+    "confederation": ""
+  },
+  "031": {
+    "code": "AZE",
+    "name": "Azerbaijan",
+    "flag": "",
+    "confederation": ""
+  },
+  "044": {
+    "code": "BHS",
+    "name": "Bahamas",
+    "flag": "",
+    "confederation": ""
+  },
+  "048": {
+    "code": "BHR",
+    "name": "Bahrain",
+    "flag": "",
+    "confederation": ""
+  },
+  "050": {
+    "code": "BGD",
+    "name": "Bangladesh",
+    "flag": "",
+    "confederation": ""
+  },
+  "052": {
+    "code": "BRB",
+    "name": "Barbados",
+    "flag": "",
+    "confederation": ""
+  },
+  "112": {
+    "code": "BLR",
+    "name": "Belarus",
+    "flag": "",
+    "confederation": ""
   },
   "056": {
     "code": "BEL",
     "name": "Belgium",
-    "flag": "🇧🇪",
-    "status": "in_race",
-    "confederation": "UEFA",
-    "note": "Still in the race for the 2026 World Cup"
+    "flag": "",
+    "confederation": ""
   },
-  "276": {
-    "code": "GER",
-    "name": "Germany",
-    "flag": "🇩🇪",
-    "status": "in_race",
-    "confederation": "UEFA",
-    "note": "Still in the race for the 2026 World Cup"
+  "084": {
+    "code": "BLZ",
+    "name": "Belize",
+    "flag": "",
+    "confederation": ""
+  },
+  "204": {
+    "code": "BEN",
+    "name": "Benin",
+    "flag": "",
+    "confederation": ""
+  },
+  "060": {
+    "code": "BMU",
+    "name": "Bermuda",
+    "flag": "",
+    "confederation": ""
+  },
+  "064": {
+    "code": "BTN",
+    "name": "Bhutan",
+    "flag": "",
+    "confederation": ""
+  },
+  "068": {
+    "code": "BOL",
+    "name": "Bolivia",
+    "flag": "",
+    "confederation": ""
+  },
+  "535": {
+    "code": "BES",
+    "name": "Caribbean Netherlands",
+    "flag": "",
+    "confederation": ""
+  },
+  "070": {
+    "code": "BIH",
+    "name": "Bosnia",
+    "flag": "",
+    "confederation": ""
+  },
+  "072": {
+    "code": "BWA",
+    "name": "Botswana",
+    "flag": "",
+    "confederation": ""
+  },
+  "074": {
+    "code": "BVT",
+    "name": "Bouvet Island",
+    "flag": "",
+    "confederation": ""
+  },
+  "076": {
+    "code": "BRA",
+    "name": "Brazil",
+    "flag": "",
+    "confederation": ""
+  },
+  "086": {
+    "code": "IOT",
+    "name": "British Indian Ocean Territory",
+    "flag": "",
+    "confederation": ""
+  },
+  "092": {
+    "code": "VGB",
+    "name": "British Virgin Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "096": {
+    "code": "BRN",
+    "name": "Brunei",
+    "flag": "",
+    "confederation": ""
+  },
+  "100": {
+    "code": "BGR",
+    "name": "Bulgaria",
+    "flag": "",
+    "confederation": ""
+  },
+  "854": {
+    "code": "BFA",
+    "name": "Burkina Faso",
+    "flag": "",
+    "confederation": ""
+  },
+  "108": {
+    "code": "BDI",
+    "name": "Burundi",
+    "flag": "",
+    "confederation": ""
+  },
+  "132": {
+    "code": "CPV",
+    "name": "Cape Verde",
+    "flag": "",
+    "confederation": ""
+  },
+  "116": {
+    "code": "KHM",
+    "name": "Cambodia",
+    "flag": "",
+    "confederation": ""
+  },
+  "120": {
+    "code": "CMR",
+    "name": "Cameroon",
+    "flag": "",
+    "confederation": ""
+  },
+  "124": {
+    "code": "CAN",
+    "name": "Canada",
+    "flag": "",
+    "confederation": ""
+  },
+  "136": {
+    "code": "CYM",
+    "name": "Cayman Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "140": {
+    "code": "CAF",
+    "name": "Central African Republic",
+    "flag": "",
+    "confederation": ""
+  },
+  "148": {
+    "code": "TCD",
+    "name": "Chad",
+    "flag": "",
+    "confederation": ""
+  },
+  "152": {
+    "code": "CHL",
+    "name": "Chile",
+    "flag": "",
+    "confederation": ""
+  },
+  "156": {
+    "code": "CHN",
+    "name": "China",
+    "flag": "",
+    "confederation": ""
+  },
+  "344": {
+    "code": "HKG",
+    "name": "Hong Kong",
+    "flag": "",
+    "confederation": ""
+  },
+  "446": {
+    "code": "MAC",
+    "name": "Macao",
+    "flag": "",
+    "confederation": ""
+  },
+  "162": {
+    "code": "CXR",
+    "name": "Christmas Island",
+    "flag": "",
+    "confederation": ""
+  },
+  "166": {
+    "code": "CCK",
+    "name": "Cocos Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "170": {
+    "code": "COL",
+    "name": "Colombia",
+    "flag": "",
+    "confederation": ""
+  },
+  "174": {
+    "code": "COM",
+    "name": "Comoros",
+    "flag": "",
+    "confederation": ""
+  },
+  "178": {
+    "code": "COG",
+    "name": "Congo - Brazzaville",
+    "flag": "",
+    "confederation": ""
+  },
+  "184": {
+    "code": "COK",
+    "name": "Cook Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "188": {
+    "code": "CRI",
+    "name": "Costa Rica",
+    "flag": "",
+    "confederation": ""
+  },
+  "191": {
+    "code": "HRV",
+    "name": "Croatia",
+    "flag": "",
+    "confederation": ""
+  },
+  "192": {
+    "code": "CUB",
+    "name": "Cuba",
+    "flag": "",
+    "confederation": ""
+  },
+  "531": {
+    "code": "CUW",
+    "name": "Curaçao",
+    "flag": "",
+    "confederation": ""
+  },
+  "196": {
+    "code": "CYP",
+    "name": "Cyprus",
+    "flag": "",
+    "confederation": ""
+  },
+  "203": {
+    "code": "CZE",
+    "name": "Czechia",
+    "flag": "",
+    "confederation": ""
+  },
+  "408": {
+    "code": "PRK",
+    "name": "North Korea",
+    "flag": "",
+    "confederation": ""
+  },
+  "180": {
+    "code": "COD",
+    "name": "Congo - Kinshasa",
+    "flag": "",
+    "confederation": ""
+  },
+  "208": {
+    "code": "DNK",
+    "name": "Denmark",
+    "flag": "",
+    "confederation": ""
+  },
+  "262": {
+    "code": "DJI",
+    "name": "Djibouti",
+    "flag": "",
+    "confederation": ""
+  },
+  "212": {
+    "code": "DMA",
+    "name": "Dominica",
+    "flag": "",
+    "confederation": ""
+  },
+  "214": {
+    "code": "DOM",
+    "name": "Dominican Republic",
+    "flag": "",
+    "confederation": ""
+  },
+  "218": {
+    "code": "ECU",
+    "name": "Ecuador",
+    "flag": "",
+    "confederation": ""
+  },
+  "818": {
+    "code": "EGY",
+    "name": "Egypt",
+    "flag": "",
+    "confederation": ""
+  },
+  "222": {
+    "code": "SLV",
+    "name": "El Salvador",
+    "flag": "",
+    "confederation": ""
+  },
+  "226": {
+    "code": "GNQ",
+    "name": "Equatorial Guinea",
+    "flag": "",
+    "confederation": ""
+  },
+  "232": {
+    "code": "ERI",
+    "name": "Eritrea",
+    "flag": "",
+    "confederation": ""
+  },
+  "233": {
+    "code": "EST",
+    "name": "Estonia",
+    "flag": "",
+    "confederation": ""
+  },
+  "748": {
+    "code": "SWZ",
+    "name": "Eswatini",
+    "flag": "",
+    "confederation": ""
+  },
+  "231": {
+    "code": "ETH",
+    "name": "Ethiopia",
+    "flag": "",
+    "confederation": ""
+  },
+  "238": {
+    "code": "FLK",
+    "name": "Falkland Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "234": {
+    "code": "FRO",
+    "name": "Faroe Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "242": {
+    "code": "FJI",
+    "name": "Fiji",
+    "flag": "",
+    "confederation": ""
+  },
+  "246": {
+    "code": "FIN",
+    "name": "Finland",
+    "flag": "",
+    "confederation": ""
   },
   "250": {
     "code": "FRA",
     "name": "France",
-    "flag": "🇫🇷",
-    "status": "in_race",
-    "confederation": "UEFA",
-    "note": "Still in the race for the 2026 World Cup"
+    "flag": "",
+    "confederation": ""
   },
-  "724": {
-    "code": "ESP",
-    "name": "Spain",
-    "flag": "🇪🇸",
-    "status": "in_race",
-    "confederation": "UEFA",
-    "note": "Still in the race for the 2026 World Cup"
+  "254": {
+    "code": "GUF",
+    "name": "French Guiana",
+    "flag": "",
+    "confederation": ""
   },
-  "620": {
-    "code": "POR",
-    "name": "Portugal",
-    "flag": "🇵🇹",
-    "status": "in_race",
-    "confederation": "UEFA",
-    "note": "Still in the race for the 2026 World Cup"
+  "258": {
+    "code": "PYF",
+    "name": "French Polynesia",
+    "flag": "",
+    "confederation": ""
+  },
+  "260": {
+    "code": "ATF",
+    "name": "French Southern Territories",
+    "flag": "",
+    "confederation": ""
+  },
+  "266": {
+    "code": "GAB",
+    "name": "Gabon",
+    "flag": "",
+    "confederation": ""
+  },
+  "270": {
+    "code": "GMB",
+    "name": "Gambia",
+    "flag": "",
+    "confederation": ""
+  },
+  "268": {
+    "code": "GEO",
+    "name": "Georgia",
+    "flag": "",
+    "confederation": ""
+  },
+  "276": {
+    "code": "DEU",
+    "name": "Germany",
+    "flag": "",
+    "confederation": ""
+  },
+  "288": {
+    "code": "GHA",
+    "name": "Ghana",
+    "flag": "",
+    "confederation": ""
+  },
+  "292": {
+    "code": "GIB",
+    "name": "Gibraltar",
+    "flag": "",
+    "confederation": ""
+  },
+  "300": {
+    "code": "GRC",
+    "name": "Greece",
+    "flag": "",
+    "confederation": ""
+  },
+  "304": {
+    "code": "GRL",
+    "name": "Greenland",
+    "flag": "",
+    "confederation": ""
+  },
+  "308": {
+    "code": "GRD",
+    "name": "Grenada",
+    "flag": "",
+    "confederation": ""
+  },
+  "312": {
+    "code": "GLP",
+    "name": "Guadeloupe",
+    "flag": "",
+    "confederation": ""
+  },
+  "316": {
+    "code": "GUM",
+    "name": "Guam",
+    "flag": "",
+    "confederation": ""
+  },
+  "320": {
+    "code": "GTM",
+    "name": "Guatemala",
+    "flag": "",
+    "confederation": ""
+  },
+  "831": {
+    "code": "GGY",
+    "name": "Guernsey",
+    "flag": "",
+    "confederation": ""
+  },
+  "324": {
+    "code": "GIN",
+    "name": "Guinea",
+    "flag": "",
+    "confederation": ""
+  },
+  "624": {
+    "code": "GNB",
+    "name": "Guinea-Bissau",
+    "flag": "",
+    "confederation": ""
+  },
+  "328": {
+    "code": "GUY",
+    "name": "Guyana",
+    "flag": "",
+    "confederation": ""
+  },
+  "332": {
+    "code": "HTI",
+    "name": "Haiti",
+    "flag": "",
+    "confederation": ""
+  },
+  "334": {
+    "code": "HMD",
+    "name": "Heard & McDonald Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "336": {
+    "code": "VAT",
+    "name": "Vatican City",
+    "flag": "",
+    "confederation": ""
+  },
+  "340": {
+    "code": "HND",
+    "name": "Honduras",
+    "flag": "",
+    "confederation": ""
+  },
+  "348": {
+    "code": "HUN",
+    "name": "Hungary",
+    "flag": "",
+    "confederation": ""
+  },
+  "352": {
+    "code": "ISL",
+    "name": "Iceland",
+    "flag": "",
+    "confederation": ""
+  },
+  "356": {
+    "code": "IND",
+    "name": "India",
+    "flag": "",
+    "confederation": ""
+  },
+  "360": {
+    "code": "IDN",
+    "name": "Indonesia",
+    "flag": "",
+    "confederation": ""
+  },
+  "364": {
+    "code": "IRN",
+    "name": "Iran",
+    "flag": "",
+    "confederation": ""
+  },
+  "368": {
+    "code": "IRQ",
+    "name": "Iraq",
+    "flag": "",
+    "confederation": ""
+  },
+  "372": {
+    "code": "IRL",
+    "name": "Ireland",
+    "flag": "",
+    "confederation": ""
+  },
+  "833": {
+    "code": "IMN",
+    "name": "Isle of Man",
+    "flag": "",
+    "confederation": ""
+  },
+  "376": {
+    "code": "ISR",
+    "name": "Israel",
+    "flag": "",
+    "confederation": ""
   },
   "380": {
     "code": "ITA",
     "name": "Italy",
-    "flag": "🇮🇹",
-    "status": "out",
-    "confederation": "UEFA",
-    "note": "Out of the race for the 2026 World Cup"
+    "flag": "",
+    "confederation": ""
+  },
+  "384": {
+    "code": "CIV",
+    "name": "Côte d’Ivoire",
+    "flag": "",
+    "confederation": ""
+  },
+  "388": {
+    "code": "JAM",
+    "name": "Jamaica",
+    "flag": "",
+    "confederation": ""
+  },
+  "392": {
+    "code": "JPN",
+    "name": "Japan",
+    "flag": "",
+    "confederation": ""
+  },
+  "832": {
+    "code": "JEY",
+    "name": "Jersey",
+    "flag": "",
+    "confederation": ""
+  },
+  "400": {
+    "code": "JOR",
+    "name": "Jordan",
+    "flag": "",
+    "confederation": ""
+  },
+  "398": {
+    "code": "KAZ",
+    "name": "Kazakhstan",
+    "flag": "",
+    "confederation": ""
+  },
+  "404": {
+    "code": "KEN",
+    "name": "Kenya",
+    "flag": "",
+    "confederation": ""
+  },
+  "296": {
+    "code": "KIR",
+    "name": "Kiribati",
+    "flag": "",
+    "confederation": ""
+  },
+  "414": {
+    "code": "KWT",
+    "name": "Kuwait",
+    "flag": "",
+    "confederation": ""
+  },
+  "417": {
+    "code": "KGZ",
+    "name": "Kyrgyzstan",
+    "flag": "",
+    "confederation": ""
+  },
+  "418": {
+    "code": "LAO",
+    "name": "Laos",
+    "flag": "",
+    "confederation": ""
+  },
+  "428": {
+    "code": "LVA",
+    "name": "Latvia",
+    "flag": "",
+    "confederation": ""
+  },
+  "422": {
+    "code": "LBN",
+    "name": "Lebanon",
+    "flag": "",
+    "confederation": ""
+  },
+  "426": {
+    "code": "LSO",
+    "name": "Lesotho",
+    "flag": "",
+    "confederation": ""
+  },
+  "430": {
+    "code": "LBR",
+    "name": "Liberia",
+    "flag": "",
+    "confederation": ""
+  },
+  "434": {
+    "code": "LBY",
+    "name": "Libya",
+    "flag": "",
+    "confederation": ""
+  },
+  "438": {
+    "code": "LIE",
+    "name": "Liechtenstein",
+    "flag": "",
+    "confederation": ""
+  },
+  "440": {
+    "code": "LTU",
+    "name": "Lithuania",
+    "flag": "",
+    "confederation": ""
+  },
+  "442": {
+    "code": "LUX",
+    "name": "Luxembourg",
+    "flag": "",
+    "confederation": ""
+  },
+  "450": {
+    "code": "MDG",
+    "name": "Madagascar",
+    "flag": "",
+    "confederation": ""
+  },
+  "454": {
+    "code": "MWI",
+    "name": "Malawi",
+    "flag": "",
+    "confederation": ""
+  },
+  "458": {
+    "code": "MYS",
+    "name": "Malaysia",
+    "flag": "",
+    "confederation": ""
+  },
+  "462": {
+    "code": "MDV",
+    "name": "Maldives",
+    "flag": "",
+    "confederation": ""
+  },
+  "466": {
+    "code": "MLI",
+    "name": "Mali",
+    "flag": "",
+    "confederation": ""
+  },
+  "470": {
+    "code": "MLT",
+    "name": "Malta",
+    "flag": "",
+    "confederation": ""
+  },
+  "584": {
+    "code": "MHL",
+    "name": "Marshall Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "474": {
+    "code": "MTQ",
+    "name": "Martinique",
+    "flag": "",
+    "confederation": ""
+  },
+  "478": {
+    "code": "MRT",
+    "name": "Mauritania",
+    "flag": "",
+    "confederation": ""
+  },
+  "480": {
+    "code": "MUS",
+    "name": "Mauritius",
+    "flag": "",
+    "confederation": ""
+  },
+  "175": {
+    "code": "MYT",
+    "name": "Mayotte",
+    "flag": "",
+    "confederation": ""
+  },
+  "484": {
+    "code": "MEX",
+    "name": "Mexico",
+    "flag": "",
+    "confederation": ""
+  },
+  "583": {
+    "code": "FSM",
+    "name": "Micronesia",
+    "flag": "",
+    "confederation": ""
+  },
+  "492": {
+    "code": "MCO",
+    "name": "Monaco",
+    "flag": "",
+    "confederation": ""
+  },
+  "496": {
+    "code": "MNG",
+    "name": "Mongolia",
+    "flag": "",
+    "confederation": ""
+  },
+  "499": {
+    "code": "MNE",
+    "name": "Montenegro",
+    "flag": "",
+    "confederation": ""
+  },
+  "500": {
+    "code": "MSR",
+    "name": "Montserrat",
+    "flag": "",
+    "confederation": ""
+  },
+  "504": {
+    "code": "MAR",
+    "name": "Morocco",
+    "flag": "",
+    "confederation": ""
+  },
+  "508": {
+    "code": "MOZ",
+    "name": "Mozambique",
+    "flag": "",
+    "confederation": ""
+  },
+  "104": {
+    "code": "MMR",
+    "name": "Myanmar",
+    "flag": "",
+    "confederation": ""
+  },
+  "516": {
+    "code": "NAM",
+    "name": "Namibia",
+    "flag": "",
+    "confederation": ""
+  },
+  "520": {
+    "code": "NRU",
+    "name": "Nauru",
+    "flag": "",
+    "confederation": ""
+  },
+  "524": {
+    "code": "NPL",
+    "name": "Nepal",
+    "flag": "",
+    "confederation": ""
+  },
+  "528": {
+    "code": "NLD",
+    "name": "Netherlands",
+    "flag": "",
+    "confederation": ""
+  },
+  "540": {
+    "code": "NCL",
+    "name": "New Caledonia",
+    "flag": "",
+    "confederation": ""
+  },
+  "554": {
+    "code": "NZL",
+    "name": "New Zealand",
+    "flag": "",
+    "confederation": ""
+  },
+  "558": {
+    "code": "NIC",
+    "name": "Nicaragua",
+    "flag": "",
+    "confederation": ""
+  },
+  "562": {
+    "code": "NER",
+    "name": "Niger",
+    "flag": "",
+    "confederation": ""
+  },
+  "566": {
+    "code": "NGA",
+    "name": "Nigeria",
+    "flag": "",
+    "confederation": ""
+  },
+  "570": {
+    "code": "NIU",
+    "name": "Niue",
+    "flag": "",
+    "confederation": ""
+  },
+  "574": {
+    "code": "NFK",
+    "name": "Norfolk Island",
+    "flag": "",
+    "confederation": ""
+  },
+  "580": {
+    "code": "MNP",
+    "name": "Northern Mariana Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "807": {
+    "code": "MKD",
+    "name": "North Macedonia",
+    "flag": "",
+    "confederation": ""
+  },
+  "578": {
+    "code": "NOR",
+    "name": "Norway",
+    "flag": "",
+    "confederation": ""
+  },
+  "512": {
+    "code": "OMN",
+    "name": "Oman",
+    "flag": "",
+    "confederation": ""
+  },
+  "586": {
+    "code": "PAK",
+    "name": "Pakistan",
+    "flag": "",
+    "confederation": ""
+  },
+  "585": {
+    "code": "PLW",
+    "name": "Palau",
+    "flag": "",
+    "confederation": ""
+  },
+  "591": {
+    "code": "PAN",
+    "name": "Panama",
+    "flag": "",
+    "confederation": ""
+  },
+  "598": {
+    "code": "PNG",
+    "name": "Papua New Guinea",
+    "flag": "",
+    "confederation": ""
+  },
+  "600": {
+    "code": "PRY",
+    "name": "Paraguay",
+    "flag": "",
+    "confederation": ""
+  },
+  "604": {
+    "code": "PER",
+    "name": "Peru",
+    "flag": "",
+    "confederation": ""
+  },
+  "608": {
+    "code": "PHL",
+    "name": "Philippines",
+    "flag": "",
+    "confederation": ""
+  },
+  "612": {
+    "code": "PCN",
+    "name": "Pitcairn",
+    "flag": "",
+    "confederation": ""
+  },
+  "616": {
+    "code": "POL",
+    "name": "Poland",
+    "flag": "",
+    "confederation": ""
+  },
+  "620": {
+    "code": "PRT",
+    "name": "Portugal",
+    "flag": "",
+    "confederation": ""
+  },
+  "630": {
+    "code": "PRI",
+    "name": "Puerto Rico",
+    "flag": "",
+    "confederation": ""
+  },
+  "634": {
+    "code": "QAT",
+    "name": "Qatar",
+    "flag": "",
+    "confederation": ""
+  },
+  "410": {
+    "code": "KOR",
+    "name": "South Korea",
+    "flag": "",
+    "confederation": ""
+  },
+  "498": {
+    "code": "MDA",
+    "name": "Moldova",
+    "flag": "",
+    "confederation": ""
+  },
+  "638": {
+    "code": "REU",
+    "name": "Réunion",
+    "flag": "",
+    "confederation": ""
+  },
+  "642": {
+    "code": "ROU",
+    "name": "Romania",
+    "flag": "",
+    "confederation": ""
+  },
+  "643": {
+    "code": "RUS",
+    "name": "Russia",
+    "flag": "",
+    "confederation": ""
+  },
+  "646": {
+    "code": "RWA",
+    "name": "Rwanda",
+    "flag": "",
+    "confederation": ""
+  },
+  "652": {
+    "code": "BLM",
+    "name": "St. Barthélemy",
+    "flag": "",
+    "confederation": ""
+  },
+  "654": {
+    "code": "SHN",
+    "name": "St. Helena",
+    "flag": "",
+    "confederation": ""
+  },
+  "659": {
+    "code": "KNA",
+    "name": "St. Kitts & Nevis",
+    "flag": "",
+    "confederation": ""
+  },
+  "662": {
+    "code": "LCA",
+    "name": "St. Lucia",
+    "flag": "",
+    "confederation": ""
+  },
+  "663": {
+    "code": "MAF",
+    "name": "St. Martin",
+    "flag": "",
+    "confederation": ""
+  },
+  "666": {
+    "code": "SPM",
+    "name": "St. Pierre & Miquelon",
+    "flag": "",
+    "confederation": ""
+  },
+  "670": {
+    "code": "VCT",
+    "name": "St. Vincent & Grenadines",
+    "flag": "",
+    "confederation": ""
+  },
+  "882": {
+    "code": "WSM",
+    "name": "Samoa",
+    "flag": "",
+    "confederation": ""
+  },
+  "674": {
+    "code": "SMR",
+    "name": "San Marino",
+    "flag": "",
+    "confederation": ""
+  },
+  "678": {
+    "code": "STP",
+    "name": "São Tomé & Príncipe",
+    "flag": "",
+    "confederation": ""
+  },
+  "682": {
+    "code": "SAU",
+    "name": "Saudi Arabia",
+    "flag": "",
+    "confederation": ""
+  },
+  "686": {
+    "code": "SEN",
+    "name": "Senegal",
+    "flag": "",
+    "confederation": ""
+  },
+  "688": {
+    "code": "SRB",
+    "name": "Serbia",
+    "flag": "",
+    "confederation": ""
+  },
+  "690": {
+    "code": "SYC",
+    "name": "Seychelles",
+    "flag": "",
+    "confederation": ""
+  },
+  "694": {
+    "code": "SLE",
+    "name": "Sierra Leone",
+    "flag": "",
+    "confederation": ""
+  },
+  "702": {
+    "code": "SGP",
+    "name": "Singapore",
+    "flag": "",
+    "confederation": ""
+  },
+  "534": {
+    "code": "SXM",
+    "name": "Sint Maarten",
+    "flag": "",
+    "confederation": ""
+  },
+  "703": {
+    "code": "SVK",
+    "name": "Slovakia",
+    "flag": "",
+    "confederation": ""
+  },
+  "705": {
+    "code": "SVN",
+    "name": "Slovenia",
+    "flag": "",
+    "confederation": ""
+  },
+  "090": {
+    "code": "SLB",
+    "name": "Solomon Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "706": {
+    "code": "SOM",
+    "name": "Somalia",
+    "flag": "",
+    "confederation": ""
+  },
+  "710": {
+    "code": "ZAF",
+    "name": "South Africa",
+    "flag": "",
+    "confederation": ""
+  },
+  "239": {
+    "code": "SGS",
+    "name": "South Georgia & South Sandwich Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "728": {
+    "code": "SSD",
+    "name": "South Sudan",
+    "flag": "",
+    "confederation": ""
+  },
+  "724": {
+    "code": "ESP",
+    "name": "Spain",
+    "flag": "",
+    "confederation": ""
+  },
+  "144": {
+    "code": "LKA",
+    "name": "Sri Lanka",
+    "flag": "",
+    "confederation": ""
+  },
+  "275": {
+    "code": "PSE",
+    "name": "Palestine",
+    "flag": "",
+    "confederation": ""
+  },
+  "729": {
+    "code": "SDN",
+    "name": "Sudan",
+    "flag": "",
+    "confederation": ""
+  },
+  "740": {
+    "code": "SUR",
+    "name": "Suriname",
+    "flag": "",
+    "confederation": ""
+  },
+  "744": {
+    "code": "SJM",
+    "name": "Svalbard & Jan Mayen",
+    "flag": "",
+    "confederation": ""
+  },
+  "752": {
+    "code": "SWE",
+    "name": "Sweden",
+    "flag": "",
+    "confederation": ""
+  },
+  "756": {
+    "code": "CHE",
+    "name": "Switzerland",
+    "flag": "",
+    "confederation": ""
+  },
+  "760": {
+    "code": "SYR",
+    "name": "Syria",
+    "flag": "",
+    "confederation": ""
+  },
+  "158": {
+    "code": "TWN",
+    "name": "Taiwan",
+    "flag": "",
+    "confederation": ""
+  },
+  "762": {
+    "code": "TJK",
+    "name": "Tajikistan",
+    "flag": "",
+    "confederation": ""
+  },
+  "764": {
+    "code": "THA",
+    "name": "Thailand",
+    "flag": "",
+    "confederation": ""
+  },
+  "626": {
+    "code": "TLS",
+    "name": "Timor-Leste",
+    "flag": "",
+    "confederation": ""
+  },
+  "768": {
+    "code": "TGO",
+    "name": "Togo",
+    "flag": "",
+    "confederation": ""
+  },
+  "772": {
+    "code": "TKL",
+    "name": "Tokelau",
+    "flag": "",
+    "confederation": ""
+  },
+  "776": {
+    "code": "TON",
+    "name": "Tonga",
+    "flag": "",
+    "confederation": ""
+  },
+  "780": {
+    "code": "TTO",
+    "name": "Trinidad & Tobago",
+    "flag": "",
+    "confederation": ""
+  },
+  "788": {
+    "code": "TUN",
+    "name": "Tunisia",
+    "flag": "",
+    "confederation": ""
+  },
+  "792": {
+    "code": "TUR",
+    "name": "Türkiye",
+    "flag": "",
+    "confederation": ""
+  },
+  "795": {
+    "code": "TKM",
+    "name": "Turkmenistan",
+    "flag": "",
+    "confederation": ""
+  },
+  "796": {
+    "code": "TCA",
+    "name": "Turks & Caicos Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "798": {
+    "code": "TUV",
+    "name": "Tuvalu",
+    "flag": "",
+    "confederation": ""
+  },
+  "800": {
+    "code": "UGA",
+    "name": "Uganda",
+    "flag": "",
+    "confederation": ""
+  },
+  "804": {
+    "code": "UKR",
+    "name": "Ukraine",
+    "flag": "",
+    "confederation": ""
+  },
+  "784": {
+    "code": "ARE",
+    "name": "United Arab Emirates",
+    "flag": "",
+    "confederation": ""
+  },
+  "826": {
+    "code": "GBR",
+    "name": "UK",
+    "flag": "",
+    "confederation": ""
+  },
+  "834": {
+    "code": "TZA",
+    "name": "Tanzania",
+    "flag": "",
+    "confederation": ""
+  },
+  "581": {
+    "code": "UMI",
+    "name": "U.S. Outlying Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "840": {
+    "code": "USA",
+    "name": "US",
+    "flag": "",
+    "confederation": ""
+  },
+  "850": {
+    "code": "VIR",
+    "name": "U.S. Virgin Islands",
+    "flag": "",
+    "confederation": ""
+  },
+  "858": {
+    "code": "URY",
+    "name": "Uruguay",
+    "flag": "",
+    "confederation": ""
+  },
+  "860": {
+    "code": "UZB",
+    "name": "Uzbekistan",
+    "flag": "",
+    "confederation": ""
+  },
+  "548": {
+    "code": "VUT",
+    "name": "Vanuatu",
+    "flag": "",
+    "confederation": ""
+  },
+  "862": {
+    "code": "VEN",
+    "name": "Venezuela",
+    "flag": "",
+    "confederation": ""
+  },
+  "704": {
+    "code": "VNM",
+    "name": "Vietnam",
+    "flag": "",
+    "confederation": ""
+  },
+  "876": {
+    "code": "WLF",
+    "name": "Wallis & Futuna",
+    "flag": "",
+    "confederation": ""
+  },
+  "732": {
+    "code": "ESH",
+    "name": "Western Sahara",
+    "flag": "",
+    "confederation": ""
+  },
+  "887": {
+    "code": "YEM",
+    "name": "Yemen",
+    "flag": "",
+    "confederation": ""
+  },
+  "894": {
+    "code": "ZMB",
+    "name": "Zambia",
+    "flag": "",
+    "confederation": ""
+  },
+  "716": {
+    "code": "ZWE",
+    "name": "Zimbabwe",
+    "flag": "",
+    "confederation": ""
   }
 }
