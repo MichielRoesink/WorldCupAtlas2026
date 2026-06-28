@@ -35,11 +35,12 @@ function formatDate(dateString) {
 }
 
 async function loadData() {
-  const [world, countries, teams, matches, tournamentInfo] = await Promise.all([
+  const [world, countries, teams, matches, results, tournamentInfo] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
     d3.json(`${DATA_PATH}/teams.json`),
     d3.json(`${DATA_PATH}/matches.json`),
+    d3.json(`${DATA_PATH}/results/results.json`),
     d3.json(`${DATA_PATH}/tournament.json`)
   ]);
 
@@ -48,6 +49,7 @@ async function loadData() {
     countries,
     teams,
     matches,
+    results,
     tournamentInfo
   };
 }
@@ -106,7 +108,42 @@ function deriveTournamentFromMatches(baseTournament, matches, codeToMapId) {
 
   return derived;
 }
-function advanceWinners(matches) {
+function applyResultsToTournament(tournament, matches, results, codeToMapId) {
+
+  results.forEach(result => {
+
+    const match = matches.find(m => m.id === result.match);
+
+    if (!match) return;
+
+    const winner = getWinner(match, results);
+
+    if (!winner) return;
+
+    const loser = winner === match.home ? match.away : match.home;
+
+    const winnerId = codeToMapId[winner];
+    const loserId = codeToMapId[loser];
+
+    if (winnerId) {
+      tournament[winnerId] = {
+        status: "in_race",
+        note: `Advanced from ${match.round}`
+      };
+    }
+
+    if (loserId) {
+      tournament[loserId] = {
+        status: "out",
+        note: `Eliminated in ${match.round}`
+      };
+    }
+
+  });
+
+}
+
+function advanceWinners(matches, results) {
   const matchMap = {};
 
   matches.forEach(match => {
@@ -114,21 +151,24 @@ function advanceWinners(matches) {
   });
 
   matches.forEach(match => {
-    if (
-      match.status === "finished" &&
-      match.winner &&
-      match.winnerGoesTo
-    ) {
-      const nextMatch = matchMap[match.winnerGoesTo];
+const winner = getWinner(match, results);
 
-      if (!nextMatch) return;
+if (
+  match.winnerGoesTo &&
+  winner
+) {
 
-      if (!nextMatch.home) {
-        nextMatch.home = match.winner;
-      } else if (!nextMatch.away) {
-        nextMatch.away = match.winner;
-      }
-    }
+  const nextMatch = matchMap[match.winnerGoesTo];
+
+  if (!nextMatch) return;
+
+  if (!nextMatch.home) {
+    nextMatch.home = winner;
+  } else if (!nextMatch.away) {
+    nextMatch.away = winner;
+  }
+
+}
   });
 }
 
@@ -153,6 +193,26 @@ function findLastMatch(countryCode, matches) {
   );
 }
 
+function getResult(matchId, results) {
+  return results.find(result => result.match === matchId);
+}
+
+function getWinner(match, results) {
+
+  const result = getResult(match.id, results);
+
+  if (!result) return null;
+
+  if (result.homeScore > result.awayScore) {
+    return match.home;
+  }
+
+  if (result.awayScore > result.homeScore) {
+    return match.away;
+  }
+
+  return null;
+}
 function formatMatchTeams(match, country, countries) {
   const opponentCode = match.home === country.code ? match.away : match.home;
   const opponent = findCountryByCode(countries, opponentCode);
@@ -279,7 +339,7 @@ function drawMap(world, countries, tournament, matches) {
     });
 }
 
-loadData().then(({ world, countries, teams, matches, tournamentInfo }) => {
+loadData().then(({ world, countries, teams, matches, results, tournamentInfo }) => {
   currentCupName.textContent = tournamentInfo.name;
   const codeToMapId = buildCountryCodeIndex(countries);
 
@@ -295,9 +355,21 @@ loadData().then(({ world, countries, teams, matches, tournamentInfo }) => {
       };
     }
   });
-  advanceWinners(matches);
-  const derivedTournament = deriveTournamentFromMatches(tournament, matches, codeToMapId);
+  advanceWinners(matches, results);
+ const derivedTournament =
+    deriveTournamentFromMatches(
+        tournament,
+        matches,
+        codeToMapId
+    );
 
-  updateCounters(derivedTournament);
+applyResultsToTournament(
+    derivedTournament,
+    matches,
+    results,
+    codeToMapId
+);
+
+updateCounters(derivedTournament);
   drawMap(world, countries, derivedTournament, matches);
 });
