@@ -1,0 +1,14 @@
+{
+  "id": "worldcup-2026",
+  "name": "FIFA World Cup 2026",
+  "year": 2026,
+  "type": "world_cup",
+  "hosts": [
+    "CAN",
+    "MEX",
+    "USA"
+  ],
+  "teams": 48,
+  "matches": 104,
+  "status": "live"
+}

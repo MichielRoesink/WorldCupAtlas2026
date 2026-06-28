@@ -314,3 +314,44 @@ main {
 .info-row {
     gap: 20px;
 }
+.highlight-row {
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+.highlight-row span {
+    font-weight: 700;
+}
+.info-row:nth-child(6),
+.info-row:nth-child(7) {
+    color: #475569;
+}
+.match-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    margin: 14px 0;
+}
+
+.match-card small {
+    color: #64748b;
+}
+
+.match-card strong {
+    display: block;
+    font-size: 1.1rem;
+    margin: 6px 0;
+}
+
+.match-card span {
+    color: #334155;
+}
+.match-meta{
+    margin-top:12px;
+    color:#475569;
+    line-height:1.6;
+    font-size:.95rem;
+}

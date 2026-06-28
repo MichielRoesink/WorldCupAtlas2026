@@ -1,3 +1,5 @@
+const CURRENT_CUP = "worldcup-2026";
+const DATA_PATH = `data/cups/${CURRENT_CUP}`;
 const mapContainer = document.querySelector(".map-placeholder");
 const countryPanel = document.getElementById("country-panel");
 const inRaceCount = document.getElementById("in-race-count");
@@ -13,7 +15,10 @@ const statusColors = {
 
 function prettyStatus(status) {
   if (!status) return "Not participating";
-  return status.replace("_", " ");
+
+  return status
+    .replace("_", " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
 function formatDate(dateString) {
@@ -27,14 +32,21 @@ function formatDate(dateString) {
 }
 
 async function loadData() {
-  const [world, countries, tournament, matches] = await Promise.all([
+  const [world, countries, teams, matches, tournamentInfo] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
-    d3.json("data/tournaments/world-cup-2026.json"),
-    d3.json("data/matches-2026.json")
+    d3.json(`${DATA_PATH}/teams.json`),
+    d3.json(`${DATA_PATH}/matches.json`),
+    d3.json(`${DATA_PATH}/tournament.json`)
   ]);
 
-  return { world, countries, tournament, matches };
+  return {
+    world,
+    countries,
+    teams,
+    matches,
+    tournamentInfo
+  };
 }
 
 function buildCountryCodeIndex(countries) {
@@ -49,6 +61,10 @@ function buildCountryCodeIndex(countries) {
   return index;
 }
 
+function findCountryByCode(countries, code) {
+  return Object.values(countries).find(country => country.code === code);
+}
+
 function deriveTournamentFromMatches(baseTournament, matches, codeToMapId) {
   const derived = { ...baseTournament };
 
@@ -57,11 +73,11 @@ function deriveTournamentFromMatches(baseTournament, matches, codeToMapId) {
     const awayId = codeToMapId[match.away];
 
     if (homeId && !derived[homeId]) {
-      derived[homeId] = { status: "in_race", note: `${match.round}` };
+      derived[homeId] = { status: "in_race", note: match.round };
     }
 
     if (awayId && !derived[awayId]) {
-      derived[awayId] = { status: "in_race", note: `${match.round}` };
+      derived[awayId] = { status: "in_race", note: match.round };
     }
 
     if (match.status === "finished" && match.winner) {
@@ -87,22 +103,42 @@ function deriveTournamentFromMatches(baseTournament, matches, codeToMapId) {
 
   return derived;
 }
+function advanceWinners(matches) {
+  const matchMap = {};
+
+  matches.forEach(match => {
+    matchMap[match.id] = match;
+  });
+
+  matches.forEach(match => {
+    if (
+      match.status === "finished" &&
+      match.winner &&
+      match.winnerGoesTo
+    ) {
+      const nextMatch = matchMap[match.winnerGoesTo];
+
+      if (!nextMatch) return;
+
+      if (!nextMatch.home) {
+        nextMatch.home = match.winner;
+      } else if (!nextMatch.away) {
+        nextMatch.away = match.winner;
+      }
+    }
+  });
+}
 
 function updateCounters(tournament) {
   const teams = Object.values(tournament);
 
-  inRaceCount.textContent = teams.filter(team =>
-    team.status === "in_race"
-  ).length;
-
-  outCount.textContent = teams.filter(team =>
-    team.status === "out"
-  ).length;
+  inRaceCount.textContent = teams.filter(team => team.status === "in_race").length;
+  outCount.textContent = teams.filter(team => team.status === "out").length;
 }
 
 function findNextMatch(countryCode, matches) {
   return matches.find(match =>
-    match.status === "scheduled" &&
+    (match.status === "scheduled" || match.status === "pending") &&
     (match.home === countryCode || match.away === countryCode)
   );
 }
@@ -114,13 +150,20 @@ function findLastMatch(countryCode, matches) {
   );
 }
 
-function renderCountryPanel(country, mapId, tournamentData, matches) {
+function formatMatchTeams(match, country, countries) {
+  const opponentCode = match.home === country.code ? match.away : match.home;
+  const opponent = findCountryByCode(countries, opponentCode);
+
+  return `${country.flag || ""} ${country.name} vs ${opponent?.flag || ""} ${opponent?.name || opponentCode}`;
+}
+
+function formatResult(match) {
+  return `${match.home} ${match.homeScore ?? ""} - ${match.awayScore ?? ""} ${match.away}`;
+}
+
+function renderCountryPanel(country, mapId, tournamentData, matches, countries) {
   const nextMatch = findNextMatch(country.code, matches);
   const lastMatch = findLastMatch(country.code, matches);
-
-  const opponentCode = nextMatch
-    ? (nextMatch.home === country.code ? nextMatch.away : nextMatch.home)
-    : null;
 
   countryPanel.innerHTML = `
     <div class="country-header">
@@ -135,36 +178,31 @@ function renderCountryPanel(country, mapId, tournamentData, matches) {
 
     <div class="info-row">
       <strong>Status</strong>
-      <span>${prettyStatus(tournamentData?.status)}</span>
+<span>${tournamentData?.status === "in_race" ? "🟢 Still in the race" : tournamentData?.status === "out" ? "🔴 Eliminated" : "⚪ Not participating"}</span>
     </div>
 
-    <div class="info-row">
-      <strong>Map ID</strong>
-      <span>${mapId}</span>
-    </div>
+    <div class="match-card">
+      <small>${nextMatch ? "⚽ NEXT MATCH" : lastMatch ? "🏁 LAST MATCH" : "MATCH"}</small>
+
+      <strong>
+        ${
+          nextMatch
+            ? formatMatchTeams(nextMatch, country, countries)
+            : lastMatch
+              ? formatResult(lastMatch)
+              : "—"
+        }
+      </strong>
+
+      <div class="match-meta">
+    🗓 ${nextMatch ? formatDate(nextMatch.date) : lastMatch ? formatDate(lastMatch.date) : "—"}
+    <br>
+    🏆 ${nextMatch ? nextMatch.round : lastMatch ? lastMatch.round : ""}
+</div>
 
     <div class="info-row">
-      <strong>Next match</strong>
-      <span>${nextMatch ? `${country.code} vs ${opponentCode}` : "—"}</span>
-    </div>
-
-    <div class="info-row">
-      <strong>Round</strong>
-      <span>${nextMatch ? nextMatch.round : "—"}</span>
-    </div>
-
-    <div class="info-row">
-      <strong>Date</strong>
-      <span>${nextMatch ? formatDate(nextMatch.date) : "—"}</span>
-    </div>
-
-    <div class="info-row">
-      <strong>Last match</strong>
-      <span>
-  ${lastMatch
-    ? `${lastMatch.home} ${lastMatch.homeScore ?? ""} - ${lastMatch.awayScore ?? ""} ${lastMatch.away}`
-    : "—"}
-</span>
+      <strong>Match status</strong>
+      <span>${nextMatch ? prettyStatus(nextMatch.status) : lastMatch ? "Finished" : "—"}</span>
     </div>
 
     <div class="info-row">
@@ -234,12 +272,26 @@ function drawMap(world, countries, tournament, matches) {
         return;
       }
 
-      renderCountryPanel(country, d.id, tournamentData, matches);
+      renderCountryPanel(country, d.id, tournamentData, matches, countries);
     });
 }
 
-loadData().then(({ world, countries, tournament, matches }) => {
+loadData().then(({ world, countries, teams, matches }) => {
   const codeToMapId = buildCountryCodeIndex(countries);
+
+  const tournament = {};
+
+  teams.forEach(team => {
+    const mapId = codeToMapId[team.code];
+
+    if (mapId) {
+      tournament[mapId] = {
+        status: team.status,
+        note: team.note || ""
+      };
+    }
+  });
+  advanceWinners(matches);
   const derivedTournament = deriveTournamentFromMatches(tournament, matches, codeToMapId);
 
   updateCounters(derivedTournament);
