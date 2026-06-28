@@ -1,12 +1,14 @@
 const CURRENT_CUP = "worldcup-2026";
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
-
+const todayMatchesContainer = document.getElementById("today-matches");
 const currentCupName = document.getElementById("current-cup-name");
 
 const mapContainer = document.querySelector(".map-placeholder");
 const countryPanel = document.getElementById("country-panel");
 const inRaceCount = document.getElementById("in-race-count");
 const outCount = document.getElementById("out-count");
+const teamCount = document.getElementById("team-count");
+const matchCount = document.getElementById("match-count");
 const tooltip = document.getElementById("tooltip");
 
 const statusColors = {
@@ -33,7 +35,38 @@ function formatDate(dateString) {
     year: "numeric"
   });
 }
+function renderTodayMatches(matches, countries){
 
+    const upcoming = matches
+        .filter(match => match.status === "scheduled")
+        .slice(0,3);
+
+    todayMatchesContainer.innerHTML = upcoming.map(match => {
+
+        const home = getCountryByCode(match.home, countries);
+        const away = getCountryByCode(match.away, countries);
+
+        return `
+
+            <div class="match-item">
+
+                <strong>
+                    ${home?.flag || ""} ${home?.name || match.home}
+                    vs
+                    ${away?.flag || ""} ${away?.name || match.away}
+                </strong>
+
+                <small>
+                    ${match.round} · ${formatDate(match.date)}
+                </small>
+
+            </div>
+
+        `;
+
+    }).join("");
+
+}
 async function loadData() {
   const [world, countries, teams, matches, results, tournamentInfo] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
@@ -64,6 +97,12 @@ function buildCountryCodeIndex(countries) {
   });
 
   return index;
+}
+
+function getCountryByCode(code, countries) {
+  return Object.values(countries).find(
+    country => country.code === code
+  );
 }
 
 function findCountryByCode(countries, code) {
@@ -133,7 +172,9 @@ if (
   });
 }
 
-function updateCounters(tournament) {
+function updateCounters(tournament, matches) {
+ teamCount.textContent = Object.keys(tournament).length;
+matchCount.textContent = matches.length;
   const teams = Object.values(tournament);
 
   inRaceCount.textContent = teams.filter(team => team.status === "in_race").length;
@@ -187,6 +228,46 @@ function getMatchesPlayed(countryCode, results, matches){
     }).length;
 
 }
+
+function getCountryStats(countryCode, matches, results) {
+
+  const stats = {
+    played: 0,
+    wins: 0,
+    losses: 0,
+    goalsFor: 0,
+    goalsAgainst: 0
+  };
+
+  results.forEach(result => {
+
+    const match = matches.find(m => m.id === result.match);
+
+    if (!match) return;
+
+    const isHome = match.home === countryCode;
+    const isAway = match.away === countryCode;
+
+    if (!isHome && !isAway) return;
+
+    stats.played++;
+
+    const goalsFor = isHome ? result.homeScore : result.awayScore;
+    const goalsAgainst = isHome ? result.awayScore : result.homeScore;
+
+    stats.goalsFor += goalsFor;
+    stats.goalsAgainst += goalsAgainst;
+
+    if (goalsFor > goalsAgainst) {
+      stats.wins++;
+    } else if (goalsAgainst > goalsFor) {
+      stats.losses++;
+    }
+
+  });
+stats.goalDifference = stats.goalsFor - stats.goalsAgainst;
+  return stats;
+}
 function formatMatchTeams(match, country, countries) {
   const opponentCode = match.home === country.code ? match.away : match.home;
   const opponent = findCountryByCode(countries, opponentCode);
@@ -200,7 +281,7 @@ function formatResult(match) {
 
 function renderCountryPanel(country, mapId, tournamentData, matches, results, countries) {
   const nextMatch = findNextMatch(country.code, matches);
-  const matchesPlayed = getMatchesPlayed(country.code,results,matches);
+  const stats = getCountryStats(country.code, matches, results);
   const lastMatch = findLastMatch(country.code, matches);
   const journey = tournamentData?.status === "eliminated"
   ? `
@@ -229,7 +310,7 @@ function renderCountryPanel(country, mapId, tournamentData, matches, results, co
 
     <hr>
 <div class="summary-card">
-    <div class="summary-number">${matchesPlayed}</div>
+    <div class="summary-number">${stats.played}</div>
 <div class="summary-label">Matches played</div>
 </div>
     <div class="info-row">
@@ -266,6 +347,18 @@ function renderCountryPanel(country, mapId, tournamentData, matches, results, co
 
 <div class="journey">
   ${journey}
+</div>
+<hr>
+
+<h3>Stats</h3>
+
+<div class="stats-grid">
+  <div><strong>${stats.played}</strong><span>Matches</span></div>
+  <div><strong>${stats.wins}</strong><span>Wins</span></div>
+  <div><strong>${stats.losses}</strong><span>Losses</span></div>
+  <div><strong>${stats.goalsFor}</strong><span>Goals for</span></div>
+  <div><strong>${stats.goalsAgainst}</strong><span>Goals against</span></div>
+  <div><strong>${stats.goalDifference > 0 ? "+" : ""}${stats.goalDifference}</strong><span>Goal diff</span></div>
 </div>
     <div class="info-row">
       <strong>Confederation</strong>
@@ -369,6 +462,7 @@ applyResultsToTournament(
     codeToMapId
 );
 
-updateCounters(derivedTournament);
+updateCounters(derivedTournament, matches);
   drawMap(world, countries, derivedTournament, matches, results);
+  renderTodayMatches(matches, countries);
 });

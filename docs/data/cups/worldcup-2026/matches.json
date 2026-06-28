@@ -4,6 +4,27 @@
   { "id": 3, "round": "Round of 32", "home": "DEU", "away": "PRY", "date": "2026-06-29", "status": "scheduled", "winnerGoesTo": 17 },
   { "id": 4, "round": "Round of 32", "home": "NLD", "away": "MAR", "date": "2026-06-29", "status": "scheduled", "winnerGoesTo": 18 },
 
-  { "id": 17, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-04", "status": "pending" },
-  { "id": 18, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-05", "status": "pending" }
+  { "id": 5, "round": "Round of 32", "home": "CIV", "away": "NOR", "date": "2026-06-30", "status": "scheduled", "winnerGoesTo": 19 },
+  { "id": 6, "round": "Round of 32", "home": "FRA", "away": "SWE", "date": "2026-06-30", "status": "scheduled", "winnerGoesTo": 20 },
+  { "id": 7, "round": "Round of 32", "home": "MEX", "away": "ECU", "date": "2026-06-30", "status": "scheduled", "winnerGoesTo": 19 },
+  { "id": 8, "round": "Round of 32", "home": "GBR", "away": "COD", "date": "2026-07-01", "status": "scheduled", "winnerGoesTo": 20 },
+
+  { "id": 9, "round": "Round of 32", "home": "BEL", "away": "SEN", "date": "2026-07-01", "status": "scheduled", "winnerGoesTo": 21 },
+  { "id": 10, "round": "Round of 32", "home": "USA", "away": "BIH", "date": "2026-07-01", "status": "scheduled", "winnerGoesTo": 21 },
+  { "id": 11, "round": "Round of 32", "home": "ESP", "away": "AUT", "date": "2026-07-02", "status": "scheduled", "winnerGoesTo": 22 },
+  { "id": 12, "round": "Round of 32", "home": "PRT", "away": "HRV", "date": "2026-07-02", "status": "scheduled", "winnerGoesTo": 22 },
+
+  { "id": 13, "round": "Round of 32", "home": "CHE", "away": "DZA", "date": "2026-07-02", "status": "scheduled", "winnerGoesTo": 24 },
+  { "id": 14, "round": "Round of 32", "home": "AUS", "away": "EGY", "date": "2026-07-03", "status": "scheduled", "winnerGoesTo": 23 },
+  { "id": 15, "round": "Round of 32", "home": "ARG", "away": "CPV", "date": "2026-07-03", "status": "scheduled", "winnerGoesTo": 23 },
+  { "id": 16, "round": "Round of 32", "home": "COL", "away": "GHA", "date": "2026-07-03", "status": "scheduled", "winnerGoesTo": 24 },
+
+  { "id": 17, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-04", "status": "pending", "winnerGoesTo": 25 },
+  { "id": 18, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-05", "status": "pending", "winnerGoesTo": 26 },
+  { "id": 19, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-05", "status": "pending", "winnerGoesTo": 26 },
+  { "id": 20, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-04", "status": "pending", "winnerGoesTo": 25 },
+  { "id": 21, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-06", "status": "pending", "winnerGoesTo": 27 },
+  { "id": 22, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-06", "status": "pending", "winnerGoesTo": 27 },
+  { "id": 23, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-07", "status": "pending", "winnerGoesTo": 28 },
+  { "id": 24, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-07", "status": "pending", "winnerGoesTo": 28 }
 ]
