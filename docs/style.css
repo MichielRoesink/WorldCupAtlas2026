@@ -256,3 +256,61 @@ main {
     background: #e5e7eb;
     border: 1px solid #cbd5e1;
 }
+.country-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:16px;
+}
+
+.flag{
+    font-size:42px;
+}
+
+.country-code{
+    color:#64748b;
+    font-size:.9rem;
+    margin-top:4px;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.info-row strong{
+    color:#334155;
+}
+.tooltip{
+    position:absolute;
+    display:none;
+    background:#111827;
+    color:white;
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:14px;
+    pointer-events:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    z-index:999;
+}
+.country-header h2 {
+    margin: 0;
+}
+
+#country-panel hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 18px 0;
+}
+
+.info-row span {
+    text-align: right;
+    max-width: 55%;
+    color: #0f172a;
+}
+
+.info-row {
+    gap: 20px;
+}

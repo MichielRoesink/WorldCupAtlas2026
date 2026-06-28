@@ -2,1495 +2,1495 @@
   "004": {
     "code": "AFG",
     "name": "Afghanistan",
-    "flag": "",
+    "flag": "🇦🇫",
     "confederation": ""
   },
   "248": {
     "code": "ALA",
     "name": "Åland Islands",
-    "flag": "",
+    "flag": "🇦🇽",
     "confederation": ""
   },
   "008": {
     "code": "ALB",
     "name": "Albania",
-    "flag": "",
+    "flag": "🇦🇱",
     "confederation": ""
   },
   "012": {
     "code": "DZA",
     "name": "Algeria",
-    "flag": "",
+    "flag": "🇩🇿",
     "confederation": ""
   },
   "016": {
     "code": "ASM",
     "name": "American Samoa",
-    "flag": "",
+    "flag": "🇦🇸",
     "confederation": ""
   },
   "020": {
     "code": "AND",
     "name": "Andorra",
-    "flag": "",
+    "flag": "🇦🇩",
     "confederation": ""
   },
   "024": {
     "code": "AGO",
     "name": "Angola",
-    "flag": "",
+    "flag": "🇦🇴",
     "confederation": ""
   },
   "660": {
     "code": "AIA",
     "name": "Anguilla",
-    "flag": "",
+    "flag": "🇦🇮",
     "confederation": ""
   },
   "010": {
     "code": "ATA",
     "name": "Antarctica",
-    "flag": "",
+    "flag": "🇦🇶",
     "confederation": ""
   },
   "028": {
     "code": "ATG",
     "name": "Antigua & Barbuda",
-    "flag": "",
+    "flag": "🇦🇬",
     "confederation": ""
   },
   "032": {
     "code": "ARG",
     "name": "Argentina",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇦🇷",
+    "confederation": "CONMEBOL"
   },
   "051": {
     "code": "ARM",
     "name": "Armenia",
-    "flag": "",
+    "flag": "🇦🇲",
     "confederation": ""
   },
   "533": {
     "code": "ABW",
     "name": "Aruba",
-    "flag": "",
+    "flag": "🇦🇼",
     "confederation": ""
   },
   "036": {
     "code": "AUS",
     "name": "Australia",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇦🇺",
+    "confederation": "AFC"
   },
   "040": {
     "code": "AUT",
     "name": "Austria",
-    "flag": "",
+    "flag": "🇦🇹",
     "confederation": ""
   },
   "031": {
     "code": "AZE",
     "name": "Azerbaijan",
-    "flag": "",
+    "flag": "🇦🇿",
     "confederation": ""
   },
   "044": {
     "code": "BHS",
     "name": "Bahamas",
-    "flag": "",
+    "flag": "🇧🇸",
     "confederation": ""
   },
   "048": {
     "code": "BHR",
     "name": "Bahrain",
-    "flag": "",
+    "flag": "🇧🇭",
     "confederation": ""
   },
   "050": {
     "code": "BGD",
     "name": "Bangladesh",
-    "flag": "",
+    "flag": "🇧🇩",
     "confederation": ""
   },
   "052": {
     "code": "BRB",
     "name": "Barbados",
-    "flag": "",
+    "flag": "🇧🇧",
     "confederation": ""
   },
   "112": {
     "code": "BLR",
     "name": "Belarus",
-    "flag": "",
+    "flag": "🇧🇾",
     "confederation": ""
   },
   "056": {
     "code": "BEL",
     "name": "Belgium",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇧🇪",
+    "confederation": "UEFA"
   },
   "084": {
     "code": "BLZ",
     "name": "Belize",
-    "flag": "",
+    "flag": "🇧🇿",
     "confederation": ""
   },
   "204": {
     "code": "BEN",
     "name": "Benin",
-    "flag": "",
+    "flag": "🇧🇯",
     "confederation": ""
   },
   "060": {
     "code": "BMU",
     "name": "Bermuda",
-    "flag": "",
+    "flag": "🇧🇲",
     "confederation": ""
   },
   "064": {
     "code": "BTN",
     "name": "Bhutan",
-    "flag": "",
+    "flag": "🇧🇹",
     "confederation": ""
   },
   "068": {
     "code": "BOL",
     "name": "Bolivia",
-    "flag": "",
+    "flag": "🇧🇴",
     "confederation": ""
   },
   "535": {
     "code": "BES",
     "name": "Caribbean Netherlands",
-    "flag": "",
+    "flag": "🇧🇶",
     "confederation": ""
   },
   "070": {
     "code": "BIH",
     "name": "Bosnia",
-    "flag": "",
+    "flag": "🇧🇦",
     "confederation": ""
   },
   "072": {
     "code": "BWA",
     "name": "Botswana",
-    "flag": "",
+    "flag": "🇧🇼",
     "confederation": ""
   },
   "074": {
     "code": "BVT",
     "name": "Bouvet Island",
-    "flag": "",
+    "flag": "🇧🇻",
     "confederation": ""
   },
   "076": {
     "code": "BRA",
     "name": "Brazil",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇧🇷",
+    "confederation": "CONMEBOL"
   },
   "086": {
     "code": "IOT",
     "name": "British Indian Ocean Territory",
-    "flag": "",
+    "flag": "🇮🇴",
     "confederation": ""
   },
   "092": {
     "code": "VGB",
     "name": "British Virgin Islands",
-    "flag": "",
+    "flag": "🇻🇬",
     "confederation": ""
   },
   "096": {
     "code": "BRN",
     "name": "Brunei",
-    "flag": "",
+    "flag": "🇧🇳",
     "confederation": ""
   },
   "100": {
     "code": "BGR",
     "name": "Bulgaria",
-    "flag": "",
+    "flag": "🇧🇬",
     "confederation": ""
   },
   "854": {
     "code": "BFA",
     "name": "Burkina Faso",
-    "flag": "",
+    "flag": "🇧🇫",
     "confederation": ""
   },
   "108": {
     "code": "BDI",
     "name": "Burundi",
-    "flag": "",
+    "flag": "🇧🇮",
     "confederation": ""
   },
   "132": {
     "code": "CPV",
     "name": "Cape Verde",
-    "flag": "",
+    "flag": "🇨🇻",
     "confederation": ""
   },
   "116": {
     "code": "KHM",
     "name": "Cambodia",
-    "flag": "",
+    "flag": "🇰🇭",
     "confederation": ""
   },
   "120": {
     "code": "CMR",
     "name": "Cameroon",
-    "flag": "",
+    "flag": "🇨🇲",
     "confederation": ""
   },
   "124": {
     "code": "CAN",
     "name": "Canada",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇨🇦",
+    "confederation": "CONCACAF"
   },
   "136": {
     "code": "CYM",
     "name": "Cayman Islands",
-    "flag": "",
+    "flag": "🇰🇾",
     "confederation": ""
   },
   "140": {
     "code": "CAF",
     "name": "Central African Republic",
-    "flag": "",
+    "flag": "🇨🇫",
     "confederation": ""
   },
   "148": {
     "code": "TCD",
     "name": "Chad",
-    "flag": "",
+    "flag": "🇹🇩",
     "confederation": ""
   },
   "152": {
     "code": "CHL",
     "name": "Chile",
-    "flag": "",
+    "flag": "🇨🇱",
     "confederation": ""
   },
   "156": {
     "code": "CHN",
     "name": "China",
-    "flag": "",
+    "flag": "🇨🇳",
     "confederation": ""
   },
   "344": {
     "code": "HKG",
     "name": "Hong Kong",
-    "flag": "",
+    "flag": "🇭🇰",
     "confederation": ""
   },
   "446": {
     "code": "MAC",
     "name": "Macao",
-    "flag": "",
+    "flag": "🇲🇴",
     "confederation": ""
   },
   "162": {
     "code": "CXR",
     "name": "Christmas Island",
-    "flag": "",
+    "flag": "🇨🇽",
     "confederation": ""
   },
   "166": {
     "code": "CCK",
     "name": "Cocos Islands",
-    "flag": "",
+    "flag": "🇨🇨",
     "confederation": ""
   },
   "170": {
     "code": "COL",
     "name": "Colombia",
-    "flag": "",
+    "flag": "🇨🇴",
     "confederation": ""
   },
   "174": {
     "code": "COM",
     "name": "Comoros",
-    "flag": "",
+    "flag": "🇰🇲",
     "confederation": ""
   },
   "178": {
     "code": "COG",
     "name": "Congo - Brazzaville",
-    "flag": "",
+    "flag": "🇨🇬",
     "confederation": ""
   },
   "184": {
     "code": "COK",
     "name": "Cook Islands",
-    "flag": "",
+    "flag": "🇨🇰",
     "confederation": ""
   },
   "188": {
     "code": "CRI",
     "name": "Costa Rica",
-    "flag": "",
+    "flag": "🇨🇷",
     "confederation": ""
   },
   "191": {
     "code": "HRV",
     "name": "Croatia",
-    "flag": "",
+    "flag": "🇭🇷",
     "confederation": ""
   },
   "192": {
     "code": "CUB",
     "name": "Cuba",
-    "flag": "",
+    "flag": "🇨🇺",
     "confederation": ""
   },
   "531": {
     "code": "CUW",
     "name": "Curaçao",
-    "flag": "",
+    "flag": "🇨🇼",
     "confederation": ""
   },
   "196": {
     "code": "CYP",
     "name": "Cyprus",
-    "flag": "",
+    "flag": "🇨🇾",
     "confederation": ""
   },
   "203": {
     "code": "CZE",
     "name": "Czechia",
-    "flag": "",
+    "flag": "🇨🇿",
     "confederation": ""
   },
   "408": {
     "code": "PRK",
     "name": "North Korea",
-    "flag": "",
+    "flag": "🇰🇵",
     "confederation": ""
   },
   "180": {
     "code": "COD",
     "name": "Congo - Kinshasa",
-    "flag": "",
+    "flag": "🇨🇩",
     "confederation": ""
   },
   "208": {
     "code": "DNK",
     "name": "Denmark",
-    "flag": "",
+    "flag": "🇩🇰",
     "confederation": ""
   },
   "262": {
     "code": "DJI",
     "name": "Djibouti",
-    "flag": "",
+    "flag": "🇩🇯",
     "confederation": ""
   },
   "212": {
     "code": "DMA",
     "name": "Dominica",
-    "flag": "",
+    "flag": "🇩🇲",
     "confederation": ""
   },
   "214": {
     "code": "DOM",
     "name": "Dominican Republic",
-    "flag": "",
+    "flag": "🇩🇴",
     "confederation": ""
   },
   "218": {
     "code": "ECU",
     "name": "Ecuador",
-    "flag": "",
+    "flag": "🇪🇨",
     "confederation": ""
   },
   "818": {
     "code": "EGY",
     "name": "Egypt",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇪🇬",
+    "confederation": "CAF"
   },
   "222": {
     "code": "SLV",
     "name": "El Salvador",
-    "flag": "",
+    "flag": "🇸🇻",
     "confederation": ""
   },
   "226": {
     "code": "GNQ",
     "name": "Equatorial Guinea",
-    "flag": "",
+    "flag": "🇬🇶",
     "confederation": ""
   },
   "232": {
     "code": "ERI",
     "name": "Eritrea",
-    "flag": "",
+    "flag": "🇪🇷",
     "confederation": ""
   },
   "233": {
     "code": "EST",
     "name": "Estonia",
-    "flag": "",
+    "flag": "🇪🇪",
     "confederation": ""
   },
   "748": {
     "code": "SWZ",
     "name": "Eswatini",
-    "flag": "",
+    "flag": "🇸🇿",
     "confederation": ""
   },
   "231": {
     "code": "ETH",
     "name": "Ethiopia",
-    "flag": "",
+    "flag": "🇪🇹",
     "confederation": ""
   },
   "238": {
     "code": "FLK",
     "name": "Falkland Islands",
-    "flag": "",
+    "flag": "🇫🇰",
     "confederation": ""
   },
   "234": {
     "code": "FRO",
     "name": "Faroe Islands",
-    "flag": "",
+    "flag": "🇫🇴",
     "confederation": ""
   },
   "242": {
     "code": "FJI",
     "name": "Fiji",
-    "flag": "",
+    "flag": "🇫🇯",
     "confederation": ""
   },
   "246": {
     "code": "FIN",
     "name": "Finland",
-    "flag": "",
+    "flag": "🇫🇮",
     "confederation": ""
   },
   "250": {
     "code": "FRA",
     "name": "France",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇫🇷",
+    "confederation": "UEFA"
   },
   "254": {
     "code": "GUF",
     "name": "French Guiana",
-    "flag": "",
+    "flag": "🇬🇫",
     "confederation": ""
   },
   "258": {
     "code": "PYF",
     "name": "French Polynesia",
-    "flag": "",
+    "flag": "🇵🇫",
     "confederation": ""
   },
   "260": {
     "code": "ATF",
     "name": "French Southern Territories",
-    "flag": "",
+    "flag": "🇹🇫",
     "confederation": ""
   },
   "266": {
     "code": "GAB",
     "name": "Gabon",
-    "flag": "",
+    "flag": "🇬🇦",
     "confederation": ""
   },
   "270": {
     "code": "GMB",
     "name": "Gambia",
-    "flag": "",
+    "flag": "🇬🇲",
     "confederation": ""
   },
   "268": {
     "code": "GEO",
     "name": "Georgia",
-    "flag": "",
+    "flag": "🇬🇪",
     "confederation": ""
   },
   "276": {
     "code": "DEU",
     "name": "Germany",
-    "flag": "",
+    "flag": "🇩🇪",
     "confederation": ""
   },
   "288": {
     "code": "GHA",
     "name": "Ghana",
-    "flag": "",
+    "flag": "🇬🇭",
     "confederation": ""
   },
   "292": {
     "code": "GIB",
     "name": "Gibraltar",
-    "flag": "",
+    "flag": "🇬🇮",
     "confederation": ""
   },
   "300": {
     "code": "GRC",
     "name": "Greece",
-    "flag": "",
+    "flag": "🇬🇷",
     "confederation": ""
   },
   "304": {
     "code": "GRL",
     "name": "Greenland",
-    "flag": "",
+    "flag": "🇬🇱",
     "confederation": ""
   },
   "308": {
     "code": "GRD",
     "name": "Grenada",
-    "flag": "",
+    "flag": "🇬🇩",
     "confederation": ""
   },
   "312": {
     "code": "GLP",
     "name": "Guadeloupe",
-    "flag": "",
+    "flag": "🇬🇵",
     "confederation": ""
   },
   "316": {
     "code": "GUM",
     "name": "Guam",
-    "flag": "",
+    "flag": "🇬🇺",
     "confederation": ""
   },
   "320": {
     "code": "GTM",
     "name": "Guatemala",
-    "flag": "",
+    "flag": "🇬🇹",
     "confederation": ""
   },
   "831": {
     "code": "GGY",
     "name": "Guernsey",
-    "flag": "",
+    "flag": "🇬🇬",
     "confederation": ""
   },
   "324": {
     "code": "GIN",
     "name": "Guinea",
-    "flag": "",
+    "flag": "🇬🇳",
     "confederation": ""
   },
   "624": {
     "code": "GNB",
     "name": "Guinea-Bissau",
-    "flag": "",
+    "flag": "🇬🇼",
     "confederation": ""
   },
   "328": {
     "code": "GUY",
     "name": "Guyana",
-    "flag": "",
+    "flag": "🇬🇾",
     "confederation": ""
   },
   "332": {
     "code": "HTI",
     "name": "Haiti",
-    "flag": "",
+    "flag": "🇭🇹",
     "confederation": ""
   },
   "334": {
     "code": "HMD",
     "name": "Heard & McDonald Islands",
-    "flag": "",
+    "flag": "🇭🇲",
     "confederation": ""
   },
   "336": {
     "code": "VAT",
     "name": "Vatican City",
-    "flag": "",
+    "flag": "🇻🇦",
     "confederation": ""
   },
   "340": {
     "code": "HND",
     "name": "Honduras",
-    "flag": "",
+    "flag": "🇭🇳",
     "confederation": ""
   },
   "348": {
     "code": "HUN",
     "name": "Hungary",
-    "flag": "",
+    "flag": "🇭🇺",
     "confederation": ""
   },
   "352": {
     "code": "ISL",
     "name": "Iceland",
-    "flag": "",
+    "flag": "🇮🇸",
     "confederation": ""
   },
   "356": {
     "code": "IND",
     "name": "India",
-    "flag": "",
+    "flag": "🇮🇳",
     "confederation": ""
   },
   "360": {
     "code": "IDN",
     "name": "Indonesia",
-    "flag": "",
+    "flag": "🇮🇩",
     "confederation": ""
   },
   "364": {
     "code": "IRN",
     "name": "Iran",
-    "flag": "",
+    "flag": "🇮🇷",
     "confederation": ""
   },
   "368": {
     "code": "IRQ",
     "name": "Iraq",
-    "flag": "",
+    "flag": "🇮🇶",
     "confederation": ""
   },
   "372": {
     "code": "IRL",
     "name": "Ireland",
-    "flag": "",
+    "flag": "🇮🇪",
     "confederation": ""
   },
   "833": {
     "code": "IMN",
     "name": "Isle of Man",
-    "flag": "",
+    "flag": "🇮🇲",
     "confederation": ""
   },
   "376": {
     "code": "ISR",
     "name": "Israel",
-    "flag": "",
+    "flag": "🇮🇱",
     "confederation": ""
   },
   "380": {
     "code": "ITA",
     "name": "Italy",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇮🇹",
+    "confederation": "UEFA"
   },
   "384": {
     "code": "CIV",
     "name": "Côte d’Ivoire",
-    "flag": "",
+    "flag": "🇨🇮",
     "confederation": ""
   },
   "388": {
     "code": "JAM",
     "name": "Jamaica",
-    "flag": "",
+    "flag": "🇯🇲",
     "confederation": ""
   },
   "392": {
     "code": "JPN",
     "name": "Japan",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇯🇵",
+    "confederation": "AFC"
   },
   "832": {
     "code": "JEY",
     "name": "Jersey",
-    "flag": "",
+    "flag": "🇯🇪",
     "confederation": ""
   },
   "400": {
     "code": "JOR",
     "name": "Jordan",
-    "flag": "",
+    "flag": "🇯🇴",
     "confederation": ""
   },
   "398": {
     "code": "KAZ",
     "name": "Kazakhstan",
-    "flag": "",
+    "flag": "🇰🇿",
     "confederation": ""
   },
   "404": {
     "code": "KEN",
     "name": "Kenya",
-    "flag": "",
+    "flag": "🇰🇪",
     "confederation": ""
   },
   "296": {
     "code": "KIR",
     "name": "Kiribati",
-    "flag": "",
+    "flag": "🇰🇮",
     "confederation": ""
   },
   "414": {
     "code": "KWT",
     "name": "Kuwait",
-    "flag": "",
+    "flag": "🇰🇼",
     "confederation": ""
   },
   "417": {
     "code": "KGZ",
     "name": "Kyrgyzstan",
-    "flag": "",
+    "flag": "🇰🇬",
     "confederation": ""
   },
   "418": {
     "code": "LAO",
     "name": "Laos",
-    "flag": "",
+    "flag": "🇱🇦",
     "confederation": ""
   },
   "428": {
     "code": "LVA",
     "name": "Latvia",
-    "flag": "",
+    "flag": "🇱🇻",
     "confederation": ""
   },
   "422": {
     "code": "LBN",
     "name": "Lebanon",
-    "flag": "",
+    "flag": "🇱🇧",
     "confederation": ""
   },
   "426": {
     "code": "LSO",
     "name": "Lesotho",
-    "flag": "",
+    "flag": "🇱🇸",
     "confederation": ""
   },
   "430": {
     "code": "LBR",
     "name": "Liberia",
-    "flag": "",
+    "flag": "🇱🇷",
     "confederation": ""
   },
   "434": {
     "code": "LBY",
     "name": "Libya",
-    "flag": "",
+    "flag": "🇱🇾",
     "confederation": ""
   },
   "438": {
     "code": "LIE",
     "name": "Liechtenstein",
-    "flag": "",
+    "flag": "🇱🇮",
     "confederation": ""
   },
   "440": {
     "code": "LTU",
     "name": "Lithuania",
-    "flag": "",
+    "flag": "🇱🇹",
     "confederation": ""
   },
   "442": {
     "code": "LUX",
     "name": "Luxembourg",
-    "flag": "",
+    "flag": "🇱🇺",
     "confederation": ""
   },
   "450": {
     "code": "MDG",
     "name": "Madagascar",
-    "flag": "",
+    "flag": "🇲🇬",
     "confederation": ""
   },
   "454": {
     "code": "MWI",
     "name": "Malawi",
-    "flag": "",
+    "flag": "🇲🇼",
     "confederation": ""
   },
   "458": {
     "code": "MYS",
     "name": "Malaysia",
-    "flag": "",
+    "flag": "🇲🇾",
     "confederation": ""
   },
   "462": {
     "code": "MDV",
     "name": "Maldives",
-    "flag": "",
+    "flag": "🇲🇻",
     "confederation": ""
   },
   "466": {
     "code": "MLI",
     "name": "Mali",
-    "flag": "",
+    "flag": "🇲🇱",
     "confederation": ""
   },
   "470": {
     "code": "MLT",
     "name": "Malta",
-    "flag": "",
+    "flag": "🇲🇹",
     "confederation": ""
   },
   "584": {
     "code": "MHL",
     "name": "Marshall Islands",
-    "flag": "",
+    "flag": "🇲🇭",
     "confederation": ""
   },
   "474": {
     "code": "MTQ",
     "name": "Martinique",
-    "flag": "",
+    "flag": "🇲🇶",
     "confederation": ""
   },
   "478": {
     "code": "MRT",
     "name": "Mauritania",
-    "flag": "",
+    "flag": "🇲🇷",
     "confederation": ""
   },
   "480": {
     "code": "MUS",
     "name": "Mauritius",
-    "flag": "",
+    "flag": "🇲🇺",
     "confederation": ""
   },
   "175": {
     "code": "MYT",
     "name": "Mayotte",
-    "flag": "",
+    "flag": "🇾🇹",
     "confederation": ""
   },
   "484": {
     "code": "MEX",
     "name": "Mexico",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇲🇽",
+    "confederation": "CONCACAF"
   },
   "583": {
     "code": "FSM",
     "name": "Micronesia",
-    "flag": "",
+    "flag": "🇫🇲",
     "confederation": ""
   },
   "492": {
     "code": "MCO",
     "name": "Monaco",
-    "flag": "",
+    "flag": "🇲🇨",
     "confederation": ""
   },
   "496": {
     "code": "MNG",
     "name": "Mongolia",
-    "flag": "",
+    "flag": "🇲🇳",
     "confederation": ""
   },
   "499": {
     "code": "MNE",
     "name": "Montenegro",
-    "flag": "",
+    "flag": "🇲🇪",
     "confederation": ""
   },
   "500": {
     "code": "MSR",
     "name": "Montserrat",
-    "flag": "",
+    "flag": "🇲🇸",
     "confederation": ""
   },
   "504": {
     "code": "MAR",
     "name": "Morocco",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇲🇦",
+    "confederation": "CAF"
   },
   "508": {
     "code": "MOZ",
     "name": "Mozambique",
-    "flag": "",
+    "flag": "🇲🇿",
     "confederation": ""
   },
   "104": {
     "code": "MMR",
     "name": "Myanmar",
-    "flag": "",
+    "flag": "🇲🇲",
     "confederation": ""
   },
   "516": {
     "code": "NAM",
     "name": "Namibia",
-    "flag": "",
+    "flag": "🇳🇦",
     "confederation": ""
   },
   "520": {
     "code": "NRU",
     "name": "Nauru",
-    "flag": "",
+    "flag": "🇳🇷",
     "confederation": ""
   },
   "524": {
     "code": "NPL",
     "name": "Nepal",
-    "flag": "",
+    "flag": "🇳🇵",
     "confederation": ""
   },
   "528": {
     "code": "NLD",
     "name": "Netherlands",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇳🇱",
+    "confederation": "UEFA"
   },
   "540": {
     "code": "NCL",
     "name": "New Caledonia",
-    "flag": "",
+    "flag": "🇳🇨",
     "confederation": ""
   },
   "554": {
     "code": "NZL",
     "name": "New Zealand",
-    "flag": "",
+    "flag": "🇳🇿",
     "confederation": ""
   },
   "558": {
     "code": "NIC",
     "name": "Nicaragua",
-    "flag": "",
+    "flag": "🇳🇮",
     "confederation": ""
   },
   "562": {
     "code": "NER",
     "name": "Niger",
-    "flag": "",
+    "flag": "🇳🇪",
     "confederation": ""
   },
   "566": {
     "code": "NGA",
     "name": "Nigeria",
-    "flag": "",
+    "flag": "🇳🇬",
     "confederation": ""
   },
   "570": {
     "code": "NIU",
     "name": "Niue",
-    "flag": "",
+    "flag": "🇳🇺",
     "confederation": ""
   },
   "574": {
     "code": "NFK",
     "name": "Norfolk Island",
-    "flag": "",
+    "flag": "🇳🇫",
     "confederation": ""
   },
   "580": {
     "code": "MNP",
     "name": "Northern Mariana Islands",
-    "flag": "",
+    "flag": "🇲🇵",
     "confederation": ""
   },
   "807": {
     "code": "MKD",
     "name": "North Macedonia",
-    "flag": "",
+    "flag": "🇲🇰",
     "confederation": ""
   },
   "578": {
     "code": "NOR",
     "name": "Norway",
-    "flag": "",
+    "flag": "🇳🇴",
     "confederation": ""
   },
   "512": {
     "code": "OMN",
     "name": "Oman",
-    "flag": "",
+    "flag": "🇴🇲",
     "confederation": ""
   },
   "586": {
     "code": "PAK",
     "name": "Pakistan",
-    "flag": "",
+    "flag": "🇵🇰",
     "confederation": ""
   },
   "585": {
     "code": "PLW",
     "name": "Palau",
-    "flag": "",
+    "flag": "🇵🇼",
     "confederation": ""
   },
   "591": {
     "code": "PAN",
     "name": "Panama",
-    "flag": "",
+    "flag": "🇵🇦",
     "confederation": ""
   },
   "598": {
     "code": "PNG",
     "name": "Papua New Guinea",
-    "flag": "",
+    "flag": "🇵🇬",
     "confederation": ""
   },
   "600": {
     "code": "PRY",
     "name": "Paraguay",
-    "flag": "",
+    "flag": "🇵🇾",
     "confederation": ""
   },
   "604": {
     "code": "PER",
     "name": "Peru",
-    "flag": "",
+    "flag": "🇵🇪",
     "confederation": ""
   },
   "608": {
     "code": "PHL",
     "name": "Philippines",
-    "flag": "",
+    "flag": "🇵🇭",
     "confederation": ""
   },
   "612": {
     "code": "PCN",
     "name": "Pitcairn",
-    "flag": "",
+    "flag": "🇵🇳",
     "confederation": ""
   },
   "616": {
     "code": "POL",
     "name": "Poland",
-    "flag": "",
+    "flag": "🇵🇱",
     "confederation": ""
   },
   "620": {
     "code": "PRT",
     "name": "Portugal",
-    "flag": "",
+    "flag": "🇵🇹",
     "confederation": ""
   },
   "630": {
     "code": "PRI",
     "name": "Puerto Rico",
-    "flag": "",
+    "flag": "🇵🇷",
     "confederation": ""
   },
   "634": {
     "code": "QAT",
     "name": "Qatar",
-    "flag": "",
+    "flag": "🇶🇦",
     "confederation": ""
   },
   "410": {
     "code": "KOR",
     "name": "South Korea",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇰🇷",
+    "confederation": "AFC"
   },
   "498": {
     "code": "MDA",
     "name": "Moldova",
-    "flag": "",
+    "flag": "🇲🇩",
     "confederation": ""
   },
   "638": {
     "code": "REU",
     "name": "Réunion",
-    "flag": "",
+    "flag": "🇷🇪",
     "confederation": ""
   },
   "642": {
     "code": "ROU",
     "name": "Romania",
-    "flag": "",
+    "flag": "🇷🇴",
     "confederation": ""
   },
   "643": {
     "code": "RUS",
     "name": "Russia",
-    "flag": "",
+    "flag": "🇷🇺",
     "confederation": ""
   },
   "646": {
     "code": "RWA",
     "name": "Rwanda",
-    "flag": "",
+    "flag": "🇷🇼",
     "confederation": ""
   },
   "652": {
     "code": "BLM",
     "name": "St. Barthélemy",
-    "flag": "",
+    "flag": "🇧🇱",
     "confederation": ""
   },
   "654": {
     "code": "SHN",
     "name": "St. Helena",
-    "flag": "",
+    "flag": "🇸🇭",
     "confederation": ""
   },
   "659": {
     "code": "KNA",
     "name": "St. Kitts & Nevis",
-    "flag": "",
+    "flag": "🇰🇳",
     "confederation": ""
   },
   "662": {
     "code": "LCA",
     "name": "St. Lucia",
-    "flag": "",
+    "flag": "🇱🇨",
     "confederation": ""
   },
   "663": {
     "code": "MAF",
     "name": "St. Martin",
-    "flag": "",
+    "flag": "🇲🇫",
     "confederation": ""
   },
   "666": {
     "code": "SPM",
     "name": "St. Pierre & Miquelon",
-    "flag": "",
+    "flag": "🇵🇲",
     "confederation": ""
   },
   "670": {
     "code": "VCT",
     "name": "St. Vincent & Grenadines",
-    "flag": "",
+    "flag": "🇻🇨",
     "confederation": ""
   },
   "882": {
     "code": "WSM",
     "name": "Samoa",
-    "flag": "",
+    "flag": "🇼🇸",
     "confederation": ""
   },
   "674": {
     "code": "SMR",
     "name": "San Marino",
-    "flag": "",
+    "flag": "🇸🇲",
     "confederation": ""
   },
   "678": {
     "code": "STP",
     "name": "São Tomé & Príncipe",
-    "flag": "",
+    "flag": "🇸🇹",
     "confederation": ""
   },
   "682": {
     "code": "SAU",
     "name": "Saudi Arabia",
-    "flag": "",
+    "flag": "🇸🇦",
     "confederation": ""
   },
   "686": {
     "code": "SEN",
     "name": "Senegal",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇸🇳",
+    "confederation": "CAF"
   },
   "688": {
     "code": "SRB",
     "name": "Serbia",
-    "flag": "",
+    "flag": "🇷🇸",
     "confederation": ""
   },
   "690": {
     "code": "SYC",
     "name": "Seychelles",
-    "flag": "",
+    "flag": "🇸🇨",
     "confederation": ""
   },
   "694": {
     "code": "SLE",
     "name": "Sierra Leone",
-    "flag": "",
+    "flag": "🇸🇱",
     "confederation": ""
   },
   "702": {
     "code": "SGP",
     "name": "Singapore",
-    "flag": "",
+    "flag": "🇸🇬",
     "confederation": ""
   },
   "534": {
     "code": "SXM",
     "name": "Sint Maarten",
-    "flag": "",
+    "flag": "🇸🇽",
     "confederation": ""
   },
   "703": {
     "code": "SVK",
     "name": "Slovakia",
-    "flag": "",
+    "flag": "🇸🇰",
     "confederation": ""
   },
   "705": {
     "code": "SVN",
     "name": "Slovenia",
-    "flag": "",
+    "flag": "🇸🇮",
     "confederation": ""
   },
   "090": {
     "code": "SLB",
     "name": "Solomon Islands",
-    "flag": "",
+    "flag": "🇸🇧",
     "confederation": ""
   },
   "706": {
     "code": "SOM",
     "name": "Somalia",
-    "flag": "",
+    "flag": "🇸🇴",
     "confederation": ""
   },
   "710": {
     "code": "ZAF",
     "name": "South Africa",
-    "flag": "",
+    "flag": "🇿🇦",
     "confederation": ""
   },
   "239": {
     "code": "SGS",
     "name": "South Georgia & South Sandwich Islands",
-    "flag": "",
+    "flag": "🇬🇸",
     "confederation": ""
   },
   "728": {
     "code": "SSD",
     "name": "South Sudan",
-    "flag": "",
+    "flag": "🇸🇸",
     "confederation": ""
   },
   "724": {
     "code": "ESP",
     "name": "Spain",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇪🇸",
+    "confederation": "UEFA"
   },
   "144": {
     "code": "LKA",
     "name": "Sri Lanka",
-    "flag": "",
+    "flag": "🇱🇰",
     "confederation": ""
   },
   "275": {
     "code": "PSE",
     "name": "Palestine",
-    "flag": "",
+    "flag": "🇵🇸",
     "confederation": ""
   },
   "729": {
     "code": "SDN",
     "name": "Sudan",
-    "flag": "",
+    "flag": "🇸🇩",
     "confederation": ""
   },
   "740": {
     "code": "SUR",
     "name": "Suriname",
-    "flag": "",
+    "flag": "🇸🇷",
     "confederation": ""
   },
   "744": {
     "code": "SJM",
     "name": "Svalbard & Jan Mayen",
-    "flag": "",
+    "flag": "🇸🇯",
     "confederation": ""
   },
   "752": {
     "code": "SWE",
     "name": "Sweden",
-    "flag": "",
+    "flag": "🇸🇪",
     "confederation": ""
   },
   "756": {
     "code": "CHE",
     "name": "Switzerland",
-    "flag": "",
+    "flag": "🇨🇭",
     "confederation": ""
   },
   "760": {
     "code": "SYR",
     "name": "Syria",
-    "flag": "",
+    "flag": "🇸🇾",
     "confederation": ""
   },
   "158": {
     "code": "TWN",
     "name": "Taiwan",
-    "flag": "",
+    "flag": "🇹🇼",
     "confederation": ""
   },
   "762": {
     "code": "TJK",
     "name": "Tajikistan",
-    "flag": "",
+    "flag": "🇹🇯",
     "confederation": ""
   },
   "764": {
     "code": "THA",
     "name": "Thailand",
-    "flag": "",
+    "flag": "🇹🇭",
     "confederation": ""
   },
   "626": {
     "code": "TLS",
     "name": "Timor-Leste",
-    "flag": "",
+    "flag": "🇹🇱",
     "confederation": ""
   },
   "768": {
     "code": "TGO",
     "name": "Togo",
-    "flag": "",
+    "flag": "🇹🇬",
     "confederation": ""
   },
   "772": {
     "code": "TKL",
     "name": "Tokelau",
-    "flag": "",
+    "flag": "🇹🇰",
     "confederation": ""
   },
   "776": {
     "code": "TON",
     "name": "Tonga",
-    "flag": "",
+    "flag": "🇹🇴",
     "confederation": ""
   },
   "780": {
     "code": "TTO",
     "name": "Trinidad & Tobago",
-    "flag": "",
+    "flag": "🇹🇹",
     "confederation": ""
   },
   "788": {
     "code": "TUN",
     "name": "Tunisia",
-    "flag": "",
+    "flag": "🇹🇳",
     "confederation": ""
   },
   "792": {
     "code": "TUR",
     "name": "Türkiye",
-    "flag": "",
+    "flag": "🇹🇷",
     "confederation": ""
   },
   "795": {
     "code": "TKM",
     "name": "Turkmenistan",
-    "flag": "",
+    "flag": "🇹🇲",
     "confederation": ""
   },
   "796": {
     "code": "TCA",
     "name": "Turks & Caicos Islands",
-    "flag": "",
+    "flag": "🇹🇨",
     "confederation": ""
   },
   "798": {
     "code": "TUV",
     "name": "Tuvalu",
-    "flag": "",
+    "flag": "🇹🇻",
     "confederation": ""
   },
   "800": {
     "code": "UGA",
     "name": "Uganda",
-    "flag": "",
+    "flag": "🇺🇬",
     "confederation": ""
   },
   "804": {
     "code": "UKR",
     "name": "Ukraine",
-    "flag": "",
+    "flag": "🇺🇦",
     "confederation": ""
   },
   "784": {
     "code": "ARE",
     "name": "United Arab Emirates",
-    "flag": "",
+    "flag": "🇦🇪",
     "confederation": ""
   },
   "826": {
     "code": "GBR",
     "name": "UK",
-    "flag": "",
+    "flag": "🇬🇧",
     "confederation": ""
   },
   "834": {
     "code": "TZA",
     "name": "Tanzania",
-    "flag": "",
+    "flag": "🇹🇿",
     "confederation": ""
   },
   "581": {
     "code": "UMI",
     "name": "U.S. Outlying Islands",
-    "flag": "",
+    "flag": "🇺🇲",
     "confederation": ""
   },
   "840": {
     "code": "USA",
     "name": "US",
-    "flag": "",
-    "confederation": ""
+    "flag": "🇺🇸",
+    "confederation": "CONCACAF"
   },
   "850": {
     "code": "VIR",
     "name": "U.S. Virgin Islands",
-    "flag": "",
+    "flag": "🇻🇮",
     "confederation": ""
   },
   "858": {
     "code": "URY",
     "name": "Uruguay",
-    "flag": "",
+    "flag": "🇺🇾",
     "confederation": ""
   },
   "860": {
     "code": "UZB",
     "name": "Uzbekistan",
-    "flag": "",
+    "flag": "🇺🇿",
     "confederation": ""
   },
   "548": {
     "code": "VUT",
     "name": "Vanuatu",
-    "flag": "",
+    "flag": "🇻🇺",
     "confederation": ""
   },
   "862": {
     "code": "VEN",
     "name": "Venezuela",
-    "flag": "",
+    "flag": "🇻🇪",
     "confederation": ""
   },
   "704": {
     "code": "VNM",
     "name": "Vietnam",
-    "flag": "",
+    "flag": "🇻🇳",
     "confederation": ""
   },
   "876": {
     "code": "WLF",
     "name": "Wallis & Futuna",
-    "flag": "",
+    "flag": "🇼🇫",
     "confederation": ""
   },
   "732": {
     "code": "ESH",
     "name": "Western Sahara",
-    "flag": "",
+    "flag": "🇪🇭",
     "confederation": ""
   },
   "887": {
     "code": "YEM",
     "name": "Yemen",
-    "flag": "",
+    "flag": "🇾🇪",
     "confederation": ""
   },
   "894": {
     "code": "ZMB",
     "name": "Zambia",
-    "flag": "",
+    "flag": "🇿🇲",
     "confederation": ""
   },
   "716": {
     "code": "ZWE",
     "name": "Zimbabwe",
-    "flag": "",
+    "flag": "🇿🇼",
     "confederation": ""
   }
 }
