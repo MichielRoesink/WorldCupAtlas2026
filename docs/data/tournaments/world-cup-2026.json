@@ -1,18 +1,28 @@
 {
-  "124": {
-    "status": "in_race",
-    "note": "Host nation"
-  },
-  "484": {
-    "status": "in_race",
-    "note": "Host nation"
-  },
-  "840": {
-    "status": "in_race",
-    "note": "Host nation"
-  },
-  "380": {
-    "status": "out",
-    "note": "Out of the race"
-  }
+  "124": { "status": "in_race", "note": "Host nation" },
+  "484": { "status": "in_race", "note": "Host nation" },
+  "840": { "status": "in_race", "note": "Host nation" },
+
+  "528": { "status": "in_race", "note": "Still in the race" },
+  "056": { "status": "in_race", "note": "Still in the race" },
+  "276": { "status": "in_race", "note": "Still in the race" },
+  "250": { "status": "in_race", "note": "Still in the race" },
+  "724": { "status": "in_race", "note": "Still in the race" },
+  "620": { "status": "in_race", "note": "Still in the race" },
+
+  "076": { "status": "in_race", "note": "Still in the race" },
+  "032": { "status": "in_race", "note": "Still in the race" },
+  "858": { "status": "in_race", "note": "Still in the race" },
+
+  "392": { "status": "in_race", "note": "Still in the race" },
+  "410": { "status": "in_race", "note": "Still in the race" },
+  "036": { "status": "in_race", "note": "Still in the race" },
+
+  "504": { "status": "in_race", "note": "Still in the race" },
+  "686": { "status": "in_race", "note": "Still in the race" },
+  "818": { "status": "in_race", "note": "Still in the race" },
+
+  "380": { "status": "out", "note": "Out of the race" },
+  "156": { "status": "out", "note": "Out of the race" },
+  "643": { "status": "out", "note": "Out of the race" }
 }

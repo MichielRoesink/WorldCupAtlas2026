@@ -64,7 +64,7 @@ function drawMap(world, countries, tournament) {
     .append("path")
     .attr("d", path)
     .attr("class", "country")
-    .attr("fill", d => {
+    .style("fill", d => {
       const tournamentData = tournament[d.id];
       const status = tournamentData ? tournamentData.status : "not_participating";
       return statusColors[status] || statusColors.unknown;
