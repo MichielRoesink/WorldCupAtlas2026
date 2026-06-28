@@ -70,43 +70,8 @@ function findCountryByCode(countries, code) {
   return Object.values(countries).find(country => country.code === code);
 }
 
-function deriveTournamentFromMatches(baseTournament, matches, codeToMapId) {
-  const derived = { ...baseTournament };
-
-  matches.forEach(match => {
-    const homeId = codeToMapId[match.home];
-    const awayId = codeToMapId[match.away];
-
-    if (homeId && !derived[homeId]) {
-      derived[homeId] = { status: "in_race", note: match.round };
-    }
-
-    if (awayId && !derived[awayId]) {
-      derived[awayId] = { status: "in_race", note: match.round };
-    }
-
-    if (match.status === "finished" && match.winner) {
-      const loserCode = match.winner === match.home ? match.away : match.home;
-      const winnerId = codeToMapId[match.winner];
-      const loserId = codeToMapId[loserCode];
-
-      if (winnerId) {
-        derived[winnerId] = {
-          status: "in_race",
-          note: `Advanced from ${match.round}`
-        };
-      }
-
-      if (loserId) {
-        derived[loserId] = {
-          status: "out",
-          note: `Eliminated in ${match.round}`
-        };
-      }
-    }
-  });
-
-  return derived;
+function deriveTournamentFromMatches(baseTournament) {
+  return { ...baseTournament };
 }
 function applyResultsToTournament(tournament, matches, results, codeToMapId) {
 
@@ -125,19 +90,15 @@ function applyResultsToTournament(tournament, matches, results, codeToMapId) {
     const winnerId = codeToMapId[winner];
     const loserId = codeToMapId[loser];
 
-    if (winnerId) {
-      tournament[winnerId] = {
-        status: "in_race",
-        note: `Advanced from ${match.round}`
-      };
-    }
+    if (winnerId && tournament[winnerId]) {
+  tournament[winnerId].status = "in_race";
+  tournament[winnerId].note = `Advanced from ${match.round}`;
+}
 
-    if (loserId) {
-      tournament[loserId] = {
-        status: "out",
-        note: `Eliminated in ${match.round}`
-      };
-    }
+if (loserId && tournament[loserId]) {
+  tournament[loserId].status = "out";
+  tournament[loserId].note = `Eliminated in ${match.round}`;
+}
 
   });
 
@@ -346,15 +307,15 @@ loadData().then(({ world, countries, teams, matches, results, tournamentInfo }) 
   const tournament = {};
 
   teams.forEach(team => {
-    const mapId = codeToMapId[team.code];
+  const mapId = codeToMapId[team.code];
 
-    if (mapId) {
-      tournament[mapId] = {
-        status: team.status,
-        note: team.note || ""
-      };
-    }
-  });
+  if (mapId) {
+    tournament[mapId] = {
+      status: team.status || "in_race",
+      note: team.note || ""
+    };
+  }
+});
   advanceWinners(matches, results);
  const derivedTournament =
     deriveTournamentFromMatches(

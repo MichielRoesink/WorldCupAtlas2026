@@ -2,7 +2,7 @@
   { "id": 1, "round": "Round of 32", "home": "ZAF", "away": "CAN", "date": "2026-06-28", "status": "scheduled", "winnerGoesTo": 17 },
   { "id": 2, "round": "Round of 32", "home": "BRA", "away": "JPN", "date": "2026-06-29", "status": "scheduled", "winnerGoesTo": 18 },
   { "id": 3, "round": "Round of 32", "home": "DEU", "away": "PRY", "date": "2026-06-29", "status": "scheduled", "winnerGoesTo": 17 },
-  { "id": 4, "round": "Round of 32", "home": "NLD", "away": "MAR", "date": "2026-06-29", "status": "finished", "winner": "NLD", "winnerGoesTo": 18 },
+  { "id": 4, "round": "Round of 32", "home": "NLD", "away": "MAR", "date": "2026-06-29", "status": "scheduled", "winnerGoesTo": 18 },
 
   { "id": 17, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-04", "status": "pending" },
   { "id": 18, "round": "Round of 16", "home": null, "away": null, "date": "2026-07-05", "status": "pending" }
