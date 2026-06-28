@@ -174,6 +174,19 @@ function getWinner(match, results) {
 
   return null;
 }
+function getMatchesPlayed(countryCode, results, matches){
+
+    return results.filter(result=>{
+
+        const match=matches.find(m=>m.id===result.match);
+
+        if(!match) return false;
+
+        return match.home===countryCode || match.away===countryCode;
+
+    }).length;
+
+}
 function formatMatchTeams(match, country, countries) {
   const opponentCode = match.home === country.code ? match.away : match.home;
   const opponent = findCountryByCode(countries, opponentCode);
@@ -185,9 +198,25 @@ function formatResult(match) {
   return `${match.home} ${match.homeScore ?? ""} - ${match.awayScore ?? ""} ${match.away}`;
 }
 
-function renderCountryPanel(country, mapId, tournamentData, matches, countries) {
+function renderCountryPanel(country, mapId, tournamentData, matches, results, countries) {
   const nextMatch = findNextMatch(country.code, matches);
+  const matchesPlayed = getMatchesPlayed(country.code,results,matches);
   const lastMatch = findLastMatch(country.code, matches);
+  const journey = tournamentData?.status === "eliminated"
+  ? `
+    <div class="journey-step complete">✅ Qualified</div>
+    <div class="journey-step complete">✅ Round of 32</div>
+    <div class="journey-step eliminated">❌ Eliminated</div>
+  `
+  : `
+    <div class="journey-step complete">✅ Qualified</div>
+    <div class="journey-step active">⏳ Still in the race</div>
+    <div class="journey-step">⬜ Round of 16</div>
+    <div class="journey-step">⬜ Quarterfinal</div>
+    <div class="journey-step">⬜ Semifinal</div>
+    <div class="journey-step">⬜ Final</div>
+    <div class="journey-step">🏆 Champion</div>
+  `;
 
   countryPanel.innerHTML = `
     <div class="country-header">
@@ -199,7 +228,10 @@ function renderCountryPanel(country, mapId, tournamentData, matches, countries) 
     </div>
 
     <hr>
-
+<div class="summary-card">
+    <div class="summary-number">${matchesPlayed}</div>
+<div class="summary-label">Matches played</div>
+</div>
     <div class="info-row">
       <strong>Status</strong>
 <span>${tournamentData?.status === "in_race" ? "🟢 Still in the race" : tournamentData?.status === "out" ? "🔴 Eliminated" : "⚪ Not participating"}</span>
@@ -228,7 +260,13 @@ function renderCountryPanel(country, mapId, tournamentData, matches, countries) 
       <strong>Match status</strong>
       <span>${nextMatch ? prettyStatus(nextMatch.status) : lastMatch ? "Finished" : "—"}</span>
     </div>
+<hr>
 
+<h3>Journey</h3>
+
+<div class="journey">
+  ${journey}
+</div>
     <div class="info-row">
       <strong>Confederation</strong>
       <span>${country.confederation || "Unknown"}</span>
@@ -236,7 +274,7 @@ function renderCountryPanel(country, mapId, tournamentData, matches, countries) 
   `;
 }
 
-function drawMap(world, countries, tournament, matches) {
+function drawMap(world, countries, tournament, matches, results) {
   mapContainer.innerHTML = "";
 
   const width = mapContainer.clientWidth;
@@ -296,7 +334,7 @@ function drawMap(world, countries, tournament, matches) {
         return;
       }
 
-      renderCountryPanel(country, d.id, tournamentData, matches, countries);
+      renderCountryPanel(country, d.id, tournamentData, matches, results, countries);
     });
 }
 
@@ -332,5 +370,5 @@ applyResultsToTournament(
 );
 
 updateCounters(derivedTournament);
-  drawMap(world, countries, derivedTournament, matches);
+  drawMap(world, countries, derivedTournament, matches, results);
 });

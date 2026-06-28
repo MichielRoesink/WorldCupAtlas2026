@@ -367,3 +367,55 @@ main {
     border:1px solid #ddd;
     font-size:15px;
 }
+.journey{
+    margin-top:20px;
+}
+
+.journey-step{
+    padding:8px 0;
+    font-size:15px;
+}
+
+.journey-step.complete{
+    color:#15803d;
+    font-weight:600;
+}
+
+.journey-step.active{
+    color:#2563eb;
+    font-weight:600;
+}
+
+.journey-step.eliminated{
+    color:#dc2626;
+    font-weight:600;
+}
+.summary-card{
+
+    margin:18px 0;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    background:#f8fafc;
+
+    text-align:center;
+
+}
+
+.summary-number{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.summary-label{
+
+    color:#64748b;
+
+    margin-top:4px;
+
+}
