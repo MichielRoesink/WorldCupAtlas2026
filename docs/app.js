@@ -1,5 +1,8 @@
 const CURRENT_CUP = "worldcup-2026";
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
+
+const currentCupName = document.getElementById("current-cup-name");
+
 const mapContainer = document.querySelector(".map-placeholder");
 const countryPanel = document.getElementById("country-panel");
 const inRaceCount = document.getElementById("in-race-count");
@@ -276,7 +279,8 @@ function drawMap(world, countries, tournament, matches) {
     });
 }
 
-loadData().then(({ world, countries, teams, matches }) => {
+loadData().then(({ world, countries, teams, matches, tournamentInfo }) => {
+  currentCupName.textContent = tournamentInfo.name;
   const codeToMapId = buildCountryCodeIndex(countries);
 
   const tournament = {};
