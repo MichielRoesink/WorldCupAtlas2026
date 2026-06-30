@@ -1,5 +1,5 @@
 module.exports = {
-  provider: "apiFootball",
+  provider: "worldcup26",
   cup: "worldcup-2026",
 
   output: {

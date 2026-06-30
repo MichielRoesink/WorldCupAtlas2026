@@ -13,6 +13,7 @@ const tooltip = document.getElementById("tooltip");
 
 const statusColors = {
   in_race: "#15803d",
+  playing: "#facc15",
   out: "#dc2626",
   not_participating: "#e5e7eb",
   unknown: "#e5e7eb"

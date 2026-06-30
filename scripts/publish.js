@@ -29,6 +29,10 @@ function publish(data, outputFolder) {
   if (data.tournament) {
     writeJson(outputFolder, "tournament.json", data.tournament);
   }
+  
+  if (data.preview) {
+  writeJson(outputFolder, "preview.json", data.preview);
+}
 
 }
 

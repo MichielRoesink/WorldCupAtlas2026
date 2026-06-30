@@ -248,6 +248,10 @@ main {
     background: #15803d;
 }
 
+.playing {
+    background: #facc15;
+}
+
 .out {
     background: #dc2626;
 }

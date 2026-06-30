@@ -1,3 +1,4 @@
+const { generateTeams } = require("./generate-teams");
 require("dotenv").config();
 const { transform } = require("./transform");
 const { publish } = require("./publish");
@@ -26,6 +27,9 @@ async function main() {
 console.log("Fetched at:", data.fetchedAt);
 
 const transformed = transform(data);
+if (transformed.preview?.matches) {
+  transformed.teams = generateTeams(transformed.preview.matches);
+}
 
 publish(
     transformed,
