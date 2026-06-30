@@ -2,7 +2,7 @@ const CURRENT_CUP = "worldcup-2026";
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
 const todayMatchesContainer = document.getElementById("today-matches");
 const currentCupName = document.getElementById("current-cup-name");
-
+const bracketContainer = document.getElementById("knockout-bracket");
 const mapContainer = document.querySelector(".map-placeholder");
 const countryPanel = document.getElementById("country-panel");
 const inRaceCount = document.getElementById("in-race-count");
@@ -66,6 +66,35 @@ function renderTodayMatches(matches, countries){
 
     }).join("");
 
+}
+function renderBracket(matches, countries) {
+  const rounds = [...new Set(matches.map(match => match.round))];
+
+  bracketContainer.innerHTML = rounds.map(round => {
+    const roundMatches = matches.filter(match => match.round === round);
+
+    return `
+      <div class="bracket-round">
+        <h3>${round}</h3>
+
+        ${roundMatches.map(match => {
+          const home = match.home ? getCountryByCode(match.home, countries) : null;
+          const away = match.away ? getCountryByCode(match.away, countries) : null;
+
+          return `
+            <div class="bracket-match">
+              <strong>
+                ${home ? `${home.flag || ""} ${home.name}` : "TBD"}
+                vs
+                ${away ? `${away.flag || ""} ${away.name}` : "TBD"}
+              </strong>
+              <small>${formatDate(match.date)}</small>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }).join("");
 }
 async function loadData() {
   const [world, countries, teams, matches, results, tournamentInfo] = await Promise.all([
@@ -465,4 +494,5 @@ applyResultsToTournament(
 updateCounters(derivedTournament, matches);
   drawMap(world, countries, derivedTournament, matches, results);
   renderTodayMatches(matches, countries);
+  renderBracket(matches, countries);
 });

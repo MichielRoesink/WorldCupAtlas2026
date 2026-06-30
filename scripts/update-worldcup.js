@@ -1,0 +1,38 @@
+require("dotenv").config();
+const { transform } = require("./transform");
+const { publish } = require("./publish");
+const fs = require("fs");
+const path = require("path");
+
+const config = require("./config");
+const { getProvider } = require("./providers");
+
+async function main() {
+  console.log("CupAtlas updater started");
+
+  const provider = getProvider(config.provider);
+  const data = await provider.fetchWorldCupData();
+
+  fs.mkdirSync(config.output.raw, { recursive: true });
+
+  const outputFile = path.join(config.output.raw, "fixtures.json");
+
+  fs.writeFileSync(
+    outputFile,
+    JSON.stringify(data, null, 2)
+  );
+
+ console.log("Source:", data.source);
+console.log("Fetched at:", data.fetchedAt);
+
+const transformed = transform(data);
+
+publish(
+    transformed,
+    config.output.cup
+);
+
+console.log("Update complete.");
+}
+
+main();
