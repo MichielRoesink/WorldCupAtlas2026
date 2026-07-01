@@ -1,3 +1,4 @@
+const liveNowContainer = document.getElementById("live-now");
 const CURRENT_CUP = "worldcup-2026";
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
 const todayMatchesContainer = document.getElementById("today-matches");
@@ -102,11 +103,12 @@ function renderBracket(matches, countries) {
   }).join("");
 }
 async function loadData() {
-  const [world, countries, teams, matches, results, tournamentInfo] = await Promise.all([
+  const [world, countries, teams, matches, preview, results, tournamentInfo] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
     d3.json(`${DATA_PATH}/teams.json`),
     d3.json(`${DATA_PATH}/matches.json`),
+    d3.json(`${DATA_PATH}/preview.json`),
     d3.json(`${DATA_PATH}/results/results.json`),
     d3.json(`${DATA_PATH}/tournament.json`)
   ]);
@@ -116,6 +118,7 @@ async function loadData() {
     countries,
     teams,
     matches,
+    preview,
     results,
     tournamentInfo
   };
@@ -213,6 +216,33 @@ matchCount.textContent = matches.length;
 
   inRaceCount.textContent = teams.filter(team => team.status === "in_race").length;
   outCount.textContent = teams.filter(team => team.status === "out").length;
+}
+
+function renderLiveNow(matches) {
+  const liveMatch = matches.find(match => match.status === "playing");
+
+  if (!liveMatch) {
+    liveNowContainer.innerHTML = "";
+    return;
+  }
+
+  liveNowContainer.innerHTML = `
+    <div class="live-banner">
+      <div class="live-badge">● LIVE NOW</div>
+
+      <div class="live-team">
+        <strong>${liveMatch.home}</strong>
+      </div>
+
+      <div class="live-score">
+        ${liveMatch.homeScore} – ${liveMatch.awayScore}
+      </div>
+
+      <div class="live-team">
+        <strong>${liveMatch.away}</strong>
+      </div>
+    </div>
+  `;
 }
 
 function findNextMatch(countryCode, matches) {
@@ -510,7 +540,7 @@ function drawMap(world, countries, tournament, matches, results) {
 .raise();
 }
 
-loadData().then(({ world, countries, teams, matches, results, tournamentInfo }) => {
+loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo }) => {
   currentCupName.textContent = tournamentInfo.name;
   const codeToMapId = buildCountryCodeIndex(countries);
 
@@ -542,7 +572,8 @@ applyResultsToTournament(
 );
 
 updateCounters(derivedTournament, matches);
-  drawMap(world, countries, derivedTournament, matches, results);
-  renderTodayMatches(matches, countries);
-  renderBracket(matches, countries);
+renderLiveNow(preview.matches);
+drawMap(world, countries, derivedTournament, matches, results);
+renderTodayMatches(matches, countries);
+renderBracket(matches, countries);
 });

@@ -554,15 +554,19 @@ main {
     border-top: 4px solid #dc2626;
 }
 .live-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    background: #fef9c3;
-    border: 2px solid #facc15;
-    border-radius: 18px;
-    padding: 18px 28px;
-    margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  padding: 20px 28px;
+  margin: 0 0 24px 0;
+
+  background: #facc15;
+  color: #111827;
+
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
 }
 
 .live-badge {
@@ -593,4 +597,48 @@ main {
     font-size: 0.9rem;
     font-weight: 600;
     color: #6b7280;
+}
+.live-badge {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.live-team {
+  flex: 1;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.live-team:first-of-type {
+  text-align: right;
+}
+
+.live-team:last-of-type {
+  text-align: left;
+}
+
+.live-score {
+  min-width: 160px;
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.live-score span {
+  display: block;
+  margin-top: 8px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.65);
+}
+
+.live-clock {
+  font-size: .85rem;
+  font-weight: 700;
+  white-space: nowrap;
 }

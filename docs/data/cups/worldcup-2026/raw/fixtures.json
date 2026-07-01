@@ -1,6 +1,6 @@
 {
   "source": "worldcup26",
-  "fetchedAt": "2026-07-01T21:24:24.305Z",
+  "fetchedAt": "2026-07-01T22:01:45.736Z",
   "matches": {
     "games": [
       {
@@ -1850,9 +1850,9 @@
         "id": "82",
         "home_team_id": "25",
         "away_team_id": "34",
-        "home_score": "0",
+        "home_score": "2",
         "away_score": "2",
-        "home_scorers": "null",
+        "home_scorers": "{\"Romelu Lukaku 86'\",\"Youri Tielemans 89'\"}",
         "away_scorers": "{\"Habib Diarra 25'\",\"Ismaïla Sarr 51'\"}",
         "group": "R32",
         "matchday": "4",
