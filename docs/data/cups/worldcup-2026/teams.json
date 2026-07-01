@@ -5,11 +5,11 @@
   },
   {
     "code": "TUR",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "QAT",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "CHE",
@@ -33,15 +33,15 @@
   },
   {
     "code": "SWE",
-    "status": "playing"
+    "status": "out"
   },
   {
     "code": "FRA",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "IRQ",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "NOR",
@@ -57,11 +57,11 @@
   },
   {
     "code": "HTI",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "SCO",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "GBR",
@@ -77,11 +77,11 @@
   },
   {
     "code": "SAU",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "JOR",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "DZA",
@@ -93,15 +93,15 @@
   },
   {
     "code": "UZB",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "PAN",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "CZE",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "MEX",
@@ -109,7 +109,7 @@
   },
   {
     "code": "TUN",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "COD",
@@ -129,7 +129,7 @@
   },
   {
     "code": "KOR",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "PRY",
@@ -141,7 +141,7 @@
   },
   {
     "code": "IRN",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "MAR",
@@ -161,11 +161,11 @@
   },
   {
     "code": "ECU",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "CUW",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "CAN",
@@ -185,10 +185,10 @@
   },
   {
     "code": "URY",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "NZL",
-    "status": "in_race"
+    "status": "out"
   }
 ]

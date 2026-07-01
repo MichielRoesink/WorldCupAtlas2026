@@ -14,28 +14,39 @@ function getWinner(match) {
 }
 
 function generateTeams(matches) {
+  const knockoutRounds = ["r32", "r16", "qf", "sf", "final", "third"];
+
   const teams = [...new Set(
     matches.flatMap(match => [match.home, match.away]).filter(Boolean)
   )];
 
   const eliminated = new Set();
   const playing = new Set();
+  const hasFutureOrLiveMatch = new Set();
+  const knockoutWinners = new Set();
 
   matches.forEach(match => {
     if (match.status === "playing") {
       if (match.home) playing.add(match.home);
       if (match.away) playing.add(match.away);
     }
+
+    if (match.status === "scheduled" || match.status === "playing") {
+      if (match.home) hasFutureOrLiveMatch.add(match.home);
+      if (match.away) hasFutureOrLiveMatch.add(match.away);
+    }
   });
 
   matches
     .filter(match =>
       match.status === "finished" &&
-      ["r32", "r16", "qf", "sf", "final", "third"].includes(match.round)
+      knockoutRounds.includes(match.round)
     )
     .forEach(match => {
       const winner = getWinner(match);
       if (!winner) return;
+
+      knockoutWinners.add(winner);
 
       const loser = winner === match.home ? match.away : match.home;
       if (loser) eliminated.add(loser);
@@ -44,7 +55,10 @@ function generateTeams(matches) {
   return teams.map(code => {
     let status = "in_race";
 
-    if (eliminated.has(code)) {
+    if (
+      eliminated.has(code) ||
+      (!hasFutureOrLiveMatch.has(code) && !knockoutWinners.has(code))
+    ) {
       status = "out";
     }
 
@@ -55,6 +69,7 @@ function generateTeams(matches) {
     return { code, status };
   });
 }
+
 module.exports = {
   generateTeams
 };

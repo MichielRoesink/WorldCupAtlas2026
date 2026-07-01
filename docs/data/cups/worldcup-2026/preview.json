@@ -814,7 +814,7 @@
       "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "playing"
+      "status": "finished"
     },
     {
       "id": 84,
@@ -844,7 +844,7 @@
       "id": 92,
       "round": "r16",
       "date": "07/05/2026 18:00",
-      "home": null,
+      "home": "MEX",
       "away": null,
       "homeScore": 0,
       "awayScore": 0,
@@ -1194,11 +1194,11 @@
       "date": "06/30/2026 19:00",
       "home": "MEX",
       "away": "ECU",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 80,
@@ -1229,7 +1229,7 @@
       "round": "r16",
       "date": "07/04/2026 17:00",
       "home": "PRY",
-      "away": null,
+      "away": "FRA",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
