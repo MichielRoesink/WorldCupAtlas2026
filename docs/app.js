@@ -10,6 +10,10 @@ const outCount = document.getElementById("out-count");
 const teamCount = document.getElementById("team-count");
 const matchCount = document.getElementById("match-count");
 const tooltip = document.getElementById("tooltip");
+const SMALL_ISLANDS = [
+  { code: "CPV", lon: -24.0, lat: 16.0 },
+  { code: "CUW", lon: -69.0, lat: 12.2 }
+];
 
 const statusColors = {
   in_race: "#15803d",
@@ -459,6 +463,51 @@ function drawMap(world, countries, tournament, matches, results) {
 
       renderCountryPanel(country, d.id, tournamentData, matches, results, countries);
     });
+
+  svg.selectAll(".island-marker")
+    .data(SMALL_ISLANDS)
+    .enter()
+    .append("circle")
+    .attr("class", "island-marker")
+    .attr("cx", d => projection([d.lon, d.lat])[0])
+    .attr("cy", d => projection([d.lon, d.lat])[1])
+    .attr("r", 2.5)
+    .style("pointer-events", "all")
+    .style("fill", d => {
+      const tournamentData = tournament[d.code];
+      const status = tournamentData ? tournamentData.status : "not_participating";
+      return statusColors[status] || statusColors.unknown;
+    })
+    .style("stroke", "#ffffff")
+.style("stroke-width", 0.8)
+.on("mousemove", (event, d) => {
+  const country = countries[d.code] || { name: d.code, flag: "🌍" };
+  const tournamentData = tournament[d.code];
+
+  if (!country) return;
+
+  tooltip.style.display = "block";
+  tooltip.style.left = `${event.pageX + 15}px`;
+  tooltip.style.top = `${event.pageY + 15}px`;
+  tooltip.innerHTML = `
+    ${country.flag || "🌍"} <strong>${country.name}</strong><br>
+    ${prettyStatus(tournamentData?.status)}
+  `;
+})
+.on("mouseleave", () => {
+  tooltip.style.display = "none";
+})
+.on("click", (event, d) => {
+  renderCountryPanel(
+    countries[d.code] || { name: d.code, flag: "🌍" },
+    d.code,
+    tournament[d.code],
+    matches,
+    results,
+    countries
+  );
+})
+.raise();
 }
 
 loadData().then(({ world, countries, teams, matches, results, tournamentInfo }) => {
