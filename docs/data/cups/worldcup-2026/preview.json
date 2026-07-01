@@ -966,11 +966,11 @@
       "date": "07/01/2026 17:00",
       "home": "USA",
       "away": "BIH",
-      "homeScore": 2,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "finished"
+      "status": "scheduled"
     },
     {
       "id": 82,
@@ -978,11 +978,11 @@
       "date": "07/01/2026 13:00",
       "home": "BEL",
       "away": "SEN",
-      "homeScore": 3,
+      "homeScore": 0,
       "awayScore": 2,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "finished"
+      "status": "playing"
     },
     {
       "id": 83,
@@ -990,11 +990,11 @@
       "date": "07/02/2026 19:00",
       "home": "PRT",
       "away": "HRV",
-      "homeScore": 2,
-      "awayScore": 1,
+      "homeScore": 0,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "finished"
+      "status": "scheduled"
     },
     {
       "id": 84,
@@ -1002,11 +1002,11 @@
       "date": "07/02/2026 12:00",
       "home": "ESP",
       "away": "AUT",
-      "homeScore": 3,
+      "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "finished"
+      "status": "scheduled"
     },
     {
       "id": 85,
@@ -1014,11 +1014,11 @@
       "date": "07/02/2026 20:00",
       "home": "CHE",
       "away": "DZA",
-      "homeScore": 2,
+      "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "finished"
+      "status": "scheduled"
     },
     {
       "id": 86,
@@ -1108,8 +1108,8 @@
       "id": 93,
       "round": "r16",
       "date": "07/06/2026 14:00",
-      "home": "PRT",
-      "away": "ESP",
+      "home": null,
+      "away": null,
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
@@ -1120,8 +1120,8 @@
       "id": 94,
       "round": "r16",
       "date": "07/06/2026 17:00",
-      "home": "USA",
-      "away": "BEL",
+      "home": null,
+      "away": null,
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
@@ -1144,7 +1144,7 @@
       "id": 96,
       "round": "r16",
       "date": "07/07/2026 13:00",
-      "home": "CHE",
+      "home": null,
       "away": null,
       "homeScore": 0,
       "awayScore": 0,

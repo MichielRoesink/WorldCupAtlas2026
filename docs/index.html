@@ -44,27 +44,32 @@ Who is still running? Who is out? And who never partcipated at all? Check it out
     <div class="map-card">
         <div class="world-stats">
 
-    <div class="stat">
-        <span id="team-count">0</span>
-        <small>Teams</small>
-    </div>
+   <div class="stat">
+    <span id="team-count">0</span>
+    <strong>Teams</strong>
+    <small>Competing in this tournament</small>
+</div>
 
-    <div class="stat">
-        <span id="match-count">0</span>
-        <small>Matches</small>
-    </div>
+<div class="stat">
+    <span id="match-count">0</span>
+    <strong>Matches</strong>
+    <small>Played so far</small>
+</div>
 
-    <div class="stat">
-        <span id="in-race-count">0</span>
-        <small>In the race</small>
-    </div>
+<div class="stat stat-in-race">
+    <span id="in-race-count">0</span>
+    <strong>Teams</strong>
+    <small>Still in the race</small>
+</div>
 
-    <div class="stat">
-        <span id="out-count">0</span>
-        <small>Eliminated</small>
-    </div>
+<div class="stat stat-out">
+    <span id="out-count">0</span>
+    <strong>Teams</strong>
+    <small>Eliminated from the tournament</small>
+</div>
 
 </div>
+<div id="live-now" class="live-now"></div>
         <h2>World map</h2>
         <div class="map-placeholder">
     <svg viewBox="0 0 900 430" class="world-map-preview" aria-label="World map preview">
@@ -104,8 +109,9 @@ Who is still running? Who is out? And who never partcipated at all? Check it out
 <div class="legend-card">
     <h2>Legend</h2>
     <p><span class="dot in-race"></span> In the race</p>
-    <p><span class="dot out"></span> Out</p>
-    <p><span class="dot not-participating"></span> Not participating</p>
+<p><span class="dot playing"></span> Live match</p>
+<p><span class="dot out"></span> Eliminated</p>
+<p><span class="dot not-participating"></span> Not participating</p>
 </div>
 </section>
 </main>
@@ -114,6 +120,7 @@ Who is still running? Who is out? And who never partcipated at all? Check it out
 
 <div id="tooltip" class="tooltip"></div>
 
+<script src="live-worldcup.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

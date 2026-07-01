@@ -21,7 +21,7 @@
   },
   {
     "code": "BIH",
-    "status": "out"
+    "status": "in_race"
   },
   {
     "code": "USA",
@@ -113,7 +113,7 @@
   },
   {
     "code": "BEL",
-    "status": "in_race"
+    "status": "playing"
   },
   {
     "code": "EGY",
@@ -133,7 +133,7 @@
   },
   {
     "code": "SEN",
-    "status": "out"
+    "status": "playing"
   },
   {
     "code": "IRQ",
@@ -149,11 +149,11 @@
   },
   {
     "code": "DZA",
-    "status": "out"
+    "status": "in_race"
   },
   {
     "code": "AUT",
-    "status": "out"
+    "status": "in_race"
   },
   {
     "code": "JOR",
@@ -173,7 +173,7 @@
   },
   {
     "code": "HRV",
-    "status": "out"
+    "status": "in_race"
   },
   {
     "code": "UZB",
