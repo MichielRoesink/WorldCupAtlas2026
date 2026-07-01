@@ -1,11 +1,59 @@
 [
   {
+    "code": "MEX",
+    "status": "in_race"
+  },
+  {
+    "code": "ZAF",
+    "status": "out"
+  },
+  {
+    "code": "KOR",
+    "status": "out"
+  },
+  {
+    "code": "CZE",
+    "status": "out"
+  },
+  {
+    "code": "CAN",
+    "status": "in_race"
+  },
+  {
+    "code": "BIH",
+    "status": "in_race"
+  },
+  {
+    "code": "USA",
+    "status": "in_race"
+  },
+  {
+    "code": "PRY",
+    "status": "in_race"
+  },
+  {
+    "code": "HTI",
+    "status": "out"
+  },
+  {
+    "code": "SCO",
+    "status": "out"
+  },
+  {
     "code": "AUS",
     "status": "in_race"
   },
   {
     "code": "TUR",
     "status": "out"
+  },
+  {
+    "code": "BRA",
+    "status": "in_race"
+  },
+  {
+    "code": "MAR",
+    "status": "in_race"
   },
   {
     "code": "QAT",
@@ -16,15 +64,19 @@
     "status": "in_race"
   },
   {
-    "code": "USA",
-    "status": "in_race"
+    "code": "CIV",
+    "status": "out"
+  },
+  {
+    "code": "ECU",
+    "status": "out"
   },
   {
     "code": "DEU",
     "status": "out"
   },
   {
-    "code": "CIV",
+    "code": "CUW",
     "status": "out"
   },
   {
@@ -32,11 +84,55 @@
     "status": "out"
   },
   {
+    "code": "JPN",
+    "status": "out"
+  },
+  {
     "code": "SWE",
     "status": "out"
   },
   {
+    "code": "TUN",
+    "status": "out"
+  },
+  {
+    "code": "IRN",
+    "status": "out"
+  },
+  {
+    "code": "NZL",
+    "status": "out"
+  },
+  {
+    "code": "ESP",
+    "status": "in_race"
+  },
+  {
+    "code": "CPV",
+    "status": "in_race"
+  },
+  {
+    "code": "BEL",
+    "status": "in_race"
+  },
+  {
+    "code": "EGY",
+    "status": "in_race"
+  },
+  {
+    "code": "SAU",
+    "status": "out"
+  },
+  {
+    "code": "URY",
+    "status": "out"
+  },
+  {
     "code": "FRA",
+    "status": "in_race"
+  },
+  {
+    "code": "SEN",
     "status": "in_race"
   },
   {
@@ -48,19 +144,27 @@
     "status": "in_race"
   },
   {
-    "code": "SEN",
+    "code": "ARG",
     "status": "in_race"
   },
   {
-    "code": "JPN",
+    "code": "DZA",
+    "status": "in_race"
+  },
+  {
+    "code": "AUT",
+    "status": "in_race"
+  },
+  {
+    "code": "JOR",
     "status": "out"
   },
   {
-    "code": "HTI",
-    "status": "out"
+    "code": "PRT",
+    "status": "in_race"
   },
   {
-    "code": "SCO",
+    "code": "COD",
     "status": "out"
   },
   {
@@ -72,83 +176,7 @@
     "status": "in_race"
   },
   {
-    "code": "ESP",
-    "status": "in_race"
-  },
-  {
-    "code": "SAU",
-    "status": "out"
-  },
-  {
-    "code": "JOR",
-    "status": "out"
-  },
-  {
-    "code": "DZA",
-    "status": "in_race"
-  },
-  {
-    "code": "PRT",
-    "status": "in_race"
-  },
-  {
     "code": "UZB",
-    "status": "out"
-  },
-  {
-    "code": "PAN",
-    "status": "out"
-  },
-  {
-    "code": "CZE",
-    "status": "out"
-  },
-  {
-    "code": "MEX",
-    "status": "in_race"
-  },
-  {
-    "code": "TUN",
-    "status": "out"
-  },
-  {
-    "code": "COD",
-    "status": "in_race"
-  },
-  {
-    "code": "ARG",
-    "status": "in_race"
-  },
-  {
-    "code": "CPV",
-    "status": "in_race"
-  },
-  {
-    "code": "EGY",
-    "status": "in_race"
-  },
-  {
-    "code": "KOR",
-    "status": "out"
-  },
-  {
-    "code": "PRY",
-    "status": "in_race"
-  },
-  {
-    "code": "BEL",
-    "status": "in_race"
-  },
-  {
-    "code": "IRN",
-    "status": "out"
-  },
-  {
-    "code": "MAR",
-    "status": "in_race"
-  },
-  {
-    "code": "ZAF",
     "status": "out"
   },
   {
@@ -160,35 +188,7 @@
     "status": "in_race"
   },
   {
-    "code": "ECU",
-    "status": "out"
-  },
-  {
-    "code": "CUW",
-    "status": "out"
-  },
-  {
-    "code": "CAN",
-    "status": "in_race"
-  },
-  {
-    "code": "AUT",
-    "status": "in_race"
-  },
-  {
-    "code": "BRA",
-    "status": "in_race"
-  },
-  {
-    "code": "BIH",
-    "status": "in_race"
-  },
-  {
-    "code": "URY",
-    "status": "out"
-  },
-  {
-    "code": "NZL",
+    "code": "PAN",
     "status": "out"
   }
 ]
