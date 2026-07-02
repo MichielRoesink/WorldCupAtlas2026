@@ -1,6 +1,6 @@
 {
   "source": "worldcup26",
-  "fetchedAt": "2026-07-02T16:16:33.557Z",
+  "fetchedAt": "2026-07-02T20:42:14.162Z",
   "matches": {
     "games": [
       {
@@ -1904,9 +1904,9 @@
         "id": "84",
         "home_team_id": "29",
         "away_team_id": "39",
-        "home_score": "0",
+        "home_score": "2",
         "away_score": "0",
-        "home_scorers": "null",
+        "home_scorers": "{\"Mikel Oyarzabal 36'\",\"Pedro Porro 66'\"}",
         "away_scorers": "null",
         "group": "R32",
         "matchday": "4",
@@ -1914,10 +1914,16 @@
         "persian_date": "1405-04-11 12:00",
         "stadium_id": "16",
         "finished": "FALSE",
-        "time_elapsed": "notstarted",
+        "time_elapsed": "live",
         "type": "r32",
         "home_team_label": "Winner Group H",
         "away_team_label": "Runner-up Group J",
+        "away_penalty_misses": "null",
+        "away_penalty_score": "null",
+        "away_penalty_scorers": "null",
+        "home_penalty_misses": "null",
+        "home_penalty_score": "null",
+        "home_penalty_scorers": "null",
         "home_team_name_en": "Spain",
         "home_team_name_fa": "اسپانیا",
         "away_team_name_en": "Austria",
