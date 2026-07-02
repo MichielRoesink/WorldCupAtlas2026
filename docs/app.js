@@ -571,7 +571,7 @@ applyResultsToTournament(
 
 updateCounters(derivedTournament, matches);
 renderLiveNow(preview.matches);
-drawMap(world, countries, derivedTournament, matches, results, mapOverrides);
+drawMap(world, countries, derivedTournament, preview.matches, results, mapOverrides);
 renderTodayMatches(matches, countries);
 renderBracket(matches, countries);
 });
