@@ -21,7 +21,7 @@
   },
   {
     "code": "BIH",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "USA",
@@ -133,7 +133,7 @@
   },
   {
     "code": "SEN",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "IRQ",
