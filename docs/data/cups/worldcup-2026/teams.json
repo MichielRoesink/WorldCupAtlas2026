@@ -21,7 +21,7 @@
   },
   {
     "code": "BIH",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "USA",
@@ -113,7 +113,7 @@
   },
   {
     "code": "BEL",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "EGY",
@@ -133,7 +133,7 @@
   },
   {
     "code": "SEN",
-    "status": "playing"
+    "status": "out"
   },
   {
     "code": "IRQ",

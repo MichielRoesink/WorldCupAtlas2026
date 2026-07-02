@@ -966,11 +966,11 @@
       "date": "07/01/2026 17:00",
       "home": "USA",
       "away": "BIH",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 82,
@@ -978,11 +978,11 @@
       "date": "07/01/2026 13:00",
       "home": "BEL",
       "away": "SEN",
-      "homeScore": 2,
+      "homeScore": 3,
       "awayScore": 2,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "playing"
+      "status": "finished"
     },
     {
       "id": 83,
@@ -1002,8 +1002,8 @@
       "date": "07/02/2026 12:00",
       "home": "ESP",
       "away": "AUT",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1120,8 +1120,8 @@
       "id": 94,
       "round": "r16",
       "date": "07/06/2026 17:00",
-      "home": null,
-      "away": null,
+      "home": "USA",
+      "away": "BEL",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
