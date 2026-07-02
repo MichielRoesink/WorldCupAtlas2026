@@ -11,10 +11,6 @@ const outCount = document.getElementById("out-count");
 const teamCount = document.getElementById("team-count");
 const matchCount = document.getElementById("match-count");
 const tooltip = document.getElementById("tooltip");
-const SMALL_ISLANDS = [
-  { code: "CPV", lon: -24.0, lat: 16.0 },
-  { code: "CUW", lon: -69.0, lat: 12.2 }
-];
 
 const statusColors = {
   in_race: "#15803d",
@@ -103,25 +99,27 @@ function renderBracket(matches, countries) {
   }).join("");
 }
 async function loadData() {
-  const [world, countries, teams, matches, preview, results, tournamentInfo] = await Promise.all([
+  const [world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
     d3.json(`${DATA_PATH}/teams.json`),
     d3.json(`${DATA_PATH}/matches.json`),
     d3.json(`${DATA_PATH}/preview.json`),
     d3.json(`${DATA_PATH}/results/results.json`),
-    d3.json(`${DATA_PATH}/tournament.json`)
+    d3.json(`${DATA_PATH}/tournament.json`),
+    d3.json("data/map-overrides.json")
   ]);
 
   return {
-    world,
-    countries,
-    teams,
-    matches,
-    preview,
-    results,
-    tournamentInfo
-  };
+  world,
+  countries,
+  teams,
+  matches,
+  preview,
+  results,
+  tournamentInfo,
+  mapOverrides
+};
 }
 
 function buildCountryCodeIndex(countries) {
@@ -431,7 +429,7 @@ function renderCountryPanel(country, mapId, tournamentData, matches, results, co
   `;
 }
 
-function drawMap(world, countries, tournament, matches, results) {
+function drawMap(world, countries, tournament, matches, results, mapOverrides) {
   mapContainer.innerHTML = "";
 
   const width = mapContainer.clientWidth;
@@ -495,7 +493,7 @@ function drawMap(world, countries, tournament, matches, results) {
     });
 
   svg.selectAll(".island-marker")
-    .data(SMALL_ISLANDS)
+    .data(mapOverrides)
     .enter()
     .append("circle")
     .attr("class", "island-marker")
@@ -540,7 +538,7 @@ function drawMap(world, countries, tournament, matches, results) {
 .raise();
 }
 
-loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo }) => {
+loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides }) => {
   currentCupName.textContent = tournamentInfo.name;
   const codeToMapId = buildCountryCodeIndex(countries);
 
@@ -573,7 +571,7 @@ applyResultsToTournament(
 
 updateCounters(derivedTournament, matches);
 renderLiveNow(preview.matches);
-drawMap(world, countries, derivedTournament, matches, results);
+drawMap(world, countries, derivedTournament, matches, results, mapOverrides);
 renderTodayMatches(matches, countries);
 renderBracket(matches, countries);
 });
