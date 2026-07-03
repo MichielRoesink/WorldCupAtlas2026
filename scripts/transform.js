@@ -5,7 +5,15 @@ function parseCupDate(dateText) {
 }
 
 function isActuallyPlaying(game) {
-  return game.time_elapsed === "live";
+  if (game.time_elapsed !== "live") return false;
+
+  const kickoff = parseCupDate(game.local_date);
+  const now = new Date();
+
+  const startsSoon = now >= new Date(kickoff.getTime() - 15 * 60 * 1000);
+  const notTooLate = now <= new Date(kickoff.getTime() + 75 * 60 * 1000);
+
+  return startsSoon && notTooLate;
 }
 
 function teamCodeFromName(name) {

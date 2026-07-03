@@ -1,5 +1,7 @@
 const liveNowContainer = document.getElementById("live-now");
 const CURRENT_CUP = "worldcup-2026";
+const DEV_MODE = false;
+const DEV_MATCH_ID = 84;
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
 const todayMatchesContainer = document.getElementById("today-matches");
 const currentCupName = document.getElementById("current-cup-name");
@@ -216,31 +218,105 @@ matchCount.textContent = matches.length;
   outCount.textContent = teams.filter(team => team.status === "out").length;
 }
 
-function renderLiveNow(matches) {
-  const liveMatch = matches.find(match => match.status === "playing");
+function formatLocalClock() {
+  return new Date().toLocaleTimeString("nl-NL", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+}
+
+function startLiveBall(ball) {
+  clearInterval(window.liveBallTimer);
+
+  let rotation = 0;
+
+  window.liveBallTimer = setInterval(() => {
+    const track = ball.closest(".live-ball-track");
+    if (!track) return;
+
+    const banner = track.closest(".live-banner");
+    if (!banner) return;
+
+    const trackRect = track.getBoundingClientRect();
+    const bannerRect = banner.getBoundingClientRect();
+
+    const x = trackRect.left - bannerRect.left;
+    const y = trackRect.top - bannerRect.top;
+
+    const onBottom = y > bannerRect.height / 2;
+
+if (onBottom) {
+  rotation -= 18;   // onder: linksom
+} else {
+  rotation += 18;   // boven, rechts én links: rechtsom
+}
+
+    ball.style.transform = `rotate(${rotation}deg)`;
+  }, 50);
+}
+
+function renderLiveNow(matches, countries) {
+  const liveMatch =
+  matches.find(match => match.status === "playing") ||
+  (DEV_MODE ? matches.find(match => match.id === DEV_MATCH_ID) : null);
 
   if (!liveMatch) {
     liveNowContainer.innerHTML = "";
     return;
   }
 
+  const home = getCountryByCode(liveMatch.home, countries);
+  const away = getCountryByCode(liveMatch.away, countries);
+
   liveNowContainer.innerHTML = `
     <div class="live-banner">
-      <div class="live-badge">● LIVE NOW</div>
+      <div class="live-meta">
+  <span class="live-badge">● LIVE</span>
+  <span class="live-round">${liveMatch.round.toUpperCase()}</span>
+  <span class="live-clock" id="live-clock">
+  ${formatLocalClock()}
+</span>
+</div>
 
-      <div class="live-team">
-        <strong>${liveMatch.home}</strong>
-      </div>
+      <div class="live-matchup compact">
+        <div class="live-team live-team-home">
+          <strong>${home?.flag || ""} ${home?.name || liveMatch.home}</strong>
+        </div>
 
-      <div class="live-score">
-        ${liveMatch.homeScore} – ${liveMatch.awayScore}
-      </div>
+        <div class="live-score">
+          ${liveMatch.homeScore} – ${liveMatch.awayScore}
+        </div>
 
-      <div class="live-team">
-        <strong>${liveMatch.away}</strong>
+        <div class="live-team live-team-away">
+          <strong>${away?.name || liveMatch.away} ${away?.flag || ""}</strong>
+        </div>
       </div>
+      <div class="live-ball-track">
+  <img
+    class="live-ball"
+    src="images/soccer-ball.svg"
+    alt=""
+    draggable="false"
+  
+</div>
     </div>
   `;
+  const clock = document.getElementById("live-clock");
+
+if (clock) {
+  clearInterval(window.liveClockTimer);
+
+  window.liveClockTimer = setInterval(() => {
+    clock.textContent = formatLocalClock();
+  }, 1000);
+}
+
+const ball = document.querySelector(".live-ball");
+
+if (ball) {
+  startLiveBall(ball);
+}
 }
 
 function findNextMatch(countryCode, matches) {
@@ -570,7 +646,7 @@ applyResultsToTournament(
 );
 
 updateCounters(derivedTournament, matches);
-renderLiveNow(preview.matches);
+renderLiveNow(preview.matches, countries);
 drawMap(world, countries, derivedTournament, preview.matches, results, mapOverrides);
 renderTodayMatches(matches, countries);
 renderBracket(matches, countries);
