@@ -990,11 +990,11 @@
       "date": "07/02/2026 19:00",
       "home": "PRT",
       "away": "HRV",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 84,
@@ -1002,11 +1002,11 @@
       "date": "07/02/2026 12:00",
       "home": "ESP",
       "away": "AUT",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 3,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 85,
@@ -1014,11 +1014,11 @@
       "date": "07/02/2026 20:00",
       "home": "CHE",
       "away": "DZA",
-      "homeScore": 0,
+      "homeScore": 2,
       "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 86,
@@ -1026,8 +1026,8 @@
       "date": "07/03/2026 18:00",
       "home": "ARG",
       "away": "CPV",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1050,8 +1050,8 @@
       "date": "07/03/2026 13:00",
       "home": "AUS",
       "away": "EGY",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 1,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1108,8 +1108,8 @@
       "id": 93,
       "round": "r16",
       "date": "07/06/2026 14:00",
-      "home": null,
-      "away": null,
+      "home": "PRT",
+      "away": "ESP",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
@@ -1144,7 +1144,7 @@
       "id": 96,
       "round": "r16",
       "date": "07/07/2026 13:00",
-      "home": null,
+      "home": "CHE",
       "away": null,
       "homeScore": 0,
       "awayScore": 0,
