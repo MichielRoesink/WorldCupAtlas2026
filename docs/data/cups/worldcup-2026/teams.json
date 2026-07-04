@@ -109,7 +109,7 @@
   },
   {
     "code": "CPV",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "BEL",
@@ -185,7 +185,7 @@
   },
   {
     "code": "GHA",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "PAN",

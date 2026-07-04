@@ -1026,11 +1026,11 @@
       "date": "07/03/2026 18:00",
       "home": "ARG",
       "away": "CPV",
-      "homeScore": 2,
-      "awayScore": 1,
+      "homeScore": 3,
+      "awayScore": 2,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 87,
@@ -1038,11 +1038,11 @@
       "date": "07/03/2026 20:30",
       "home": "COL",
       "away": "GHA",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 88,
@@ -1132,7 +1132,7 @@
       "id": 95,
       "round": "r16",
       "date": "07/07/2026 12:00",
-      "home": null,
+      "home": "ARG",
       "away": "EGY",
       "homeScore": 0,
       "awayScore": 0,
@@ -1145,7 +1145,7 @@
       "round": "r16",
       "date": "07/07/2026 13:00",
       "home": "CHE",
-      "away": null,
+      "away": "COL",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
