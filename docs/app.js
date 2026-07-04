@@ -125,12 +125,19 @@ async function loadData() {
 };
 }
 
-function buildCountryCodeIndex(countries) {
+function buildCountryCodeIndex(countries, mapOverrides = []) {
   const index = {};
 
   Object.entries(countries).forEach(([mapId, country]) => {
     if (country.code) {
       index[country.code] = mapId;
+    }
+  });
+
+  // Voeg override-landen toe die geen polygon hebben
+  mapOverrides.forEach(override => {
+    if (!index[override.code]) {
+      index[override.code] = override.code;
     }
   });
 
@@ -609,7 +616,24 @@ function countryCenterByCode(code) {
   .style("stroke-width", 2)
   .style("cursor", "pointer")
   .on("mousemove", (event, d) => {
-    const country = Object.values(countries).find(c => c.code === d.code);
+    const country =
+  Object.values(countries).find(c => c.code === d.code) || {
+    code: d.code,
+    name: d.code === "SCO" ? "Scotland" : d.code,
+    flag: d.code === "SCO" ? "🏴󠁧󠁢󠁳󠁣󠁴󠁿" : "🌍",
+    confederation: ""
+  };
+
+const mapId = codeToMapId[d.code] || d.code;
+
+renderCountryPanel(
+  country,
+  mapId,
+  tournament[mapId],
+  matches,
+  results,
+  countries
+);
 
     if (!country) return;
 
@@ -629,16 +653,24 @@ function countryCenterByCode(code) {
 
     if (!entry) return;
 
-    const mapId = entry[0];
+    const mapId = entry[0]; 
 
-    renderCountryPanel(
-      countries[mapId],
-      mapId,
-      tournament[mapId],
-      matches,
-      results,
-      countries
-    );
+    const country =
+  countries[mapId] || {
+    code: d.code,
+    name: d.code === "SCO" ? "Scotland" : d.code,
+    flag: d.code === "SCO" ? "🏴󠁧󠁢󠁳󠁣󠁴󠁿" : "🌍",
+    confederation: ""
+  };
+
+renderCountryPanel(
+  country,
+  mapId,
+  tournament[mapId],
+  matches,
+  results,
+  countries
+);
   });
   
     const liveMatches = matches.filter(match => match.status === "playing");
@@ -679,8 +711,8 @@ liveMatches.forEach(match => {
 }
 
 loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides }) => {
-  currentCupName.textContent = tournamentInfo.name;
-  const codeToMapId = buildCountryCodeIndex(countries);
+  if (currentCupName) {currentCupName.textContent = tournamentInfo.name;}
+  const codeToMapId = buildCountryCodeIndex(countries, mapOverrides);
 
   const tournament = {};
 
@@ -694,6 +726,7 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
     };
   }
 });
+console.log("DEBUG tournament teams:", Object.keys(tournament).length);
   advanceWinners(matches, results);
  const derivedTournament =
     deriveTournamentFromMatches(
@@ -701,6 +734,7 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
         matches,
         codeToMapId
     );
+    console.log("DEBUG derived teams:", Object.keys(derivedTournament).length);
 
 applyResultsToTournament(
     derivedTournament,
@@ -712,4 +746,6 @@ applyResultsToTournament(
 updateCounters(derivedTournament, matches);
 renderLiveNow(preview.matches, countries);
 drawMap(world, countries, derivedTournament, preview.matches, results, mapOverrides);
+renderTodayMatches(matches, countries);
+renderBracket(matches, countries);
 });

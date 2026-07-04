@@ -1166,3 +1166,76 @@ main {
   white-space: normal;
   line-height: 1.1;
 }
+.tournament-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 16px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #0f172a;
+  color: white;
+  box-shadow: 0 10px 30px rgba(15,23,42,.16);
+}
+
+.tournament-label {
+  display: block;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: .7;
+}
+
+.tournament-bar strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.tournament-bar small {
+  display: block;
+  margin-top: 4px;
+  font-size: .85rem;
+  opacity: .75;
+}
+
+.tournament-bar select {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cup-selector {
+    display: none;
+}
+.tournament-bar {
+    margin-bottom: 10px;
+}
+
+.atlas-map-wrap {
+    padding-top: 40px;
+}
+.status-grid {
+    margin-bottom: 12px;
+}
+
+.site-header {
+  background: #0f172a;
+  color: white;
+  padding: 22px 28px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.site-tagline {
+  margin: 6px 0 0;
+  opacity: .78;
+  font-size: 1rem;
+}
