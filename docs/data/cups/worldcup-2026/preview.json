@@ -1062,11 +1062,11 @@
       "date": "07/04/2026 17:00",
       "home": "PRY",
       "away": "FRA",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 90,
@@ -1156,8 +1156,8 @@
       "id": 97,
       "round": "qf",
       "date": "07/09/2026 16:00",
-      "home": null,
-      "away": null,
+      "home": "FRA",
+      "away": "MAR",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
