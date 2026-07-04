@@ -1026,8 +1026,8 @@
       "date": "07/03/2026 18:00",
       "home": "ARG",
       "away": "CPV",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1038,8 +1038,8 @@
       "date": "07/03/2026 20:30",
       "home": "COL",
       "away": "GHA",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1052,9 +1052,9 @@
       "away": "EGY",
       "homeScore": 1,
       "awayScore": 1,
-      "homePenaltyScore": null,
-      "awayPenaltyScore": null,
-      "status": "scheduled"
+      "homePenaltyScore": 2,
+      "awayPenaltyScore": 4,
+      "status": "finished"
     },
     {
       "id": 89,
@@ -1133,7 +1133,7 @@
       "round": "r16",
       "date": "07/07/2026 12:00",
       "home": null,
-      "away": null,
+      "away": "EGY",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
