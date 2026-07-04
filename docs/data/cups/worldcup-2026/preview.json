@@ -1062,8 +1062,8 @@
       "date": "07/04/2026 17:00",
       "home": "PRY",
       "away": "FRA",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1074,8 +1074,8 @@
       "date": "07/04/2026 12:00",
       "home": "CAN",
       "away": "MAR",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
