@@ -1074,11 +1074,11 @@
       "date": "07/04/2026 12:00",
       "home": "CAN",
       "away": "MAR",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 3,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 91,
