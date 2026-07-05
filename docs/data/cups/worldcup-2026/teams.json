@@ -17,7 +17,7 @@
   },
   {
     "code": "CAN",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "BIH",
@@ -29,7 +29,7 @@
   },
   {
     "code": "PRY",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "HTI",
@@ -41,7 +41,7 @@
   },
   {
     "code": "AUS",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "TUR",
@@ -109,7 +109,7 @@
   },
   {
     "code": "CPV",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "BEL",
@@ -149,11 +149,11 @@
   },
   {
     "code": "DZA",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "AUT",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "JOR",
@@ -173,7 +173,7 @@
   },
   {
     "code": "HRV",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "UZB",
@@ -185,7 +185,7 @@
   },
   {
     "code": "GHA",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "PAN",

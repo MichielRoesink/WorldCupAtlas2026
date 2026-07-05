@@ -1,6 +1,7 @@
 const liveNowContainer = document.getElementById("live-now");
 const CURRENT_CUP = "worldcup-2026";
 let currentStage = "r16";
+let appState = {};
 const DEV_MODE = false;
 const DEV_MATCH_ID = 84;
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
@@ -266,9 +267,27 @@ if (onBottom) {
   }, 50);
 }
 
+function isTodayMatch(match) {
+  const [datePart] = match.date.split(" ");
+  const [month, day, year] = datePart.split("/").map(Number);
+
+  const matchDate = new Date(year, month - 1, day);
+  const today = new Date();
+
+  return (
+    matchDate.getFullYear() === today.getFullYear() &&
+    matchDate.getMonth() === today.getMonth() &&
+    matchDate.getDate() === today.getDate()
+  );
+}
+
 function renderLiveNow(matches, countries) {
   const liveMatch =
-  matches.find(match => match.status === "playing") ||
+  matches.find(match => match.status === "playing" && isTodayMatch(match)) ||
+  matches.find(match =>
+    isTodayMatch(match) &&
+    (match.status === "scheduled" || match.status === "pending")
+  ) ||
   (DEV_MODE ? matches.find(match => match.id === DEV_MATCH_ID) : null);
 
   if (!liveMatch) {
@@ -278,11 +297,13 @@ function renderLiveNow(matches, countries) {
 
   const home = getCountryByCode(liveMatch.home, countries);
   const away = getCountryByCode(liveMatch.away, countries);
+  const isLive = liveMatch.status === "playing" && isTodayMatch(liveMatch);
+  const matchLabel = isLive ? "● LIVE" : "NEXT MATCH";
 
   liveNowContainer.innerHTML = `
   <div class="live-banner">
     <div class="live-topline">
-  <span class="live-badge">● LIVE</span>
+  <span class="live-badge">${matchLabel}</span>
   <span class="live-round">${liveMatch.round.toUpperCase()}</span>
   <span class="live-clock" id="live-clock">${formatLocalClock()}</span>
 </div>
@@ -293,15 +314,15 @@ function renderLiveNow(matches, countries) {
   </div>
 
   <div class="live-score">
-    ${liveMatch.homeScore} – ${liveMatch.awayScore}
-  </div>
+  ${isLive ? `${liveMatch.homeScore} – ${liveMatch.awayScore}` : formatDate(liveMatch.date)}
+</div>
 
   <div class="live-team live-team-away">
     <strong>${away?.name || liveMatch.away} ${away?.flag || ""}</strong>
   </div>
 </div>
 
-    <div class="live-ball-track">
+    <div class="live-ball-track" style="${isLive ? "" : "display:none"}">
       <img
         class="live-ball"
         src="images/soccer-ball.svg"
@@ -323,9 +344,12 @@ if (clock) {
 
 const ball = document.querySelector(".live-ball");
 
-if (ball) {
+if (ball && isLive) {
   startLiveBall(ball);
+} else {
+  clearInterval(window.liveBallTimer);
 }
+
 }
 
 function findNextMatch(countryCode, matches) {
@@ -718,7 +742,9 @@ renderCountryPanel(
 );
   });
   
-    const liveMatches = matches.filter(match => match.status === "playing");
+    const liveMatches = matches.filter(match =>
+  match.status === "playing" && isTodayMatch(match)
+);
 
 liveMatches.forEach(match => {
   const start = countryCenterByCode(match.home);
@@ -754,6 +780,83 @@ liveMatches.forEach(match => {
 });
 
 }
+
+function getVisibleMatches(matches, stage) {
+
+  if (stage === "groups") {
+    return matches.filter(m => m.round.startsWith("group"));
+  }
+
+  if (stage === "r32") {
+    return matches.filter(m => m.round === "r32");
+  }
+
+  if (stage === "r16") {
+    return matches.filter(m => m.round === "r16");
+  }
+
+  if (stage === "qf") {
+    return matches.filter(m => m.round === "qf");
+  }
+
+  if (stage === "sf") {
+    return matches.filter(m => m.round === "sf");
+  }
+
+  if (stage === "final") {
+    return matches.filter(m =>
+      m.round === "final" || m.round === "third"
+    );
+  }
+
+  return matches;
+}
+
+function renderStage(stage) {
+  if (!appState.world) return;
+
+  currentStage = stage;
+
+  const visibleMatches =
+    getVisibleMatches(appState.matches, stage);
+
+  const visiblePreviewMatches =
+    getVisibleMatches(appState.preview.matches, stage);
+
+const mapTournament = JSON.parse(JSON.stringify(appState.derivedTournament));
+
+Object.values(mapTournament).forEach(team => {
+  if (team.status === "playing") {
+    team.status = "in_race";
+  }
+});
+
+visiblePreviewMatches
+  .filter(match => match.status === "playing" && isTodayMatch(match))
+  .forEach(match => {
+    const homeId = buildCountryCodeIndex(appState.countries, appState.mapOverrides)[match.home];
+    const awayId = buildCountryCodeIndex(appState.countries, appState.mapOverrides)[match.away];
+
+    if (homeId && mapTournament[homeId]) mapTournament[homeId].status = "playing";
+    if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "playing";
+  });
+
+updateCounters(mapTournament, visiblePreviewMatches);
+
+  drawMap(
+    appState.world,
+    appState.countries,
+    mapTournament,
+    visiblePreviewMatches,
+    appState.results,
+    appState.mapOverrides
+  );
+
+  renderBracket(visibleMatches, appState.countries);
+  renderTodayMatches(visibleMatches, appState.countries);
+  renderLiveNow(visiblePreviewMatches, appState.countries);
+}
+
 function setupTimeline() {
   document.querySelectorAll(".timeline-stage").forEach(button => {
     button.addEventListener("click", () => {
@@ -764,7 +867,7 @@ function setupTimeline() {
       button.classList.add("active");
       currentStage = button.dataset.stage;
 
-      console.log("Selected stage:", currentStage);
+      renderStage(currentStage);
     });
   });
 }
@@ -784,7 +887,6 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
       note: team.note || ""
     };
   }
-  setupTimeline();
 });
   advanceWinners(matches, results);
  const derivedTournament =
@@ -800,10 +902,18 @@ applyResultsToTournament(
     results,
     codeToMapId
 );
+appState = {
+  world,
+  countries,
+  teams,
+  matches,
+  preview,
+  results,
+  tournamentInfo,
+  mapOverrides,
+  derivedTournament
+};
 
-updateCounters(derivedTournament, matches);
-renderLiveNow(preview.matches, countries);
-drawMap(world, countries, derivedTournament, preview.matches, results, mapOverrides);
-renderTodayMatches(matches, countries);
-renderBracket(matches, countries);
+setupTimeline();
+renderStage(currentStage);
 });

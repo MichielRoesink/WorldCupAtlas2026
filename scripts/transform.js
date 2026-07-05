@@ -5,13 +5,13 @@ function parseCupDate(dateText) {
 }
 
 function isActuallyPlaying(game) {
-  if (game.time_elapsed !== "live") return false;
+  if (game.finished === "TRUE") return false;
 
   const kickoff = parseCupDate(game.local_date);
   const now = new Date();
 
   const startsSoon = now >= new Date(kickoff.getTime() - 15 * 60 * 1000);
-  const notTooLate = now <= new Date(kickoff.getTime() + 75 * 60 * 1000);
+  const notTooLate = now <= new Date(kickoff.getTime() + 2 * 60 * 60 * 1000);
 
   return startsSoon && notTooLate;
 }
