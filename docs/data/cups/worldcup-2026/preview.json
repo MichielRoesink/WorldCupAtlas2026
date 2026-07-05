@@ -1086,11 +1086,11 @@
       "date": "07/05/2026 16:00",
       "home": "BRA",
       "away": "NOR",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 1,
+      "awayScore": 2,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 92,
@@ -1098,8 +1098,8 @@
       "date": "07/05/2026 18:00",
       "home": "MEX",
       "away": "GBR",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
@@ -1180,7 +1180,7 @@
       "id": 99,
       "round": "qf",
       "date": "07/11/2026 17:00",
-      "home": null,
+      "home": "NOR",
       "away": null,
       "homeScore": 0,
       "awayScore": 0,

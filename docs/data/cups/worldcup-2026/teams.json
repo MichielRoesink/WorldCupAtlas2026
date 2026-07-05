@@ -49,7 +49,7 @@
   },
   {
     "code": "BRA",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "MAR",
