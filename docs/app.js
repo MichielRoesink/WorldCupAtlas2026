@@ -280,6 +280,34 @@ function isTodayMatch(match) {
     matchDate.getDate() === today.getDate()
   );
 }
+function renderNextMatch(match, countries) {
+  const card = document.getElementById("next-match-card");
+  if (!card) return;
+
+  if (!match) {
+    card.innerHTML = "";
+    return;
+  }
+
+  const home = getCountryByCode(match.home, countries);
+  const away = getCountryByCode(match.away, countries);
+
+  card.innerHTML = `
+    <div>
+      <div class="next-match-label">Next match</div>
+      <div class="next-match-teams">
+        ${home?.flag || ""} ${home?.name || match.home}
+        <span>vs</span>
+        ${away?.flag || ""} ${away?.name || match.away}
+      </div>
+    </div>
+
+    <div class="next-match-datetime">
+      <strong>${match.date.split(" ")[0]}</strong>
+<div class="next-match-time">${match.date.split(" ")[1]}</div>
+    </div>
+  `;
+}
 
 function renderLiveNow(matches, countries) {
   const liveMatch =
@@ -340,6 +368,11 @@ if (clock) {
   window.liveClockTimer = setInterval(() => {
     clock.textContent = formatLocalClock();
   }, 1000);
+}
+
+function formatTime(dateString) {
+  const [, timePart] = dateString.split(" ");
+  return timePart || "";
 }
 
 const ball = document.querySelector(".live-ball");
@@ -841,7 +874,7 @@ visiblePreviewMatches
     if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "playing";
   });
 
-updateCounters(mapTournament, visiblePreviewMatches);
+  updateCounters(mapTournament, visiblePreviewMatches);
 
   drawMap(
     appState.world,
@@ -854,7 +887,12 @@ updateCounters(mapTournament, visiblePreviewMatches);
 
   renderBracket(visibleMatches, appState.countries);
   renderTodayMatches(visibleMatches, appState.countries);
-  renderLiveNow(visiblePreviewMatches, appState.countries);
+  const nextMatch =
+  appState.preview.matches.find(m => m.status === "playing" && isTodayMatch(m)) ||
+  appState.preview.matches.find(m => isTodayMatch(m) && m.status === "scheduled") ||
+  appState.preview.matches.find(m => m.status === "scheduled");
+
+renderNextMatch(nextMatch, appState.countries);
 }
 
 function setupTimeline() {

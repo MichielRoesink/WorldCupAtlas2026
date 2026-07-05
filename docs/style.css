@@ -1549,38 +1549,52 @@ main {
 
 .next-match-card {
   margin-left: auto;
+  min-width: 280px;
+
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding-left: 24px;
-  border-left: 1px solid rgba(15,23,42,.15);
+  justify-content: space-between;
+  gap: 16px;
+
+  padding-left: 20px;
+  border-left: 1px solid rgba(15,23,42,.12);
+
+  background: transparent;
   color: #0f172a;
 }
 
 .next-match-label {
-  font-size: .72rem;
+  font-size: .65rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .08em;
   color: #64748b;
-  font-weight: 800;
 }
 
 .next-match-teams {
-  margin-top: 4px;
-  font-weight: 900;
+  margin-top: 2px;
+  font-size: .88rem;
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .next-match-datetime {
-  font-size: .85rem;
-  color: #334155;
+  text-align: right;
   white-space: nowrap;
 }
 
+.next-match-datetime strong {
+  display: block;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
 .next-match-time {
-  margin-top: 4px;
-  font-size: 1rem;
-  font-weight: 900;
+  margin-top: 2px;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #0f172a;
 }
 
 .live-now {
