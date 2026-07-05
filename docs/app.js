@@ -1,5 +1,6 @@
 const liveNowContainer = document.getElementById("live-now");
 const CURRENT_CUP = "worldcup-2026";
+let currentStage = "r16";
 const DEV_MODE = false;
 const DEV_MATCH_ID = 84;
 const DATA_PATH = `data/cups/${CURRENT_CUP}`;
@@ -279,40 +280,37 @@ function renderLiveNow(matches, countries) {
   const away = getCountryByCode(liveMatch.away, countries);
 
   liveNowContainer.innerHTML = `
-    <div class="live-banner">
-      <div class="live-meta">
+  <div class="live-banner">
+    <div class="live-topline">
   <span class="live-badge">● LIVE</span>
   <span class="live-round">${liveMatch.round.toUpperCase()}</span>
-  <span class="live-clock" id="live-clock">
-  ${formatLocalClock()}
-</span>
+  <span class="live-clock" id="live-clock">${formatLocalClock()}</span>
 </div>
 
-      <div class="live-matchup compact">
-        <div class="live-team live-team-home">
-          <strong>${home?.flag || ""} ${home?.name || liveMatch.home}</strong>
-        </div>
+<div class="live-matchup compact">
+  <div class="live-team live-team-home">
+    <strong>${home?.flag || ""} ${home?.name || liveMatch.home}</strong>
+  </div>
 
-        <div class="live-score">
-          ${liveMatch.homeScore} – ${liveMatch.awayScore}
-        </div>
+  <div class="live-score">
+    ${liveMatch.homeScore} – ${liveMatch.awayScore}
+  </div>
 
-        <div class="live-team live-team-away">
-          <strong>${away?.name || liveMatch.away} ${away?.flag || ""}</strong>
-        </div>
-      </div>
-      <div class="live-ball-track">
-  <img
-      <div class="live-ball-track">
-        <img
-          class="live-ball"
-          src="images/soccer-ball.svg"
-          alt=""
-          draggable="false"
-        />
-      </div>
+  <div class="live-team live-team-away">
+    <strong>${away?.name || liveMatch.away} ${away?.flag || ""}</strong>
+  </div>
+</div>
+
+    <div class="live-ball-track">
+      <img
+        class="live-ball"
+        src="images/soccer-ball.svg"
+        alt=""
+        draggable="false"
+      />
     </div>
-  `;
+  </div>
+`;
   const clock = document.getElementById("live-clock");
 
 if (clock) {
@@ -448,24 +446,51 @@ function renderCountryPanel(country, mapId, tournamentData, matches, results, co
     <div class="journey-step">🏆 Champion</div>
   `;
 
-  countryPanel.innerHTML = `
-    <div class="country-header">
-      <div class="flag">${country.flag || "🌍"}</div>
-      <div>
-        <h2>${country.name}</h2>
-        <div class="country-code">${country.code || "—"}</div>
+countryPanel.innerHTML = `
+  <div class="country-header">
+    <div class="flag">${country.flag || "🌍"}</div>
+
+    <div class="country-title">
+      <h2>${country.name}</h2>
+
+      <div class="country-code">
+        ${country.code}
+      </div>
+
+      <div class="country-status status-${tournamentData?.status || "not_participating"}">
+        ${
+          tournamentData?.status === "playing"
+            ? "🟡 LIVE NOW"
+            : tournamentData?.status === "in_race"
+              ? "🟢 Still competing"
+              : tournamentData?.status === "out"
+                ? "🔴 Eliminated"
+                : "⚪ Not participating"
+        }
       </div>
     </div>
+  </div>
 
-    <hr>
-<div class="summary-card">
-    <div class="summary-number">${stats.played}</div>
-<div class="summary-label">Matches played</div>
-</div>
-    <div class="info-row">
-      <strong>Status</strong>
-<span>${tournamentData?.status === "in_race" ? "🟢 Still in the race" : tournamentData?.status === "out" ? "🔴 Eliminated" : "⚪ Not participating"}</span>
+  <div class="summary-strip">
+
+    <div class="summary-card">
+      <div class="summary-number">${stats.played}</div>
+      <div class="summary-label">Matches</div>
     </div>
+
+    <div class="summary-card">
+      <div class="summary-number">${stats.wins}</div>
+      <div class="summary-label">Wins</div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-number">${stats.goalsFor}</div>
+      <div class="summary-label">Goals</div>
+    </div>
+
+  </div>
+
+  <hr>
 
     <div class="match-card">
       <small>${nextMatch ? "⚽ NEXT MATCH" : lastMatch ? "🏁 LAST MATCH" : "MATCH"}</small>
@@ -527,6 +552,23 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
     .attr("viewBox", `0 0 ${width} ${height}`)
     .attr("class", "real-world-map");
 
+    svg.append("defs").html(`
+  <radialGradient id="oceanGradient" cx="50%" cy="45%" r="75%">
+    <stop offset="0%" stop-color="#f8fbff"/>
+    <stop offset="55%" stop-color="#e8f2ff"/>
+    <stop offset="100%" stop-color="#cfe3f7"/>
+  </radialGradient>
+
+  <filter id="softLandShadow">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.18"/>
+  </filter>
+`);
+
+svg.append("rect")
+  .attr("width", width)
+  .attr("height", height)
+  .attr("rx", 18)
+  .attr("fill", "url(#oceanGradient)");
   const mapCountries = topojson.feature(world, world.objects.countries);
 
 const projection = d3.geoNaturalEarth1()
@@ -551,7 +593,10 @@ function countryCenterByCode(code) {
     .enter()
     .append("path")
     .attr("d", path)
-    .attr("class", "country")
+    .attr("class", d => {
+  const status = tournament[d.id]?.status || "not_participating";
+  return `country status-${status}`;
+})
     .style("fill", d => {
       const tournamentData = tournament[d.id];
       const status = tournamentData ? tournamentData.status : "not_participating";
@@ -709,6 +754,20 @@ liveMatches.forEach(match => {
 });
 
 }
+function setupTimeline() {
+  document.querySelectorAll(".timeline-stage").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".timeline-stage").forEach(item => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      currentStage = button.dataset.stage;
+
+      console.log("Selected stage:", currentStage);
+    });
+  });
+}
 
 loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides }) => {
   if (currentCupName) {currentCupName.textContent = tournamentInfo.name;}
@@ -725,8 +784,8 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
       note: team.note || ""
     };
   }
+  setupTimeline();
 });
-console.log("DEBUG tournament teams:", Object.keys(tournament).length);
   advanceWinners(matches, results);
  const derivedTournament =
     deriveTournamentFromMatches(
@@ -734,7 +793,6 @@ console.log("DEBUG tournament teams:", Object.keys(tournament).length);
         matches,
         codeToMapId
     );
-    console.log("DEBUG derived teams:", Object.keys(derivedTournament).length);
 
 applyResultsToTournament(
     derivedTournament,
