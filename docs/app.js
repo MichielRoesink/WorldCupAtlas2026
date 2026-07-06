@@ -775,7 +775,39 @@ renderCountryPanel(
   countries
 );
   });
-  
+  const nextMatch = matches.find(match =>
+  match.status === "scheduled"
+);
+
+if (nextMatch) {
+  const start = countryCenterByCode(nextMatch.home);
+  const end = countryCenterByCode(nextMatch.away);
+
+  if (start && end) {
+    const pathId = `next-match-path-${nextMatch.id}`;
+
+    svg.append("path")
+      .attr("id", pathId)
+      .attr("class", "next-match-path")
+      .attr(
+        "d",
+        `M ${start[0]} ${start[1]} Q ${(start[0] + end[0]) / 2} ${Math.min(start[1], end[1]) - 90} ${end[0]} ${end[1]}`
+      );
+
+    const ball = svg.append("text")
+      .attr("class", "next-match-ball")
+      .append("textPath")
+      .attr("href", `#${pathId}`)
+      .attr("startOffset", "0%")
+      .text("⚽");
+
+    ball.append("animate")
+      .attr("attributeName", "startOffset")
+      .attr("values", "0%;100%")
+      .attr("dur", "6s")
+      .attr("repeatCount", "indefinite");
+  }
+}
     const liveMatches = matches.filter(match =>
   match.status === "playing" && isTodayMatch(match)
 );

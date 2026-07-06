@@ -1606,3 +1606,24 @@ main {
   stroke: white !important;
   stroke-width: 1.2px !important;
 }
+
+.next-match-path {
+  fill: none;
+  stroke: #f59e0b;
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  opacity: .85;
+  filter: drop-shadow(0 0 8px rgba(245,158,11,.55));
+  animation: routeDash 1.8s linear infinite;
+}
+
+@keyframes routeDash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.next-match-ball {
+  font-size: 14px;
+  filter: drop-shadow(0 2px 5px rgba(15,23,42,.35));
+}
