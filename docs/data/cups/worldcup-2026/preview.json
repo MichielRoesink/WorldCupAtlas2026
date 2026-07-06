@@ -1111,10 +1111,10 @@
       "home": "PRT",
       "away": "ESP",
       "homeScore": 0,
-      "awayScore": 0,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 94,
@@ -1168,7 +1168,7 @@
       "id": 98,
       "round": "qf",
       "date": "07/10/2026 12:00",
-      "home": null,
+      "home": "ESP",
       "away": null,
       "homeScore": 0,
       "awayScore": 0,
