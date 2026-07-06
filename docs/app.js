@@ -20,6 +20,7 @@ const tooltip = document.getElementById("tooltip");
 const statusColors = {
   in_race: "#15803d",
   playing: "#facc15",
+  upcoming: "#f59e0b",
   out: "#dc2626",
   not_participating: "#e5e7eb",
   unknown: "#e5e7eb"
@@ -856,25 +857,71 @@ function renderStage(stage) {
   const visiblePreviewMatches =
     getVisibleMatches(appState.preview.matches, stage);
 
-const mapTournament = JSON.parse(JSON.stringify(appState.derivedTournament));
+  const mapTournament =
+    JSON.parse(JSON.stringify(appState.derivedTournament));
 
-Object.values(mapTournament).forEach(team => {
-  if (team.status === "playing") {
-    team.status = "in_race";
-  }
-});
-
-visiblePreviewMatches
-  .filter(match => match.status === "playing" && isTodayMatch(match))
-  .forEach(match => {
-    const homeId = buildCountryCodeIndex(appState.countries, appState.mapOverrides)[match.home];
-    const awayId = buildCountryCodeIndex(appState.countries, appState.mapOverrides)[match.away];
-
-    if (homeId && mapTournament[homeId]) mapTournament[homeId].status = "playing";
-    if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "playing";
+  // Reset eventuele live-statussen
+  Object.values(mapTournament).forEach(team => {
+    if (team.status === "playing") {
+      team.status = "in_race";
+    }
   });
 
-  updateCounters(mapTournament, visiblePreviewMatches);
+  const codeToMapId =
+    buildCountryCodeIndex(
+      appState.countries,
+      appState.mapOverrides
+    );
+
+  // Highlight echte live-wedstrijden
+  visiblePreviewMatches
+    .filter(match => match.status === "playing" && isTodayMatch(match))
+    .forEach(match => {
+      const homeId = codeToMapId[match.home];
+      const awayId = codeToMapId[match.away];
+
+      if (homeId && mapTournament[homeId]) {
+        mapTournament[homeId].status = "playing";
+      }
+
+      if (awayId && mapTournament[awayId]) {
+        mapTournament[awayId].status = "playing";
+      }
+    });
+
+  // Bepaal eerstvolgende wedstrijd
+  const nextMatch =
+    appState.preview.matches.find(
+      m => m.status === "playing" && isTodayMatch(m)
+    ) ||
+    appState.preview.matches.find(
+      m => isTodayMatch(m) && m.status === "scheduled"
+    ) ||
+    appState.preview.matches.find(
+      m => m.status === "scheduled"
+    );
+
+  // Als er niets live is, highlight de volgende wedstrijd
+  if (
+    nextMatch &&
+    nextMatch.status !== "playing"
+  ) {
+    const homeId = codeToMapId[nextMatch.home];
+    const awayId = codeToMapId[nextMatch.away];
+
+    if (homeId && mapTournament[homeId]) {
+      mapTournament[homeId].status = "upcoming";
+    }
+
+    if (awayId && mapTournament[awayId]) {
+      mapTournament[awayId].status = "upcoming";
+    }
+  }
+
+  updateCounters(
+    mapTournament,
+    visiblePreviewMatches
+  );
 
   drawMap(
     appState.world,
@@ -885,14 +932,20 @@ visiblePreviewMatches
     appState.mapOverrides
   );
 
-  renderBracket(visibleMatches, appState.countries);
-  renderTodayMatches(visibleMatches, appState.countries);
-  const nextMatch =
-  appState.preview.matches.find(m => m.status === "playing" && isTodayMatch(m)) ||
-  appState.preview.matches.find(m => isTodayMatch(m) && m.status === "scheduled") ||
-  appState.preview.matches.find(m => m.status === "scheduled");
+  renderNextMatch(
+    nextMatch,
+    appState.countries
+  );
 
-renderNextMatch(nextMatch, appState.countries);
+  renderBracket(
+    visibleMatches,
+    appState.countries
+  );
+
+  renderTodayMatches(
+    visibleMatches,
+    appState.countries
+  );
 }
 
 function setupTimeline() {

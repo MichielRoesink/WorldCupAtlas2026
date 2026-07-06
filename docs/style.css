@@ -1600,3 +1600,9 @@ main {
 .live-now {
   display: none;
 }
+
+.status-upcoming {
+  filter: url(#softLandShadow) drop-shadow(0 0 9px rgba(245,158,11,.6));
+  stroke: white !important;
+  stroke-width: 1.2px !important;
+}
