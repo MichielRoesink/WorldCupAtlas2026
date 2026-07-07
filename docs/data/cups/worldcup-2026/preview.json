@@ -1122,11 +1122,11 @@
       "date": "07/06/2026 17:00",
       "home": "USA",
       "away": "BEL",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 1,
+      "awayScore": 4,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 95,
@@ -1169,7 +1169,7 @@
       "round": "qf",
       "date": "07/10/2026 12:00",
       "home": "ESP",
-      "away": null,
+      "away": "BEL",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
