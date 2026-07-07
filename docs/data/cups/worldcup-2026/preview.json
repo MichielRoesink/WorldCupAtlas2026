@@ -1146,8 +1146,8 @@
       "date": "07/07/2026 13:00",
       "home": "CHE",
       "away": "COL",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
