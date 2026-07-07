@@ -1,7 +1,7 @@
 [
   {
     "code": "MEX",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "ZAF",
@@ -25,7 +25,7 @@
   },
   {
     "code": "USA",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "PRY",
@@ -49,7 +49,7 @@
   },
   {
     "code": "BRA",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "MAR",
@@ -161,7 +161,7 @@
   },
   {
     "code": "PRT",
-    "status": "in_race"
+    "status": "out"
   },
   {
     "code": "COD",
