@@ -1148,9 +1148,9 @@
       "away": "COL",
       "homeScore": 0,
       "awayScore": 0,
-      "homePenaltyScore": null,
-      "awayPenaltyScore": null,
-      "status": "scheduled"
+      "homePenaltyScore": 4,
+      "awayPenaltyScore": 3,
+      "status": "finished"
     },
     {
       "id": 97,
@@ -1193,7 +1193,7 @@
       "round": "qf",
       "date": "07/11/2026 20:00",
       "home": "ARG",
-      "away": null,
+      "away": "CHE",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
