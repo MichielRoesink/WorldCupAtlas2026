@@ -930,11 +930,11 @@
       "date": "07/09/2026 16:00",
       "home": "FRA",
       "away": "MAR",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 104,
