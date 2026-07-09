@@ -781,20 +781,6 @@ main {
   padding-top: 10px;
 }
 
-.atlas-map-wrap .live-now {
-    position: absolute;
-
-    left: 24px;
-    top: 86px;
-
-    right: auto;
-
-    width: 340px;
-    max-width: calc(100% - 48px);
-
-    z-index: 20;
-}
-
 .map-placeholder {
   height: calc(100vh - 230px);
   min-height: 680px;
@@ -926,44 +912,32 @@ main {
   box-shadow: 0 8px 24px rgba(15,23,42,.08);
 }
 
-.atlas-map-wrap .live-now {
-  position: absolute;
-  top: 86px;
-  left: 24px;
-  right: auto;
-  width: 340px;
-  max-width: calc(100% - 48px);
-  z-index: 30;
-}
-
 .status-chip.playing {
   background: rgba(250, 204, 21, .96);
   color: #111827;
 }
 
 .map-status {
-    position: absolute;
-    top: 18px;
-    left: 20px;
-    right: 20px;
-
     display: flex;
     justify-content: flex-start;
     gap: 12px;
-
-    z-index: 40;
+    flex: 1;
 }
 
-.atlas-map-wrap .live-now {
-    position: absolute;
-    top: 78px;
-    left: 20px;
-    right: auto;
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 18px 20px 24px;
+}
 
-    width: 300px;
-    max-width: calc(100% - 40px);
-
-    z-index: 35;
+.match-panels {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
 }
 
 .live-banner {
@@ -975,13 +949,6 @@ main {
 
 .map-placeholder {
   margin-top: 120px;
-}
-
-.atlas-map-wrap .live-now {
-  top: 76px;
-  left: 20px;
-  width: 300px;
-  max-width: 300px;
 }
 
 .live-banner {
@@ -1547,22 +1514,6 @@ main {
   flex-wrap: wrap;
 }
 
-.next-match-card {
-  margin-left: auto;
-  min-width: 280px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-
-  padding-left: 20px;
-  border-left: 1px solid rgba(15,23,42,.12);
-
-  background: transparent;
-  color: #0f172a;
-}
-
 .next-match-label {
   font-size: .65rem;
   font-weight: 700;
@@ -1597,10 +1548,6 @@ main {
   color: #0f172a;
 }
 
-.live-now {
-  display: none;
-}
-
 .status-upcoming {
   filter: url(#softLandShadow) drop-shadow(0 0 9px rgba(245,158,11,.6));
   stroke: white !important;
@@ -1626,4 +1573,60 @@ main {
 .next-match-ball {
   font-size: 14px;
   filter: drop-shadow(0 2px 5px rgba(15,23,42,.35));
+}
+
+.next-match-ball.static {
+  opacity: .9;
+}
+
+.next-match-label {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: #b45309;
+  font-weight: 900;
+}
+
+.next-match-teams {
+  margin-top: 6px;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.next-match-datetime {
+  margin-top: 8px;
+  font-size: .85rem;
+  color: #475569;
+}
+
+.next-match-time {
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.status-row .map-status {
+  margin: 0;
+}
+
+.next-match-card {
+  margin: 0;
+  width: 340px;
+  min-width: 340px;
+  padding: 16px 20px;
+  border-radius: 22px;
+  background: rgba(245, 158, 11, .16);
+  border: 1px solid rgba(245, 158, 11, .55);
+  box-shadow: 0 14px 34px rgba(15,23,42,.10);
+  color: #0f172a;
+}
+
+.next-match-label {
+  color: #f59e0b;
+}
+
+.match-panels .live-now {
+  position: static;
+  display: block;
+  width: 340px;
+  max-width: 340px;
 }

@@ -225,7 +225,11 @@ function updateCounters(tournament, matches) {
 
   const teams = Object.values(tournament);
 
-  inRaceCount.textContent = teams.filter(team => team.status === "in_race").length;
+  inRaceCount.textContent = teams.filter(team =>
+  team.status === "in_race" ||
+  team.status === "playing" ||
+  team.status === "upcoming"
+).length;
   outCount.textContent = teams.filter(team => team.status === "out").length;
   playingCount.textContent = teams.filter(team => team.status === "playing").length;
 }
@@ -610,51 +614,51 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
     .attr("viewBox", `0 0 ${width} ${height}`)
     .attr("class", "real-world-map");
 
-    svg.append("defs").html(`
-  <radialGradient id="oceanGradient" cx="50%" cy="45%" r="75%">
-    <stop offset="0%" stop-color="#f8fbff"/>
-    <stop offset="55%" stop-color="#e8f2ff"/>
-    <stop offset="100%" stop-color="#cfe3f7"/>
-  </radialGradient>
+  svg.append("defs").html(`
+    <radialGradient id="oceanGradient" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="55%" stop-color="#e8f2ff"/>
+      <stop offset="100%" stop-color="#cfe3f7"/>
+    </radialGradient>
 
-  <filter id="softLandShadow">
-    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.18"/>
-  </filter>
-`);
+    <filter id="softLandShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  `);
 
-svg.append("rect")
-  .attr("width", width)
-  .attr("height", height)
-  .attr("rx", 18)
-  .attr("fill", "url(#oceanGradient)");
+  svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("rx", 18)
+    .attr("fill", "url(#oceanGradient)");
+
   const mapCountries = topojson.feature(world, world.objects.countries);
 
-const projection = d3.geoNaturalEarth1()
-  .fitExtent(
-    [[24, 24], [width - 24, height - 24]],
-    mapCountries
-  );
+  const projection = d3.geoNaturalEarth1()
+    .fitExtent([[24, 24], [width - 24, height - 24]], mapCountries);
 
   const path = d3.geoPath().projection(projection);
-function countryCenterByCode(code) {
-  const entry = Object.entries(countries).find(([, country]) => country.code === code);
-  if (!entry) return null;
+  const codeToMapId = buildCountryCodeIndex(countries, mapOverrides);
 
-  const [mapId] = entry;
-  const feature = mapCountries.features.find(d => String(d.id) === String(mapId));
-  if (!feature) return null;
+  function countryCenterByCode(code) {
+    const mapId = codeToMapId[code];
+    if (!mapId) return null;
 
-  return path.centroid(feature);
-}
+    const feature = mapCountries.features.find(d => String(d.id) === String(mapId));
+    if (!feature) return null;
+
+    return path.centroid(feature);
+  }
+
   svg.selectAll("path")
     .data(mapCountries.features)
     .enter()
     .append("path")
     .attr("d", path)
     .attr("class", d => {
-  const status = tournament[d.id]?.status || "not_participating";
-  return `country status-${status}`;
-})
+      const status = tournament[d.id]?.status || "not_participating";
+      return `country status-${status}`;
+    })
     .style("fill", d => {
       const tournamentData = tournament[d.id];
       const status = tournamentData ? tournamentData.status : "not_participating";
@@ -694,7 +698,7 @@ function countryCenterByCode(code) {
       renderCountryPanel(country, d.id, tournamentData, matches, results, countries);
     });
 
-    svg.selectAll(".island-marker")
+  svg.selectAll(".island-marker")
   .data(mapOverrides)
   .enter()
   .append("circle")
@@ -703,154 +707,85 @@ function countryCenterByCode(code) {
   .attr("cy", d => projection([d.lon, d.lat])[1])
   .attr("r", 5)
   .style("fill", d => {
-    const entry = Object.entries(countries).find(([, c]) => c.code === d.code);
-
-    if (!entry) {
-      return "#9ca3af";
-    }
-
-    const mapId = entry[0];
-    const team = tournament[mapId];
+    const mapId = codeToMapId[d.code];
+    const team = mapId ? tournament[mapId] : null;
     const status = team ? team.status : "not_participating";
-
     return statusColors[status] || statusColors.unknown;
   })
   .style("stroke", "#fff")
   .style("stroke-width", 2)
   .style("cursor", "pointer")
   .on("mousemove", (event, d) => {
-    const country =
-  Object.values(countries).find(c => c.code === d.code) || {
-    code: d.code,
-    name: d.code === "SCO" ? "Scotland" : d.code,
-    flag: d.code === "SCO" ? "🏴󠁧󠁢󠁳󠁣󠁴󠁿" : "🌍",
-    confederation: ""
-  };
-
-const mapId = codeToMapId[d.code] || d.code;
-
-renderCountryPanel(
-  country,
-  mapId,
-  tournament[mapId],
-  matches,
-  results,
-  countries
-);
+    const mapId = codeToMapId[d.code];
+    const country = countries[mapId];
 
     if (!country) return;
+
+    const tournamentData = tournament[mapId];
 
     tooltip.style.display = "block";
     tooltip.style.left = `${event.pageX + 15}px`;
     tooltip.style.top = `${event.pageY + 15}px`;
 
     tooltip.innerHTML = `
-      ${country.flag || "🌍"} <strong>${country.name}</strong>
+      ${country.flag || "🌍"} <strong>${country.name}</strong><br>
+      ${prettyStatus(tournamentData?.status)}
     `;
   })
   .on("mouseleave", () => {
     tooltip.style.display = "none";
   })
   .on("click", (event, d) => {
-    const entry = Object.entries(countries).find(([, c]) => c.code === d.code);
+    const mapId = codeToMapId[d.code];
+    const country = countries[mapId];
 
-    if (!entry) return;
+    if (!country) return;
 
-    const mapId = entry[0]; 
-
-    const country =
-  countries[mapId] || {
-    code: d.code,
-    name: d.code === "SCO" ? "Scotland" : d.code,
-    flag: d.code === "SCO" ? "🏴󠁧󠁢󠁳󠁣󠁴󠁿" : "🌍",
-    confederation: ""
-  };
-
-renderCountryPanel(
-  country,
-  mapId,
-  tournament[mapId],
-  matches,
-  results,
-  countries
-);
-  });
-  const nextMatch = matches.find(match =>
-  match.status === "scheduled"
-);
-
-if (nextMatch) {
-  const start = countryCenterByCode(nextMatch.home);
-  const end = countryCenterByCode(nextMatch.away);
-
-  if (start && end) {
-    const pathId = `next-match-path-${nextMatch.id}`;
-
-    svg.append("path")
-      .attr("id", pathId)
-      .attr("class", "next-match-path")
-      .attr(
-        "d",
-        `M ${start[0]} ${start[1]} Q ${(start[0] + end[0]) / 2} ${Math.min(start[1], end[1]) - 90} ${end[0]} ${end[1]}`
-      );
-
-    const ball = svg.append("text")
-      .attr("class", "next-match-ball")
-      .append("textPath")
-      .attr("href", `#${pathId}`)
-      .attr("startOffset", "0%")
-      .text("⚽");
-
-    ball.append("animate")
-      .attr("attributeName", "startOffset")
-      .attr("values", "0%;100%")
-      .attr("dur", "6s")
-      .attr("repeatCount", "indefinite");
-  }
-}
-    const liveMatches = matches.filter(match =>
-  match.status === "playing" && isTodayMatch(match)
-);
-
-liveMatches.forEach(match => {
-  const start = countryCenterByCode(match.home);
-  const end = countryCenterByCode(match.away);
-
-  if (!start || !end) return;
-
-  const pathId = `live-ball-path-${match.id}`;
-
-  svg.append("path")
-    .attr("id", pathId)
-    .attr("class", "live-map-path")
-    .attr(
-      "d",
-      `M ${start[0]} ${start[1]} Q ${(start[0] + end[0]) / 2} ${Math.min(start[1], end[1]) - 80} ${end[0]} ${end[1]}`
+    renderCountryPanel(
+      country,
+      mapId,
+      tournament[mapId],
+      matches,
+      results,
+      countries
     );
+  });
 
-  const ball = svg.append("text")
-    .attr("class", "live-map-ball")
-    .append("textPath")
-    .attr("href", `#${pathId}`)
-    .attr("startOffset", "0%")
-    .text("⚽");
+  const liveMatch = matches.find(match => match.status === "playing");
 
-  ball.append("animate")
-  .attr("attributeName", "startOffset")
-  .attr("values", "0%;100%;0%")
-  .attr("keyTimes", "0;0.5;1")
-  .attr("calcMode", "spline")
-  .attr("keySplines", ".42 0 .58 1;.42 0 .58 1")
-  .attr("dur", "5.5s")
-  .attr("repeatCount", "indefinite");
-});
+  if (liveMatch) {
+    const start = countryCenterByCode(liveMatch.home);
+    const end = countryCenterByCode(liveMatch.away);
 
+    if (start && end) {
+      const pathId = `live-focus-path-${liveMatch.id}`;
+
+      svg.append("path")
+        .attr("id", pathId)
+        .attr("class", "next-match-path")
+        .attr(
+          "d",
+          `M ${start[0]} ${start[1]} Q ${(start[0] + end[0]) / 2} ${Math.min(start[1], end[1]) - 90} ${end[0]} ${end[1]}`
+        );
+
+      svg.append("text")
+        .attr("class", "next-match-ball")
+        .append("textPath")
+        .attr("href", `#${pathId}`)
+        .attr("startOffset", "0%")
+        .text("⚽")
+        .append("animate")
+        .attr("attributeName", "startOffset")
+        .attr("values", "0%;100%")
+        .attr("dur", "6s")
+        .attr("repeatCount", "indefinite");
+    }
+  }
 }
 
 function getVisibleMatches(matches, stage) {
-
   if (stage === "groups") {
-    return matches.filter(m => m.round.startsWith("group"));
+    return matches.filter(m => String(m.round).toLowerCase().includes("group"));
   }
 
   if (stage === "r32") {
@@ -878,82 +813,72 @@ function getVisibleMatches(matches, stage) {
   return matches;
 }
 
+function detectCurrentStage(matches) {
+  if (matches.some(m => m.round === "qf" && (m.status === "playing" || m.status === "scheduled"))) {
+    return "qf";
+  }
+
+  if (matches.some(m => m.round === "r16" && (m.status === "playing" || m.status === "scheduled"))) {
+    return "r16";
+  }
+
+  if (matches.some(m => m.round === "r32" && (m.status === "playing" || m.status === "scheduled"))) {
+    return "r32";
+  }
+
+  return "groups";
+}
+
+function setActiveTimelineStage(stage) {
+  document.querySelectorAll(".timeline-stage").forEach(button => {
+    button.classList.toggle("active", button.dataset.stage === stage);
+  });
+}
+
 function renderStage(stage) {
   if (!appState.world) return;
 
   currentStage = stage;
+  setActiveTimelineStage(stage);
 
-  const visibleMatches =
-    getVisibleMatches(appState.matches, stage);
+  const visibleMatches = getVisibleMatches(appState.matches, stage);
+  const visiblePreviewMatches = getVisibleMatches(appState.preview.matches, stage);
+  const codeToMapId = buildCountryCodeIndex(appState.countries, appState.mapOverrides);
+  const mapTournament = JSON.parse(JSON.stringify(appState.derivedTournament));
+  applyResultsToTournament(
+  mapTournament,
+  appState.preview.matches,
+  appState.results,
+  codeToMapId
+);
+  
 
-  const visiblePreviewMatches =
-    getVisibleMatches(appState.preview.matches, stage);
-
-  const mapTournament =
-    JSON.parse(JSON.stringify(appState.derivedTournament));
-
-  // Reset eventuele live-statussen
   Object.values(mapTournament).forEach(team => {
-    if (team.status === "playing") {
+    if (team.status === "playing" || team.status === "upcoming") {
       team.status = "in_race";
     }
   });
 
-  const codeToMapId =
-    buildCountryCodeIndex(
-      appState.countries,
-      appState.mapOverrides
-    );
+  const liveMatches = visiblePreviewMatches.filter(m => m.status === "playing");
+  const upcomingMatch = visiblePreviewMatches.find(m => m.status === "scheduled");
 
-  // Highlight echte live-wedstrijden
-  visiblePreviewMatches
-    .filter(match => match.status === "playing" && isTodayMatch(match))
-    .forEach(match => {
-      const homeId = codeToMapId[match.home];
-      const awayId = codeToMapId[match.away];
+  liveMatches.forEach(match => {
+    const homeId = codeToMapId[match.home];
+    const awayId = codeToMapId[match.away];
 
-      if (homeId && mapTournament[homeId]) {
-        mapTournament[homeId].status = "playing";
-      }
+    if (homeId && mapTournament[homeId]) mapTournament[homeId].status = "playing";
+    if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "playing";
+  });
 
-      if (awayId && mapTournament[awayId]) {
-        mapTournament[awayId].status = "playing";
-      }
-    });
+  if (upcomingMatch) {
+    const homeId = codeToMapId[upcomingMatch.home];
+    const awayId = codeToMapId[upcomingMatch.away];
 
-  // Bepaal eerstvolgende wedstrijd
-  const nextMatch =
-    appState.preview.matches.find(
-      m => m.status === "playing" && isTodayMatch(m)
-    ) ||
-    appState.preview.matches.find(
-      m => isTodayMatch(m) && m.status === "scheduled"
-    ) ||
-    appState.preview.matches.find(
-      m => m.status === "scheduled"
-    );
-
-  // Als er niets live is, highlight de volgende wedstrijd
-  if (
-    nextMatch &&
-    nextMatch.status !== "playing"
-  ) {
-    const homeId = codeToMapId[nextMatch.home];
-    const awayId = codeToMapId[nextMatch.away];
-
-    if (homeId && mapTournament[homeId]) {
-      mapTournament[homeId].status = "upcoming";
-    }
-
-    if (awayId && mapTournament[awayId]) {
-      mapTournament[awayId].status = "upcoming";
-    }
+    if (homeId && mapTournament[homeId]) mapTournament[homeId].status = "upcoming";
+    if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "upcoming";
   }
 
-  updateCounters(
-    mapTournament,
-    visiblePreviewMatches
-  );
+  updateCounters(mapTournament, visiblePreviewMatches);
 
   drawMap(
     appState.world,
@@ -964,20 +889,9 @@ function renderStage(stage) {
     appState.mapOverrides
   );
 
-  renderNextMatch(
-    nextMatch,
-    appState.countries
-  );
-
-  renderBracket(
-    visibleMatches,
-    appState.countries
-  );
-
-  renderTodayMatches(
-    visibleMatches,
-    appState.countries
-  );
+  renderNextMatch(upcomingMatch, appState.countries);
+  renderBracket(visibleMatches, appState.countries);
+  renderTodayMatches(visibleMatches, appState.countries);
 }
 
 function setupTimeline() {
@@ -1036,6 +950,8 @@ appState = {
   mapOverrides,
   derivedTournament
 };
+
+currentStage = detectCurrentStage(preview.matches);
 
 setupTimeline();
 renderStage(currentStage);
