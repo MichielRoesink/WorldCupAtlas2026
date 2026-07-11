@@ -1186,7 +1186,7 @@
       "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "playing"
+      "status": "scheduled"
     },
     {
       "id": 100,

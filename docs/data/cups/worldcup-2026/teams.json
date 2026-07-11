@@ -141,7 +141,7 @@
   },
   {
     "code": "NOR",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "ARG",
@@ -169,7 +169,7 @@
   },
   {
     "code": "GBR",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "HRV",
