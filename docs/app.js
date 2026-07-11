@@ -1,6 +1,17 @@
 const liveNowContainer = document.getElementById("live-now");
 const CURRENT_CUP = "worldcup-2026";
 let currentStage = "r16";
+let showFcgLayer = false;
+const fcgCapitalCoordinates = {
+  AUS: [149.13, -35.28],   // Canberra
+  CPV: [-23.51, 14.93],    // Praia
+  CUW: [-68.93, 12.11],    // Willemstad
+  JPN: [139.69, 35.68],    // Tokyo
+  NED: [4.90, 52.37],      // Amsterdam
+  NOR: [10.75, 59.91],     // Oslo
+  SWE: [18.07, 59.33],     // Stockholm
+  USA: [-77.04, 38.91]     // Washington, D.C.
+};
 let appState = {};
 const DEV_MODE = false;
 const DEV_MATCH_ID = 84;
@@ -761,6 +772,56 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
     );
   });
 
+  if (showFcgLayer && appState.fcgConnections) {
+  const fcgMarkerData = Object.entries(appState.fcgConnections)
+    .map(([code, players]) => ({
+      code,
+      players,
+      coordinates: fcgCapitalCoordinates[code]
+    }))
+    .filter(item => item.coordinates);
+
+  const fcgMarkers = svg.selectAll(".fcg-marker")
+    .data(fcgMarkerData)
+    .enter()
+    .append("g")
+    .attr("class", "fcg-marker")
+    .attr("transform", d => {
+      const [x, y] = projection(d.coordinates);
+      return `translate(${x}, ${y})`;
+    })
+    .style("cursor", "pointer");
+
+  fcgMarkers.append("circle")
+    .attr("r", 8)
+    .attr("fill", "#168542")
+    .attr("stroke", "#ffffff")
+    .attr("stroke-width", 2);
+
+  fcgMarkers.append("circle")
+    .attr("r", 3)
+    .attr("fill", "#ffffff");
+
+  fcgMarkers
+    .on("mousemove", (event, d) => {
+      const country = Object.values(countries)
+        .find(item => item.code === d.code);
+
+      tooltip.style.display = "block";
+      tooltip.style.left = `${event.pageX + 15}px`;
+      tooltip.style.top = `${event.pageY + 15}px`;
+
+      tooltip.innerHTML = `
+        <strong>FC Groningen connection</strong><br>
+        ${country?.flag || "🌍"} ${country?.name || d.code}<br>
+        ${d.players.map(player => player.name).join("<br>")}
+      `;
+    })
+    .on("mouseleave", () => {
+      tooltip.style.display = "none";
+    });
+}
+
   const liveMatch = matches.find(match => match.status === "playing");
 
   if (liveMatch) {
@@ -974,6 +1035,21 @@ function setupTimeline() {
     });
   });
 }
+function setupLayerControls() {
+  const toggle = document.getElementById("fcg-layer-toggle");
+
+  if (!toggle) return;
+
+  toggle.checked = showFcgLayer;
+
+  toggle.addEventListener("change", () => {
+    showFcgLayer = toggle.checked;
+
+    console.log("FC Groningen layer:", showFcgLayer);
+
+    renderStage(currentStage);
+  });
+}
 
 loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, fcgConnections }) => {
   if (currentCupName) {currentCupName.textContent = tournamentInfo.name;}
@@ -1021,5 +1097,6 @@ appState = {
 currentStage = detectCurrentStage(preview.matches);
 
 setupTimeline();
+setupLayerControls();
 renderStage(currentStage);
 });
