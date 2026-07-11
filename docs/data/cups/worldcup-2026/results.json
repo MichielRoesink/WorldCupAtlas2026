@@ -670,5 +670,19 @@
     "awayScore": 0,
     "homePenaltyScore": 4,
     "awayPenaltyScore": 3
+  },
+  {
+    "match": 97,
+    "homeScore": 2,
+    "awayScore": 0,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
+  },
+  {
+    "match": 98,
+    "homeScore": 2,
+    "awayScore": 1,
+    "homePenaltyScore": null,
+    "awayPenaltyScore": null
   }
 ]

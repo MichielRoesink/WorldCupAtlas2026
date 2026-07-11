@@ -1158,11 +1158,11 @@
       "date": "07/09/2026 16:00",
       "home": "FRA",
       "away": "MAR",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 2,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 98,
@@ -1170,11 +1170,11 @@
       "date": "07/10/2026 12:00",
       "home": "ESP",
       "away": "BEL",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 2,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 99,
@@ -1204,8 +1204,8 @@
       "id": 101,
       "round": "sf",
       "date": "07/14/2026 14:00",
-      "home": null,
-      "away": null,
+      "home": "FRA",
+      "away": "ESP",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,

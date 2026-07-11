@@ -1,0 +1,120 @@
+/* CupAtlas — compacte bovenbalk */
+
+.status-row {
+  display: grid !important;
+  grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+  margin: 14px 20px 14px !important;
+}
+
+/* Vier tellers */
+.status-row .map-status {
+  display: contents !important;
+}
+
+.status-row .status-chip {
+  position: static !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  margin: 0 !important;
+  padding: 0 18px !important;
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+/* Live Match en Next Match */
+.status-row .match-panels {
+  display: contents !important;
+}
+
+..status-row .live-now {
+  grid-column: 5 / span 2 !important;
+}
+
+.status-row .next-match-card {
+  grid-column: 7 / span 2 !important;
+}
+
+.status-row .live-banner {
+  position: static !important;
+  width: 100% !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.status-row .next-match-card {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px 20px !important;
+}
+
+/* Zonder livewedstrijd blijft alleen Next Match rechts staan */
+.status-row .live-now:empty {
+  display: none !important;
+}
+
+.status-row .live-now:empty + .next-match-card {
+  grid-column: 7 / span 2 !important;
+}
+
+/* De kaart begint direct onder de blokken */
+.map-placeholder {
+  margin-top: 0 !important;
+}
+
+/* Kleinere schermen */
+@media (max-width: 900px) {
+  .status-row .map-status {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .status-row .match-panels {
+  display: contents !important;
+}
+
+/* Houd de live-bal binnen het Live Match-paneel */
+.status-row .live-banner {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.status-row .live-ball-track {
+  position: absolute !important;
+}
+/* Timeline compacter en dichter bij de kaart */
+
+.timeline-bar {
+  margin: 8px auto 10px !important;
+  padding: 6px 10px !important;
+  min-height: 0 !important;
+}
+
+.timeline-stage {
+  padding: 8px 14px !important;
+  font-size: 0.76rem !important;
+}
+
+/* Minder verticale ruimte boven de kaart */
+.atlas-map-wrap {
+  padding-top: 0 !important;
+}
+
+.status-row {
+  margin-bottom: 8px !important;
+}
+
+.map-placeholder {
+  margin-top: 0 !important;
+}

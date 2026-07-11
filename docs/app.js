@@ -285,6 +285,16 @@ function isTodayMatch(match) {
     matchDate.getDate() === today.getDate()
   );
 }
+
+function formatDutchTime(dateString) {
+  const [datePart, timePart] = dateString.split(" ");
+  const [hours, minutes] = timePart.split(":").map(Number);
+
+  const dutchHours = (hours + 6) % 24;
+
+  return `${String(dutchHours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+}
+
 function renderNextMatch(match, countries) {
   const card = document.getElementById("next-match-card");
   if (!card) return;
@@ -307,21 +317,19 @@ function renderNextMatch(match, countries) {
       </div>
     </div>
 
-    <div class="next-match-datetime">
+        <div class="next-match-datetime">
       <strong>${match.date.split(" ")[0]}</strong>
-<div class="next-match-time">${match.date.split(" ")[1]}</div>
+      <div class="next-match-time">
+        ${match.date.split(" ")[1]} US / ${formatDutchTime(match.date)} NL
+      </div>
     </div>
   `;
 }
 
 function renderLiveNow(matches, countries) {
-  const liveMatch =
-  matches.find(match => match.status === "playing" && isTodayMatch(match)) ||
-  matches.find(match =>
-    isTodayMatch(match) &&
-    (match.status === "scheduled" || match.status === "pending")
-  ) ||
-  (DEV_MODE ? matches.find(match => match.id === DEV_MATCH_ID) : null);
+ const liveMatch = matches.find(
+  match => match.status === "playing"
+);
 
   if (!liveMatch) {
     liveNowContainer.innerHTML = "";
@@ -330,8 +338,8 @@ function renderLiveNow(matches, countries) {
 
   const home = getCountryByCode(liveMatch.home, countries);
   const away = getCountryByCode(liveMatch.away, countries);
-  const isLive = liveMatch.status === "playing" && isTodayMatch(liveMatch);
-  const matchLabel = isLive ? "● LIVE" : "NEXT MATCH";
+  const isLive = true;
+const matchLabel = "● LIVE";
 
   liveNowContainer.innerHTML = `
   <div class="live-banner">
@@ -765,7 +773,7 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
         .attr("class", "next-match-path")
         .attr(
           "d",
-          `M ${start[0]} ${start[1]} Q ${(start[0] + end[0]) / 2} ${Math.min(start[1], end[1]) - 90} ${end[0]} ${end[1]}`
+        `M ${start[0]} ${start[1]} L ${end[0]} ${end[1]}`
         );
 
       svg.append("text")
@@ -834,6 +842,28 @@ function setActiveTimelineStage(stage) {
     button.classList.toggle("active", button.dataset.stage === stage);
   });
 }
+function stageRank(stage) {
+  return {
+    groups: 1,
+    r32: 2,
+    r16: 3,
+    qf: 4,
+    sf: 5,
+    final: 6
+  }[stage] || 0;
+}
+
+function getStageParticipantCodes(matches, stage) {
+  if (stage === "groups") {
+    return null;
+  }
+
+  return new Set(
+    getVisibleMatches(matches, stage)
+      .flatMap(m => [m.home, m.away])
+      .filter(Boolean)
+  );
+}
 
 function renderStage(stage) {
   if (!appState.world) return;
@@ -851,7 +881,32 @@ function renderStage(stage) {
   appState.results,
   codeToMapId
 );
-  
+  const actualStage = detectCurrentStage(appState.preview.matches);
+const selectedStageIsPast = stageRank(stage) < stageRank(actualStage);
+
+if (selectedStageIsPast) {
+  const participantCodes = getStageParticipantCodes(
+    appState.preview.matches,
+    stage
+  );
+
+  Object.values(mapTournament).forEach(team => {
+    team.status = "out";
+  });
+
+  if (stage === "groups") {
+    Object.values(mapTournament).forEach(team => {
+      team.status = "in_race";
+    });
+  } else {
+    participantCodes.forEach(code => {
+      const mapId = codeToMapId[code];
+      if (mapId && mapTournament[mapId]) {
+        mapTournament[mapId].status = "in_race";
+      }
+    });
+  }
+}
 
   Object.values(mapTournament).forEach(team => {
     if (team.status === "playing" || team.status === "upcoming") {
@@ -859,8 +914,15 @@ function renderStage(stage) {
     }
   });
 
-  const liveMatches = visiblePreviewMatches.filter(m => m.status === "playing");
-  const upcomingMatch = visiblePreviewMatches.find(m => m.status === "scheduled");
+  const liveMatches = selectedStageIsPast
+  ? []
+  : visiblePreviewMatches.filter(m => m.status === "playing");
+
+const upcomingMatch = selectedStageIsPast
+  ? null
+  : visiblePreviewMatches
+      .filter(m => m.status === "scheduled" && m.home && m.away)
+      .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
 
   liveMatches.forEach(match => {
     const homeId = codeToMapId[match.home];
@@ -889,6 +951,7 @@ function renderStage(stage) {
     appState.mapOverrides
   );
 
+  renderLiveNow(visiblePreviewMatches, appState.countries);
   renderNextMatch(upcomingMatch, appState.countries);
   renderBracket(visibleMatches, appState.countries);
   renderTodayMatches(visibleMatches, appState.countries);
