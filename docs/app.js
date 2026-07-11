@@ -105,7 +105,7 @@ function renderBracket(matches, countries) {
   }).join("");
 }
 async function loadData() {
-  const [world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides] = await Promise.all([
+  const [world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, fcgConnections] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
     d3.json(`${DATA_PATH}/teams.json`),
@@ -113,7 +113,8 @@ async function loadData() {
     d3.json(`${DATA_PATH}/preview.json`),
     d3.json(`${DATA_PATH}/results/results.json`),
     d3.json(`${DATA_PATH}/tournament.json`),
-    d3.json("data/map-overrides.json")
+    d3.json("data/map-overrides.json"),
+    d3.json("data/fcg-connections.json")
   ]);
 
   return {
@@ -124,7 +125,8 @@ async function loadData() {
   preview,
   results,
   tournamentInfo,
-  mapOverrides
+  mapOverrides,
+  fcgConnections
 };
 }
 
@@ -955,6 +957,7 @@ const upcomingMatch = selectedStageIsPast
   renderNextMatch(upcomingMatch, appState.countries);
   renderBracket(visibleMatches, appState.countries);
   renderTodayMatches(visibleMatches, appState.countries);
+  console.log("FCG", appState.fcgConnections);
 }
 
 function setupTimeline() {
@@ -972,7 +975,7 @@ function setupTimeline() {
   });
 }
 
-loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides }) => {
+loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, fcgConnections }) => {
   if (currentCupName) {currentCupName.textContent = tournamentInfo.name;}
   const codeToMapId = buildCountryCodeIndex(countries, mapOverrides);
 
@@ -1011,6 +1014,7 @@ appState = {
   results,
   tournamentInfo,
   mapOverrides,
+  fcgConnections,
   derivedTournament
 };
 

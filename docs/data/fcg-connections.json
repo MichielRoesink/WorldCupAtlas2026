@@ -1,0 +1,58 @@
+{
+  "AUS": [
+    {
+      "name": "Ajdin Hrustic",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "CPV": [
+    {
+      "name": "Laros Duarte",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "CUW": [
+    {
+      "name": "Leandro Bacuna",
+      "connection": "Former FC Groningen player"
+    },
+    {
+      "name": "Juninho Bacuna",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "JPN": [
+    {
+      "name": "Ko Itakura",
+      "connection": "Former FC Groningen player"
+    },
+    {
+      "name": "Ritsu Doan",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "NED": [
+    {
+      "name": "Virgil van Dijk",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "NOR": [
+    {
+      "name": "Jorgen Strand Larsen",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "SWE": [
+    {
+      "name": "Gabriel Gudmundsson",
+      "connection": "Former FC Groningen player"
+    }
+  ],
+  "USA": [
+    {
+      "name": "Ricardo Pepi",
+      "connection": "Former FC Groningen player"
+    }
+  ]
+}
