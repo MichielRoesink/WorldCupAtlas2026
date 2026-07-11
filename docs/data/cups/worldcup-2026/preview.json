@@ -1182,11 +1182,11 @@
       "date": "07/11/2026 17:00",
       "home": "NOR",
       "away": "GBR",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "playing"
     },
     {
       "id": 100,
