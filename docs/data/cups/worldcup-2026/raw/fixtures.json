@@ -1,6 +1,6 @@
 {
   "source": "worldcup26",
-  "fetchedAt": "2026-07-11T22:54:21.400Z",
+  "fetchedAt": "2026-07-11T23:41:22.380Z",
   "matches": {
     "games": [
       {
@@ -2362,9 +2362,9 @@
         "home_team_id": "36",
         "away_team_id": "45",
         "home_score": "1",
-        "away_score": "1",
+        "away_score": "2",
         "home_scorers": "{\"Andrias Shldrvp 36'\"}",
-        "away_scorers": "{\"Jvd Blingham 45+2'\"}",
+        "away_scorers": "{\"Jvd Blingham 45+2'\",\"Jvd Blingham 93'\"}",
         "group": "QF",
         "matchday": "6",
         "local_date": "07/11/2026 17:00",
