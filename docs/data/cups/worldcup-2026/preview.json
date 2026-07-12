@@ -1194,11 +1194,11 @@
       "date": "07/11/2026 20:00",
       "home": "ARG",
       "away": "CHE",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 3,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 101,
@@ -1217,7 +1217,7 @@
       "round": "sf",
       "date": "07/15/2026 15:00",
       "home": "GBR",
-      "away": null,
+      "away": "ARG",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,
