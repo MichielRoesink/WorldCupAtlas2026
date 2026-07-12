@@ -1129,17 +1129,19 @@ main {
   stroke-width: .8px;
   cursor: pointer;
   transition:
-    fill .25s ease,
-    stroke .25s ease,
-    opacity .25s ease,
-    filter .25s ease;
+  fill .35s ease,
+  stroke .25s ease,
+  opacity .30s ease,
+  filter .35s ease,
+  transform .25s ease;
   filter: url(#softLandShadow);
 }
 
 .country:hover {
   stroke: #ffffff !important;
   stroke-width: 2px !important;
-  filter: brightness(1.06);
+  filter: brightness(1.08);
+  transform: translateY(-0.4px);
 }
 
 .live-map-path {
@@ -1159,7 +1161,7 @@ main {
 }
 
 .status-in_race {
-  filter: url(#softLandShadow) drop-shadow(0 0 5px rgba(21,128,61,.22));
+  filter: url(#softLandShadow) drop-shadow(0 0 6px rgba(22,133,66,.22));
 }
 
 .status-upcoming {
