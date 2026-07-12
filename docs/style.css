@@ -140,11 +140,6 @@ main {
     height: 100%;
 }
 
-.country {
-    fill: #d1d5db;
-    stroke: #ffffff;
-    stroke-width: 0.5;
-}
 .country.qualified {
     fill: #2e7d32;
 }
@@ -1040,10 +1035,6 @@ main {
     inset 0 0 0 1px rgba(255,255,255,.45),
     0 18px 45px rgba(15,23,42,.14);
 }
-.country {
-  stroke: rgba(255,255,255,.85);
-  stroke-width: .55;
-}
 
 .island-marker {
   r: 5;
@@ -1134,8 +1125,8 @@ main {
   font-size: 1rem;
 }
 .country {
-  stroke: rgba(255,255,255,.7);
-  stroke-width: .65px;
+  stroke: rgba(255,255,255,.82);
+  stroke-width: .8px;
   cursor: pointer;
   transition:
     fill .25s ease,
@@ -1168,11 +1159,28 @@ main {
 }
 
 .status-in_race {
-  filter: url(#softLandShadow) drop-shadow(0 0 7px rgba(21,128,61,.45));
+  filter: url(#softLandShadow) drop-shadow(0 0 5px rgba(21,128,61,.22));
+}
+
+.status-upcoming {
+  filter: url(#softLandShadow) drop-shadow(0 0 7px rgba(245,158,11,.40));
 }
 
 .status-playing {
-  filter: url(#softLandShadow) drop-shadow(0 0 10px rgba(250,204,21,.8));
+  filter: url(#softLandShadow) drop-shadow(0 0 9px rgba(250,204,21,.55));
+}
+
+.status-playing {
+  animation: liveCountryPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes liveCountryPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .82;
+  }
 }
 
 .status-out {

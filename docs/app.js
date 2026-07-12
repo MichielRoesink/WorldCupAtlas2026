@@ -645,9 +645,9 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
 
   svg.append("defs").html(`
     <radialGradient id="oceanGradient" cx="50%" cy="45%" r="75%">
-      <stop offset="0%" stop-color="#f8fbff"/>
-      <stop offset="55%" stop-color="#e8f2ff"/>
-      <stop offset="100%" stop-color="#cfe3f7"/>
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="58%" stop-color="#eaf3fb"/>
+      <stop offset="100%" stop-color="#d7e8f5"/>
     </radialGradient>
 
     <filter id="softLandShadow">
