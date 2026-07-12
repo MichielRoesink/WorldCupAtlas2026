@@ -1182,11 +1182,11 @@
       "date": "07/11/2026 17:00",
       "home": "NOR",
       "away": "GBR",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 1,
+      "awayScore": 2,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 100,
@@ -1194,11 +1194,11 @@
       "date": "07/11/2026 20:00",
       "home": "ARG",
       "away": "CHE",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": 3,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 101,
@@ -1216,8 +1216,8 @@
       "id": 102,
       "round": "sf",
       "date": "07/15/2026 15:00",
-      "home": null,
-      "away": null,
+      "home": "GBR",
+      "away": "ARG",
       "homeScore": 0,
       "awayScore": 0,
       "homePenaltyScore": null,

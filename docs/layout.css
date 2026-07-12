@@ -3,9 +3,9 @@
 .status-row {
   display: grid !important;
   grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
-  gap: 12px !important;
+  gap: 8px !important;
   align-items: stretch !important;
-  margin: 14px 20px 14px !important;
+  margin: 14px 20px !important;
 }
 
 /* Vier tellers */
@@ -35,29 +35,41 @@
   display: contents !important;
 }
 
-..status-row .live-now {
+/* Live Match links (25%) */
+.status-row .live-now {
   grid-column: 5 / span 2 !important;
 }
 
+/* Next Match rechts (25%) */
 .status-row .next-match-card {
   grid-column: 7 / span 2 !important;
 }
 
-.status-row .live-banner {
-  position: static !important;
-  width: 100% !important;
+/* Beide kaarten exact even hoog als de tellers */
+.status-row .live-banner,
+.status-row .next-match-card {
   height: 56px !important;
   min-height: 56px !important;
   max-height: 56px !important;
-  margin: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
   box-sizing: border-box !important;
 }
 
+/* Live Match = geel */
+.status-row .live-banner {
+  background: #fde047 !important;
+  border: 1px solid #eab308 !important;
+  padding: 0 16px !important;
+}
+
+/* Next Match = oranje */
 .status-row .next-match-card {
-  display: flex !important;
-  align-items: center !important;
+  background: #fed7aa !important;
+  border: 1px solid #fb923c !important;
   justify-content: space-between !important;
-  padding: 16px 20px !important;
+  padding: 0 16px !important;
 }
 
 /* Zonder livewedstrijd blijft alleen Next Match rechts staan */
@@ -68,20 +80,10 @@
 .status-row .live-now:empty + .next-match-card {
   grid-column: 7 / span 2 !important;
 }
-
-/* De kaart begint direct onder de blokken */
+/* De kaart begint direct onder de compacte bovenbalk */
 .map-placeholder {
   margin-top: 0 !important;
-}
-
-/* Kleinere schermen */
-@media (max-width: 900px) {
-  .status-row .map-status {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .status-row .match-panels {
-  display: contents !important;
+  min-height: 68vh !important;
 }
 
 /* Houd de live-bal binnen het Live Match-paneel */
@@ -93,12 +95,21 @@
 .status-row .live-ball-track {
   position: absolute !important;
 }
-/* Timeline compacter en dichter bij de kaart */
+
+/* Compacte ruimte boven de kaart */
+.atlas-page,
+.atlas-hero {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.atlas-topline {
+  display: none !important;
+}
 
 .timeline-bar {
-  margin: 8px auto 10px !important;
-  padding: 6px 10px !important;
-  min-height: 0 !important;
+  margin: 2px auto 4px !important;
+  padding: 0 !important;
 }
 
 .timeline-stage {
@@ -106,27 +117,19 @@
   font-size: 0.76rem !important;
 }
 
-/* Minder verticale ruimte boven de kaart */
 .atlas-map-wrap {
   padding-top: 0 !important;
-}
-
-.status-row {
-  margin-bottom: 8px !important;
-}
-
-.map-placeholder {
   margin-top: 0 !important;
 }
 
 /* Kaartlagen */
-
 .map-layer-control {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 14px;
-  margin: 0 20px 8px;
+  margin: 0 20px 2px !important;
+  min-height: 22px !important;
   font-size: 0.75rem;
   color: #64748b;
 }
@@ -149,10 +152,24 @@
   accent-color: #168542;
 }
 
+/* FC Groningen-markers */
 .fcg-marker {
-  filter: drop-shadow(0 2px 5px rgba(15, 23, 42, .28));
+  filter: drop-shadow(0 2px 5px rgba(15, 23, 42, 0.28));
 }
 
 .fcg-marker:hover circle:first-child {
   r: 10;
+}
+
+/* Kleinere schermen */
+@media (max-width: 900px) {
+  .status-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .status-row .live-now,
+  .status-row .next-match-card,
+  .status-row .live-now:empty + .next-match-card {
+    grid-column: 1 / -1 !important;
+  }
 }

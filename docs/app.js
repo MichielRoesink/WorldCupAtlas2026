@@ -885,19 +885,21 @@ function getVisibleMatches(matches, stage) {
 }
 
 function detectCurrentStage(matches) {
-  if (matches.some(m => m.round === "qf" && (m.status === "playing" || m.status === "scheduled"))) {
-    return "qf";
+  const stages = ["groups", "r32", "r16", "qf", "sf", "final"];
+
+  for (const stage of stages) {
+    const stageMatches = getVisibleMatches(matches, stage);
+
+    if (
+      stageMatches.some(match =>
+        ["playing", "scheduled", "pending"].includes(match.status)
+      )
+    ) {
+      return stage;
+    }
   }
 
-  if (matches.some(m => m.round === "r16" && (m.status === "playing" || m.status === "scheduled"))) {
-    return "r16";
-  }
-
-  if (matches.some(m => m.round === "r32" && (m.status === "playing" || m.status === "scheduled"))) {
-    return "r32";
-  }
-
-  return "groups";
+  return "final";
 }
 
 function setActiveTimelineStage(stage) {
