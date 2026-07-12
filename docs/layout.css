@@ -83,7 +83,7 @@
 /* De kaart begint direct onder de compacte bovenbalk */
 .map-placeholder {
   margin-top: 0 !important;
-  min-height: 68vh !important;
+  min-height: 75vh !important;
 }
 
 /* Houd de live-bal binnen het Live Match-paneel */

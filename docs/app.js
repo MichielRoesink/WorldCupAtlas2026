@@ -321,22 +321,30 @@ function renderNextMatch(match, countries) {
   const away = getCountryByCode(match.away, countries);
 
   card.innerHTML = `
-    <div>
-      <div class="next-match-label">Next match</div>
-      <div class="next-match-teams">
-        ${home?.flag || ""} ${home?.name || match.home}
-        <span>vs</span>
-        ${away?.flag || ""} ${away?.name || match.away}
-      </div>
-    </div>
+  <div class="next-match-main">
+    <div class="next-match-label">Next match</div>
 
-        <div class="next-match-datetime">
-      <strong>${match.date.split(" ")[0]}</strong>
-      <div class="next-match-time">
-        ${match.date.split(" ")[1]} US / ${formatDutchTime(match.date)} NL
-      </div>
+    <div class="next-match-teams">
+      <span class="next-team">
+        ${home?.flag || ""} ${home?.name || match.home}
+      </span>
+
+      <span class="next-vs">vs</span>
+
+      <span class="next-team">
+        ${away?.flag || ""} ${away?.name || match.away}
+      </span>
     </div>
-  `;
+  </div>
+
+  <div class="next-match-datetime">
+    <strong>${match.date.split(" ")[0]}</strong>
+
+    <div class="next-match-time">
+      ${match.date.split(" ")[1]} US / ${formatDutchTime(match.date)} NL
+    </div>
+  </div>
+`;
 }
 
 function renderLiveNow(matches, countries) {
