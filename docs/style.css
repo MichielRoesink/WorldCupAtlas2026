@@ -1138,8 +1138,8 @@ main {
 
 .country:hover {
   stroke: #ffffff !important;
-  stroke-width: 2.2px !important;
-  filter: brightness(1.08);
+  stroke-width: 2px !important;
+  filter: brightness(1.06);
 }
 
 .live-map-path {
@@ -1185,10 +1185,11 @@ main {
 
 .status-out {
   opacity: .82;
+  filter: saturate(.82) brightness(.96);
 }
 
 .status-not_participating {
-  opacity: .55;
+  opacity: .78;
 }
 
 .live-topline {

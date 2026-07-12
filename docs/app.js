@@ -734,7 +734,7 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
   .attr("class", "island-marker")
   .attr("cx", d => projection([d.lon, d.lat])[0])
   .attr("cy", d => projection([d.lon, d.lat])[1])
-  .attr("r", 5)
+  .attr("r", 4.5)
   .style("fill", d => {
     const mapId = codeToMapId[d.code];
     const team = mapId ? tournament[mapId] : null;
@@ -742,7 +742,7 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
     return statusColors[status] || statusColors.unknown;
   })
   .style("stroke", "#fff")
-  .style("stroke-width", 2)
+  .style("stroke-width", 1.5)
   .style("cursor", "pointer")
   .on("mousemove", (event, d) => {
     const mapId = codeToMapId[d.code];
