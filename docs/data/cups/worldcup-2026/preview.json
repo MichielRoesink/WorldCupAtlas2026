@@ -1186,7 +1186,7 @@
       "awayScore": 2,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 100,
@@ -1216,7 +1216,7 @@
       "id": 102,
       "round": "sf",
       "date": "07/15/2026 15:00",
-      "home": null,
+      "home": "GBR",
       "away": null,
       "homeScore": 0,
       "awayScore": 0,
