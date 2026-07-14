@@ -1,6 +1,6 @@
 {
   "source": "worldcup26",
-  "fetchedAt": "2026-07-14T19:46:59.736Z",
+  "fetchedAt": "2026-07-14T20:44:48.878Z",
   "matches": {
     "games": [
       {
@@ -2417,9 +2417,9 @@
         "home_team_id": "33",
         "away_team_id": "29",
         "home_score": "0",
-        "away_score": "1",
+        "away_score": "2",
         "home_scorers": "null",
-        "away_scorers": "null",
+        "away_scorers": "{\"Pedro Porro 58'\"}",
         "group": "SF",
         "matchday": "7",
         "local_date": "07/14/2026 14:00",
