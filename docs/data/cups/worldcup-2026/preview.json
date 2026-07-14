@@ -1207,7 +1207,7 @@
       "home": "FRA",
       "away": "ESP",
       "homeScore": 0,
-      "awayScore": 0,
+      "awayScore": 1,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
