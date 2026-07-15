@@ -1218,11 +1218,11 @@
       "date": "07/15/2026 15:00",
       "home": "GBR",
       "away": "ARG",
-      "homeScore": null,
-      "awayScore": null,
+      "homeScore": 0,
+      "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "playing"
     },
     {
       "id": 103,
