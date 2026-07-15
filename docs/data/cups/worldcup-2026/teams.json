@@ -145,7 +145,7 @@
   },
   {
     "code": "ARG",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "DZA",
@@ -169,7 +169,7 @@
   },
   {
     "code": "GBR",
-    "status": "playing"
+    "status": "out"
   },
   {
     "code": "HRV",
