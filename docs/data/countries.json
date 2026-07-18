@@ -1,1502 +1,2006 @@
 {
-  "004": {
-    "code": "AFG",
-    "name": "Afghanistan",
-    "flag": "🇦🇫",
-    "confederation": ""
+  "100": {
+    "code": "BGR",
+    "name": "Bulgaria",
+    "flag": "🇧🇬",
+    "confederation": "",
+    "fifaRanking": 87,
+    "population": 6433302
+  },
+  "104": {
+    "code": "MMR",
+    "name": "Myanmar",
+    "flag": "🇲🇲",
+    "confederation": "",
+    "fifaRanking": 158,
+    "population": 54850648
+  },
+  "108": {
+    "code": "BDI",
+    "name": "Burundi",
+    "flag": "🇧🇮",
+    "confederation": "",
+    "fifaRanking": 142,
+    "population": 14390003
+  },
+  "112": {
+    "code": "BLR",
+    "name": "Belarus",
+    "flag": "🇧🇾",
+    "confederation": "",
+    "fifaRanking": 96,
+    "population": 9085991
+  },
+  "116": {
+    "code": "KHM",
+    "name": "Cambodia",
+    "flag": "🇰🇭",
+    "confederation": "",
+    "fifaRanking": 175,
+    "population": 17847982
+  },
+  "120": {
+    "code": "CMR",
+    "name": "Cameroon",
+    "flag": "🇨🇲",
+    "confederation": "",
+    "fifaRanking": 44,
+    "population": 29879337
+  },
+  "124": {
+    "code": "CAN",
+    "name": "Canada",
+    "flag": "🇨🇦",
+    "confederation": "CONCACAF",
+    "fifaRanking": 30,
+    "population": 41651653
+  },
+  "132": {
+    "code": "CPV",
+    "name": "Cape Verde",
+    "flag": "🇨🇻",
+    "confederation": "",
+    "fifaRanking": 67,
+    "population": 527326
+  },
+  "136": {
+    "code": "CYM",
+    "name": "Cayman Islands",
+    "flag": "🇰🇾",
+    "confederation": "",
+    "fifaRanking": 197,
+    "population": 75844
+  },
+  "140": {
+    "code": "CAF",
+    "name": "Central African Republic",
+    "flag": "🇨🇫",
+    "confederation": "",
+    "fifaRanking": 139,
+    "population": 5513282
+  },
+  "144": {
+    "code": "LKA",
+    "name": "Sri Lanka",
+    "flag": "🇱🇰",
+    "confederation": "",
+    "fifaRanking": 187,
+    "population": 21756000
+  },
+  "148": {
+    "code": "TCD",
+    "name": "Chad",
+    "flag": "🇹🇩",
+    "confederation": "",
+    "fifaRanking": 183,
+    "population": 21003705
+  },
+  "152": {
+    "code": "CHL",
+    "name": "Chile",
+    "flag": "🇨🇱",
+    "confederation": "",
+    "fifaRanking": 51,
+    "population": 19859921
+  },
+  "156": {
+    "code": "CHN",
+    "name": "China",
+    "flag": "🇨🇳",
+    "confederation": "",
+    "fifaRanking": 91,
+    "population": 1406585000
+  },
+  "158": {
+    "code": "TWN",
+    "name": "Taiwan",
+    "flag": "🇹🇼",
+    "confederation": "",
+    "fifaRanking": 174,
+    "population": null
+  },
+  "162": {
+    "code": "CXR",
+    "name": "Christmas Island",
+    "flag": "🇨🇽",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "166": {
+    "code": "CCK",
+    "name": "Cocos Islands",
+    "flag": "🇨🇨",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "170": {
+    "code": "COL",
+    "name": "Colombia",
+    "flag": "🇨🇴",
+    "confederation": "",
+    "fifaRanking": 13,
+    "population": 53425635
+  },
+  "174": {
+    "code": "COM",
+    "name": "Comoros",
+    "flag": "🇰🇲",
+    "confederation": "",
+    "fifaRanking": 108,
+    "population": 882847
+  },
+  "175": {
+    "code": "MYT",
+    "name": "Mayotte",
+    "flag": "🇾🇹",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "178": {
+    "code": "COG",
+    "name": "Congo - Brazzaville",
+    "flag": "🇨🇬",
+    "confederation": "",
+    "fifaRanking": 134,
+    "population": 6484437
+  },
+  "180": {
+    "code": "COD",
+    "name": "Congo - Kinshasa",
+    "flag": "🇨🇩",
+    "confederation": "",
+    "fifaRanking": 46,
+    "population": 112832473
+  },
+  "184": {
+    "code": "COK",
+    "name": "Cook Islands",
+    "flag": "🇨🇰",
+    "confederation": "",
+    "fifaRanking": 186,
+    "population": null
+  },
+  "188": {
+    "code": "CRI",
+    "name": "Costa Rica",
+    "flag": "🇨🇷",
+    "confederation": "",
+    "fifaRanking": 53,
+    "population": 5152950
+  },
+  "191": {
+    "code": "HRV",
+    "fifaCode": "CRO",
+    "name": "Croatia",
+    "flag": "🇭🇷",
+    "confederation": "",
+    "fifaRanking": 11,
+    "population": 3876200
+  },
+  "192": {
+    "code": "CUB",
+    "name": "Cuba",
+    "flag": "🇨🇺",
+    "confederation": "",
+    "fifaRanking": 164,
+    "population": 10937203
+  },
+  "196": {
+    "code": "CYP",
+    "name": "Cyprus",
+    "flag": "🇨🇾",
+    "confederation": "",
+    "fifaRanking": 124,
+    "population": 1370754
+  },
+  "203": {
+    "code": "CZE",
+    "name": "Czechia",
+    "flag": "🇨🇿",
+    "confederation": "",
+    "fifaRanking": 40,
+    "population": 10886878
+  },
+  "204": {
+    "code": "BEN",
+    "name": "Benin",
+    "flag": "🇧🇯",
+    "confederation": "",
+    "fifaRanking": 93,
+    "population": 14814460
+  },
+  "208": {
+    "code": "DNK",
+    "name": "Denmark",
+    "flag": "🇩🇰",
+    "confederation": "",
+    "fifaRanking": 21,
+    "population": 6009169
+  },
+  "212": {
+    "code": "DMA",
+    "name": "Dominica",
+    "flag": "🇩🇲",
+    "confederation": "",
+    "fifaRanking": 182,
+    "population": 65871
+  },
+  "214": {
+    "code": "DOM",
+    "name": "Dominican Republic",
+    "flag": "🇩🇴",
+    "confederation": "",
+    "fifaRanking": 144,
+    "population": 11520487
+  },
+  "218": {
+    "code": "ECU",
+    "name": "Ecuador",
+    "flag": "🇪🇨",
+    "confederation": "",
+    "fifaRanking": 23,
+    "population": 18289896
+  },
+  "222": {
+    "code": "SLV",
+    "name": "El Salvador",
+    "flag": "🇸🇻",
+    "confederation": "",
+    "fifaRanking": 100,
+    "population": 6365503
+  },
+  "226": {
+    "code": "GNQ",
+    "name": "Equatorial Guinea",
+    "flag": "🇬🇶",
+    "confederation": "",
+    "fifaRanking": 105,
+    "population": 1938431
+  },
+  "231": {
+    "code": "ETH",
+    "name": "Ethiopia",
+    "flag": "🇪🇹",
+    "confederation": "",
+    "fifaRanking": 143,
+    "population": 135472051
+  },
+  "232": {
+    "code": "ERI",
+    "name": "Eritrea",
+    "flag": "🇪🇷",
+    "confederation": "",
+    "fifaRanking": 184,
+    "population": 3607003
+  },
+  "233": {
+    "code": "EST",
+    "name": "Estonia",
+    "flag": "🇪🇪",
+    "confederation": "",
+    "fifaRanking": 127,
+    "population": 1366475
+  },
+  "234": {
+    "code": "FRO",
+    "name": "Faroe Islands",
+    "flag": "🇫🇴",
+    "confederation": "",
+    "fifaRanking": 123,
+    "population": 54900
+  },
+  "238": {
+    "code": "FLK",
+    "name": "Falkland Islands",
+    "flag": "🇫🇰",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "239": {
+    "code": "SGS",
+    "name": "South Georgia & South Sandwich Islands",
+    "flag": "🇬🇸",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "242": {
+    "code": "FJI",
+    "name": "Fiji",
+    "flag": "🇫🇯",
+    "confederation": "",
+    "fifaRanking": 155,
+    "population": 933154
+  },
+  "246": {
+    "code": "FIN",
+    "name": "Finland",
+    "flag": "🇫🇮",
+    "confederation": "",
+    "fifaRanking": 75,
+    "population": 5646436
   },
   "248": {
     "code": "ALA",
     "name": "Åland Islands",
     "flag": "🇦🇽",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
   },
-  "008": {
-    "code": "ALB",
-    "name": "Albania",
-    "flag": "🇦🇱",
-    "confederation": ""
+  "250": {
+    "code": "FRA",
+    "name": "France",
+    "flag": "🇫🇷",
+    "confederation": "UEFA",
+    "fifaRanking": 3,
+    "population": 68720337
   },
-  "012": {
-    "code": "DZA",
-    "name": "Algeria",
-    "flag": "🇩🇿",
-    "confederation": ""
+  "254": {
+    "code": "GUF",
+    "name": "French Guiana",
+    "flag": "🇬🇫",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
   },
-  "016": {
-    "code": "ASM",
-    "name": "American Samoa",
-    "flag": "🇦🇸",
-    "confederation": ""
+  "258": {
+    "code": "PYF",
+    "name": "French Polynesia",
+    "flag": "🇵🇫",
+    "confederation": "",
+    "fifaRanking": 157,
+    "population": 282465
   },
-  "020": {
-    "code": "AND",
-    "name": "Andorra",
-    "flag": "🇦🇩",
-    "confederation": ""
+  "260": {
+    "code": "ATF",
+    "name": "French Southern Territories",
+    "flag": "🇹🇫",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
   },
-  "024": {
-    "code": "AGO",
-    "name": "Angola",
-    "flag": "🇦🇴",
-    "confederation": ""
+  "262": {
+    "code": "DJI",
+    "name": "Djibouti",
+    "flag": "🇩🇯",
+    "confederation": "",
+    "fifaRanking": 196,
+    "population": 1184076
+  },
+  "266": {
+    "code": "GAB",
+    "name": "Gabon",
+    "flag": "🇬🇦",
+    "confederation": "",
+    "fifaRanking": 86,
+    "population": 2593130
+  },
+  "268": {
+    "code": "GEO",
+    "name": "Georgia",
+    "flag": "🇬🇪",
+    "confederation": "",
+    "fifaRanking": 72,
+    "population": 3935766
+  },
+  "270": {
+    "code": "GMB",
+    "name": "Gambia",
+    "flag": "🇬🇲",
+    "confederation": "",
+    "fifaRanking": 116,
+    "population": 2822093
+  },
+  "275": {
+    "code": "PSE",
+    "name": "Palestine",
+    "flag": "🇵🇸",
+    "confederation": "",
+    "fifaRanking": 95,
+    "population": 5413596
+  },
+  "276": {
+    "code": "DEU",
+    "fifaCode": "GER",
+    "name": "Germany",
+    "flag": "🇩🇪",
+    "confederation": "",
+    "fifaRanking": 10,
+    "population": 83491249
+  },
+  "288": {
+    "code": "GHA",
+    "name": "Ghana",
+    "flag": "🇬🇭",
+    "confederation": "",
+    "fifaRanking": 73,
+    "population": 35064272
+  },
+  "292": {
+    "code": "GIB",
+    "name": "Gibraltar",
+    "flag": "🇬🇮",
+    "confederation": "",
+    "fifaRanking": 202,
+    "population": 40126
+  },
+  "296": {
+    "code": "KIR",
+    "name": "Kiribati",
+    "flag": "🇰🇮",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 136488
+  },
+  "300": {
+    "code": "GRC",
+    "name": "Greece",
+    "flag": "🇬🇷",
+    "confederation": "",
+    "fifaRanking": 48,
+    "population": 10413962
+  },
+  "304": {
+    "code": "GRL",
+    "name": "Greenland",
+    "flag": "🇬🇱",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 56831
+  },
+  "308": {
+    "code": "GRD",
+    "name": "Grenada",
+    "flag": "🇬🇩",
+    "confederation": "",
+    "fifaRanking": 163,
+    "population": 117303
+  },
+  "312": {
+    "code": "GLP",
+    "name": "Guadeloupe",
+    "flag": "🇬🇵",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "316": {
+    "code": "GUM",
+    "name": "Guam",
+    "flag": "🇬🇺",
+    "confederation": "",
+    "fifaRanking": 203,
+    "population": 168999
+  },
+  "320": {
+    "code": "GTM",
+    "name": "Guatemala",
+    "flag": "🇬🇹",
+    "confederation": "",
+    "fifaRanking": 97,
+    "population": 18687881
+  },
+  "324": {
+    "code": "GIN",
+    "name": "Guinea",
+    "flag": "🇬🇳",
+    "confederation": "",
+    "fifaRanking": 81,
+    "population": 15099727
+  },
+  "328": {
+    "code": "GUY",
+    "name": "Guyana",
+    "flag": "🇬🇾",
+    "confederation": "",
+    "fifaRanking": 150,
+    "population": 835986
+  },
+  "332": {
+    "code": "HTI",
+    "name": "Haiti",
+    "flag": "🇭🇹",
+    "confederation": "",
+    "fifaRanking": 83,
+    "population": 11906095
+  },
+  "334": {
+    "code": "HMD",
+    "name": "Heard & McDonald Islands",
+    "flag": "🇭🇲",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "336": {
+    "code": "VAT",
+    "name": "Vatican City",
+    "flag": "🇻🇦",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "340": {
+    "code": "HND",
+    "name": "Honduras",
+    "flag": "🇭🇳",
+    "confederation": "",
+    "fifaRanking": 65,
+    "population": 11005850
+  },
+  "344": {
+    "code": "HKG",
+    "name": "Hong Kong",
+    "flag": "🇭🇰",
+    "confederation": "",
+    "fifaRanking": 156,
+    "population": 7498900
+  },
+  "348": {
+    "code": "HUN",
+    "name": "Hungary",
+    "flag": "🇭🇺",
+    "confederation": "",
+    "fifaRanking": 39,
+    "population": 9514251
+  },
+  "352": {
+    "code": "ISL",
+    "name": "Iceland",
+    "flag": "🇮🇸",
+    "confederation": "",
+    "fifaRanking": 74,
+    "population": 392404
+  },
+  "356": {
+    "code": "IND",
+    "name": "India",
+    "flag": "🇮🇳",
+    "confederation": "",
+    "fifaRanking": 138,
+    "population": 1463865525
+  },
+  "360": {
+    "code": "IDN",
+    "name": "Indonesia",
+    "flag": "🇮🇩",
+    "confederation": "",
+    "fifaRanking": 118,
+    "population": 285721236
+  },
+  "364": {
+    "code": "IRN",
+    "name": "Iran",
+    "flag": "🇮🇷",
+    "confederation": "",
+    "fifaRanking": 20,
+    "population": 92417681
+  },
+  "368": {
+    "code": "IRQ",
+    "name": "Iraq",
+    "flag": "🇮🇶",
+    "confederation": "",
+    "fifaRanking": 57,
+    "population": 47020774
+  },
+  "372": {
+    "code": "IRL",
+    "name": "Ireland",
+    "flag": "🇮🇪",
+    "confederation": "",
+    "fifaRanking": 58,
+    "population": 5484367
+  },
+  "376": {
+    "code": "ISR",
+    "name": "Israel",
+    "flag": "🇮🇱",
+    "confederation": "",
+    "fifaRanking": 76,
+    "population": 10122800
+  },
+  "380": {
+    "code": "ITA",
+    "name": "Italy",
+    "flag": "🇮🇹",
+    "confederation": "UEFA",
+    "fifaRanking": 12,
+    "population": 58915656
+  },
+  "384": {
+    "code": "CIV",
+    "name": "Côte d’Ivoire",
+    "flag": "🇨🇮",
+    "confederation": "",
+    "fifaRanking": 33,
+    "population": 32711547
+  },
+  "388": {
+    "code": "JAM",
+    "name": "Jamaica",
+    "flag": "🇯🇲",
+    "confederation": "",
+    "fifaRanking": 71,
+    "population": 2837077
+  },
+  "392": {
+    "code": "JPN",
+    "name": "Japan",
+    "flag": "🇯🇵",
+    "confederation": "AFC",
+    "fifaRanking": 18,
+    "population": 123366734
+  },
+  "398": {
+    "code": "KAZ",
+    "name": "Kazakhstan",
+    "flag": "🇰🇿",
+    "confederation": "",
+    "fifaRanking": 111,
+    "population": 20843754
+  },
+  "400": {
+    "code": "JOR",
+    "name": "Jordan",
+    "flag": "🇯🇴",
+    "confederation": "",
+    "fifaRanking": 63,
+    "population": 11520684
+  },
+  "404": {
+    "code": "KEN",
+    "name": "Kenya",
+    "flag": "🇰🇪",
+    "confederation": "",
+    "fifaRanking": 109,
+    "population": 57532493
+  },
+  "408": {
+    "code": "PRK",
+    "name": "North Korea",
+    "flag": "🇰🇵",
+    "confederation": "",
+    "fifaRanking": 120,
+    "population": 26571036
+  },
+  "410": {
+    "code": "KOR",
+    "name": "South Korea",
+    "flag": "🇰🇷",
+    "confederation": "AFC",
+    "fifaRanking": 25,
+    "population": 51684564
+  },
+  "414": {
+    "code": "KWT",
+    "name": "Kuwait",
+    "flag": "🇰🇼",
+    "confederation": "",
+    "fifaRanking": 133,
+    "population": 4865298
+  },
+  "417": {
+    "code": "KGZ",
+    "name": "Kyrgyzstan",
+    "flag": "🇰🇬",
+    "confederation": "",
+    "fifaRanking": 106,
+    "population": 7343064
+  },
+  "418": {
+    "code": "LAO",
+    "name": "Laos",
+    "flag": "🇱🇦",
+    "confederation": "",
+    "fifaRanking": 185,
+    "population": 7873046
+  },
+  "422": {
+    "code": "LBN",
+    "name": "Lebanon",
+    "flag": "🇱🇧",
+    "confederation": "",
+    "fifaRanking": 115,
+    "population": 5849421
+  },
+  "426": {
+    "code": "LSO",
+    "name": "Lesotho",
+    "flag": "🇱🇸",
+    "confederation": "",
+    "fifaRanking": 146,
+    "population": 2363325
+  },
+  "428": {
+    "code": "LVA",
+    "name": "Latvia",
+    "flag": "🇱🇻",
+    "confederation": "",
+    "fifaRanking": 137,
+    "population": 1847785
+  },
+  "430": {
+    "code": "LBR",
+    "name": "Liberia",
+    "flag": "🇱🇷",
+    "confederation": "",
+    "fifaRanking": 140,
+    "population": 5731206
+  },
+  "434": {
+    "code": "LBY",
+    "name": "Libya",
+    "flag": "🇱🇾",
+    "confederation": "",
+    "fifaRanking": 110,
+    "population": 7458555
+  },
+  "438": {
+    "code": "LIE",
+    "name": "Liechtenstein",
+    "flag": "🇱🇮",
+    "confederation": "",
+    "fifaRanking": 206,
+    "population": 41024
+  },
+  "440": {
+    "code": "LTU",
+    "name": "Lithuania",
+    "flag": "🇱🇹",
+    "confederation": "",
+    "fifaRanking": 149,
+    "population": 2888774
+  },
+  "442": {
+    "code": "LUX",
+    "name": "Luxembourg",
+    "flag": "🇱🇺",
+    "confederation": "",
+    "fifaRanking": 98,
+    "population": 686970
+  },
+  "446": {
+    "code": "MAC",
+    "name": "Macao",
+    "flag": "🇲🇴",
+    "confederation": "",
+    "fifaRanking": 193,
+    "population": 685900
+  },
+  "450": {
+    "code": "MDG",
+    "name": "Madagascar",
+    "flag": "🇲🇬",
+    "confederation": "",
+    "fifaRanking": 104,
+    "population": 32740678
+  },
+  "454": {
+    "code": "MWI",
+    "name": "Malawi",
+    "flag": "🇲🇼",
+    "confederation": "",
+    "fifaRanking": 129,
+    "population": 22216120
+  },
+  "458": {
+    "code": "MYS",
+    "name": "Malaysia",
+    "flag": "🇲🇾",
+    "confederation": "",
+    "fifaRanking": 136,
+    "population": 35977838
+  },
+  "462": {
+    "code": "MDV",
+    "name": "Maldives",
+    "flag": "🇲🇻",
+    "confederation": "",
+    "fifaRanking": 173,
+    "population": 529676
+  },
+  "466": {
+    "code": "MLI",
+    "name": "Mali",
+    "flag": "🇲🇱",
+    "confederation": "",
+    "fifaRanking": 55,
+    "population": 25198821
+  },
+  "470": {
+    "code": "MLT",
+    "name": "Malta",
+    "flag": "🇲🇹",
+    "confederation": "",
+    "fifaRanking": 161,
+    "population": 579704
+  },
+  "474": {
+    "code": "MTQ",
+    "name": "Martinique",
+    "flag": "🇲🇶",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "478": {
+    "code": "MRT",
+    "name": "Mauritania",
+    "flag": "🇲🇷",
+    "confederation": "",
+    "fifaRanking": 113,
+    "population": 5315065
+  },
+  "480": {
+    "code": "MUS",
+    "name": "Mauritius",
+    "flag": "🇲🇺",
+    "confederation": "",
+    "fifaRanking": 178,
+    "population": 1243741
+  },
+  "484": {
+    "code": "MEX",
+    "name": "Mexico",
+    "flag": "🇲🇽",
+    "confederation": "CONCACAF",
+    "fifaRanking": 14,
+    "population": 131946900
+  },
+  "492": {
+    "code": "MCO",
+    "name": "Monaco",
+    "flag": "🇲🇨",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 38341
+  },
+  "496": {
+    "code": "MNG",
+    "name": "Mongolia",
+    "flag": "🇲🇳",
+    "confederation": "",
+    "fifaRanking": 190,
+    "population": 3568978
+  },
+  "498": {
+    "code": "MDA",
+    "name": "Moldova",
+    "flag": "🇲🇩",
+    "confederation": "",
+    "fifaRanking": 159,
+    "population": 2360527
+  },
+  "499": {
+    "code": "MNE",
+    "name": "Montenegro",
+    "flag": "🇲🇪",
+    "confederation": "",
+    "fifaRanking": 80,
+    "population": 623129
+  },
+  "500": {
+    "code": "MSR",
+    "name": "Montserrat",
+    "flag": "🇲🇸",
+    "confederation": "",
+    "fifaRanking": 176,
+    "population": null
+  },
+  "504": {
+    "code": "MAR",
+    "name": "Morocco",
+    "flag": "🇲🇦",
+    "confederation": "CAF",
+    "fifaRanking": 7,
+    "population": 38430770
+  },
+  "508": {
+    "code": "MOZ",
+    "name": "Mozambique",
+    "flag": "🇲🇿",
+    "confederation": "",
+    "fifaRanking": 103,
+    "population": 35631653
+  },
+  "512": {
+    "code": "OMN",
+    "name": "Oman",
+    "flag": "🇴🇲",
+    "confederation": "",
+    "fifaRanking": 79,
+    "population": 5494691
+  },
+  "516": {
+    "code": "NAM",
+    "name": "Namibia",
+    "flag": "🇳🇦",
+    "confederation": "",
+    "fifaRanking": 121,
+    "population": 3092816
+  },
+  "520": {
+    "code": "NRU",
+    "name": "Nauru",
+    "flag": "🇳🇷",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 12025
+  },
+  "524": {
+    "code": "NPL",
+    "name": "Nepal",
+    "flag": "🇳🇵",
+    "confederation": "",
+    "fifaRanking": 177,
+    "population": 29618118
+  },
+  "528": {
+    "code": "NLD",
+    "fifaCode": "NED",
+    "name": "Netherlands",
+    "flag": "🇳🇱",
+    "confederation": "UEFA",
+    "fifaRanking": 8,
+    "population": 18087633
+  },
+  "531": {
+    "code": "CUW",
+    "name": "Curaçao",
+    "flag": "🇨🇼",
+    "confederation": "",
+    "fifaRanking": 82,
+    "population": 156263
+  },
+  "533": {
+    "code": "ABW",
+    "name": "Aruba",
+    "flag": "🇦🇼",
+    "confederation": "",
+    "fifaRanking": 189,
+    "population": 108785
+  },
+  "534": {
+    "code": "SXM",
+    "name": "Sint Maarten",
+    "flag": "🇸🇽",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 43923
+  },
+  "535": {
+    "code": "BES",
+    "name": "Caribbean Netherlands",
+    "flag": "🇧🇶",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "540": {
+    "code": "NCL",
+    "name": "New Caledonia",
+    "flag": "🇳🇨",
+    "confederation": "",
+    "fifaRanking": 151,
+    "population": 295333
+  },
+  "548": {
+    "code": "VUT",
+    "name": "Vanuatu",
+    "flag": "🇻🇺",
+    "confederation": "",
+    "fifaRanking": 160,
+    "population": 335169
+  },
+  "554": {
+    "code": "NZL",
+    "name": "New Zealand",
+    "flag": "🇳🇿",
+    "confederation": "",
+    "fifaRanking": 85,
+    "population": 5324700
+  },
+  "558": {
+    "code": "NIC",
+    "name": "Nicaragua",
+    "flag": "🇳🇮",
+    "confederation": "",
+    "fifaRanking": 131,
+    "population": 7007502
+  },
+  "562": {
+    "code": "NER",
+    "name": "Niger",
+    "flag": "🇳🇪",
+    "confederation": "",
+    "fifaRanking": 114,
+    "population": 27917831
+  },
+  "566": {
+    "code": "NGA",
+    "name": "Nigeria",
+    "flag": "🇳🇬",
+    "confederation": "",
+    "fifaRanking": 26,
+    "population": 237527782
+  },
+  "570": {
+    "code": "NIU",
+    "name": "Niue",
+    "flag": "🇳🇺",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "574": {
+    "code": "NFK",
+    "name": "Norfolk Island",
+    "flag": "🇳🇫",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "578": {
+    "code": "NOR",
+    "name": "Norway",
+    "flag": "🇳🇴",
+    "confederation": "",
+    "fifaRanking": 31,
+    "population": 5610870
+  },
+  "580": {
+    "code": "MNP",
+    "name": "Northern Mariana Islands",
+    "flag": "🇲🇵",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 43541
+  },
+  "581": {
+    "code": "UMI",
+    "name": "U.S. Outlying Islands",
+    "flag": "🇺🇲",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "583": {
+    "code": "FSM",
+    "name": "Micronesia",
+    "flag": "🇫🇲",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 113683
+  },
+  "584": {
+    "code": "MHL",
+    "name": "Marshall Islands",
+    "flag": "🇲🇭",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 36282
+  },
+  "585": {
+    "code": "PLW",
+    "name": "Palau",
+    "flag": "🇵🇼",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 17663
+  },
+  "586": {
+    "code": "PAK",
+    "name": "Pakistan",
+    "flag": "🇵🇰",
+    "confederation": "",
+    "fifaRanking": 198,
+    "population": 255219554
+  },
+  "591": {
+    "code": "PAN",
+    "name": "Panama",
+    "flag": "🇵🇦",
+    "confederation": "",
+    "fifaRanking": 34,
+    "population": 4571189
+  },
+  "598": {
+    "code": "PNG",
+    "name": "Papua New Guinea",
+    "flag": "🇵🇬",
+    "confederation": "",
+    "fifaRanking": 168,
+    "population": 10762817
+  },
+  "600": {
+    "code": "PRY",
+    "name": "Paraguay",
+    "flag": "🇵🇾",
+    "confederation": "",
+    "fifaRanking": 41,
+    "population": 7013078
+  },
+  "604": {
+    "code": "PER",
+    "name": "Peru",
+    "flag": "🇵🇪",
+    "confederation": "",
+    "fifaRanking": 52,
+    "population": 34576665
+  },
+  "608": {
+    "code": "PHL",
+    "name": "Philippines",
+    "flag": "🇵🇭",
+    "confederation": "",
+    "fifaRanking": 135,
+    "population": 116786962
+  },
+  "612": {
+    "code": "PCN",
+    "name": "Pitcairn",
+    "flag": "🇵🇳",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "616": {
+    "code": "POL",
+    "name": "Poland",
+    "flag": "🇵🇱",
+    "confederation": "",
+    "fifaRanking": 36,
+    "population": 36435861
+  },
+  "620": {
+    "code": "PRT",
+    "name": "Portugal",
+    "flag": "🇵🇹",
+    "confederation": "",
+    "fifaRanking": 5,
+    "population": 10804871
+  },
+  "624": {
+    "code": "GNB",
+    "name": "Guinea-Bissau",
+    "flag": "🇬🇼",
+    "confederation": "",
+    "fifaRanking": 132,
+    "population": 2249515
+  },
+  "626": {
+    "code": "TLS",
+    "name": "Timor-Leste",
+    "flag": "🇹🇱",
+    "confederation": "",
+    "fifaRanking": 201,
+    "population": 1418517
+  },
+  "630": {
+    "code": "PRI",
+    "name": "Puerto Rico",
+    "flag": "🇵🇷",
+    "confederation": "",
+    "fifaRanking": 154,
+    "population": 3184835
+  },
+  "634": {
+    "code": "QAT",
+    "name": "Qatar",
+    "flag": "🇶🇦",
+    "confederation": "",
+    "fifaRanking": 56,
+    "population": 2972215
+  },
+  "638": {
+    "code": "REU",
+    "name": "Réunion",
+    "flag": "🇷🇪",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "642": {
+    "code": "ROU",
+    "name": "Romania",
+    "flag": "🇷🇴",
+    "confederation": "",
+    "fifaRanking": 54,
+    "population": 19020271
+  },
+  "643": {
+    "code": "RUS",
+    "name": "Russia",
+    "flag": "🇷🇺",
+    "confederation": "",
+    "fifaRanking": 35,
+    "population": 143513328
+  },
+  "646": {
+    "code": "RWA",
+    "name": "Rwanda",
+    "flag": "🇷🇼",
+    "confederation": "",
+    "fifaRanking": 128,
+    "population": 14569341
+  },
+  "652": {
+    "code": "BLM",
+    "name": "St. Barthélemy",
+    "flag": "🇧🇱",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "654": {
+    "code": "SHN",
+    "name": "St. Helena",
+    "flag": "🇸🇭",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "659": {
+    "code": "KNA",
+    "name": "St. Kitts & Nevis",
+    "flag": "🇰🇳",
+    "confederation": "",
+    "fifaRanking": 152,
+    "population": 46922
   },
   "660": {
     "code": "AIA",
     "name": "Anguilla",
     "flag": "🇦🇮",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 210,
+    "population": null
+  },
+  "662": {
+    "code": "LCA",
+    "name": "St. Lucia",
+    "flag": "🇱🇨",
+    "confederation": "",
+    "fifaRanking": 166,
+    "population": 180149
+  },
+  "663": {
+    "code": "MAF",
+    "name": "St. Martin",
+    "flag": "🇲🇫",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 24941
+  },
+  "666": {
+    "code": "SPM",
+    "name": "St. Pierre & Miquelon",
+    "flag": "🇵🇲",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "670": {
+    "code": "VCT",
+    "name": "St. Vincent & Grenadines",
+    "flag": "🇻🇨",
+    "confederation": "",
+    "fifaRanking": 170,
+    "population": 99924
+  },
+  "674": {
+    "code": "SMR",
+    "name": "San Marino",
+    "flag": "🇸🇲",
+    "confederation": "",
+    "fifaRanking": 211,
+    "population": 34109
+  },
+  "678": {
+    "code": "STP",
+    "name": "São Tomé & Príncipe",
+    "flag": "🇸🇹",
+    "confederation": "",
+    "fifaRanking": 195,
+    "population": 240254
+  },
+  "682": {
+    "code": "SAU",
+    "name": "Saudi Arabia",
+    "flag": "🇸🇦",
+    "confederation": "",
+    "fifaRanking": 61,
+    "population": 36973555
+  },
+  "686": {
+    "code": "SEN",
+    "name": "Senegal",
+    "flag": "🇸🇳",
+    "confederation": "CAF",
+    "fifaRanking": 15,
+    "population": 18931966
+  },
+  "688": {
+    "code": "SRB",
+    "name": "Serbia",
+    "flag": "🇷🇸",
+    "confederation": "",
+    "fifaRanking": 43,
+    "population": 6549143
+  },
+  "690": {
+    "code": "SYC",
+    "name": "Seychelles",
+    "flag": "🇸🇨",
+    "confederation": "",
+    "fifaRanking": 204,
+    "population": 122730
+  },
+  "694": {
+    "code": "SLE",
+    "name": "Sierra Leone",
+    "flag": "🇸🇱",
+    "confederation": "",
+    "fifaRanking": 122,
+    "population": 8819794
+  },
+  "702": {
+    "code": "SGP",
+    "name": "Singapore",
+    "flag": "🇸🇬",
+    "confederation": "",
+    "fifaRanking": 148,
+    "population": 6111175
+  },
+  "703": {
+    "code": "SVK",
+    "name": "Slovakia",
+    "flag": "🇸🇰",
+    "confederation": "",
+    "fifaRanking": 47,
+    "population": 5413813
+  },
+  "704": {
+    "code": "VNM",
+    "name": "Vietnam",
+    "flag": "🇻🇳",
+    "confederation": "",
+    "fifaRanking": 99,
+    "population": 101598527
+  },
+  "705": {
+    "code": "SVN",
+    "name": "Slovenia",
+    "flag": "🇸🇮",
+    "confederation": "",
+    "fifaRanking": 59,
+    "population": 2130986
+  },
+  "706": {
+    "code": "SOM",
+    "name": "Somalia",
+    "flag": "🇸🇴",
+    "confederation": "",
+    "fifaRanking": 199,
+    "population": 19654739
+  },
+  "710": {
+    "code": "ZAF",
+    "name": "South Africa",
+    "flag": "🇿🇦",
+    "confederation": "",
+    "fifaRanking": 60,
+    "population": 64747319
+  },
+  "716": {
+    "code": "ZWE",
+    "name": "Zimbabwe",
+    "flag": "🇿🇼",
+    "confederation": "",
+    "fifaRanking": 130,
+    "population": 16950795
+  },
+  "724": {
+    "code": "ESP",
+    "name": "Spain",
+    "flag": "🇪🇸",
+    "confederation": "UEFA",
+    "fifaRanking": 2,
+    "population": 49355143
+  },
+  "728": {
+    "code": "SSD",
+    "name": "South Sudan",
+    "flag": "🇸🇸",
+    "confederation": "",
+    "fifaRanking": 169,
+    "population": 12188788
+  },
+  "729": {
+    "code": "SDN",
+    "name": "Sudan",
+    "flag": "🇸🇩",
+    "confederation": "",
+    "fifaRanking": 117,
+    "population": 51662147
+  },
+  "732": {
+    "code": "ESH",
+    "name": "Western Sahara",
+    "flag": "🇪🇭",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "740": {
+    "code": "SUR",
+    "name": "Suriname",
+    "flag": "🇸🇷",
+    "confederation": "",
+    "fifaRanking": 125,
+    "population": 639850
+  },
+  "744": {
+    "code": "SJM",
+    "name": "Svalbard & Jan Mayen",
+    "flag": "🇸🇯",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "748": {
+    "code": "SWZ",
+    "name": "Eswatini",
+    "flag": "🇸🇿",
+    "confederation": "",
+    "fifaRanking": 165,
+    "population": 1256174
+  },
+  "752": {
+    "code": "SWE",
+    "name": "Sweden",
+    "flag": "🇸🇪",
+    "confederation": "",
+    "fifaRanking": 38,
+    "population": 10596620
+  },
+  "756": {
+    "code": "CHE",
+    "fifaCode": "SUI",
+    "name": "Switzerland",
+    "flag": "🇨🇭",
+    "confederation": "",
+    "fifaRanking": 19,
+    "population": 9092436
+  },
+  "760": {
+    "code": "SYR",
+    "name": "Syria",
+    "flag": "🇸🇾",
+    "confederation": "",
+    "fifaRanking": 84,
+    "population": 25620427
+  },
+  "762": {
+    "code": "TJK",
+    "name": "Tajikistan",
+    "flag": "🇹🇯",
+    "confederation": "",
+    "fifaRanking": 101,
+    "population": 10786734
+  },
+  "764": {
+    "code": "THA",
+    "name": "Thailand",
+    "flag": "🇹🇭",
+    "confederation": "",
+    "fifaRanking": 94,
+    "population": 71619863
+  },
+  "768": {
+    "code": "TGO",
+    "name": "Togo",
+    "flag": "🇹🇬",
+    "confederation": "",
+    "fifaRanking": 119,
+    "population": 8591626
+  },
+  "772": {
+    "code": "TKL",
+    "name": "Tokelau",
+    "flag": "🇹🇰",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "776": {
+    "code": "TON",
+    "name": "Tonga",
+    "flag": "🇹🇴",
+    "confederation": "",
+    "fifaRanking": 200,
+    "population": 103742
+  },
+  "780": {
+    "code": "TTO",
+    "name": "Trinidad & Tobago",
+    "flag": "🇹🇹",
+    "confederation": "",
+    "fifaRanking": 102,
+    "population": 1367764
+  },
+  "784": {
+    "code": "ARE",
+    "name": "United Arab Emirates",
+    "flag": "🇦🇪",
+    "confederation": "",
+    "fifaRanking": 68,
+    "population": 11513149
+  },
+  "788": {
+    "code": "TUN",
+    "name": "Tunisia",
+    "flag": "🇹🇳",
+    "confederation": "",
+    "fifaRanking": 45,
+    "population": 12348573
+  },
+  "792": {
+    "code": "TUR",
+    "name": "Türkiye",
+    "flag": "🇹🇷",
+    "confederation": "",
+    "fifaRanking": 22,
+    "population": 85878556
+  },
+  "795": {
+    "code": "TKM",
+    "name": "Turkmenistan",
+    "flag": "🇹🇲",
+    "confederation": "",
+    "fifaRanking": 141,
+    "population": 7618847
+  },
+  "796": {
+    "code": "TCA",
+    "name": "Turks & Caicos Islands",
+    "flag": "🇹🇨",
+    "confederation": "",
+    "fifaRanking": 205,
+    "population": 46855
+  },
+  "798": {
+    "code": "TUV",
+    "name": "Tuvalu",
+    "flag": "🇹🇻",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 9492
+  },
+  "800": {
+    "code": "UGA",
+    "name": "Uganda",
+    "flag": "🇺🇬",
+    "confederation": "",
+    "fifaRanking": 89,
+    "population": 51384894
+  },
+  "804": {
+    "code": "UKR",
+    "name": "Ukraine",
+    "flag": "🇺🇦",
+    "confederation": "",
+    "fifaRanking": 32,
+    "population": 38980376
+  },
+  "807": {
+    "code": "MKD",
+    "name": "North Macedonia",
+    "flag": "🇲🇰",
+    "confederation": "",
+    "fifaRanking": 69,
+    "population": 1820909
+  },
+  "818": {
+    "code": "EGY",
+    "name": "Egypt",
+    "flag": "🇪🇬",
+    "confederation": "CAF",
+    "fifaRanking": 29,
+    "population": 118365995
+  },
+  "826": {
+    "code": "GBR",
+    "name": "UK",
+    "flag": "🇬🇧",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 69487000
+  },
+  "831": {
+    "code": "GGY",
+    "name": "Guernsey",
+    "flag": "🇬🇬",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "832": {
+    "code": "JEY",
+    "name": "Jersey",
+    "flag": "🇯🇪",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "833": {
+    "code": "IMN",
+    "name": "Isle of Man",
+    "flag": "🇮🇲",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": 84118
+  },
+  "834": {
+    "code": "TZA",
+    "name": "Tanzania",
+    "flag": "🇹🇿",
+    "confederation": "",
+    "fifaRanking": 112,
+    "population": 70545865
+  },
+  "840": {
+    "code": "USA",
+    "name": "US",
+    "flag": "🇺🇸",
+    "confederation": "CONCACAF",
+    "fifaRanking": 17,
+    "population": 341784857
+  },
+  "850": {
+    "code": "VIR",
+    "name": "U.S. Virgin Islands",
+    "flag": "🇻🇮",
+    "confederation": "",
+    "fifaRanking": 208,
+    "population": 103792
+  },
+  "854": {
+    "code": "BFA",
+    "name": "Burkina Faso",
+    "flag": "🇧🇫",
+    "confederation": "",
+    "fifaRanking": 62,
+    "population": 24074580
+  },
+  "858": {
+    "code": "URY",
+    "name": "Uruguay",
+    "flag": "🇺🇾",
+    "confederation": "",
+    "fifaRanking": 16,
+    "population": 3384688
+  },
+  "860": {
+    "code": "UZB",
+    "name": "Uzbekistan",
+    "flag": "🇺🇿",
+    "confederation": "",
+    "fifaRanking": 50,
+    "population": 37053428
+  },
+  "862": {
+    "code": "VEN",
+    "name": "Venezuela",
+    "flag": "🇻🇪",
+    "confederation": "",
+    "fifaRanking": 49,
+    "population": 28516896
+  },
+  "876": {
+    "code": "WLF",
+    "name": "Wallis & Futuna",
+    "flag": "🇼🇫",
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
+  },
+  "882": {
+    "code": "WSM",
+    "name": "Samoa",
+    "flag": "🇼🇸",
+    "confederation": "",
+    "fifaRanking": 188,
+    "population": 219306
+  },
+  "887": {
+    "code": "YEM",
+    "name": "Yemen",
+    "flag": "🇾🇪",
+    "confederation": "",
+    "fifaRanking": 145,
+    "population": 41773878
+  },
+  "894": {
+    "code": "ZMB",
+    "name": "Zambia",
+    "flag": "🇿🇲",
+    "confederation": "",
+    "fifaRanking": 90,
+    "population": 21913874
+  },
+  "9001": {
+    "code": "SCO",
+    "name": "Scotland",
+    "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "confederation": "UEFA",
+    "fifaRanking": 42,
+    "population": null
+  },
+  "004": {
+    "code": "AFG",
+    "name": "Afghanistan",
+    "flag": "🇦🇫",
+    "confederation": "",
+    "fifaRanking": 171,
+    "population": 43844111
+  },
+  "008": {
+    "code": "ALB",
+    "name": "Albania",
+    "flag": "🇦🇱",
+    "confederation": "",
+    "fifaRanking": 66,
+    "population": 2349580
+  },
+  "012": {
+    "code": "DZA",
+    "name": "Algeria",
+    "flag": "🇩🇿",
+    "confederation": "",
+    "fifaRanking": 28,
+    "population": 47435312
+  },
+  "016": {
+    "code": "ASM",
+    "name": "American Samoa",
+    "flag": "🇦🇸",
+    "confederation": "",
+    "fifaRanking": 191,
+    "population": 46029
+  },
+  "020": {
+    "code": "AND",
+    "name": "Andorra",
+    "flag": "🇦🇩",
+    "confederation": "",
+    "fifaRanking": 172,
+    "population": 82904
+  },
+  "024": {
+    "code": "AGO",
+    "name": "Angola",
+    "flag": "🇦🇴",
+    "confederation": "",
+    "fifaRanking": 88,
+    "population": 39040039
   },
   "010": {
     "code": "ATA",
     "name": "Antarctica",
     "flag": "🇦🇶",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
   },
   "028": {
     "code": "ATG",
     "name": "Antigua & Barbuda",
     "flag": "🇦🇬",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 162,
+    "population": 94209
   },
   "032": {
     "code": "ARG",
     "name": "Argentina",
     "flag": "🇦🇷",
+    "fifaRanking": 1,
+    "population": 45851378,
     "confederation": "CONMEBOL"
   },
   "051": {
     "code": "ARM",
     "name": "Armenia",
     "flag": "🇦🇲",
-    "confederation": ""
-  },
-  "533": {
-    "code": "ABW",
-    "name": "Aruba",
-    "flag": "🇦🇼",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 107,
+    "population": 3086700
   },
   "036": {
     "code": "AUS",
     "name": "Australia",
     "flag": "🇦🇺",
-    "confederation": "AFC"
+    "confederation": "AFC",
+    "fifaRanking": 27,
+    "population": 27614411
   },
   "040": {
     "code": "AUT",
     "name": "Austria",
     "flag": "🇦🇹",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 24,
+    "population": 9208163
   },
   "031": {
     "code": "AZE",
     "name": "Azerbaijan",
     "flag": "🇦🇿",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 126,
+    "population": 10246996
   },
   "044": {
     "code": "BHS",
     "name": "Bahamas",
     "flag": "🇧🇸",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 207,
+    "population": 403033
   },
   "048": {
     "code": "BHR",
     "name": "Bahrain",
     "flag": "🇧🇭",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 92,
+    "population": 1600366
   },
   "050": {
     "code": "BGD",
     "name": "Bangladesh",
     "flag": "🇧🇩",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 181,
+    "population": 175686899
   },
   "052": {
     "code": "BRB",
     "name": "Barbados",
     "flag": "🇧🇧",
-    "confederation": ""
-  },
-  "112": {
-    "code": "BLR",
-    "name": "Belarus",
-    "flag": "🇧🇾",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 179,
+    "population": 282623
   },
   "056": {
     "code": "BEL",
     "name": "Belgium",
     "flag": "🇧🇪",
-    "confederation": "UEFA"
+    "confederation": "UEFA",
+    "fifaRanking": 9,
+    "population": 11941781
   },
   "084": {
     "code": "BLZ",
     "name": "Belize",
     "flag": "🇧🇿",
-    "confederation": ""
-  },
-  "204": {
-    "code": "BEN",
-    "name": "Benin",
-    "flag": "🇧🇯",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 180,
+    "population": 422924
   },
   "060": {
     "code": "BMU",
     "name": "Bermuda",
     "flag": "🇧🇲",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 167,
+    "population": 64555
   },
   "064": {
     "code": "BTN",
     "name": "Bhutan",
     "flag": "🇧🇹",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 192,
+    "population": 796682
   },
   "068": {
     "code": "BOL",
     "name": "Bolivia",
     "flag": "🇧🇴",
-    "confederation": ""
-  },
-  "535": {
-    "code": "BES",
-    "name": "Caribbean Netherlands",
-    "flag": "🇧🇶",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 77,
+    "population": 12581843
   },
   "070": {
     "code": "BIH",
     "name": "Bosnia",
     "flag": "🇧🇦",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 64,
+    "population": 3140095
   },
   "072": {
     "code": "BWA",
     "name": "Botswana",
     "flag": "🇧🇼",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 147,
+    "population": 2562122
   },
   "074": {
     "code": "BVT",
     "name": "Bouvet Island",
     "flag": "🇧🇻",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
   },
   "076": {
     "code": "BRA",
     "name": "Brazil",
     "flag": "🇧🇷",
-    "confederation": "CONMEBOL"
+    "confederation": "CONMEBOL",
+    "fifaRanking": 6,
+    "population": 212812405
   },
   "086": {
     "code": "IOT",
     "name": "British Indian Ocean Territory",
     "flag": "🇮🇴",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": null,
+    "population": null
   },
   "092": {
     "code": "VGB",
     "name": "British Virgin Islands",
     "flag": "🇻🇬",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 209,
+    "population": 39732
   },
   "096": {
     "code": "BRN",
     "name": "Brunei",
     "flag": "🇧🇳",
-    "confederation": ""
-  },
-  "100": {
-    "code": "BGR",
-    "name": "Bulgaria",
-    "flag": "🇧🇬",
-    "confederation": ""
-  },
-  "854": {
-    "code": "BFA",
-    "name": "Burkina Faso",
-    "flag": "🇧🇫",
-    "confederation": ""
-  },
-  "108": {
-    "code": "BDI",
-    "name": "Burundi",
-    "flag": "🇧🇮",
-    "confederation": ""
-  },
-  "132": {
-    "code": "CPV",
-    "name": "Cape Verde",
-    "flag": "🇨🇻",
-    "confederation": ""
-  },
-  "116": {
-    "code": "KHM",
-    "name": "Cambodia",
-    "flag": "🇰🇭",
-    "confederation": ""
-  },
-  "120": {
-    "code": "CMR",
-    "name": "Cameroon",
-    "flag": "🇨🇲",
-    "confederation": ""
-  },
-  "124": {
-    "code": "CAN",
-    "name": "Canada",
-    "flag": "🇨🇦",
-    "confederation": "CONCACAF"
-  },
-  "136": {
-    "code": "CYM",
-    "name": "Cayman Islands",
-    "flag": "🇰🇾",
-    "confederation": ""
-  },
-  "140": {
-    "code": "CAF",
-    "name": "Central African Republic",
-    "flag": "🇨🇫",
-    "confederation": ""
-  },
-  "148": {
-    "code": "TCD",
-    "name": "Chad",
-    "flag": "🇹🇩",
-    "confederation": ""
-  },
-  "152": {
-    "code": "CHL",
-    "name": "Chile",
-    "flag": "🇨🇱",
-    "confederation": ""
-  },
-  "156": {
-    "code": "CHN",
-    "name": "China",
-    "flag": "🇨🇳",
-    "confederation": ""
-  },
-  "344": {
-    "code": "HKG",
-    "name": "Hong Kong",
-    "flag": "🇭🇰",
-    "confederation": ""
-  },
-  "446": {
-    "code": "MAC",
-    "name": "Macao",
-    "flag": "🇲🇴",
-    "confederation": ""
-  },
-  "162": {
-    "code": "CXR",
-    "name": "Christmas Island",
-    "flag": "🇨🇽",
-    "confederation": ""
-  },
-  "166": {
-    "code": "CCK",
-    "name": "Cocos Islands",
-    "flag": "🇨🇨",
-    "confederation": ""
-  },
-  "170": {
-    "code": "COL",
-    "name": "Colombia",
-    "flag": "🇨🇴",
-    "confederation": ""
-  },
-  "174": {
-    "code": "COM",
-    "name": "Comoros",
-    "flag": "🇰🇲",
-    "confederation": ""
-  },
-  "178": {
-    "code": "COG",
-    "name": "Congo - Brazzaville",
-    "flag": "🇨🇬",
-    "confederation": ""
-  },
-  "184": {
-    "code": "COK",
-    "name": "Cook Islands",
-    "flag": "🇨🇰",
-    "confederation": ""
-  },
-  "188": {
-    "code": "CRI",
-    "name": "Costa Rica",
-    "flag": "🇨🇷",
-    "confederation": ""
-  },
-  "191": {
-    "code": "HRV",
-    "name": "Croatia",
-    "flag": "🇭🇷",
-    "confederation": ""
-  },
-  "192": {
-    "code": "CUB",
-    "name": "Cuba",
-    "flag": "🇨🇺",
-    "confederation": ""
-  },
-  "531": {
-    "code": "CUW",
-    "name": "Curaçao",
-    "flag": "🇨🇼",
-    "confederation": ""
-  },
-  "196": {
-    "code": "CYP",
-    "name": "Cyprus",
-    "flag": "🇨🇾",
-    "confederation": ""
-  },
-  "203": {
-    "code": "CZE",
-    "name": "Czechia",
-    "flag": "🇨🇿",
-    "confederation": ""
-  },
-  "408": {
-    "code": "PRK",
-    "name": "North Korea",
-    "flag": "🇰🇵",
-    "confederation": ""
-  },
-  "180": {
-    "code": "COD",
-    "name": "Congo - Kinshasa",
-    "flag": "🇨🇩",
-    "confederation": ""
-  },
-  "208": {
-    "code": "DNK",
-    "name": "Denmark",
-    "flag": "🇩🇰",
-    "confederation": ""
-  },
-  "262": {
-    "code": "DJI",
-    "name": "Djibouti",
-    "flag": "🇩🇯",
-    "confederation": ""
-  },
-  "212": {
-    "code": "DMA",
-    "name": "Dominica",
-    "flag": "🇩🇲",
-    "confederation": ""
-  },
-  "214": {
-    "code": "DOM",
-    "name": "Dominican Republic",
-    "flag": "🇩🇴",
-    "confederation": ""
-  },
-  "218": {
-    "code": "ECU",
-    "name": "Ecuador",
-    "flag": "🇪🇨",
-    "confederation": ""
-  },
-  "818": {
-    "code": "EGY",
-    "name": "Egypt",
-    "flag": "🇪🇬",
-    "confederation": "CAF"
-  },
-  "222": {
-    "code": "SLV",
-    "name": "El Salvador",
-    "flag": "🇸🇻",
-    "confederation": ""
-  },
-  "226": {
-    "code": "GNQ",
-    "name": "Equatorial Guinea",
-    "flag": "🇬🇶",
-    "confederation": ""
-  },
-  "232": {
-    "code": "ERI",
-    "name": "Eritrea",
-    "flag": "🇪🇷",
-    "confederation": ""
-  },
-  "233": {
-    "code": "EST",
-    "name": "Estonia",
-    "flag": "🇪🇪",
-    "confederation": ""
-  },
-  "748": {
-    "code": "SWZ",
-    "name": "Eswatini",
-    "flag": "🇸🇿",
-    "confederation": ""
-  },
-  "231": {
-    "code": "ETH",
-    "name": "Ethiopia",
-    "flag": "🇪🇹",
-    "confederation": ""
-  },
-  "238": {
-    "code": "FLK",
-    "name": "Falkland Islands",
-    "flag": "🇫🇰",
-    "confederation": ""
-  },
-  "234": {
-    "code": "FRO",
-    "name": "Faroe Islands",
-    "flag": "🇫🇴",
-    "confederation": ""
-  },
-  "242": {
-    "code": "FJI",
-    "name": "Fiji",
-    "flag": "🇫🇯",
-    "confederation": ""
-  },
-  "246": {
-    "code": "FIN",
-    "name": "Finland",
-    "flag": "🇫🇮",
-    "confederation": ""
-  },
-  "250": {
-    "code": "FRA",
-    "name": "France",
-    "flag": "🇫🇷",
-    "confederation": "UEFA"
-  },
-  "254": {
-    "code": "GUF",
-    "name": "French Guiana",
-    "flag": "🇬🇫",
-    "confederation": ""
-  },
-  "258": {
-    "code": "PYF",
-    "name": "French Polynesia",
-    "flag": "🇵🇫",
-    "confederation": ""
-  },
-  "260": {
-    "code": "ATF",
-    "name": "French Southern Territories",
-    "flag": "🇹🇫",
-    "confederation": ""
-  },
-  "266": {
-    "code": "GAB",
-    "name": "Gabon",
-    "flag": "🇬🇦",
-    "confederation": ""
-  },
-  "270": {
-    "code": "GMB",
-    "name": "Gambia",
-    "flag": "🇬🇲",
-    "confederation": ""
-  },
-  "268": {
-    "code": "GEO",
-    "name": "Georgia",
-    "flag": "🇬🇪",
-    "confederation": ""
-  },
-  "276": {
-    "code": "DEU",
-    "name": "Germany",
-    "flag": "🇩🇪",
-    "confederation": ""
-  },
-  "288": {
-    "code": "GHA",
-    "name": "Ghana",
-    "flag": "🇬🇭",
-    "confederation": ""
-  },
-  "292": {
-    "code": "GIB",
-    "name": "Gibraltar",
-    "flag": "🇬🇮",
-    "confederation": ""
-  },
-  "300": {
-    "code": "GRC",
-    "name": "Greece",
-    "flag": "🇬🇷",
-    "confederation": ""
-  },
-  "304": {
-    "code": "GRL",
-    "name": "Greenland",
-    "flag": "🇬🇱",
-    "confederation": ""
-  },
-  "308": {
-    "code": "GRD",
-    "name": "Grenada",
-    "flag": "🇬🇩",
-    "confederation": ""
-  },
-  "312": {
-    "code": "GLP",
-    "name": "Guadeloupe",
-    "flag": "🇬🇵",
-    "confederation": ""
-  },
-  "316": {
-    "code": "GUM",
-    "name": "Guam",
-    "flag": "🇬🇺",
-    "confederation": ""
-  },
-  "320": {
-    "code": "GTM",
-    "name": "Guatemala",
-    "flag": "🇬🇹",
-    "confederation": ""
-  },
-  "831": {
-    "code": "GGY",
-    "name": "Guernsey",
-    "flag": "🇬🇬",
-    "confederation": ""
-  },
-  "324": {
-    "code": "GIN",
-    "name": "Guinea",
-    "flag": "🇬🇳",
-    "confederation": ""
-  },
-  "624": {
-    "code": "GNB",
-    "name": "Guinea-Bissau",
-    "flag": "🇬🇼",
-    "confederation": ""
-  },
-  "328": {
-    "code": "GUY",
-    "name": "Guyana",
-    "flag": "🇬🇾",
-    "confederation": ""
-  },
-  "332": {
-    "code": "HTI",
-    "name": "Haiti",
-    "flag": "🇭🇹",
-    "confederation": ""
-  },
-  "334": {
-    "code": "HMD",
-    "name": "Heard & McDonald Islands",
-    "flag": "🇭🇲",
-    "confederation": ""
-  },
-  "336": {
-    "code": "VAT",
-    "name": "Vatican City",
-    "flag": "🇻🇦",
-    "confederation": ""
-  },
-  "340": {
-    "code": "HND",
-    "name": "Honduras",
-    "flag": "🇭🇳",
-    "confederation": ""
-  },
-  "348": {
-    "code": "HUN",
-    "name": "Hungary",
-    "flag": "🇭🇺",
-    "confederation": ""
-  },
-  "352": {
-    "code": "ISL",
-    "name": "Iceland",
-    "flag": "🇮🇸",
-    "confederation": ""
-  },
-  "356": {
-    "code": "IND",
-    "name": "India",
-    "flag": "🇮🇳",
-    "confederation": ""
-  },
-  "360": {
-    "code": "IDN",
-    "name": "Indonesia",
-    "flag": "🇮🇩",
-    "confederation": ""
-  },
-  "364": {
-    "code": "IRN",
-    "name": "Iran",
-    "flag": "🇮🇷",
-    "confederation": ""
-  },
-  "368": {
-    "code": "IRQ",
-    "name": "Iraq",
-    "flag": "🇮🇶",
-    "confederation": ""
-  },
-  "372": {
-    "code": "IRL",
-    "name": "Ireland",
-    "flag": "🇮🇪",
-    "confederation": ""
-  },
-  "833": {
-    "code": "IMN",
-    "name": "Isle of Man",
-    "flag": "🇮🇲",
-    "confederation": ""
-  },
-  "376": {
-    "code": "ISR",
-    "name": "Israel",
-    "flag": "🇮🇱",
-    "confederation": ""
-  },
-  "380": {
-    "code": "ITA",
-    "name": "Italy",
-    "flag": "🇮🇹",
-    "confederation": "UEFA"
-  },
-  "384": {
-    "code": "CIV",
-    "name": "Côte d’Ivoire",
-    "flag": "🇨🇮",
-    "confederation": ""
-  },
-  "388": {
-    "code": "JAM",
-    "name": "Jamaica",
-    "flag": "🇯🇲",
-    "confederation": ""
-  },
-  "392": {
-    "code": "JPN",
-    "name": "Japan",
-    "flag": "🇯🇵",
-    "confederation": "AFC"
-  },
-  "832": {
-    "code": "JEY",
-    "name": "Jersey",
-    "flag": "🇯🇪",
-    "confederation": ""
-  },
-  "400": {
-    "code": "JOR",
-    "name": "Jordan",
-    "flag": "🇯🇴",
-    "confederation": ""
-  },
-  "398": {
-    "code": "KAZ",
-    "name": "Kazakhstan",
-    "flag": "🇰🇿",
-    "confederation": ""
-  },
-  "404": {
-    "code": "KEN",
-    "name": "Kenya",
-    "flag": "🇰🇪",
-    "confederation": ""
-  },
-  "296": {
-    "code": "KIR",
-    "name": "Kiribati",
-    "flag": "🇰🇮",
-    "confederation": ""
-  },
-  "414": {
-    "code": "KWT",
-    "name": "Kuwait",
-    "flag": "🇰🇼",
-    "confederation": ""
-  },
-  "417": {
-    "code": "KGZ",
-    "name": "Kyrgyzstan",
-    "flag": "🇰🇬",
-    "confederation": ""
-  },
-  "418": {
-    "code": "LAO",
-    "name": "Laos",
-    "flag": "🇱🇦",
-    "confederation": ""
-  },
-  "428": {
-    "code": "LVA",
-    "name": "Latvia",
-    "flag": "🇱🇻",
-    "confederation": ""
-  },
-  "422": {
-    "code": "LBN",
-    "name": "Lebanon",
-    "flag": "🇱🇧",
-    "confederation": ""
-  },
-  "426": {
-    "code": "LSO",
-    "name": "Lesotho",
-    "flag": "🇱🇸",
-    "confederation": ""
-  },
-  "430": {
-    "code": "LBR",
-    "name": "Liberia",
-    "flag": "🇱🇷",
-    "confederation": ""
-  },
-  "434": {
-    "code": "LBY",
-    "name": "Libya",
-    "flag": "🇱🇾",
-    "confederation": ""
-  },
-  "438": {
-    "code": "LIE",
-    "name": "Liechtenstein",
-    "flag": "🇱🇮",
-    "confederation": ""
-  },
-  "440": {
-    "code": "LTU",
-    "name": "Lithuania",
-    "flag": "🇱🇹",
-    "confederation": ""
-  },
-  "442": {
-    "code": "LUX",
-    "name": "Luxembourg",
-    "flag": "🇱🇺",
-    "confederation": ""
-  },
-  "450": {
-    "code": "MDG",
-    "name": "Madagascar",
-    "flag": "🇲🇬",
-    "confederation": ""
-  },
-  "454": {
-    "code": "MWI",
-    "name": "Malawi",
-    "flag": "🇲🇼",
-    "confederation": ""
-  },
-  "458": {
-    "code": "MYS",
-    "name": "Malaysia",
-    "flag": "🇲🇾",
-    "confederation": ""
-  },
-  "462": {
-    "code": "MDV",
-    "name": "Maldives",
-    "flag": "🇲🇻",
-    "confederation": ""
-  },
-  "466": {
-    "code": "MLI",
-    "name": "Mali",
-    "flag": "🇲🇱",
-    "confederation": ""
-  },
-  "470": {
-    "code": "MLT",
-    "name": "Malta",
-    "flag": "🇲🇹",
-    "confederation": ""
-  },
-  "584": {
-    "code": "MHL",
-    "name": "Marshall Islands",
-    "flag": "🇲🇭",
-    "confederation": ""
-  },
-  "474": {
-    "code": "MTQ",
-    "name": "Martinique",
-    "flag": "🇲🇶",
-    "confederation": ""
-  },
-  "478": {
-    "code": "MRT",
-    "name": "Mauritania",
-    "flag": "🇲🇷",
-    "confederation": ""
-  },
-  "480": {
-    "code": "MUS",
-    "name": "Mauritius",
-    "flag": "🇲🇺",
-    "confederation": ""
-  },
-  "175": {
-    "code": "MYT",
-    "name": "Mayotte",
-    "flag": "🇾🇹",
-    "confederation": ""
-  },
-  "484": {
-    "code": "MEX",
-    "name": "Mexico",
-    "flag": "🇲🇽",
-    "confederation": "CONCACAF"
-  },
-  "583": {
-    "code": "FSM",
-    "name": "Micronesia",
-    "flag": "🇫🇲",
-    "confederation": ""
-  },
-  "492": {
-    "code": "MCO",
-    "name": "Monaco",
-    "flag": "🇲🇨",
-    "confederation": ""
-  },
-  "496": {
-    "code": "MNG",
-    "name": "Mongolia",
-    "flag": "🇲🇳",
-    "confederation": ""
-  },
-  "499": {
-    "code": "MNE",
-    "name": "Montenegro",
-    "flag": "🇲🇪",
-    "confederation": ""
-  },
-  "500": {
-    "code": "MSR",
-    "name": "Montserrat",
-    "flag": "🇲🇸",
-    "confederation": ""
-  },
-  "504": {
-    "code": "MAR",
-    "name": "Morocco",
-    "flag": "🇲🇦",
-    "confederation": "CAF"
-  },
-  "508": {
-    "code": "MOZ",
-    "name": "Mozambique",
-    "flag": "🇲🇿",
-    "confederation": ""
-  },
-  "104": {
-    "code": "MMR",
-    "name": "Myanmar",
-    "flag": "🇲🇲",
-    "confederation": ""
-  },
-  "516": {
-    "code": "NAM",
-    "name": "Namibia",
-    "flag": "🇳🇦",
-    "confederation": ""
-  },
-  "520": {
-    "code": "NRU",
-    "name": "Nauru",
-    "flag": "🇳🇷",
-    "confederation": ""
-  },
-  "524": {
-    "code": "NPL",
-    "name": "Nepal",
-    "flag": "🇳🇵",
-    "confederation": ""
-  },
-  "528": {
-    "code": "NLD",
-    "name": "Netherlands",
-    "flag": "🇳🇱",
-    "confederation": "UEFA"
-  },
-  "540": {
-    "code": "NCL",
-    "name": "New Caledonia",
-    "flag": "🇳🇨",
-    "confederation": ""
-  },
-  "554": {
-    "code": "NZL",
-    "name": "New Zealand",
-    "flag": "🇳🇿",
-    "confederation": ""
-  },
-  "558": {
-    "code": "NIC",
-    "name": "Nicaragua",
-    "flag": "🇳🇮",
-    "confederation": ""
-  },
-  "562": {
-    "code": "NER",
-    "name": "Niger",
-    "flag": "🇳🇪",
-    "confederation": ""
-  },
-  "566": {
-    "code": "NGA",
-    "name": "Nigeria",
-    "flag": "🇳🇬",
-    "confederation": ""
-  },
-  "570": {
-    "code": "NIU",
-    "name": "Niue",
-    "flag": "🇳🇺",
-    "confederation": ""
-  },
-  "574": {
-    "code": "NFK",
-    "name": "Norfolk Island",
-    "flag": "🇳🇫",
-    "confederation": ""
-  },
-  "580": {
-    "code": "MNP",
-    "name": "Northern Mariana Islands",
-    "flag": "🇲🇵",
-    "confederation": ""
-  },
-  "807": {
-    "code": "MKD",
-    "name": "North Macedonia",
-    "flag": "🇲🇰",
-    "confederation": ""
-  },
-  "578": {
-    "code": "NOR",
-    "name": "Norway",
-    "flag": "🇳🇴",
-    "confederation": ""
-  },
-  "512": {
-    "code": "OMN",
-    "name": "Oman",
-    "flag": "🇴🇲",
-    "confederation": ""
-  },
-  "586": {
-    "code": "PAK",
-    "name": "Pakistan",
-    "flag": "🇵🇰",
-    "confederation": ""
-  },
-  "585": {
-    "code": "PLW",
-    "name": "Palau",
-    "flag": "🇵🇼",
-    "confederation": ""
-  },
-  "591": {
-    "code": "PAN",
-    "name": "Panama",
-    "flag": "🇵🇦",
-    "confederation": ""
-  },
-  "598": {
-    "code": "PNG",
-    "name": "Papua New Guinea",
-    "flag": "🇵🇬",
-    "confederation": ""
-  },
-  "600": {
-    "code": "PRY",
-    "name": "Paraguay",
-    "flag": "🇵🇾",
-    "confederation": ""
-  },
-  "604": {
-    "code": "PER",
-    "name": "Peru",
-    "flag": "🇵🇪",
-    "confederation": ""
-  },
-  "608": {
-    "code": "PHL",
-    "name": "Philippines",
-    "flag": "🇵🇭",
-    "confederation": ""
-  },
-  "612": {
-    "code": "PCN",
-    "name": "Pitcairn",
-    "flag": "🇵🇳",
-    "confederation": ""
-  },
-  "616": {
-    "code": "POL",
-    "name": "Poland",
-    "flag": "🇵🇱",
-    "confederation": ""
-  },
-  "620": {
-    "code": "PRT",
-    "name": "Portugal",
-    "flag": "🇵🇹",
-    "confederation": ""
-  },
-  "630": {
-    "code": "PRI",
-    "name": "Puerto Rico",
-    "flag": "🇵🇷",
-    "confederation": ""
-  },
-  "634": {
-    "code": "QAT",
-    "name": "Qatar",
-    "flag": "🇶🇦",
-    "confederation": ""
-  },
-  "410": {
-    "code": "KOR",
-    "name": "South Korea",
-    "flag": "🇰🇷",
-    "confederation": "AFC"
-  },
-  "498": {
-    "code": "MDA",
-    "name": "Moldova",
-    "flag": "🇲🇩",
-    "confederation": ""
-  },
-  "638": {
-    "code": "REU",
-    "name": "Réunion",
-    "flag": "🇷🇪",
-    "confederation": ""
-  },
-  "642": {
-    "code": "ROU",
-    "name": "Romania",
-    "flag": "🇷🇴",
-    "confederation": ""
-  },
-  "643": {
-    "code": "RUS",
-    "name": "Russia",
-    "flag": "🇷🇺",
-    "confederation": ""
-  },
-  "646": {
-    "code": "RWA",
-    "name": "Rwanda",
-    "flag": "🇷🇼",
-    "confederation": ""
-  },
-  "652": {
-    "code": "BLM",
-    "name": "St. Barthélemy",
-    "flag": "🇧🇱",
-    "confederation": ""
-  },
-  "654": {
-    "code": "SHN",
-    "name": "St. Helena",
-    "flag": "🇸🇭",
-    "confederation": ""
-  },
-  "659": {
-    "code": "KNA",
-    "name": "St. Kitts & Nevis",
-    "flag": "🇰🇳",
-    "confederation": ""
-  },
-  "662": {
-    "code": "LCA",
-    "name": "St. Lucia",
-    "flag": "🇱🇨",
-    "confederation": ""
-  },
-  "663": {
-    "code": "MAF",
-    "name": "St. Martin",
-    "flag": "🇲🇫",
-    "confederation": ""
-  },
-  "666": {
-    "code": "SPM",
-    "name": "St. Pierre & Miquelon",
-    "flag": "🇵🇲",
-    "confederation": ""
-  },
-  "670": {
-    "code": "VCT",
-    "name": "St. Vincent & Grenadines",
-    "flag": "🇻🇨",
-    "confederation": ""
-  },
-  "882": {
-    "code": "WSM",
-    "name": "Samoa",
-    "flag": "🇼🇸",
-    "confederation": ""
-  },
-  "674": {
-    "code": "SMR",
-    "name": "San Marino",
-    "flag": "🇸🇲",
-    "confederation": ""
-  },
-  "678": {
-    "code": "STP",
-    "name": "São Tomé & Príncipe",
-    "flag": "🇸🇹",
-    "confederation": ""
-  },
-  "682": {
-    "code": "SAU",
-    "name": "Saudi Arabia",
-    "flag": "🇸🇦",
-    "confederation": ""
-  },
-  "686": {
-    "code": "SEN",
-    "name": "Senegal",
-    "flag": "🇸🇳",
-    "confederation": "CAF"
-  },
-  "688": {
-    "code": "SRB",
-    "name": "Serbia",
-    "flag": "🇷🇸",
-    "confederation": ""
-  },
-  "690": {
-    "code": "SYC",
-    "name": "Seychelles",
-    "flag": "🇸🇨",
-    "confederation": ""
-  },
-  "694": {
-    "code": "SLE",
-    "name": "Sierra Leone",
-    "flag": "🇸🇱",
-    "confederation": ""
-  },
-  "702": {
-    "code": "SGP",
-    "name": "Singapore",
-    "flag": "🇸🇬",
-    "confederation": ""
-  },
-  "534": {
-    "code": "SXM",
-    "name": "Sint Maarten",
-    "flag": "🇸🇽",
-    "confederation": ""
-  },
-  "703": {
-    "code": "SVK",
-    "name": "Slovakia",
-    "flag": "🇸🇰",
-    "confederation": ""
-  },
-  "705": {
-    "code": "SVN",
-    "name": "Slovenia",
-    "flag": "🇸🇮",
-    "confederation": ""
+    "confederation": "",
+    "fifaRanking": 194,
+    "population": 466330
   },
   "090": {
     "code": "SLB",
     "name": "Solomon Islands",
     "flag": "🇸🇧",
-    "confederation": ""
-  },
-  "706": {
-    "code": "SOM",
-    "name": "Somalia",
-    "flag": "🇸🇴",
-    "confederation": ""
-  },
-  "710": {
-    "code": "ZAF",
-    "name": "South Africa",
-    "flag": "🇿🇦",
-    "confederation": ""
-  },
-  "239": {
-    "code": "SGS",
-    "name": "South Georgia & South Sandwich Islands",
-    "flag": "🇬🇸",
-    "confederation": ""
-  },
-  "728": {
-    "code": "SSD",
-    "name": "South Sudan",
-    "flag": "🇸🇸",
-    "confederation": ""
-  },
-  "724": {
-    "code": "ESP",
-    "name": "Spain",
-    "flag": "🇪🇸",
-    "confederation": "UEFA"
-  },
-  "144": {
-    "code": "LKA",
-    "name": "Sri Lanka",
-    "flag": "🇱🇰",
-    "confederation": ""
-  },
-  "275": {
-    "code": "PSE",
-    "name": "Palestine",
-    "flag": "🇵🇸",
-    "confederation": ""
-  },
-  "729": {
-    "code": "SDN",
-    "name": "Sudan",
-    "flag": "🇸🇩",
-    "confederation": ""
-  },
-  "740": {
-    "code": "SUR",
-    "name": "Suriname",
-    "flag": "🇸🇷",
-    "confederation": ""
-  },
-  "744": {
-    "code": "SJM",
-    "name": "Svalbard & Jan Mayen",
-    "flag": "🇸🇯",
-    "confederation": ""
-  },
-  "752": {
-    "code": "SWE",
-    "name": "Sweden",
-    "flag": "🇸🇪",
-    "confederation": ""
-  },
-  "756": {
-    "code": "CHE",
-    "name": "Switzerland",
-    "flag": "🇨🇭",
-    "confederation": ""
-  },
-  "760": {
-    "code": "SYR",
-    "name": "Syria",
-    "flag": "🇸🇾",
-    "confederation": ""
-  },
-  "158": {
-    "code": "TWN",
-    "name": "Taiwan",
-    "flag": "🇹🇼",
-    "confederation": ""
-  },
-  "762": {
-    "code": "TJK",
-    "name": "Tajikistan",
-    "flag": "🇹🇯",
-    "confederation": ""
-  },
-  "764": {
-    "code": "THA",
-    "name": "Thailand",
-    "flag": "🇹🇭",
-    "confederation": ""
-  },
-  "626": {
-    "code": "TLS",
-    "name": "Timor-Leste",
-    "flag": "🇹🇱",
-    "confederation": ""
-  },
-  "768": {
-    "code": "TGO",
-    "name": "Togo",
-    "flag": "🇹🇬",
-    "confederation": ""
-  },
-  "772": {
-    "code": "TKL",
-    "name": "Tokelau",
-    "flag": "🇹🇰",
-    "confederation": ""
-  },
-  "776": {
-    "code": "TON",
-    "name": "Tonga",
-    "flag": "🇹🇴",
-    "confederation": ""
-  },
-  "780": {
-    "code": "TTO",
-    "name": "Trinidad & Tobago",
-    "flag": "🇹🇹",
-    "confederation": ""
-  },
-  "788": {
-    "code": "TUN",
-    "name": "Tunisia",
-    "flag": "🇹🇳",
-    "confederation": ""
-  },
-  "792": {
-    "code": "TUR",
-    "name": "Türkiye",
-    "flag": "🇹🇷",
-    "confederation": ""
-  },
-  "795": {
-    "code": "TKM",
-    "name": "Turkmenistan",
-    "flag": "🇹🇲",
-    "confederation": ""
-  },
-  "796": {
-    "code": "TCA",
-    "name": "Turks & Caicos Islands",
-    "flag": "🇹🇨",
-    "confederation": ""
-  },
-  "798": {
-    "code": "TUV",
-    "name": "Tuvalu",
-    "flag": "🇹🇻",
-    "confederation": ""
-  },
-  "800": {
-    "code": "UGA",
-    "name": "Uganda",
-    "flag": "🇺🇬",
-    "confederation": ""
-  },
-  "804": {
-    "code": "UKR",
-    "name": "Ukraine",
-    "flag": "🇺🇦",
-    "confederation": ""
-  },
-  "784": {
-    "code": "ARE",
-    "name": "United Arab Emirates",
-    "flag": "🇦🇪",
-    "confederation": ""
-  },
-  "826": {
-    "code": "GBR",
-    "name": "UK",
-    "flag": "🇬🇧",
-    "confederation": ""
-  },
-  "834": {
-    "code": "TZA",
-    "name": "Tanzania",
-    "flag": "🇹🇿",
-    "confederation": ""
-  },
-  "581": {
-    "code": "UMI",
-    "name": "U.S. Outlying Islands",
-    "flag": "🇺🇲",
-    "confederation": ""
-  },
-  "840": {
-    "code": "USA",
-    "name": "US",
-    "flag": "🇺🇸",
-    "confederation": "CONCACAF"
-  },
-  "850": {
-    "code": "VIR",
-    "name": "U.S. Virgin Islands",
-    "flag": "🇻🇮",
-    "confederation": ""
-  },
-  "858": {
-    "code": "URY",
-    "name": "Uruguay",
-    "flag": "🇺🇾",
-    "confederation": ""
-  },
-  "860": {
-    "code": "UZB",
-    "name": "Uzbekistan",
-    "flag": "🇺🇿",
-    "confederation": ""
-  },
-  "548": {
-    "code": "VUT",
-    "name": "Vanuatu",
-    "flag": "🇻🇺",
-    "confederation": ""
-  },
-  "862": {
-    "code": "VEN",
-    "name": "Venezuela",
-    "flag": "🇻🇪",
-    "confederation": ""
-  },
-  "704": {
-    "code": "VNM",
-    "name": "Vietnam",
-    "flag": "🇻🇳",
-    "confederation": ""
-  },
-  "876": {
-    "code": "WLF",
-    "name": "Wallis & Futuna",
-    "flag": "🇼🇫",
-    "confederation": ""
-  },
-  "732": {
-    "code": "ESH",
-    "name": "Western Sahara",
-    "flag": "🇪🇭",
-    "confederation": ""
-  },
-  "887": {
-    "code": "YEM",
-    "name": "Yemen",
-    "flag": "🇾🇪",
-    "confederation": ""
-  },
-  "894": {
-    "code": "ZMB",
-    "name": "Zambia",
-    "flag": "🇿🇲",
-    "confederation": ""
-  },
-  "716": {
-    "code": "ZWE",
-    "name": "Zimbabwe",
-    "flag": "🇿🇼",
-    "confederation": ""
-  },
-  "9001": {
-  "code": "SCO",
-  "name": "Scotland",
-  "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-  "confederation": "UEFA"
-}
+    "confederation": "",
+    "fifaRanking": 153,
+    "population": 838645
+  }
 }
