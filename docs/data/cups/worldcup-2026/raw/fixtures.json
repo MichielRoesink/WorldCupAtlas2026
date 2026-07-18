@@ -1,6 +1,6 @@
 {
   "source": "worldcup26",
-  "fetchedAt": "2026-07-18T21:23:15.424Z",
+  "fetchedAt": "2026-07-18T22:10:36.942Z",
   "matches": {
     "games": [
       {
@@ -2182,9 +2182,9 @@
         "home_team_id": "33",
         "away_team_id": "45",
         "home_score": "0",
-        "away_score": "2",
+        "away_score": "4",
         "home_scorers": "null",
-        "away_scorers": "{\"Dklan Rais 3'\",\"Azri Knsa 18'\"}",
+        "away_scorers": "{\"Dklan Rais 3'\",\"Azri Knsa 18'\",\"Bvkaiv Saka 37'\",\"Bvkaiv Saka 45+1'\"}",
         "group": "3RD",
         "matchday": "8",
         "local_date": "07/18/2026 17:00",
