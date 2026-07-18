@@ -1098,11 +1098,11 @@
       "date": "07/18/2026 17:00",
       "home": "FRA",
       "away": "GBR",
-      "homeScore": 0,
-      "awayScore": 4,
+      "homeScore": 4,
+      "awayScore": 6,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "playing"
+      "status": "finished"
     },
     {
       "id": 15,
