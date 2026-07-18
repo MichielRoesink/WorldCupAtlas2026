@@ -1098,8 +1098,8 @@
       "date": "07/18/2026 17:00",
       "home": "FRA",
       "away": "GBR",
-      "homeScore": 0,
-      "awayScore": 0,
+      "homeScore": null,
+      "awayScore": null,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
       "status": "scheduled"
