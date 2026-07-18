@@ -37,7 +37,7 @@
   },
   {
     "code": "FRA",
-    "status": "out"
+    "status": "playing"
   },
   {
     "code": "IRQ",
@@ -69,7 +69,7 @@
   },
   {
     "code": "GBR",
-    "status": "out"
+    "status": "playing"
   },
   {
     "code": "HTI",
