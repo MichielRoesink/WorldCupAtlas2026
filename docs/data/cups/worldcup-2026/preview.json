@@ -942,11 +942,11 @@
       "date": "07/19/2026 15:00",
       "home": "ESP",
       "away": "ARG",
-      "homeScore": 0,
+      "homeScore": 1,
       "awayScore": 0,
       "homePenaltyScore": null,
       "awayPenaltyScore": null,
-      "status": "scheduled"
+      "status": "finished"
     },
     {
       "id": 3,
