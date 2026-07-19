@@ -57,7 +57,7 @@
   },
   {
     "code": "ARG",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "EGY",
@@ -65,7 +65,7 @@
   },
   {
     "code": "ESP",
-    "status": "playing"
+    "status": "in_race"
   },
   {
     "code": "GBR",
