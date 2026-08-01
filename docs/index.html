@@ -2,11 +2,33 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="layout.css">
 </head>
 
 <body class="launch-screen">
+
+<div class="mobile-landscape-notice">
+  <div class="mobile-landscape-notice-card">
+    <div class="mobile-rotate-icon" aria-hidden="true">↻</div>
+
+    <strong>Draai je telefoon</strong>
+
+    <span>
+      CupAtlas is ontworpen om de volledige wereldkaart
+      in landscape te bekijken.
+    </span>
+  </div>
+</div>
+
+<div class="launch-story">
+  Every tournament tells a story.
+</div>
+
 
 <div id="atlas-launch-screen" class="atlas-launch-screen">
 
@@ -44,45 +66,39 @@
             type="button"
             data-tournament="worldcup-2026">
 
-            <div class="launch-card-content">
-              <div class="launch-card-title">
-                FIFA World Cup 2026
-              </div>
-
-              <div class="launch-card-subtitle">
-                United States • Canada • Mexico
-              </div>
-            </div>
-
-            <span class="launch-card-enter">
-              Enter
-              <span aria-hidden="true">→</span>
-            </span>
-
-          </button>
-        </div>
-      </div>
-
-      <footer class="atlas-launch-footer">
-        Every tournament tells a story.
-      </footer>
-
-    </div>
-
+          <div class="launch-card-content">
+  <div class="launch-card-label">
+    Tournament:
   </div>
 
+  <div class="launch-card-title">
+    FIFA World Cup 2026
+  </div>
+
+  <div class="launch-card-subtitle">
+    United States • Canada • Mexico
+  </div>
+</div>
+
+<span class="launch-card-enter">
+  Enter
+  <span aria-hidden="true">→</span>
+</span>
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
 </div>
 
 <section class="cup-selector">
+  <label for="cup-select">Cup</label>
 
-    <label for="cup-select">Cup</label>
-
-    <select id="cup-select">
-
-        <option>Loading...</option>
-
-    </select>
-
+  <select id="cup-select">
+    <option>Loading...</option>
+  </select>
 </section>
 <main class="atlas-page">
 
@@ -232,11 +248,15 @@
   </div>
 
     <div id="cupatlas-credits">
-      <strong>🌍 CupAtlas</strong>
-      <span>The living atlas of world sports</span>
-      <span>© 2026 Created by Michiel Roesink</span>
-      <small>All rights reserved</small>
-    </div>
+    <strong>🌍 CupAtlas</strong>
+    <span>The living atlas of world sports</span>
+    <span>© 2026 Created by Michiel Roesink</span>
+    <small>All rights reserved</small>
+
+    <div class="credits-story">
+      Every tournament tells a story
+  </div>
+</div>
   </div>
 
 </div>
