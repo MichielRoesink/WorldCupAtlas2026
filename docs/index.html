@@ -5,28 +5,74 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="layout.css">
 </head>
-<body>
-<!-- ================= HEADER ================= -->
-<header class="site-header">
-  <div>
-    <h1>🌍 CupAtlas</h1>
-    <p class="site-tagline">The living atlas of world football</p>
+
+<body class="launch-screen">
+
+<div id="atlas-launch-screen" class="atlas-launch-screen">
+
+  <div class="atlas-launch-backdrop" aria-hidden="true"></div>
+
+  <div class="atlas-launch-content">
+
+    <div class="atlas-launch-card">
+
+      <header class="atlas-launch-header">
+        <h1 class="launch-title">
+          Welcome to <span>CupAtlas</span>
+        </h1>
+
+        <p class="launch-subtitle">
+          The Living Atlas of World Sports
+        </p>
+      </header>
+
+      <div class="atlas-launch-divider" aria-hidden="true">
+        <span></span>
+      </div>
+
+      <div
+        id="atlas-launch-globe"
+        class="atlas-launch-globe"
+        aria-hidden="true">
+      </div>
+
+      <div class="atlas-launch-form">
+        <div class="launch-tournament-list">
+          <button
+            id="launch-enter"
+            class="launch-tournament-card"
+            type="button"
+            data-tournament="worldcup-2026">
+
+            <div class="launch-card-content">
+              <div class="launch-card-title">
+                FIFA World Cup 2026
+              </div>
+
+              <div class="launch-card-subtitle">
+                United States • Canada • Mexico
+              </div>
+            </div>
+
+            <span class="launch-card-enter">
+              Enter
+              <span aria-hidden="true">→</span>
+            </span>
+
+          </button>
+        </div>
+      </div>
+
+      <footer class="atlas-launch-footer">
+        Every tournament tells a story.
+      </footer>
+
+    </div>
+
   </div>
 
-  <div class="header-tournament">
-    <span>Current tournament</span>
-    <strong>FIFA World Cup 2026 ▼</strong>
-    <small>United States • Canada • Mexico</small>
-  </div>
-</header>
-<section class="timeline-bar">
-  <span class="timeline-stage" data-stage="groups">Groups</span>
-  <span class="timeline-stage" data-stage="r32">R32</span>
-  <span class="timeline-stage active" data-stage="r16">R16</span>
-  <span class="timeline-stage" data-stage="qf">QF</span>
-  <span class="timeline-stage" data-stage="sf">SF</span>
-  <span class="timeline-stage" data-stage="final">Final</span>
-</section>
+</div>
+
 <section class="cup-selector">
 
     <label for="cup-select">Cup</label>
@@ -42,11 +88,6 @@
 
   <section class="atlas-hero">
     <div class="tournament-bar">
-  <div>
-    <span class="tournament-label">Tournament</span>
-    <strong id="tournament-title">FIFA World Cup 2026</strong>
-    <small>United States • Canada • Mexico</small>
-  </div>
 
   <select id="tournament-select">
     <option value="worldcup-2026">FIFA World Cup 2026</option>
@@ -56,93 +97,149 @@
         
     </div>
 
-  <div class="atlas-map-wrap">
-  
-  <div class="map-layer-control">
-  <span class="map-layer-title">Map layers</span>
+<div class="atlas-map-wrap">
 
-  <label class="map-layer-option">
-    <input type="checkbox" checked disabled>
-    <span>Tournament</span>
-  </label>
+  <div class="atlas-toolbar">
+    <div id="tournament-picker">
+    <select id="overlay-tournament-select">
+        <option value="worldcup-2026">FIFA World Cup 2026</option>
+    </select>
+</div>
 
-  <label class="map-layer-option">
-    <input type="checkbox" id="fcg-layer-toggle">
-    <span>FC Groningen</span>
+<section class="timeline-bar">
+  <span class="timeline-stage" data-stage="groups">Groups</span>
+  <span class="timeline-stage" data-stage="r32">R32</span>
+  <span class="timeline-stage active" data-stage="r16">R16</span>
+  <span class="timeline-stage" data-stage="qf">QF</span>
+  <span class="timeline-stage" data-stage="sf">SF</span>
+  <span class="timeline-stage" data-stage="final">Final</span>
+  <span class="timeline-stage" data-stage="winner">Winner</span>
+</section>
+
+    <div id="club-layers-toggle">
+  <span>⚽ Club Layers</span>
+
+  <label class="mini-switch">
+    <input type="checkbox" id="club-layers-panel-toggle">
+    <span class="mini-slider"></span>
   </label>
 </div>
 
+<div id="nl-clock" aria-live="polite">
+    <img
+      src="assets/icons/clock.svg"
+      class="toolbar-icon"
+      alt=""
+      aria-hidden="true">
+
+    <span id="nl-clock-time">--:--:--</span>
+    <span class="clock-separator">•</span>
+    <span id="nl-clock-date">Loading date…</span>
+  </div>
+  </div>
+
   <div class="status-row">
-
-    <div class="map-status">
-      <div class="status-chip participating">
-        <span id="team-count">0</span>
-        <label>Participating in this tournament</label>
-      </div>
-
-      <div class="status-chip alive">
-        <span id="in-race-count">0</span>
-        <label>Still competing</label>
-      </div>
-
-      <div class="status-chip playing">
-        <span id="playing-count">0</span>
-        <label>Now playing</label>
-      </div>
-
-      <div class="status-chip eliminated">
-        <span id="out-count">0</span>
-        <label>Eliminated</label>
-      </div>
+  <div class="map-status">
+    <div class="status-chip participating">
+      <span id="team-count">0</span>
+      <label>Participating</label>
     </div>
 
-    <div class="match-panels">
-      <div id="live-now" class="live-now"></div>
-      <div id="next-match-card" class="next-match-card"></div>
+    <div class="status-chip alive">
+      <span id="in-race-count">0</span>
+      <label>Still competing</label>
+    </div>
+
+    <div class="status-chip eliminated">
+      <span id="out-count">0</span>
+      <label>Eliminated</label>
+    </div>
+  </div>
+</div>
+
+  <div class="map-placeholder">
+
+  <svg
+    viewBox="0 0 900 430"
+    preserveAspectRatio="none"
+    class="world-map-preview"
+    aria-label="World map preview">
+
+    <rect x="0" y="0" width="900" height="430" rx="20"></rect>
+    <ellipse class="continent" cx="210" cy="165" rx="110" ry="70"></ellipse>
+    <ellipse class="continent" cx="285" cy="280" rx="70" ry="110"></ellipse>
+    <ellipse class="continent" cx="470" cy="155" rx="95" ry="55"></ellipse>
+    <ellipse class="continent" cx="570" cy="190" rx="150" ry="85"></ellipse>
+    <ellipse class="continent" cx="620" cy="300" rx="80" ry="95"></ellipse>
+    <ellipse class="continent" cx="760" cy="295" rx="75" ry="45"></ellipse>
+
+  </svg>
+
+</div>
+
+<aside
+  id="country-panel"
+  class="country-panel"
+  aria-live="polite"
+  aria-hidden="true">
+</aside>
+
+<aside class="match-stack">
+  <div id="live-now" class="live-now"></div>
+  <div id="next-match-card" class="next-match-card"></div>
+</aside>
+</div>
+
+<div class="atlas-overlay">
+  <div class="map-club-control">
+    <div class="map-club-title">Club Layers</div>
+
+    <label class="club-layer-option">
+      <input
+        type="checkbox"
+        id="fcg-layer-toggle"
+        class="club-layer-input"
+      >
+
+      <span class="club-layer-check"></span>
+
+      <img
+        src="assets/clubs/fc-groningen.svg"
+        alt=""
+        class="club-layer-logo"
+      >
+
+      <span class="club-layer-name">FC Groningen</span>
+    </label>
+
+    <label class="club-layer-option">
+      <input
+        type="checkbox"
+        id="ajax-layer-toggle"
+        class="club-layer-input"
+      >
+
+      <span class="club-layer-check"></span>
+
+      <img
+        src="assets/clubs/ajax.svg"
+        alt=""
+        class="club-layer-logo"
+      >
+
+      <span class="club-layer-name">AFC Ajax</span>
+    </label>
+  </div>
+
+    <div id="cupatlas-credits">
+      <strong>🌍 CupAtlas</strong>
+      <span>The living atlas of world sports</span>
+      <span>© 2026 Created by Michiel Roesink</span>
+      <small>All rights reserved</small>
     </div>
   </div>
 
-      <div class="map-placeholder">
-        <svg viewBox="0 0 900 430" class="world-map-preview" aria-label="World map preview">
-          <rect x="0" y="0" width="900" height="430" rx="20"></rect>
-          <ellipse class="continent" cx="210" cy="165" rx="110" ry="70"></ellipse>
-          <ellipse class="continent" cx="285" cy="280" rx="70" ry="110"></ellipse>
-          <ellipse class="continent" cx="470" cy="155" rx="95" ry="55"></ellipse>
-          <ellipse class="continent" cx="570" cy="190" rx="150" ry="85"></ellipse>
-          <ellipse class="continent" cx="620" cy="300" rx="80" ry="95"></ellipse>
-          <ellipse class="continent" cx="760" cy="295" rx="75" ry="45"></ellipse>
-        </svg>
-      </div>
-    </div>
-
-  <section class="atlas-panels">
-    <div class="stats-card" id="country-panel">
-      <h2>Select a country</h2>
-      <p>Click a country on the map to see its World Cup status.</p>
-    </div>
-
-    <div class="legend-card">
-      <h2>Legend</h2>
-      <p><span class="dot in-race"></span> In the race</p>
-      <p><span class="dot playing"></span> Live match</p>
-      <p><span class="dot out"></span> Eliminated</p>
-      <p><span class="dot not-participating"></span> Not participating</p>
-    </div>
-
-    <div class="matches-card">
-      <h2>Today's Matches</h2>
-      <div id="today-matches">
-        <p>No matches today.</p>
-      </div>
-    </div>
-
-    <div class="bracket-card">
-      <h2>Knock-out Bracket</h2>
-      <div id="knockout-bracket">
-        <p>Loading bracket...</p>
-      </div>
-    </div>
-  </section>
+</div>
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -150,6 +247,11 @@
 
 <div id="tooltip" class="tooltip"></div>
 
+<script src="countries.js"></script>
+<script src="matches.js"></script>
+<script src="data/capitals.js"></script>
+<script src="astronomy.js"></script>
+<script src="dayNightLayer.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

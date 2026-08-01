@@ -1,17 +1,23 @@
 const liveNowContainer = document.getElementById("live-now");
 const CURRENT_CUP = "worldcup-2026";
-let currentStage = "r16";
-let showFcgLayer = false;
-const fcgCapitalCoordinates = {
-  AUS: [149.13, -35.28],   // Canberra
-  CPV: [-23.51, 14.93],    // Praia
-  CUW: [-68.93, 12.11],    // Willemstad
-  JPN: [139.69, 35.68],    // Tokyo
-  NED: [4.90, 52.37],      // Amsterdam
-  NOR: [10.75, 59.91],     // Oslo
-  SWE: [18.07, 59.33],     // Stockholm
-  USA: [-77.04, 38.91]     // Washington, D.C.
+let currentStage = "groups";
+const clubLayers = {
+  fcg: false,
+  ajax: false
 };
+const countryCapitalCoordinates = window.capitals;
+const capitalCodeAliases = {
+  NED: "NLD",
+  CRO: "HRV",
+  POR: "PRT",
+  ENG: "GBR"
+};
+
+function getCapitalInfoByCode(code) {
+  const capitalCode = capitalCodeAliases[code] || code;
+
+  return countryCapitalCoordinates[capitalCode] || null;
+}
 let appState = {};
 const DEV_MODE = false;
 const DEV_MATCH_ID = 84;
@@ -30,6 +36,7 @@ const tooltip = document.getElementById("tooltip");
 
 const statusColors = {
   in_race: "#15803d",
+  winner: "#d4af37",
   playing: "#facc15",
   upcoming: "#f59e0b",
   out: "#dc2626",
@@ -54,18 +61,27 @@ function formatDate(dateString) {
     year: "numeric"
   });
 }
-function renderTodayMatches(matches, countries){
 
-    const upcoming = matches
-        .filter(match => match.status === "scheduled")
-        .slice(0,3);
+function formatPopulation(value) {
+  if (value === null || value === undefined) {
+    return "—";
+  }
 
-    todayMatchesContainer.innerHTML = upcoming.map(match => {
+  return new Intl.NumberFormat("nl-NL").format(value);
+}
 
-        const home = getCountryByCode(match.home, countries);
-        const away = getCountryByCode(match.away, countries);
+function renderTodayMatches(matches, countries) {
+  if (!todayMatchesContainer) return;
+  const upcoming = matches
+    .filter(match => match.status === "scheduled")
+    .slice(0, 3);
 
-        return `
+  todayMatchesContainer.innerHTML = upcoming.map(match => {
+
+    const home = getCountryByCode(match.home, countries);
+    const away = getCountryByCode(match.away, countries);
+
+    return `
 
             <div class="match-item">
 
@@ -83,10 +99,11 @@ function renderTodayMatches(matches, countries){
 
         `;
 
-    }).join("");
+  }).join("");
 
 }
 function renderBracket(matches, countries) {
+  if (!bracketContainer) return;
   const rounds = [...new Set(matches.map(match => match.round))];
 
   bracketContainer.innerHTML = rounds.map(round => {
@@ -97,10 +114,10 @@ function renderBracket(matches, countries) {
         <h3>${round}</h3>
 
         ${roundMatches.map(match => {
-          const home = match.home ? getCountryByCode(match.home, countries) : null;
-          const away = match.away ? getCountryByCode(match.away, countries) : null;
+      const home = match.home ? getCountryByCode(match.home, countries) : null;
+      const away = match.away ? getCountryByCode(match.away, countries) : null;
 
-          return `
+      return `
             <div class="bracket-match">
               <strong>
                 ${home ? `${home.flag || ""} ${home.name}` : "TBD"}
@@ -110,35 +127,57 @@ function renderBracket(matches, countries) {
               <small>${formatDate(match.date)}</small>
             </div>
           `;
-        }).join("")}
+    }).join("")}
       </div>
     `;
   }).join("");
 }
 async function loadData() {
-  const [world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, fcgConnections] = await Promise.all([
+  const [
+    world,
+    countries,
+    teams,
+    matches,
+    preview,
+    tournamentInfo,
+    mapOverrides,
+    clubLayerData,
+    ajaxLayerData,
+    worldCupSchedule
+  ] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
     d3.json(`${DATA_PATH}/teams.json`),
     d3.json(`${DATA_PATH}/matches.json`),
     d3.json(`${DATA_PATH}/preview.json`),
-    d3.json(`${DATA_PATH}/results/results.json`),
     d3.json(`${DATA_PATH}/tournament.json`),
     d3.json("data/map-overrides.json"),
-    d3.json("data/fcg-connections.json")
+    loadClubLayer("fc-groningen"),
+    loadClubLayer("afc-ajax"),
+    d3.json("https://www.thestatsapi.com/world-cup/data/fixtures.json")
   ]);
 
   return {
-  world,
-  countries,
-  teams,
-  matches,
-  preview,
-  results,
-  tournamentInfo,
-  mapOverrides,
-  fcgConnections
-};
+    world,
+    countries,
+    teams,
+
+    // Alleen voor kaart, status en toernooilogica.
+    matches,
+
+    // Alleen voor gespeelde wedstrijden in het landenpaneel.
+    preview,
+
+    // Behoud de bestaande interface, maar meng previewresultaten
+    // niet meer met de kaartdata.
+    results: [],
+
+    tournamentInfo,
+    mapOverrides,
+    clubLayerData,
+    ajaxLayerData,
+    worldCupSchedule
+  };
 }
 
 function buildCountryCodeIndex(countries, mapOverrides = []) {
@@ -173,35 +212,50 @@ function findCountryByCode(countries, code) {
 function deriveTournamentFromMatches(baseTournament) {
   return { ...baseTournament };
 }
-function applyResultsToTournament(tournament, matches, results, codeToMapId) {
 
+function applyResultsToTournament(
+  tournament,
+  matches,
+  results,
+  codeToMapId
+) {
   results.forEach(result => {
-
     const match = matches.find(m => m.id === result.match);
-
     if (!match) return;
 
     const winner = getWinner(match, results);
-
     if (!winner) return;
 
-    const loser = winner === match.home ? match.away : match.home;
+    const loser =
+      winner === match.home
+        ? match.away
+        : match.home;
 
     const winnerId = codeToMapId[winner];
     const loserId = codeToMapId[loser];
 
+    const roundName = String(match.round || "")
+      .trim()
+      .toLowerCase();
+
+    const isFinal = roundName === "final";
+
     if (winnerId && tournament[winnerId]) {
-  tournament[winnerId].status = "in_race";
-  tournament[winnerId].note = `Advanced from ${match.round}`;
-}
+      tournament[winnerId].status =
+        isFinal ? "winner" : "in_race";
 
-if (loserId && tournament[loserId]) {
-  tournament[loserId].status = "out";
-  tournament[loserId].note = `Eliminated in ${match.round}`;
-}
+      tournament[winnerId].note =
+        isFinal
+          ? "World champion"
+          : `Advanced from ${match.round}`;
+    }
 
+    if (loserId && tournament[loserId]) {
+      tournament[loserId].status = "out";
+      tournament[loserId].note =
+        `Eliminated in ${match.round}`;
+    }
   });
-
 }
 
 function advanceWinners(matches, results) {
@@ -212,24 +266,24 @@ function advanceWinners(matches, results) {
   });
 
   matches.forEach(match => {
-const winner = getWinner(match, results);
+    const winner = getWinner(match, results);
 
-if (
-  match.winnerGoesTo &&
-  winner
-) {
+    if (
+      match.winnerGoesTo &&
+      winner
+    ) {
 
-  const nextMatch = matchMap[match.winnerGoesTo];
+      const nextMatch = matchMap[match.winnerGoesTo];
 
-  if (!nextMatch) return;
+      if (!nextMatch) return;
 
-  if (!nextMatch.home) {
-    nextMatch.home = winner;
-  } else if (!nextMatch.away) {
-    nextMatch.away = winner;
-  }
+      if (!nextMatch.home) {
+        nextMatch.home = winner;
+      } else if (!nextMatch.away) {
+        nextMatch.away = winner;
+      }
 
-}
+    }
   });
 }
 
@@ -239,12 +293,14 @@ function updateCounters(tournament, matches) {
   const teams = Object.values(tournament);
 
   inRaceCount.textContent = teams.filter(team =>
-  team.status === "in_race" ||
-  team.status === "playing" ||
-  team.status === "upcoming"
-).length;
-  outCount.textContent = teams.filter(team => team.status === "out").length;
-  playingCount.textContent = teams.filter(team => team.status === "playing").length;
+    team.status === "in_race" ||
+    team.status === "playing" ||
+    team.status === "upcoming"
+  ).length;
+
+  outCount.textContent = teams.filter(team =>
+    team.status === "out"
+  ).length;
 }
 
 function formatLocalClock() {
@@ -275,11 +331,11 @@ function startLiveBall(ball) {
 
     const onBottom = y > bannerRect.height / 2;
 
-if (onBottom) {
-  rotation -= 18;   // onder: linksom
-} else {
-  rotation += 18;   // boven, rechts én links: rechtsom
-}
+    if (onBottom) {
+      rotation -= 18;   // onder: linksom
+    } else {
+      rotation += 18;   // boven, rechts én links: rechtsom
+    }
 
     ball.style.transform = `rotate(${rotation}deg)`;
   }, 50);
@@ -299,10 +355,37 @@ function isTodayMatch(match) {
   );
 }
 
-function formatDutchTime(dateString) {
-  const [datePart, timePart] = dateString.split(" ");
-  const [hours, minutes] = timePart.split(":").map(Number);
+const hostCityTimeZones = {
+  "atlanta": "America/New_York",
+  "boston": "America/New_York",
+  "dallas": "America/Chicago",
+  "guadalajara": "America/Mexico_City",
+  "houston": "America/Chicago",
+  "kansas-city": "America/Chicago",
+  "los-angeles": "America/Los_Angeles",
+  "miami": "America/New_York",
+  "mexico-city": "America/Mexico_City",
+  "monterrey": "America/Monterrey",
+  "new-york": "America/New_York",
+  "philadelphia": "America/New_York",
+  "san-francisco": "America/Los_Angeles",
+  "seattle": "America/Los_Angeles",
+  "toronto": "America/Toronto",
+  "vancouver": "America/Vancouver"
+};
 
+function formatTimeInZone(isoString, timeZone) {
+  return new Intl.DateTimeFormat("nl-NL", {
+    timeZone,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  }).format(new Date(isoString));
+}
+
+function formatDutchTime(dateString) {
+  const [, timePart] = dateString.split(" ");
+  const [hours, minutes] = timePart.split(":").map(Number);
   const dutchHours = (hours + 6) % 24;
 
   return `${String(dutchHours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
@@ -314,109 +397,134 @@ function renderNextMatch(match, countries) {
 
   if (!match) {
     card.innerHTML = "";
+    card.style.display = "none";
     return;
   }
+
+  card.style.display = "";
 
   const home = getCountryByCode(match.home, countries);
   const away = getCountryByCode(match.away, countries);
 
+  const dateValue = String(match.date || "");
+  const [datePart = "Date TBA", timePart = ""] = dateValue.split(" ");
+
+  const timeHtml = timePart
+    ? `${timePart} US / ${formatDutchTime(dateValue)} NL`
+    : "Time TBA";
+
   card.innerHTML = `
-  <div class="next-match-main">
-    <div class="next-match-label">Next match</div>
+  <div class="next-card">
 
-    <div class="next-match-teams">
-      <span class="next-team">
-        ${home?.flag || ""} ${home?.name || match.home}
+    <div class="next-card-title">
+      NEXT MATCH
+    </div>
+
+    <div class="next-card-teams">
+      <span>${home?.flag || ""}</span>
+
+      <span class="next-card-name">
+        ${home?.name || match.home}
       </span>
 
-      <span class="next-vs">vs</span>
+      <span class="next-card-vs">
+        VS
+      </span>
 
-      <span class="next-team">
-        ${away?.flag || ""} ${away?.name || match.away}
+      <span>${away?.flag || ""}</span>
+
+      <span class="next-card-name">
+        ${away?.name || match.away}
       </span>
     </div>
-  </div>
 
-  <div class="next-match-datetime">
-    <strong>${match.date.split(" ")[0]}</strong>
-
-    <div class="next-match-time">
-      ${match.date.split(" ")[1]} US / ${formatDutchTime(match.date)} NL
+    <div class="next-card-date">
+      ${datePart}
     </div>
+
+    <div class="next-card-time">
+      ${timeHtml}
+    </div>
+
   </div>
 `;
 }
 
 function renderLiveNow(matches, countries) {
- const liveMatch = matches.find(
-  match => match.status === "playing"
-);
+  const liveMatch = matches.find(
+    match => match.status === "playing"
+  );
 
   if (!liveMatch) {
     liveNowContainer.innerHTML = "";
+
+    clearInterval(window.liveClockTimer);
+    clearInterval(window.liveBallTimer);
+
     return;
   }
 
   const home = getCountryByCode(liveMatch.home, countries);
   const away = getCountryByCode(liveMatch.away, countries);
-  const isLive = true;
-const matchLabel = "● LIVE";
 
   liveNowContainer.innerHTML = `
-  <div class="live-banner">
-    <div class="live-topline">
-  <span class="live-badge">${matchLabel}</span>
-  <span class="live-round">${liveMatch.round.toUpperCase()}</span>
-  <span class="live-clock" id="live-clock">${formatLocalClock()}</span>
-</div>
+    <div class="live-banner">
+      <div class="live-match-main">
+        <div class="live-topline">
+          <span class="live-badge">● LIVE</span>
+          <span class="live-round">
+            ${(liveMatch.round || "").toUpperCase()}
+          </span>
+        </div>
 
-<div class="live-matchup compact">
-  <div class="live-team live-team-home">
-    <strong>${home?.flag || ""} ${home?.name || liveMatch.home}</strong>
-  </div>
+        <div class="live-match-teams">
+          <span class="live-team-name">
+            ${home?.flag || ""} ${home?.name || liveMatch.home}
+          </span>
 
-  <div class="live-score">
-  ${isLive ? `${liveMatch.homeScore} – ${liveMatch.awayScore}` : formatDate(liveMatch.date)}
-</div>
+          <span class="live-score">
+            ${liveMatch.homeScore ?? 0} – ${liveMatch.awayScore ?? 0}
+          </span>
 
-  <div class="live-team live-team-away">
-    <strong>${away?.name || liveMatch.away} ${away?.flag || ""}</strong>
-  </div>
-</div>
+          <span class="live-team-name">
+            ${away?.flag || ""} ${away?.name || liveMatch.away}
+          </span>
+        </div>
+      </div>
 
-    <div class="live-ball-track" style="${isLive ? "" : "display:none"}">
-      <img
-        class="live-ball"
-        src="images/soccer-ball.svg"
-        alt=""
-        draggable="false"
-      />
+      <div class="live-match-datetime">
+        <strong id="live-clock">${formatLocalClock()}</strong>
+      </div>
+
+      <div class="live-ball-track">
+        <img
+          class="live-ball"
+          src="images/soccer-ball.svg"
+          alt=""
+          aria-hidden="true"
+          draggable="false"
+        />
+      </div>
     </div>
-  </div>
-`;
+  `;
+
   const clock = document.getElementById("live-clock");
 
-if (clock) {
   clearInterval(window.liveClockTimer);
 
-  window.liveClockTimer = setInterval(() => {
-    clock.textContent = formatLocalClock();
-  }, 1000);
-}
+  if (clock) {
+    window.liveClockTimer = setInterval(() => {
+      clock.textContent = formatLocalClock();
+    }, 1000);
+  }
 
-function formatTime(dateString) {
-  const [, timePart] = dateString.split(" ");
-  return timePart || "";
-}
+  const ball = liveNowContainer.querySelector(".live-ball");
 
-const ball = document.querySelector(".live-ball");
-
-if (ball && isLive) {
-  startLiveBall(ball);
-} else {
   clearInterval(window.liveBallTimer);
-}
 
+  if (ball) {
+    startLiveBall(ball);
+  }
 }
 
 function findNextMatch(countryCode, matches) {
@@ -453,17 +561,17 @@ function getWinner(match, results) {
 
   return null;
 }
-function getMatchesPlayed(countryCode, results, matches){
+function getMatchesPlayed(countryCode, results, matches) {
 
-    return results.filter(result=>{
+  return results.filter(result => {
 
-        const match=matches.find(m=>m.id===result.match);
+    const match = matches.find(m => m.id === result.match);
 
-        if(!match) return false;
+    if (!match) return false;
 
-        return match.home===countryCode || match.away===countryCode;
+    return match.home === countryCode || match.away === countryCode;
 
-    }).length;
+  }).length;
 
 }
 
@@ -503,7 +611,7 @@ function getCountryStats(countryCode, matches, results) {
     }
 
   });
-stats.goalDifference = stats.goalsFor - stats.goalsAgainst;
+  stats.goalDifference = stats.goalsFor - stats.goalsAgainst;
   return stats;
 }
 function formatMatchTeams(match, country, countries) {
@@ -517,123 +625,409 @@ function formatResult(match) {
   return `${match.home} ${match.homeScore ?? ""} - ${match.awayScore ?? ""} ${match.away}`;
 }
 
-function renderCountryPanel(country, mapId, tournamentData, matches, results, countries) {
-  const nextMatch = findNextMatch(country.code, matches);
-  const stats = getCountryStats(country.code, matches, results);
-  const lastMatch = findLastMatch(country.code, matches);
-  const journey = tournamentData?.status === "eliminated"
-  ? `
-    <div class="journey-step complete">✅ Qualified</div>
-    <div class="journey-step complete">✅ Round of 32</div>
-    <div class="journey-step eliminated">❌ Eliminated</div>
-  `
-  : `
-    <div class="journey-step complete">✅ Qualified</div>
-    <div class="journey-step active">⏳ Still in the race</div>
-    <div class="journey-step">⬜ Round of 16</div>
-    <div class="journey-step">⬜ Quarterfinal</div>
-    <div class="journey-step">⬜ Semifinal</div>
-    <div class="journey-step">⬜ Final</div>
-    <div class="journey-step">🏆 Champion</div>
-  `;
+function renderCountryPanel(
+  country,
+  mapId,
+  tournamentData,
+  matches,
+  preview,
+  countries
+) {
 
-countryPanel.innerHTML = `
-  <div class="country-header">
-    <div class="flag">${country.flag || "🌍"}</div>
+  const teamCode = country.code;
+  const clubCodeAliases = {
+    NLD: ["NLD", "NED"]
+  };
 
-    <div class="country-title">
-      <h2>${country.name}</h2>
+  const possibleClubCodes =
+    clubCodeAliases[teamCode] || [teamCode];
 
-      <div class="country-code">
-        ${country.code}
+  function findClubPlayers(layerData) {
+    if (!layerData?.connections) return [];
+
+    for (const code of possibleClubCodes) {
+      const players = layerData.connections[code];
+
+      if (Array.isArray(players)) {
+        return players;
+      }
+    }
+
+    return [];
+  }
+
+  const fcgPlayers = clubLayers.fcg
+    ? findClubPlayers(appState.clubLayerData)
+    : [];
+
+  const ajaxPlayers = clubLayers.ajax
+    ? findClubPlayers(appState.ajaxLayerData)
+    : [];
+    
+  console.log("Country panel:", country.name, "country.code:", country.code, "mapId:", mapId);
+  
+  const previewMatches = Array.isArray(preview?.matches)
+    ? preview.matches
+    : [];
+
+  const countryMatches = previewMatches.filter(match =>
+  match.home === teamCode || match.away === teamCode
+);
+
+  const playedMatches = countryMatches
+    .filter(match =>
+      match.status === "finished" &&
+      match.homeScore != null &&
+      match.awayScore != null
+    )
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const nextMatch = countryMatches
+    .filter(match =>
+      match.status === "scheduled" &&
+      match.home &&
+      match.away
+    )
+    .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
+
+  const status = tournamentData?.status || "not_participating";
+
+  const statusLabel =
+  status === "winner"
+    ? "🏆 World champion"
+    : status === "playing"
+      ? "Now playing"
+      : status === "in_race" || status === "upcoming"
+        ? "Still competing"
+        : status === "out"
+          ? "Eliminated"
+          : "Not participating";
+
+  const statusClass =
+  status === "winner"
+    ? "is-winner"
+    : status === "playing"
+      ? "is-playing"
+      : status === "in_race" || status === "upcoming"
+        ? "is-competing"
+        : status === "out"
+          ? "is-eliminated"
+          : "is-not-participating";
+
+  const participates = status !== "not_participating";
+
+  function getTeam(code) {
+    return findCountryByCode(countries, code);
+  }
+
+  function renderTeam(code) {
+    const team = getTeam(code);
+
+    return `
+      <span class="panel-team">
+        <span class="panel-team-flag">
+          ${team?.flag || ""}
+        </span>
+
+        <span class="panel-team-name">
+          ${team?.name || code}
+        </span>
+      </span>
+    `;
+  }
+
+  function renderResult(match) {
+  const hasPenalties =
+    match.homePenaltyScore != null &&
+    match.awayPenaltyScore != null;
+
+  return `
+    <article class="panel-match">
+      <div class="panel-match-topline">
+        <span class="panel-match-round">
+          ${match.round || "Tournament match"}
+        </span>
+
+        <span class="panel-match-date">
+          ${formatDate(match.date)}
+        </span>
       </div>
 
-      <div class="country-status status-${tournamentData?.status || "not_participating"}">
-        ${
-          tournamentData?.status === "playing"
-            ? "🟡 LIVE NOW"
-            : tournamentData?.status === "in_race"
-              ? "🟢 Still competing"
-              : tournamentData?.status === "out"
-                ? "🔴 Eliminated"
-                : "⚪ Not participating"
-        }
+      <div class="panel-match-result">
+        <div class="panel-match-team panel-match-team-home">
+          ${renderTeam(match.home)}
+        </div>
+
+        <strong class="panel-score">
+          ${match.homeScore}–${match.awayScore}
+        </strong>
+
+        <div class="panel-match-team panel-match-team-away">
+          ${renderTeam(match.away)}
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="summary-strip">
-
-    <div class="summary-card">
-      <div class="summary-number">${stats.played}</div>
-      <div class="summary-label">Matches</div>
-    </div>
-
-    <div class="summary-card">
-      <div class="summary-number">${stats.wins}</div>
-      <div class="summary-label">Wins</div>
-    </div>
-
-    <div class="summary-card">
-      <div class="summary-number">${stats.goalsFor}</div>
-      <div class="summary-label">Goals</div>
-    </div>
-
-  </div>
-
-  <hr>
-
-    <div class="match-card">
-      <small>${nextMatch ? "⚽ NEXT MATCH" : lastMatch ? "🏁 LAST MATCH" : "MATCH"}</small>
-
-      <strong>
-        ${
-          nextMatch
-            ? formatMatchTeams(nextMatch, country, countries)
-            : lastMatch
-              ? formatResult(lastMatch)
-              : "—"
-        }
-      </strong>
-
-      <div class="match-meta">
-    🗓 ${nextMatch ? formatDate(nextMatch.date) : lastMatch ? formatDate(lastMatch.date) : "—"}
-    <br>
-    🏆 ${nextMatch ? nextMatch.round : lastMatch ? lastMatch.round : ""}
-</div>
-
-    <div class="info-row">
-      <strong>Match status</strong>
-      <span>${nextMatch ? prettyStatus(nextMatch.status) : lastMatch ? "Finished" : "—"}</span>
-    </div>
-<hr>
-
-<h3>Journey</h3>
-
-<div class="journey">
-  ${journey}
-</div>
-<hr>
-
-<h3>Stats</h3>
-
-<div class="stats-grid">
-  <div><strong>${stats.played}</strong><span>Matches</span></div>
-  <div><strong>${stats.wins}</strong><span>Wins</span></div>
-  <div><strong>${stats.losses}</strong><span>Losses</span></div>
-  <div><strong>${stats.goalsFor}</strong><span>Goals for</span></div>
-  <div><strong>${stats.goalsAgainst}</strong><span>Goals against</span></div>
-  <div><strong>${stats.goalDifference > 0 ? "+" : ""}${stats.goalDifference}</strong><span>Goal diff</span></div>
-</div>
-    <div class="info-row">
-      <strong>Confederation</strong>
-      <span>${country.confederation || "Unknown"}</span>
-    </div>
+      ${
+        hasPenalties
+          ? `
+            <div class="panel-penalties">
+              Won on penalties:
+              ${match.homePenaltyScore}–${match.awayPenaltyScore}
+            </div>
+          `
+          : ""
+      }
+    </article>
   `;
 }
 
-function drawMap(world, countries, tournament, matches, results, mapOverrides) {
+  function renderCountryPanelNextMatch(match) {
+    if (!match) return "";
+
+    return `
+      <section class="country-panel-section">
+        <div class="country-panel-section-title">
+          Next match
+        </div>
+
+        <article class="panel-next-match">
+          <div class="panel-match-meta">
+            <span>${match.round || "Tournament match"}</span>
+            <span>${formatDate(match.date)}</span>
+          </div>
+
+          <div class="panel-next-teams">
+            ${renderTeam(match.home)}
+
+            <span class="panel-versus">
+              vs
+            </span>
+
+            ${renderTeam(match.away)}
+          </div>
+        </article>
+      </section>
+    `;
+  }
+
+  const capitalInfo = countryCapitalCoordinates[teamCode];
+  const localTime =
+    capitalInfo?.timeZone
+      ? getLocalTime(capitalInfo.timeZone)
+      : "—";
+  const daylight =
+    capitalInfo?.timeZone
+      ? getDaylight(capitalInfo.timeZone)
+      : "—";
+
+  countryPanel.innerHTML = `
+    <button
+      class="country-panel-close"
+      type="button"
+      aria-label="Close country information">
+      ×
+    </button>
+
+    <header class="country-panel-header">
+
+  <div class="country-panel-title-row">
+    <div class="country-panel-flag">
+      ${country.flag || "🌍"}
+    </div>
+
+    <h2>${country.name}</h2>
+  </div>
+
+  <div class="country-panel-confederation">
+    ${country.confederation || "—"}
+  </div>
+
+  <div class="country-panel-status ${statusClass}">
+    <span class="country-status-dot"></span>
+    ${statusLabel}
+  </div>
+
+</header>
+
+    <div class="country-panel-meta">
+  ${
+    capitalInfo
+      ? `
+      <div class="country-panel-row">
+        <span class="country-panel-label">Capital</span>
+        <span class="country-panel-value">${capitalInfo.capital}</span>
+      </div>
+      `
+      : ""
+  }
+
+  <div class="country-panel-row">
+    <span class="country-panel-label">Population</span>
+    <span class="country-panel-value">
+      ${formatPopulation(country.population)}
+    </span>
+  </div>
+
+  <div class="country-panel-row">
+    <span class="country-panel-label">FIFA Ranking</span>
+    <span class="country-panel-value">
+      ${country.fifaRanking ?? country.ranking ?? "—"}
+    </span>
+  </div>
+
+  ${
+    capitalInfo
+      ? `
+      <div class="country-panel-row">
+        <span class="country-panel-label">Local time</span>
+        <span class="country-panel-value">${localTime}</span>
+      </div>
+
+      <div class="country-panel-row">
+        <span class="country-panel-label">Daylight</span>
+        <span class="country-panel-value">
+          ${daylight}
+        </span>
+      </div>
+      `
+      : ""
+  }
+
+</div>
+
+    ${
+  fcgPlayers.length > 0 || ajaxPlayers.length > 0
+    ? `
+      <section class="country-panel-section club-connections">
+        <div class="country-panel-section-title">
+          Club connections
+        </div>
+
+        ${
+          fcgPlayers.length > 0
+            ? `
+              <div class="club-connection-group">
+                <strong>FC Groningen</strong>
+
+                ${fcgPlayers.map(player => `
+                  <div class="club-connection-player">
+                    ${player.name}
+                  </div>
+                `).join("")}
+              </div>
+            `
+            : ""
+        }
+
+        ${
+          ajaxPlayers.length > 0
+            ? `
+              <div class="club-connection-group">
+                <strong>AFC Ajax</strong>
+
+                ${ajaxPlayers.map(player => `
+                  <div class="club-connection-player">
+                    ${player.name}
+                  </div>
+                `).join("")}
+              </div>
+            `
+            : ""
+        }
+      </section>
+    `
+    : ""
+}
+
+    ${
+  nextMatch
+  ? renderCountryPanelNextMatch(nextMatch)
+    : !participates
+      ? `
+        <section class="country-panel-section">
+          <div class="country-panel-empty">
+            This country is not participating in the tournament.
+          </div>
+        </section>
+      `
+      : ""
+}
+
+    ${
+      playedMatches.length > 0
+        ? `
+          <section class="country-panel-section previous-matches">
+            <div class="country-panel-section-title">
+              Previous matches
+            </div>
+
+            <div class="country-panel-match-list">
+              ${playedMatches.map(renderResult).join("")}
+            </div>
+          </section>
+        `
+        : participates
+          ? `
+            <section class="country-panel-section previous-matches">
+              <div class="country-panel-section-title">
+                Previous matches
+              </div>
+
+              <div class="country-panel-empty">
+                No results yet.
+              </div>
+            </section>
+          `
+          : ""
+    }
+  `;
+
+  countryPanel
+    .querySelector(".country-panel-close")
+    ?.addEventListener("click", closeCountryPanel);
+
+countryPanel.classList.remove(
+  "is-winner",
+  "is-playing",
+  "is-competing",
+  "is-eliminated",
+  "is-not-participating"
+);
+
+countryPanel.classList.add(statusClass);
+countryPanel.classList.add("is-open");
+countryPanel.setAttribute("aria-hidden", "false");
+}
+
+function closeCountryPanel() {
+  countryPanel.classList.remove("is-open");
+  countryPanel.setAttribute("aria-hidden", "true");
+}
+
+function getLocalTime(timeZone) {
+  return new Intl.DateTimeFormat("nl-NL", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone
+  }).format(new Date());
+}
+
+function getDaylight(timeZone) {
+  const hour = Number(
+    new Intl.DateTimeFormat("en-GB", {
+      hour: "2-digit",
+      hour12: false,
+      timeZone
+    }).format(new Date())
+  );
+
+  return hour >= 6 && hour < 18 ? "☀️ Day" : "🌙 Night";
+}
+
+function drawMap(world, countries, tournament, matches, results, mapOverrides, preview) {
   mapContainer.innerHTML = "";
+  tooltip.style.display = "none";
 
   const width = mapContainer.clientWidth;
   const height = mapContainer.clientHeight;
@@ -645,21 +1039,41 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
 
   svg.append("defs").html(`
     <radialGradient id="oceanGradient" cx="50%" cy="45%" r="75%">
-      <stop offset="0%" stop-color="#f7fbff"/>
-      <stop offset="58%" stop-color="#eaf3fb"/>
-      <stop offset="100%" stop-color="#d7e8f5"/>
+  <animate
+    attributeName="cx"
+    values="48%;52%;48%"
+    dur="36s"
+    repeatCount="indefinite" />
+  <animate
+    attributeName="cy"
+    values="44%;46%;44%"
+    dur="42s"
+    repeatCount="indefinite" />
+      <stop offset="0%" stop-color="#d7e7f3"/>
+      <stop offset="58%" stop-color="#b9d2e8"/>
+      <stop offset="100%" stop-color="#8fb8d7"/>
     </radialGradient>
 
     <filter id="softLandShadow">
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.18"/>
     </filter>
+
+    <filter id="winnerGlow" x="-50%" y="-50%" width="200%" height="200%">
+  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#d4af37" flood-opacity="0.55" />
+    </filter>
   `);
 
   svg.append("rect")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("rx", 18)
-    .attr("fill", "url(#oceanGradient)");
+  .attr("width", width)
+  .attr("height", height)
+  .attr("rx", 18)
+  .attr("fill", "url(#oceanGradient)")
+  .on("mousemove", () => {
+    tooltip.style.display = "none";
+  });
+  
+  const zoomLayer = svg.append("g")
+  .attr("class", "map-zoom-layer");
 
   const mapCountries = topojson.feature(world, world.objects.countries);
 
@@ -667,37 +1081,174 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
     .fitExtent([[24, 24], [width - 24, height - 24]], mapCountries);
 
   const path = d3.geoPath().projection(projection);
-  const codeToMapId = buildCountryCodeIndex(countries, mapOverrides);
 
-  function countryCenterByCode(code) {
-    const mapId = codeToMapId[code];
-    if (!mapId) return null;
+  DayNightLayer.render({
+    zoomLayer,
+    path
+  });
 
-    const feature = mapCountries.features.find(d => String(d.id) === String(mapId));
-    if (!feature) return null;
+  const codeToMapId = buildCountryCodeIndex(
+  countries,
+  mapOverrides
+);
 
-    return path.centroid(feature);
-  }
+function countryCenterByCode(code) {
+  const mapId = codeToMapId[code];
 
-  svg.selectAll("path")
-    .data(mapCountries.features)
+  if (!mapId) return null;
+
+  const feature = mapCountries.features.find(
+    countryFeature =>
+      String(countryFeature.id) === String(mapId)
+  );
+
+  if (!feature) return null;
+
+  return path.centroid(feature);
+}
+
+zoomLayer
+  .selectAll("path.country")
+  .data(mapCountries.features)
+  .enter()
+  .append("path")
+  .attr("d", path)
+  .attr("class", d => {
+    const status =
+      tournament[d.id]?.status ||
+      "not_participating";
+
+    return `country status-${status}`;
+  })
+  .style("fill", d => {
+    if (
+      document.body.classList.contains(
+        "launch-screen"
+      )
+    ) {
+      return "#ffffff";
+    }
+
+    const tournamentData = tournament[d.id];
+
+    const status = tournamentData
+      ? tournamentData.status
+      : "not_participating";
+
+    return (
+      statusColors[status] ||
+      statusColors.unknown
+    );
+  })
+  .style("filter", d => {
+    const status =
+      tournament[d.id]?.status ||
+      "not_participating";
+
+    return status === "winner"
+      ? "url(#winnerGlow)"
+      : "url(#softLandShadow)";
+  })
+  .on("mousemove", (event, d) => {
+    const country = countries[d.id];
+    const tournamentData = tournament[d.id];
+
+    if (!country) return;
+
+    tooltip.style.display = "block";
+    tooltip.style.left =
+      `${event.pageX + 15}px`;
+    tooltip.style.top =
+      `${event.pageY + 15}px`;
+
+    tooltip.innerHTML = `
+      ${country.flag || "🌍"}
+      <strong>${country.name}</strong><br>
+
+      <span class="tooltip-status ${
+        tournamentData?.status ||
+        "not_participating"
+      }">
+        ● ${prettyStatus(
+          tournamentData?.status
+        )}
+      </span>
+    `;
+  })
+  .on("mouseleave", () => {
+    tooltip.style.display = "none";
+  })
+  .on("click", (event, d) => {
+    const country = countries[d.id];
+    const tournamentData = tournament[d.id];
+
+    if (!country) return;
+
+    zoomLayer
+      .selectAll("path.country")
+      .classed("selected-country", false);
+
+    d3.select(event.currentTarget)
+      .classed(
+        "country-selected-pulse",
+        false
+      );
+
+    requestAnimationFrame(() => {
+      d3.select(event.currentTarget)
+        .classed(
+          "country-selected-pulse",
+          true
+        );
+    });
+
+    setTimeout(() => {
+      d3.select(event.currentTarget)
+        .classed(
+          "country-selected-pulse",
+          false
+        );
+    }, 700);
+
+    renderCountryPanel(
+      country,
+      d.id,
+      tournamentData,
+      matches,
+      preview,
+      countries
+    );
+  });
+
+  zoomLayer.selectAll(".island-marker")
+    .data(mapOverrides)
     .enter()
-    .append("path")
-    .attr("d", path)
-    .attr("class", d => {
-      const status = tournament[d.id]?.status || "not_participating";
-      return `country status-${status}`;
-    })
+    .append("circle")
+    .attr("class", "island-marker")
+    .attr("cx", d => projection([d.lon, d.lat])[0])
+    .attr("cy", d => projection([d.lon, d.lat])[1])
+    .attr("r", 2)
     .style("fill", d => {
-      const tournamentData = tournament[d.id];
-      const status = tournamentData ? tournamentData.status : "not_participating";
-      return statusColors[status] || statusColors.unknown;
-    })
+        if (document.body.classList.contains("launch-screen")) {
+          return "#ffffff";
+        }
+
+        const mapId = codeToMapId[d.code];
+        const team = mapId ? tournament[mapId] : null;
+        const status = team ? team.status : "not_participating";
+
+        return statusColors[status] || statusColors.unknown;
+      })
+    .style("stroke", "none")
+    .style("stroke-width", 1.5)
+    .style("cursor", "pointer")
     .on("mousemove", (event, d) => {
-      const country = countries[d.id];
-      const tournamentData = tournament[d.id];
+      const mapId = codeToMapId[d.code];
+      const country = countries[mapId];
 
       if (!country) return;
+
+      const tournamentData = tournament[mapId];
 
       tooltip.style.display = "block";
       tooltip.style.left = `${event.pageX + 15}px`;
@@ -705,132 +1256,142 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
 
       tooltip.innerHTML = `
         ${country.flag || "🌍"} <strong>${country.name}</strong><br>
-        ${prettyStatus(tournamentData?.status)}
+        <span class="tooltip-status ${tournamentData?.status || "not_participating"}">
+          ● ${prettyStatus(tournamentData?.status)}
+        </span>
       `;
     })
     .on("mouseleave", () => {
       tooltip.style.display = "none";
     })
     .on("click", (event, d) => {
-      const country = countries[d.id];
-      const tournamentData = tournament[d.id];
+      const mapId = codeToMapId[d.code];
+      const country = countries[mapId];
 
-      if (!country) {
-        countryPanel.innerHTML = `
-          <h2>Unknown country</h2>
-          <p>No country data available yet.</p>
-          <p><strong>Map ID:</strong> ${d.id}</p>
-        `;
-        return;
-      }
+      if (!country) return;
 
-      renderCountryPanel(country, d.id, tournamentData, matches, results, countries);
+      renderCountryPanel(
+        country,
+        mapId,
+        tournament[mapId],
+        matches,
+        preview,
+        countries
+      );
     });
 
-  svg.selectAll(".island-marker")
-  .data(mapOverrides)
-  .enter()
-  .append("circle")
-  .attr("class", "island-marker")
-  .attr("cx", d => projection([d.lon, d.lat])[0])
-  .attr("cy", d => projection([d.lon, d.lat])[1])
-  .attr("r", 4.5)
-  .style("fill", d => {
-    const mapId = codeToMapId[d.code];
-    const team = mapId ? tournament[mapId] : null;
-    const status = team ? team.status : "not_participating";
-    return statusColors[status] || statusColors.unknown;
-  })
-  .style("stroke", "#fff")
-  .style("stroke-width", 1.5)
-  .style("cursor", "pointer")
-  .on("mousemove", (event, d) => {
-    const mapId = codeToMapId[d.code];
-    const country = countries[mapId];
+  if (clubLayers.fcg && appState.clubLayerData) {
+    const fcgMarkerData = Object.entries(appState.clubLayerData.connections)
+      .map(([code, players]) => {
+    const capital = getCapitalInfoByCode(code);
+        if (!capital) return null;
 
-    if (!country) return;
+        return {
+          code,
+          players,
+          coordinates: [capital.lon, capital.lat]
+        };
+      })
+      .filter(Boolean)
+      .filter(item => item.coordinates);
 
-    const tournamentData = tournament[mapId];
+    const fcgMarkers = zoomLayer.selectAll(".fcg-marker")
+      .data(fcgMarkerData)
+      .enter()
+      .append("g")
+      .attr("class", "fcg-marker")
+      .attr("transform", d => {
+        const [x, y] = projection(d.coordinates);
+        return `translate(${x}, ${y})`;
+      })
+      .style("cursor", "pointer");
 
-    tooltip.style.display = "block";
-    tooltip.style.left = `${event.pageX + 15}px`;
-    tooltip.style.top = `${event.pageY + 15}px`;
+    fcgMarkers.append("image")
+  .attr("href", CLUBS.fcg.logo)
+  .attr("x", -11)
+  .attr("y", -11)
+  .attr("width", 22)
+  .attr("height", 22)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("filter", "drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25))");
 
-    tooltip.innerHTML = `
-      ${country.flag || "🌍"} <strong>${country.name}</strong><br>
-      ${prettyStatus(tournamentData?.status)}
-    `;
-  })
-  .on("mouseleave", () => {
-    tooltip.style.display = "none";
-  })
-  .on("click", (event, d) => {
-    const mapId = codeToMapId[d.code];
-    const country = countries[mapId];
+    fcgMarkers
+      .on("mousemove", (event, d) => {
+        const country = Object.values(countries)
+          .find(item => item.code === d.code);
 
-    if (!country) return;
+        tooltip.style.display = "block";
+        tooltip.style.left = `${event.pageX + 15}px`;
+        tooltip.style.top = `${event.pageY + 15}px`;
 
-    renderCountryPanel(
-      country,
-      mapId,
-      tournament[mapId],
-      matches,
-      results,
-      countries
-    );
-  });
-
-  if (showFcgLayer && appState.fcgConnections) {
-  const fcgMarkerData = Object.entries(appState.fcgConnections)
-    .map(([code, players]) => ({
-      code,
-      players,
-      coordinates: fcgCapitalCoordinates[code]
-    }))
-    .filter(item => item.coordinates);
-
-  const fcgMarkers = svg.selectAll(".fcg-marker")
-    .data(fcgMarkerData)
-    .enter()
-    .append("g")
-    .attr("class", "fcg-marker")
-    .attr("transform", d => {
-      const [x, y] = projection(d.coordinates);
-      return `translate(${x}, ${y})`;
-    })
-    .style("cursor", "pointer");
-
-  fcgMarkers.append("circle")
-    .attr("r", 8)
-    .attr("fill", "#168542")
-    .attr("stroke", "#ffffff")
-    .attr("stroke-width", 2);
-
-  fcgMarkers.append("circle")
-    .attr("r", 3)
-    .attr("fill", "#ffffff");
-
-  fcgMarkers
-    .on("mousemove", (event, d) => {
-      const country = Object.values(countries)
-        .find(item => item.code === d.code);
-
-      tooltip.style.display = "block";
-      tooltip.style.left = `${event.pageX + 15}px`;
-      tooltip.style.top = `${event.pageY + 15}px`;
-
-      tooltip.innerHTML = `
+        tooltip.innerHTML = `
         <strong>FC Groningen connection</strong><br>
         ${country?.flag || "🌍"} ${country?.name || d.code}<br>
         ${d.players.map(player => player.name).join("<br>")}
       `;
-    })
-    .on("mouseleave", () => {
-      tooltip.style.display = "none";
-    });
-}
+      })
+      .on("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+  }
+  if (clubLayers.ajax && appState.ajaxLayerData) {
+    const ajaxMarkerData = Object.entries(appState.ajaxLayerData.connections)
+      .map(([code, players]) => {
+    const capital = getCapitalInfoByCode(code);
+        if (!capital) return null;
 
+        return {
+          code,
+          players,
+          coordinates: [capital.lon, capital.lat]
+        };
+      })
+      .filter(Boolean)
+      .filter(item => item.coordinates);
+
+    const ajaxMarkers = zoomLayer.selectAll(".ajax-marker")
+      .data(ajaxMarkerData)
+      .enter()
+      .append("g")
+      .attr("class", "ajax-marker")
+      .attr("transform", d => {
+        const [x, y] = projection(d.coordinates);
+        return `translate(${x}, ${y})`;
+      })
+      .style("cursor", "pointer");
+
+    ajaxMarkers.append("image")
+  .attr("href", CLUBS.ajax.logo)
+  .attr("x", -11)
+  .attr("y", -11)
+  .attr("width", 22)
+  .attr("height", 22)
+  .attr("preserveAspectRatio", "xMidYMid meet")
+  .style("filter", "drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25))");
+
+    ajaxMarkers
+      .on("mousemove", (event, d) => {
+        const country = Object.values(countries)
+          .find(item => item.code === d.code);
+
+        tooltip.style.display = "block";
+        tooltip.style.left = `${event.pageX + 15}px`;
+        tooltip.style.top = `${event.pageY + 15}px`;
+        tooltip.innerHTML = `
+        <strong>AFC Ajax connection</strong><br>
+        ${country?.flag || "🌍"} ${country?.name || d.code}<br>
+        ${d.players.map(player => player.name).join("<br>")}
+      `;
+      })
+      .on("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+  }
+
+  console.log("matches:", matches);
+  console.log("statuses:", [...new Set(matches.map(m => m.status))]);
   const liveMatch = matches.find(match => match.status === "playing");
+  console.log("liveMatch:", liveMatch);
 
   if (liveMatch) {
     const start = countryCenterByCode(liveMatch.home);
@@ -839,15 +1400,15 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
     if (start && end) {
       const pathId = `live-focus-path-${liveMatch.id}`;
 
-      svg.append("path")
+      zoomLayer.append("path")
         .attr("id", pathId)
         .attr("class", "next-match-path")
         .attr(
           "d",
-        `M ${start[0]} ${start[1]} L ${end[0]} ${end[1]}`
+          `M ${start[0]} ${start[1]} L ${end[0]} ${end[1]}`
         );
 
-      svg.append("text")
+      zoomLayer.append("text")
         .attr("class", "next-match-ball")
         .append("textPath")
         .attr("href", `#${pathId}`)
@@ -860,11 +1421,14 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides) {
         .attr("repeatCount", "indefinite");
     }
   }
+
 }
 
 function getVisibleMatches(matches, stage) {
   if (stage === "groups") {
-    return matches.filter(m => String(m.round).toLowerCase().includes("group"));
+    return matches.filter(m =>
+      String(m.round).toLowerCase().includes("group")
+    );
   }
 
   if (stage === "r32") {
@@ -889,11 +1453,15 @@ function getVisibleMatches(matches, stage) {
     );
   }
 
+  if (stage === "winner") {
+    return [];
+  }
+
   return matches;
 }
 
 function detectCurrentStage(matches) {
-  const stages = ["groups", "r32", "r16", "qf", "sf", "final"];
+  const stages = ["groups", "r32", "r16", "qf", "sf", "final", "winner"];
 
   for (const stage of stages) {
     const stageMatches = getVisibleMatches(matches, stage);
@@ -942,38 +1510,84 @@ function renderStage(stage) {
   if (!appState.world) return;
 
   currentStage = stage;
+  closeCountryPanel();
+  tooltip.style.display = "none";
+
   setActiveTimelineStage(stage);
 
-  const visibleMatches = getVisibleMatches(appState.matches, stage);
-  const visiblePreviewMatches = getVisibleMatches(appState.preview.matches, stage);
-  const codeToMapId = buildCountryCodeIndex(appState.countries, appState.mapOverrides);
-  const mapTournament = JSON.parse(JSON.stringify(appState.derivedTournament));
-  applyResultsToTournament(
-  mapTournament,
-  appState.preview.matches,
-  appState.results,
-  codeToMapId
+  const visibleMatches = getVisibleMatches(
+  appState.matches,
+  stage
 );
-  const actualStage = detectCurrentStage(appState.preview.matches);
-const selectedStageIsPast = stageRank(stage) < stageRank(actualStage);
 
-if (selectedStageIsPast) {
-  const participantCodes = getStageParticipantCodes(
-    appState.preview.matches,
-    stage
+  const visiblePreviewMatches = getVisibleMatches(
+  appState.preview.matches,
+  stage
   );
 
+  const codeToMapId = buildCountryCodeIndex(
+    appState.countries,
+    appState.mapOverrides
+  );
+
+  const mapTournament = JSON.parse(
+    JSON.stringify(appState.derivedTournament)
+  );
+
+  applyResultsToTournament(
+    mapTournament,
+    appState.preview.matches,
+    appState.results,
+    codeToMapId
+  );
+
+  const actualStage = detectCurrentStage(appState.preview.matches);
+  const selectedStageIsPast =
+    stageRank(stage) < stageRank(actualStage);
+
+  if (selectedStageIsPast) {
+    const participantCodes = getStageParticipantCodes(
+      appState.preview.matches,
+      stage
+    );
+
+    Object.values(mapTournament).forEach(team => {
+      team.status = "out";
+    });
+
+    if (stage === "groups") {
+      Object.values(mapTournament).forEach(team => {
+        team.status = "in_race";
+      });
+    } else {
+      participantCodes.forEach(code => {
+        const mapId = codeToMapId[code];
+
+        if (mapId && mapTournament[mapId]) {
+          mapTournament[mapId].status = "in_race";
+        }
+      });
+    }
+  }
+
   Object.values(mapTournament).forEach(team => {
-    team.status = "out";
+    if (
+      team.status === "playing" ||
+      team.status === "upcoming"
+    ) {
+      team.status = "in_race";
+    }
   });
 
-  if (stage === "groups") {
-    Object.values(mapTournament).forEach(team => {
-      team.status = "in_race";
-    });
-  } else {
-    participantCodes.forEach(code => {
+  if (stage === "final") {
+  const finalMatch = appState.preview.matches.find(
+    match => match.round === "final"
+  );
+
+  if (finalMatch) {
+    [finalMatch.home, finalMatch.away].forEach(code => {
       const mapId = codeToMapId[code];
+
       if (mapId && mapTournament[mapId]) {
         mapTournament[mapId].status = "in_race";
       }
@@ -981,54 +1595,104 @@ if (selectedStageIsPast) {
   }
 }
 
-  Object.values(mapTournament).forEach(team => {
-    if (team.status === "playing" || team.status === "upcoming") {
-      team.status = "in_race";
+if (stage === "winner") {
+  const finalMatch = appState.preview.matches.find(
+    match => match.round === "final"
+  );
+
+  if (finalMatch) {
+    const winnerCode =
+      finalMatch.homeScore > finalMatch.awayScore
+        ? finalMatch.home
+        : finalMatch.away;
+
+    const winnerMapId = codeToMapId[winnerCode];
+
+    if (winnerMapId && mapTournament[winnerMapId]) {
+      mapTournament[winnerMapId].status = "winner";
     }
-  });
+  }
+}
 
   const liveMatches = selectedStageIsPast
-  ? []
-  : visiblePreviewMatches.filter(m => m.status === "playing");
+    ? []
+    : visiblePreviewMatches.filter(
+      match => match.status === "playing"
+    );
 
-const upcomingMatch = selectedStageIsPast
+  const upcomingMatch = selectedStageIsPast
   ? null
   : visiblePreviewMatches
-      .filter(m => m.status === "scheduled" && m.home && m.away)
+      .filter(m =>
+        m.status === "scheduled" &&
+        m.home &&
+        m.away
+      )
       .sort((a, b) => new Date(a.date) - new Date(b.date))[0];
 
   liveMatches.forEach(match => {
     const homeId = codeToMapId[match.home];
     const awayId = codeToMapId[match.away];
 
-    if (homeId && mapTournament[homeId]) mapTournament[homeId].status = "playing";
-    if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "playing";
+    if (homeId && mapTournament[homeId]) {
+      mapTournament[homeId].status = "playing";
+    }
+
+    if (awayId && mapTournament[awayId]) {
+      mapTournament[awayId].status = "playing";
+    }
   });
 
   if (upcomingMatch) {
     const homeId = codeToMapId[upcomingMatch.home];
     const awayId = codeToMapId[upcomingMatch.away];
 
-    if (homeId && mapTournament[homeId]) mapTournament[homeId].status = "upcoming";
-    if (awayId && mapTournament[awayId]) mapTournament[awayId].status = "upcoming";
+    if (homeId && mapTournament[homeId]) {
+      mapTournament[homeId].status = "upcoming";
+    }
+
+    if (awayId && mapTournament[awayId]) {
+      mapTournament[awayId].status = "upcoming";
+    }
   }
 
-  updateCounters(mapTournament, visiblePreviewMatches);
+  updateCounters(
+    mapTournament,
+    visiblePreviewMatches
+  );
 
   drawMap(
     appState.world,
     appState.countries,
     mapTournament,
-    visiblePreviewMatches,
+    appState.matches,
     appState.results,
-    appState.mapOverrides
+    appState.mapOverrides,
+    appState.preview
   );
 
-  renderLiveNow(visiblePreviewMatches, appState.countries);
-  renderNextMatch(upcomingMatch, appState.countries);
-  renderBracket(visibleMatches, appState.countries);
-  renderTodayMatches(visibleMatches, appState.countries);
-  console.log("FCG", appState.fcgConnections);
+  renderLiveNow(
+    visiblePreviewMatches,
+    appState.countries
+  );
+
+  console.log("visibleMatches", visibleMatches);
+  console.log("upcomingMatch", upcomingMatch);
+
+  renderNextMatch(
+    upcomingMatch,
+    appState.countries
+  );
+
+  renderBracket(
+    visibleMatches,
+    appState.countries
+  );
+
+  renderTodayMatches(
+    visibleMatches,
+    appState.countries
+  );
 }
 
 function setupTimeline() {
@@ -1046,67 +1710,175 @@ function setupTimeline() {
   });
 }
 function setupLayerControls() {
-  const toggle = document.getElementById("fcg-layer-toggle");
+  const fcgToggle = document.getElementById("fcg-layer-toggle");
+  const ajaxToggle = document.getElementById("ajax-layer-toggle");
 
-  if (!toggle) return;
+  if (fcgToggle) {
+    fcgToggle.checked = clubLayers.fcg;
 
-  toggle.checked = showFcgLayer;
+    fcgToggle.addEventListener("change", () => {
+      clubLayers.fcg = fcgToggle.checked;
+      console.log("FC Groningen layer:", clubLayers.fcg);
+      renderStage(currentStage);
+    });
+  }
 
-  toggle.addEventListener("change", () => {
-    showFcgLayer = toggle.checked;
+  if (ajaxToggle) {
+    ajaxToggle.checked = clubLayers.ajax;
 
-    console.log("FC Groningen layer:", showFcgLayer);
-
-    renderStage(currentStage);
-  });
+    ajaxToggle.addEventListener("change", () => {
+      clubLayers.ajax = ajaxToggle.checked;
+      console.log("AFC Ajax layer:", clubLayers.ajax);
+      renderStage(currentStage);
+    });
+  }
 }
 
-loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, fcgConnections }) => {
-  if (currentCupName) {currentCupName.textContent = tournamentInfo.name;}
+function updateNetherlandsClock() {
+  const now = new Date();
+
+  const time = new Intl.DateTimeFormat("nl-NL", {
+    timeZone: "Europe/Amsterdam",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false
+  }).format(now);
+
+  const dateFormatter = new Intl.DateTimeFormat("nl-NL", {
+  timeZone: "Europe/Amsterdam",
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+  });
+
+let date = dateFormatter.format(now);
+date = date.charAt(0).toUpperCase() + date.slice(1);
+
+  const timeElement = document.getElementById("nl-clock-time");
+  const dateElement = document.getElementById("nl-clock-date");
+
+  if (timeElement) {
+    timeElement.textContent = time;
+  }
+
+  if (dateElement) {
+    dateElement.textContent = date;
+  }
+}
+
+updateNetherlandsClock();
+setInterval(updateNetherlandsClock, 1000);
+
+async function loadClubLayer(club) {
+  return d3.json(`data/club-layers/worldcup-2026/${club}.json`);
+}
+
+loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, clubLayerData, ajaxLayerData, worldCupSchedule }) => {
+  if (currentCupName) { currentCupName.textContent = tournamentInfo.name; }
   const codeToMapId = buildCountryCodeIndex(countries, mapOverrides);
 
   const tournament = {};
 
   teams.forEach(team => {
-  const mapId = codeToMapId[team.code];
+    const mapId = codeToMapId[team.code];
 
-  if (mapId) {
-    tournament[mapId] = {
-      status: team.status || "in_race",
-      note: team.note || ""
-    };
-  }
-});
+    if (mapId) {
+      tournament[mapId] = {
+        status: team.status || "in_race",
+        note: team.note || ""
+      };
+    }
+  });
   advanceWinners(matches, results);
- const derivedTournament =
+  const derivedTournament =
     deriveTournamentFromMatches(
-        tournament,
-        matches,
-        codeToMapId
+      tournament,
+      matches,
+      codeToMapId
     );
 
-applyResultsToTournament(
+  applyResultsToTournament(
     derivedTournament,
     matches,
     results,
     codeToMapId
-);
-appState = {
-  world,
-  countries,
-  teams,
-  matches,
-  preview,
-  results,
-  tournamentInfo,
-  mapOverrides,
-  fcgConnections,
-  derivedTournament
+  );
+  appState = {
+    world,
+    countries,
+    teams,
+    matches,
+    preview,
+    results,
+    tournamentInfo,
+    mapOverrides,
+    clubLayerData,
+    ajaxLayerData,
+    scheduleFixtures: worldCupSchedule.fixtures,
+    derivedTournament
+  };
+
+  currentStage = detectCurrentStage(preview.matches);
+
+  setupTimeline();
+  setupLayerControls();
+  setupClubPanelToggle();
+  renderStage(currentStage);
+});
+
+const CLUBS = {
+  fcg: {
+    name: "FC Groningen",
+    logo: "assets/clubs/fc-groningen.svg"
+  },
+
+  ajax: {
+    name: "AFC Ajax",
+    logo: "assets/clubs/ajax.svg"
+  }
 };
 
-currentStage = detectCurrentStage(preview.matches);
+function setupClubPanelToggle() {
+  const panelToggle = document.getElementById("club-layers-panel-toggle");
+  const clubPanel = document.querySelector(".map-club-control");
 
-setupTimeline();
-setupLayerControls();
-renderStage(currentStage);
+  if (!panelToggle || !clubPanel) return;
+
+  function updateClubPanelVisibility() {
+    clubPanel.hidden = !panelToggle.checked;
+  }
+
+  const launchScreen =
+  document.getElementById("atlas-launch-screen");
+
+const launchButton =
+  document.getElementById("launch-enter");
+
+if (launchScreen && launchButton) {
+  launchButton.addEventListener("click", () => {
+  const selectedTournament =
+    launchButton.dataset.tournament;
+
+  if (!selectedTournament) {
+    return;
+  }
+
+  launchScreen.classList.add("is-closing");
+
+setTimeout(() => {
+  document.body.classList.remove("launch-screen");
+  renderStage("groups");
+  launchScreen.hidden = true;
+}, 700);
+
 });
+}
+
+  // Bedieningspaneel standaard verborgen
+  panelToggle.checked = false;
+  updateClubPanelVisibility();
+
+  panelToggle.addEventListener("change", updateClubPanelVisibility);
+}

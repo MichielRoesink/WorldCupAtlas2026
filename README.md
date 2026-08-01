@@ -1,5 +1,19 @@
 # CupAtlas
 
+**Everything revolves around the map.**
+
+CupAtlas is a personal project exploring a different way to experience
+international football tournaments: through the world map.
+
+The map is not a background or navigation aid.
+The map is the experience.
+
+CupAtlas is currently under development.
+
+© 2026. All rights reserved.
+
+# CupAtlas
+
 **An interactive world atlas for experiencing international football tournaments through the map.**
 
 CupAtlas is an independently developed web application that places the world map at the centre of the football tournament experience.
