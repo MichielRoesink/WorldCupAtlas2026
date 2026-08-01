@@ -1,38 +1,77 @@
+/* ===== Algemene instellingen ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
 }
 
 header {
-    background: #0b3d91;
+    background: #0f172a;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 14px 28px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header .subtitle,
+header .tagline,
+header .intro {
+    display: none;
+}
+
+.current-cup-name {
+    margin: 4px 0 0;
+    font-size: 13px;
+    opacity: 0.75;
+}
+
+.cup-selector {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    z-index: 20;
+}
+
+.cup-selector label {
+    color: white;
+    margin-right: 8px;
+    font-size: 13px;
 }
 
 main {
-    max-width: 1400px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    width: 100%;
+    margin: 0;
+    padding: 18px;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    max-width: none;
 }
 .dashboard {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
     margin-top: 30px;
-}
-
-.map-card,
-.stats-card {
-    background: white;
-    border: 1px solid #dddddd;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
 .map-card {
@@ -43,19 +82,15 @@ main {
     flex: 1;
 }
 
-.map-placeholder {
-    height: 820px;
-    background: #eef2f7;
-    border: 2px dashed #b8c2cc;
-    border-radius: 10px;
+.map-placeholder{
+    margin-top:120px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height:calc(100vh - 280px);
+    min-height:650px;
 
-    font-size: 26px;
-    color: #666;
+    overflow:hidden;
 }
+
 .stats-card p {
     background: #f8fafc;
     border-radius: 10px;
@@ -107,28 +142,10 @@ main {
     height: 100%;
 }
 
-.country {
-    fill: #d1d5db;
-    stroke: #ffffff;
-    stroke-width: 0.5;
-}
 .country.qualified {
     fill: #2e7d32;
 }
-.country {
-    transition: fill 0.2s ease, transform 0.2s ease;
-    cursor: pointer;
-}
-.country:hover {
-    filter: brightness(0.9);
-    stroke: #111827;
-    stroke-width: 1;
-}
-.country:hover {
-    filter: brightness(0.75);
-    stroke: #111827 !important;
-    stroke-width: 1.5 !important;
-}
+
 #country-panel h2 {
     font-size: 28px;
     margin-bottom: 20px;
@@ -147,25 +164,6 @@ main {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-}
-.legend-card {
-    margin-top: 20px;
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-.legend-card h2 {
-    margin-bottom: 16px;
-    font-size: 22px;
-}
-
-.legend-card p {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 10px 0;
 }
 
 .dot {
@@ -201,7 +199,7 @@ main {
 
 @media (min-width: 900px) {
     .dashboard {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: minmax(0, 6fr) minmax(260px, 1fr);
     }
 
     .map-card {
@@ -236,8 +234,18 @@ main {
     font-size: 0.9rem;
 }
 .map-placeholder {
-    border: none;
-    background: #f8fafc;
+    height: calc(100vh - 170px);
+    min-height: 680px;
+    background: radial-gradient(circle at center, #f8fafc 0%, #e5e7eb 100%);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
 }
 
 .map-card {
@@ -286,18 +294,35 @@ main {
 .info-row strong{
     color:#334155;
 }
+
 .tooltip{
     position:absolute;
     display:none;
-    background:#111827;
-    color:white;
-    padding:10px 14px;
-    border-radius:10px;
+
+    padding:12px 16px;
+
+    background:rgba(28, 50, 78, .90);
+    backdrop-filter:blur(12px);
+
+    color:#ffffff;
+
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:14px;
+
     font-size:14px;
+    line-height:1.45;
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.18);
+
     pointer-events:none;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
     z-index:999;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
 }
+
 .country-header h2 {
     margin: 0;
 }
@@ -446,19 +471,6 @@ main {
     color:#64748b;
     font-size:13px;
 }
-.matches-card{
-
-    margin-top:20px;
-
-    background:white;
-
-    border-radius:14px;
-
-    padding:18px;
-
-    border:1px solid #e5e7eb;
-
-}
 
 .match-item{
 
@@ -485,34 +497,7 @@ main {
     color:#64748b;
 
 }
-.bracket-card{
-    margin-top:20px;
-    background:white;
-    border-radius:14px;
-    padding:18px;
-    border:1px solid #e5e7eb;
-}
 
-.bracket-round{
-    margin-bottom:18px;
-}
-
-.bracket-round h3{
-    margin-bottom:10px;
-}
-
-.bracket-match{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:10px;
-    padding:10px;
-    margin-bottom:8px;
-    font-size:14px;
-}
-
-.bracket-match small{
-    color:#64748b;
-}
 .stat strong {
     display: block;
     margin-top: 6px;
@@ -553,18 +538,6 @@ main {
     background: #fef2f2;
     border-top: 4px solid #dc2626;
 }
-.live-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 10px 18px;
-  margin: 0 0 16px 0;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #1f2937, #111827);
-  color: white;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-}
 
 .live-meta {
   display: flex;
@@ -575,7 +548,7 @@ main {
 
 .live-badge {
   color: #facc15;
-  font-size: .8rem;
+  font-size: .46rem;
   font-weight: 800;
   letter-spacing: .08em;
 }
@@ -597,18 +570,8 @@ main {
 .live-team {
   font-size: 1.05rem;
   font-weight: 700;
-}
-
-.live-score {
-  min-width: 90px;
-  text-align: center;
-  font-size: 1.7rem;
-  font-weight: 900;
-}
-
-.live-banner {
-  position: relative;
-  overflow: visible;
+    width:90px;
+    text-align:center;
 }
 
 @keyframes liveBallAround {
@@ -692,4 +655,1814 @@ main {
   to {
     transform: rotate(2160deg);
   }
+}
+
+.atlas-page {
+  width: 100%;
+  height: 100vh;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.atlas-hero {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.atlas-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.atlas-topline h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.atlas-topline p {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.atlas-map-wrap {
+  position: relative;
+  padding-top: 10px;
+}
+
+.map-placeholder {
+  height: calc(100vh - 230px);
+  min-height: 680px;
+}
+
+.world-stats {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 14px;
+}
+
+.stat {
+  flex: 0 0 auto;
+  min-width: 150px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255,255,255,.12);
+  color: white;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, .18);
+}
+
+.stat span {
+  display: inline;
+  margin-right: 8px;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.stat strong {
+  display: inline;
+  margin: 0;
+  color: white;
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.stat small {
+  display: none;
+}
+
+.stat-in-race {
+  background: rgba(21, 128, 61, .92);
+}
+
+.stat-out {
+  background: rgba(220, 38, 38, .92);
+}
+
+.map-status{
+    position:absolute;
+
+    top: 310px;
+    left: 58%;
+    transform: translateX(-50%);
+
+    display:flex;
+    justify-content:flex-start;
+    gap:12px;
+
+    z-index:40;
+}
+
+.status-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+    max-width: 180px;
+    min-width: 150px;
+
+    gap: 8px;
+
+    padding: 12px 16px;
+
+    border-radius: 999px;
+
+    color: white;
+    font-weight: 700;
+
+    background: rgba(15,23,42,.92);
+
+    box-shadow: 0 8px 24px rgba(15,23,42,.18);
+}
+
+.status-chip span{
+    font-size:1.25rem;
+    font-weight:800;
+}
+
+.status-chip label{
+    font-size:.82rem;
+    white-space:nowrap;
+}
+
+.status-chip.participating {
+    background: rgba(24, 49, 83, .94);
+}
+
+.status-chip.alive {
+  background: rgba(21, 128, 61, .94);
+}
+
+.status-chip.eliminated {
+  background: rgba(220, 38, 38, .94);
+}
+
+.atlas-panels {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr 1fr 1fr;
+  gap: 18px;
+  margin: 20px 18px 40px;
+}
+
+.atlas-panels > div {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(15,23,42,.08);
+}
+
+.status-chip.playing {
+  background: rgba(250, 204, 21, .96);
+  color: #111827;
+}
+
+.map-status {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    flex: 1;
+}
+
+.status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 18px 20px 24px;
+}
+
+.match-panels {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.map-placeholder {
+  margin-top: 120px;
+}
+
+.live-meta {
+  min-width: 70px;
+  gap: 6px;
+}
+
+.live-match-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.live-match-teams {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  margin-top: 3px;
+  font-size: .68rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.live-team-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-match-datetime {
+  flex: 0 0 auto;
+  margin-left: 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.live-match-datetime strong {
+  display: block;
+  font-size: .72rem;
+  line-height: 1;
+}
+
+.live-score {
+  flex: 0 0 auto;
+  min-width: 72px;
+  font-size: .78rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align:center;
+  line-height: 1;
+}
+
+.live-team {
+  width: 66px;
+  font-size: 0.72rem;
+}
+
+.live-team strong {
+  font-size: 0.72rem;
+}
+
+.live-flag {
+  width: 18px;
+  height: 14px;
+}
+
+.live-team {
+  width: 70px;
+  text-align: center;
+  font-size: 0.72rem;
+  overflow: hidden;
+}
+
+.live-team strong {
+  display: block;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.live-flag {
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+}
+
+.live-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+
+  padding: 0 8px;
+
+  border-radius: 16px;
+  background: #fde047;
+  border: 1px solid rgba(234, 179, 8, .45);
+
+  color: #111827;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .12);
+}
+
+.live-team {
+  width: 70px;
+  text-align: center;
+  font-size: 0.72rem;
+  overflow: hidden;
+}
+
+.live-team strong {
+  display: block;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.live-flag {
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+}
+.live-map-path {
+  fill: none;
+  stroke: #facc15;
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+  opacity: 0.9;
+}
+
+.live-map-ball {
+  font-size: 24px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.35));
+}
+.live-map-path {
+  fill: none;
+  stroke: #facc15;
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+  opacity: 0.9;
+}
+.live-map-ball {
+  font-size: 24px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.35));
+}
+.live-map-path {
+  fill: none;
+  stroke: #facc15;
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+  opacity: 0.9;
+}
+
+.map-placeholder {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,255,255,.95), rgba(226,232,240,.92) 55%, rgba(203,213,225,.85) 100%);
+  border: 1px solid rgba(15,23,42,.12);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.45),
+    0 18px 45px rgba(15,23,42,.14);
+}
+
+.island-marker {
+  r: 2.25px;
+  stroke: none;
+  stroke-width: 0;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,.35));
+}
+
+.status-chip.participating {
+  max-width: 260px;
+}
+
+.status-chip label {
+  white-space: normal;
+  line-height: 1.1;
+}
+.tournament-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 16px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #0f172a;
+  color: white;
+  box-shadow: 0 10px 30px rgba(15,23,42,.16);
+}
+
+.tournament-label {
+  display: block;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: .7;
+}
+
+.tournament-bar strong {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.tournament-bar small {
+  display: block;
+  margin-top: 4px;
+  font-size: .85rem;
+  opacity: .75;
+}
+
+.tournament-bar select {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cup-selector {
+    display: none;
+}
+.tournament-bar {
+    margin-bottom: 10px;
+}
+
+.atlas-map-wrap {
+    padding-top: 40px;
+}
+.status-grid {
+    margin-bottom: 12px;
+}
+
+.site-tagline {
+  margin: 6px 0 0;
+  opacity: .78;
+  font-size: 1rem;
+}
+.country {
+  stroke: rgba(255,255,255,.82);
+  stroke-width: .8px;
+  cursor: pointer;
+  transition:
+  fill .35s ease,
+  stroke .25s ease,
+  opacity .30s ease,
+  filter .35s ease,
+  transform .25s ease;
+}
+
+.country:hover {
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+  filter: brightness(1.08);
+  transform: translateY(-0.4px);
+}
+
+.live-map-path {
+  fill: none;
+  stroke: rgba(255,255,255,.25);
+  stroke-width: 2px;
+  stroke-dasharray: 6 4;
+}
+
+.live-map-ball {
+  font-size: 18px;
+}
+
+.status-in_race {
+  filter: url(#softLandShadow) drop-shadow(0 0 6px rgba(22,133,66,.22));
+}
+
+.status-upcoming {
+  filter: url(#softLandShadow) drop-shadow(0 0 7px rgba(245,158,11,.40));
+}
+
+.status-playing {
+  filter: url(#softLandShadow) drop-shadow(0 0 9px rgba(250,204,21,.55));
+}
+
+.status-playing {
+  animation: liveCountryPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes liveCountryPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .82;
+  }
+}
+
+.status-out {
+  opacity: .82;
+  filter: saturate(.82) brightness(.96);
+}
+
+.status-not_participating {
+  opacity: .78;
+}
+
+.live-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: .72rem;
+  font-weight: 800;
+  opacity: .9;
+}
+
+.live-clock {
+  font-size: .72rem;
+  font-weight: 700;
+  color: #713f12;
+  white-space: nowrap;
+}
+
+.live-matchup {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.live-team {
+  font-size: .88rem;
+}
+
+.live-team-away {
+  text-align: right;
+}
+
+@keyframes livePulse {
+  0% {
+    filter: url(#softLandShadow) drop-shadow(0 0 6px rgba(250,204,21,.45));
+  }
+  50% {
+    filter: url(#softLandShadow) drop-shadow(0 0 16px rgba(250,204,21,.9));
+  }
+  100% {
+    filter: url(#softLandShadow) drop-shadow(0 0 6px rgba(250,204,21,.45));
+  }
+}
+
+.status-playing {
+  animation: livePulse 2s infinite ease-in-out;
+  stroke: #ffffff !important;
+  stroke-width: 1.2px !important;
+}
+
+.live-map-path {
+  fill: none;
+  stroke: #facc15;
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  opacity: .78;
+  filter: drop-shadow(0 0 8px rgba(250,204,21,.65));
+}
+
+.live-map-ball {
+  font-size: 15px;
+  filter: drop-shadow(0 3px 7px rgba(15,23,42,.45));
+}
+.country-title h2 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+
+.country-status {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.country-status.status-playing {
+  background: #facc15;
+  color: #111827;
+}
+
+.country-status.status-in_race {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.country-status.status-out {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.country-status.status-not_participating {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.summary-card {
+  border-radius: 14px;
+  padding: 12px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.panel-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(15,23,42,.06);
+}
+
+.panel-section h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.journey {
+  position: relative;
+  padding-left: 20px;
+}
+
+.journey::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #d1d5db;
+}
+
+.journey-step {
+  position: relative;
+  margin: 12px 0;
+  padding-left: 18px;
+}
+
+.journey-step::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.journey-step.complete::before {
+  background: #22c55e;
+}
+
+.journey-step.active::before {
+  background: #facc15;
+}
+
+.journey-step.eliminated::before {
+  background: #ef4444;
+}
+
+.tournament-bar {
+  display: none;
+}
+
+.header-tournament {
+  text-align: right;
+}
+
+.header-tournament span {
+  display: block;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  opacity: .65;
+}
+
+.header-tournament strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 1rem;
+}
+
+.header-tournament small {
+  display: block;
+  margin-top: 3px;
+  opacity: .7;
+}
+
+.timeline-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+
+  margin: 0;
+  padding: 12px 28px;
+  width: auto;
+
+  background: transparent;
+  border-bottom: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.timeline-bar input {
+  flex: 1;
+}
+
+.timeline-stage {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: .82rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.65);
+  cursor: pointer;
+  transition:
+  background-color .2s ease,
+  color .2s ease,
+  transform .2s ease;
+}
+
+.timeline-stage:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.timeline-stage.active {
+  background: transparent;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.map-status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.status-upcoming {
+  filter: url(#softLandShadow) drop-shadow(0 0 9px rgba(245,158,11,.6));
+  stroke: white !important;
+  stroke-width: 1.2px !important;
+}
+
+.next-match-path {
+  fill: none;
+  stroke: #f59e0b;
+  stroke-width: 3;
+  stroke-dasharray: 8 6;
+  opacity: .85;
+  filter: drop-shadow(0 0 8px rgba(245,158,11,.55));
+  animation: routeDash 1.8s linear infinite;
+}
+
+@keyframes routeDash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.next-match-ball {
+  font-size: 14px;
+  filter: drop-shadow(0 2px 5px rgba(15,23,42,.35));
+}
+
+.next-match-ball.static {
+  opacity: .9;
+}
+
+.next-match-label {
+  font-size: .52rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #c2410c;
+}
+
+.status-row .map-status {
+  margin: 0;
+}
+
+.next-match-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  height: 38px;
+  min-height: 52px;
+  min-width: 0;
+
+  margin: 0;
+  padding: 6px 8px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  border-radius: 16px;
+  background: #fff7ed;
+  border: 1px solid rgba(245, 158, 11, .35);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, .12);
+
+  color: #111827;
+}
+
+.next-match-main {
+  min-width: 0;
+
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.next-match-teams {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  min-width: 0;
+  margin-top: 5px;
+
+  font-size: .72rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.next-team {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.next-vs {
+  flex: 0 0 auto;
+  font-size: .64rem;
+  font-weight: 800;
+}
+
+.next-match-datetime {
+  flex: 0 0 auto;
+
+  margin-left: 8px;
+
+  text-align: right;
+  white-space: nowrap;
+
+  font-size: .58rem;
+  color: #475569;
+}
+
+.next-match-datetime strong {
+  display: block;
+
+  font-size: .62rem;
+  font-weight: 800;
+  line-height: 1;
+
+  color: #64748b;
+}
+
+.next-match-time {
+  margin-top: 5px;
+
+  font-size: .62rem;
+  line-height: 1;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.match-panels .live-now {
+  position: static;
+  display: block;
+  width: 100%;
+  max-width: none;
+}
+
+.match-stack .live-now,
+.match-stack .next-match-card {
+  width: 100%;
+  max-width: none;
+}
+
+#tournament-picker,
+#cupatlas-credits {
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(15,23,42,.12);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15,23,42,.12);
+}
+
+#tournament-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 12px;
+}
+
+#tournament-picker label {
+  font-size: .65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #64748b;
+}
+
+#tournament-picker select {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+#cupatlas-credits {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 220px;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: #334155;
+  opacity: .82;
+}
+
+#cupatlas-credits strong {
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+#cupatlas-credits span,
+#cupatlas-credits small {
+  font-size: .72rem;
+}
+
+@keyframes tournamentBallSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes tournamentBallFloat {
+  0%, 100% { translate: 0 -3px; }
+  50% { translate: 0 3px; }
+}
+
+#tournament-picker,
+#nl-clock,
+.map-club-control {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#tournament-picker label {
+  font-size: .65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.70);
+}
+
+#tournament-picker label,
+.map-club-control > span {
+  font-size: .64rem;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#tournament-picker select {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: rgba(255,255,255,.98);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#nl-clock {
+  min-width: 190px;
+  padding: 9px 14px;
+  text-align: right;
+}
+
+#nl-clock span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255,255,255,.88);
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+#nl-clock-time {
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#nl-clock-date {
+  color: rgba(255,255,255,.82);
+  font-size: .76rem;
+  font-weight: 600;
+}
+
+.clock-separator {
+  color: rgba(255,255,255,.55);
+}
+
+.map-club-control {
+  padding: 10px 12px;
+}
+
+.map-club-control label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  cursor: pointer;
+  color: #0f172a;
+  font-size: .82rem;
+}
+
+.next-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    height:100%;
+    padding: 4px 8px;
+}
+
+.next-card-title{
+    font-size:.58rem;
+    font-weight:900;
+    letter-spacing:.08em;
+    color:#c2410c;
+    margin-left: 4px;
+    margin-bottom: 8px;
+}
+
+.next-card-teams{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin-bottom:6px;
+}
+
+.next-card-name{
+    white-space:nowrap;
+}
+
+.next-card-vs{
+    margin:0 4px;
+    color:#64748b;
+    font-size:.70rem;
+    font-weight:900;
+}
+
+.next-card-date,
+.next-card-time{
+    text-align:center;
+}
+
+.next-card-date{
+    margin-top:4px;
+    text-align:center;
+    font-size:.67rem;
+    color:#475569;
+}
+
+.next-card-time{
+    margin-top:2px;
+    text-align:center;
+    font-size:.72rem;
+    font-weight:800;
+    color:#0f172a;
+}
+
+.atlas-map-wrap {
+  position: relative;
+}
+
+.atlas-map-wrap > .status-row {
+  position: absolute;
+  left: 58%;
+  bottom: 135px;
+  transform: translateX(-50%);
+  margin: 0;
+  width: max-content;
+  z-index: 40;
+}
+
+.atlas-map-wrap > .status-row > .map-status {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: max-content;
+  gap: 14px;
+  transform: none;
+}
+
+.country-panel-confederation {
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   CUPATLAS LAUNCH SCREEN — LAYOUT REFINEMENT
+========================================================== */
+
+.atlas-launch-content {
+    width: min(680px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 12px 0 36px;
+}
+
+
+.atlas-launch-card {
+    position: relative;
+    width: 100%;
+    padding: 76px 54px 34px;
+    border-radius: 30px;
+}
+
+
+
+/* Globe kleiner en rustiger */
+.atlas-launch-globe {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto -58px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Titel en ondertitel onder elkaar */
+.atlas-launch-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+}
+
+.launch-title {
+    margin: 0;
+    max-width: 100%;
+    font-size: clamp(2.35rem, 5vw, 3.7rem);
+    font-weight: 750;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    color: #ffffff;
+}
+
+.launch-title span {
+    display: inline;
+    color: #68b7ff;
+    text-shadow: 0 0 28px rgba(60, 160, 255, 0.25);
+}
+
+.launch-subtitle {
+    margin: 0;
+    max-width: 520px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: 0.22em;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(220, 234, 250, 0.68);
+}
+
+/* Scheidingslijn compacter */
+.atlas-launch-divider {
+    width: min(420px, 90%);
+    margin: 26px auto 20px;
+}
+
+/* Formulier iets compacter */
+.atlas-launch-form {
+    width: 100%;
+    margin-top: 95px;
+    gap: 24px;
+}
+
+.atlas-launch-pick {
+    margin-bottom: 2px;
+    color: rgba(155, 199, 244, 0.85);
+}
+
+/* Select en knop dezelfde nette breedte */
+.launch-tournament-list {
+    width: min(500px, 100%);
+}
+
+/* Footer rustiger */
+.atlas-launch-footer {
+    margin-top: 36px;
+    text-align: center;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    color: rgba(195, 214, 237, 0.52);
+}
+
+/* Kleinere schermen */
+@media (max-width: 640px) {
+    .atlas-launch-content {
+        padding-top: 40px;
+    }
+
+    .atlas-launch-card {
+        padding: 68px 24px 28px;
+        border-radius: 24px;
+    }
+
+    .atlas-launch-globe {
+        width: 128px;
+        height: 128px;
+        margin-bottom: -50px;
+    }
+
+    .launch-title {
+        font-size: 2.3rem;
+    }
+
+    .launch-subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+    }
+}
+
+/* ==========================================================
+   CUPATLAS — CLICKABLE TOURNAMENT ENTRY CARD
+========================================================== */
+.launch-tournament-card {
+    width: min(430px, 100%);
+    min-height: 74px;
+    padding: 18px 20px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+
+    appearance: none;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+
+    background: rgba(26, 58, 96, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.16),
+        inset 0 1px rgba(255, 255, 255, 0.12);
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.launch-tournament-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(104, 183, 255, 0.68);
+
+    box-shadow:
+        0 24px 54px rgba(0, 0, 0, 0.34),
+        0 0 30px rgba(56, 145, 235, 0.12);
+}
+
+.launch-tournament-card:focus-visible {
+    outline: none;
+    border-color: #68b7ff;
+    box-shadow:
+        0 0 0 4px rgba(104, 183, 255, 0.18),
+        0 24px 54px rgba(0, 0, 0, 0.34);
+}
+
+.launch-card-content {
+    display: block;
+    min-width: 0;
+}
+
+.launch-card-title,
+.launch-card-subtitle {
+    display: block;
+}
+
+.launch-card-title {
+    color: rgba(255,255,255,0.96);
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.launch-card-subtitle {
+    color: rgba(220,235,250,0.78);
+    font-size: 0.82rem;
+}
+
+.launch-tournament-card:hover .launch-card-enter {
+    color: #ffffff;
+    background: rgba(49, 133, 220, 0.22);
+}
+
+.launch-tournament-card:hover .launch-card-enter span {
+    transform: translateX(3px);
+}
+
+.launch-card-enter span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+/* Oude losse Enter-knop niet meer gebruiken */
+.atlas-launch-enter {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .launch-tournament-card {
+        grid-template-columns: 46px minmax(0, 1fr);
+    }
+
+    .launch-card-enter {
+        grid-column: 1 / -1;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .launch-card-title,
+    .launch-card-subtitle {
+        white-space: normal;
+    }
+}
+
+/* ==========================================================
+   CUPATLAS LIGHT LAUNCH SCREEN
+   Definitieve visuele stijl
+========================================================== */
+
+/* Hoofdpaneel */
+/*
+.atlas-launch-card {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.97),
+            rgba(245, 249, 252, 0.97)
+        );
+
+    border: 1px solid rgba(76, 111, 145, 0.16);
+
+    box-shadow:
+        0 28px 70px rgba(40, 62, 82, 0.18),
+        inset 0 1px rgba(255, 255, 255, 0.9);
+}
+*/
+
+/* Titel */
+.launch-title {
+    color: #29465f;
+}
+
+.launch-title span {
+    color: #4f91bd;
+    text-shadow: none;
+}
+
+/* Ondertitel */
+.launch-subtitle {
+    color: rgba(67, 91, 112, 0.72);
+}
+
+/* Scheidingslijn */
+.atlas-launch-divider {
+    border-color: rgba(82, 113, 139, 0.16);
+}
+
+.atlas-launch-divider::after {
+    background: #d8b866;
+    box-shadow: none;
+}
+
+/* Footer */
+.atlas-launch-footer {
+    color: rgba(72, 94, 112, 0.55);
+}
+
+/* Wereldbol rustiger en zachter */
+.atlas-launch-globe {
+    filter:
+        saturate(0.82)
+        brightness(1.12)
+        drop-shadow(0 14px 22px rgba(48, 87, 115, 0.18));
+}
+
+/* Oude donkere achtergrondlagen volledig uitschakelen */
+.atlas-launch-card::before,
+.atlas-launch-card::after {
+    display: none;
+}
+
+/* ==========================================================
+   CUPATLAS AIR — LIGHT LAUNCH PANEL
+========================================================== */
+
+/*
+.atlas-launch-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    box-shadow:
+        0 20px 60px rgba(35, 65, 95, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+*/
+
+.atlas-launch-header {
+    background: transparent;
+    box-shadow: none;
+}
+
+.launch-title {
+    color: #15314d;
+}
+
+.launch-title span {
+    color: #3185d6;
+    text-shadow: none;
+}
+
+.launch-subtitle {
+    color: rgba(38, 70, 100, 0.62);
+}
+
+.atlas-launch-divider {
+    border-color: rgba(44, 103, 158, 0.14);
+}
+
+.atlas-launch-pick {
+    color: rgba(44, 103, 158, 0.72);
+}
+
+.atlas-launch-footer {
+    color: rgba(38, 70, 100, 0.48);
+}
+
+/* ==========================================================
+   CUPATLAS AIR — DEFINITIEVE LICHTE LAUNCH CARD
+========================================================== */
+/*
+.atlas-launch-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.82) !important;
+    box-shadow:
+        0 20px 60px rgba(35, 65, 95, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+*/
+
+/* ==========================================================
+   CUPATLAS AIR — OPEN LAUNCH SCREEN
+========================================================== */
+.atlas-launch-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.atlas-launch-card::before,
+.atlas-launch-card::after {
+    display: none !important;
+}
+
+.launch-title {
+    color: #183b63;
+    font-weight: 750;
+}
+
+.launch-title span {
+    color: #3185d6;
+    text-shadow: none;
+}
+
+.launch-subtitle {
+    color: #7f9dbc;
+}
+
+.atlas-launch-divider {
+    border-color: rgba(83, 132, 180, 0.18);
+}
+
+.atlas-launch-pick {
+    color: #7f9dbc;
+}
+
+.atlas-launch-footer {
+    color: #7f9dbc;
+}
+
+.atlas-launch-globe {
+    filter: drop-shadow(0 18px 30px rgba(40, 70, 110, 0.18));
+}
+
+.launch-tournament-card {
+    width: min(430px, 100%);
+    min-height: 74px;
+
+    background: rgba(26, 58, 96, 0.22);
+    border: 1px solid rgba(255,255,255,0.22);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.16),
+        inset 0 1px rgba(255,255,255,.12);
+
+    border-radius: 18px;
+
+    transition: all .25s ease;
+}
+
+
+/* ==========================================================
+   LAUNCH SCREEN TORUNAMENT SELECTOR
+========================================================== */
+
+
+body.launch-screen .atlas-launch-form {
+    position: relative;
+    top: 290px;
+    left: 55px;
+}
+
+body.launch-screen .atlas-launch-card,
+body.launch-screen .atlas-launch-form {
+    overflow: visible !important;
+}
+
+/* ==========================================================
+   CUPATLAS LAUNCH – FINAL OVERRIDES
+========================================================== */
+
+.launch-card-title {
+    color: rgba(255,255,255,.96) !important;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+}
+
+.launch-card-enter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* ==========================================================
+   CUPATLAS — TRANSITION FROM LAUNCH SCREEN TO ATLAS
+========================================================== */
+
+.atlas-page {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: center center;
+    transition:
+        opacity 0.8s ease,
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.launch-screen .atlas-page {
+    opacity: 0;
+    transform: scale(0.985);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .atlas-page {
+        transition: none;
+    }
+}
+
+/* ==========================================================
+   CUPATLAS — ATMOSPHERE TOOLBAR
+========================================================== */
+
+.atlas-toolbar {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(34, 71, 105, 0.94) 0%,
+            rgba(55, 96, 132, 0.88) 100%
+        );
+
+    color: rgba(255, 255, 255, 0.94);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(16px) saturate(125%);
+    -webkit-backdrop-filter: blur(16px) saturate(125%);
+
+    box-shadow:
+        0 6px 20px rgba(15, 23, 42, 0.12);
+}
+
+
+
+
+.country {
+  transition:
+    fill 0.35s ease,
+    stroke 0.35s ease,
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+.country.selected-country {
+  stroke: #ffffff;
+  stroke-width: 2.8px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.tooltip-status{
+    display:inline-block;
+    margin-top:4px;
+    font-weight:600;
+}
+
+.tooltip-status.in_race,
+.tooltip-status.upcoming{
+    color:#6ee7b7;
+}
+
+.tooltip-status.playing{
+    color:#fbbf24;
+}
+
+.tooltip-status.out{
+    color:#f87171;
+}
+
+.tooltip-status.winner{
+    color:#facc15;
+}
+
+.tooltip-status.not_participating{
+    color:#cbd5e1;
+}
+
+
+/* Hover focus op de wereldkaart */
+.real-world-map path.country {
+  transition:
+    opacity 220ms ease,
+    filter 220ms ease;
+}
+
+.real-world-map path.country:hover {
+  opacity: 1;
+  filter:
+    drop-shadow(0 0 5px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 4px 7px rgba(15, 23, 42, 0.35));
+}
+
+/* Gouden pulse bij selectie */
+
+@keyframes countryPulse {
+  0% {
+    filter:
+      drop-shadow(0 0 0 rgba(255,215,0,0));
+  }
+
+  35% {
+    filter:
+      drop-shadow(0 0 10px rgba(255,215,0,.95))
+      drop-shadow(0 0 22px rgba(255,215,0,.75));
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 0 0 rgba(255,215,0,0));
+  }
+}
+
+.country-selected-pulse {
+  animation: countryPulse 700ms ease-out;
+}
+
+/* Country panel information grid */
+
+.country-panel-meta {
+  display:grid;
+  grid-template-columns:1fr;
+  gap: 8px;
+  padding: 12px;
+}
+
+.country-panel-meta-card {
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.38);
+
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  grid-template-areas:
+    "icon label"
+    "icon value";
+  column-gap: 7px;
+  align-items: center;
+}
+
+.country-panel-meta-icon {
+  grid-area: icon;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.country-panel-meta-label {
+  grid-area: label;
+  color: rgba(51, 65, 85, 0.72);
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.country-panel-meta-value {
+  grid-area: value;
+  min-width: 0;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.country-panel-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.country-panel-value {
+  color: #172033;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: right;
 }

@@ -1,0 +1,3666 @@
+{
+  "BGR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 43,
+      "longitude": 25
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 110879,
+    "currencies": [],
+    "languages": [
+      "Bulgarian"
+    ]
+  },
+  "MMR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 22,
+      "longitude": 98
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 676578,
+    "currencies": [],
+    "languages": [
+      "Burmese"
+    ]
+  },
+  "BDI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -3.5,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 27834,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Kirundi"
+    ]
+  },
+  "BLR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 53,
+      "longitude": 28
+    },
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "areaKm2": 207600,
+    "currencies": [],
+    "languages": [
+      "Belarusian",
+      "Russian"
+    ]
+  },
+  "KHM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13,
+      "longitude": 105
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 181035,
+    "currencies": [],
+    "languages": [
+      "Khmer"
+    ]
+  },
+  "CMR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 6,
+      "longitude": 12
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 475442,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French"
+    ]
+  },
+  "CAN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 60,
+      "longitude": -95
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 9984670,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French"
+    ]
+  },
+  "CPV": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 16,
+      "longitude": -24
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 4033,
+    "currencies": [],
+    "languages": [
+      "Portuguese"
+    ]
+  },
+  "CYM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 19.5,
+      "longitude": -80.5
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 264,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "CAF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 7,
+      "longitude": 21
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 622984,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Sango"
+    ]
+  },
+  "LKA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 7,
+      "longitude": 81
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 65610,
+    "currencies": [],
+    "languages": [
+      "Sinhala",
+      "Tamil"
+    ]
+  },
+  "TCD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15,
+      "longitude": 19
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 1284000,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "French"
+    ]
+  },
+  "CHL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -30,
+      "longitude": -71
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 756102,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "CHN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 35,
+      "longitude": 105
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 9706961,
+    "currencies": [],
+    "languages": [
+      "Chinese"
+    ]
+  },
+  "TWN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 23.5,
+      "longitude": 121
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 36193,
+    "currencies": [],
+    "languages": [
+      "Chinese"
+    ]
+  },
+  "CXR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -10.5,
+      "longitude": 105.66666666
+    },
+    "continent": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "areaKm2": 135,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "CCK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -12.5,
+      "longitude": 96.83333333
+    },
+    "continent": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "areaKm2": 14,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "COL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 4,
+      "longitude": -72
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 1141748,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "COM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -12.16666666,
+      "longitude": 44.25
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 1862,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "French",
+      "Comorian"
+    ]
+  },
+  "MYT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -12.83333333,
+      "longitude": 45.16666666
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 374,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "COG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -1,
+      "longitude": 15
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 342000,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Kikongo",
+      "Lingala"
+    ]
+  },
+  "COD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 0,
+      "longitude": 25
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 2344858,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Kikongo",
+      "Lingala",
+      "Tshiluba",
+      "Swahili"
+    ]
+  },
+  "COK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -21.23333333,
+      "longitude": -159.76666666
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 236,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Cook Islands Māori"
+    ]
+  },
+  "CRI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 10,
+      "longitude": -84
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 51100,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "HRV": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 45.16666666,
+      "longitude": 15.5
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 56594,
+    "currencies": [],
+    "languages": [
+      "Croatian"
+    ]
+  },
+  "CUB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 21.5,
+      "longitude": -80
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 109884,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "CYP": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 35,
+      "longitude": 33
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 9251,
+    "currencies": [],
+    "languages": [
+      "Greek",
+      "Turkish"
+    ]
+  },
+  "CZE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 49.75,
+      "longitude": 15.5
+    },
+    "continent": "Europe",
+    "subregion": "Central Europe",
+    "areaKm2": 78865,
+    "currencies": [],
+    "languages": [
+      "Czech",
+      "Slovak"
+    ]
+  },
+  "BEN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 9.5,
+      "longitude": 2.25
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 112622,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "DNK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 56,
+      "longitude": 10
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 43094,
+    "currencies": [],
+    "languages": [
+      "Danish"
+    ]
+  },
+  "DMA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15.41666666,
+      "longitude": -61.33333333
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 751,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "DOM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 19,
+      "longitude": -70.66666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 48671,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "ECU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -2,
+      "longitude": -77.5
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 276841,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "SLV": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13.83333333,
+      "longitude": -88.91666666
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 21041,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "GNQ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 2,
+      "longitude": 10
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 28051,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Portuguese",
+      "Spanish"
+    ]
+  },
+  "ETH": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 8,
+      "longitude": 38
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 1104300,
+    "currencies": [],
+    "languages": [
+      "Amharic"
+    ]
+  },
+  "ERI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15,
+      "longitude": 39
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 117600,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "English",
+      "Tigrinya"
+    ]
+  },
+  "EST": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 59,
+      "longitude": 26
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 45227,
+    "currencies": [],
+    "languages": [
+      "Estonian"
+    ]
+  },
+  "FRO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 62,
+      "longitude": -7
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 1393,
+    "currencies": [],
+    "languages": [
+      "Danish",
+      "Faroese"
+    ]
+  },
+  "FLK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -51.75,
+      "longitude": -59
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 12173,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "SGS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -54.5,
+      "longitude": -37
+    },
+    "continent": "Antarctic",
+    "subregion": "",
+    "areaKm2": 3903,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "FJI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -18,
+      "longitude": 175
+    },
+    "continent": "Oceania",
+    "subregion": "Melanesia",
+    "areaKm2": 18272,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Fijian",
+      "Fiji Hindi"
+    ]
+  },
+  "FIN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 64,
+      "longitude": 26
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 338424,
+    "currencies": [],
+    "languages": [
+      "Finnish",
+      "Swedish"
+    ]
+  },
+  "ALA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 60.116667,
+      "longitude": 19.9
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 1580,
+    "currencies": [],
+    "languages": [
+      "Swedish"
+    ]
+  },
+  "FRA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 46,
+      "longitude": 2
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 551695,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "GUF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 4,
+      "longitude": -53
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 83534,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "PYF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -15,
+      "longitude": -140
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 4167,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "ATF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -49.25,
+      "longitude": 69.167
+    },
+    "continent": "Antarctic",
+    "subregion": "",
+    "areaKm2": 7747,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "DJI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 11.5,
+      "longitude": 43
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 23200,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "French"
+    ]
+  },
+  "GAB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -1,
+      "longitude": 11.75
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 267668,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "GEO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 42,
+      "longitude": 43.5
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 69700,
+    "currencies": [],
+    "languages": [
+      "Georgian"
+    ]
+  },
+  "GMB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13.46666666,
+      "longitude": -16.56666666
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 10689,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "PSE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 31.9,
+      "longitude": 35.2
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 6220,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "DEU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 51,
+      "longitude": 9
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 357114,
+    "currencies": [],
+    "languages": [
+      "German"
+    ]
+  },
+  "GHA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 8,
+      "longitude": -2
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 238533,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "GIB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 36.13333333,
+      "longitude": -5.35
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 6,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "KIR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 1.41666666,
+      "longitude": 173
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 811,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Gilbertese"
+    ]
+  },
+  "GRC": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 39,
+      "longitude": 22
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 131990,
+    "currencies": [],
+    "languages": [
+      "Greek"
+    ]
+  },
+  "GRL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 72,
+      "longitude": -40
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 2166086,
+    "currencies": [],
+    "languages": [
+      "Greenlandic"
+    ]
+  },
+  "GRD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 12.11666666,
+      "longitude": -61.66666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 344,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "GLP": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 16.25,
+      "longitude": -61.583333
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 1628,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "GUM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13.46666666,
+      "longitude": 144.78333333
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 549,
+    "currencies": [],
+    "languages": [
+      "Chamorro",
+      "English",
+      "Spanish"
+    ]
+  },
+  "GTM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15.5,
+      "longitude": -90.25
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 108889,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "GIN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 11,
+      "longitude": -10
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 245857,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "GUY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 5,
+      "longitude": -59
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 214969,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "HTI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 19,
+      "longitude": -72.41666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 27750,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Haitian Creole"
+    ]
+  },
+  "HMD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -53.1,
+      "longitude": 72.51666666
+    },
+    "continent": "Antarctic",
+    "subregion": "",
+    "areaKm2": 412,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "VAT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 41.9,
+      "longitude": 12.45
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 0.44,
+    "currencies": [],
+    "languages": [
+      "Italian",
+      "Latin"
+    ]
+  },
+  "HND": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15,
+      "longitude": -86.5
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 112492,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "HKG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 22.267,
+      "longitude": 114.188
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 1104,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Chinese"
+    ]
+  },
+  "HUN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 47,
+      "longitude": 20
+    },
+    "continent": "Europe",
+    "subregion": "Central Europe",
+    "areaKm2": 93028,
+    "currencies": [],
+    "languages": [
+      "Hungarian"
+    ]
+  },
+  "ISL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 65,
+      "longitude": -18
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 103000,
+    "currencies": [],
+    "languages": [
+      "Icelandic"
+    ]
+  },
+  "IND": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 20,
+      "longitude": 77
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 3287590,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Hindi",
+      "Tamil"
+    ]
+  },
+  "IDN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -5,
+      "longitude": 120
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 1904569,
+    "currencies": [],
+    "languages": [
+      "Indonesian"
+    ]
+  },
+  "IRN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 32,
+      "longitude": 53
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 1648195,
+    "currencies": [],
+    "languages": [
+      "Persian (Farsi)"
+    ]
+  },
+  "IRQ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 33,
+      "longitude": 44
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 438317,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "Aramaic",
+      "Sorani"
+    ]
+  },
+  "IRL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 53,
+      "longitude": -8
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 70273,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Irish"
+    ]
+  },
+  "ISR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 31.47,
+      "longitude": 35.13
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 20770,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "Hebrew"
+    ]
+  },
+  "ITA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 42.83333333,
+      "longitude": 12.83333333
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 301336,
+    "currencies": [],
+    "languages": [
+      "Italian"
+    ]
+  },
+  "CIV": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 8,
+      "longitude": -5
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 322463,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "JAM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.25,
+      "longitude": -77.5
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 10991,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Jamaican Patois"
+    ]
+  },
+  "JPN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 36,
+      "longitude": 138
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 377930,
+    "currencies": [],
+    "languages": [
+      "Japanese"
+    ]
+  },
+  "KAZ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 48,
+      "longitude": 68
+    },
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "areaKm2": 2724900,
+    "currencies": [],
+    "languages": [
+      "Kazakh",
+      "Russian"
+    ]
+  },
+  "JOR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 31,
+      "longitude": 36
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 89342,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "KEN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 1,
+      "longitude": 38
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 580367,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Swahili"
+    ]
+  },
+  "PRK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 40,
+      "longitude": 127
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 120538,
+    "currencies": [],
+    "languages": [
+      "Korean"
+    ]
+  },
+  "KOR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 37,
+      "longitude": 127.5
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 100210,
+    "currencies": [],
+    "languages": [
+      "Korean"
+    ]
+  },
+  "KWT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 29.5,
+      "longitude": 45.75
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 17818,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "KGZ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 41,
+      "longitude": 75
+    },
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "areaKm2": 199951,
+    "currencies": [],
+    "languages": [
+      "Kyrgyz",
+      "Russian"
+    ]
+  },
+  "LAO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18,
+      "longitude": 105
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 236800,
+    "currencies": [],
+    "languages": [
+      "Lao"
+    ]
+  },
+  "LBN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 33.83333333,
+      "longitude": 35.83333333
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 10452,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "French"
+    ]
+  },
+  "LSO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -29.5,
+      "longitude": 28.5
+    },
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "areaKm2": 30355,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Sotho"
+    ]
+  },
+  "LVA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 57,
+      "longitude": 25
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 64559,
+    "currencies": [],
+    "languages": [
+      "Latvian"
+    ]
+  },
+  "LBR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 6.5,
+      "longitude": -9.5
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 111369,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "LBY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 25,
+      "longitude": 17
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 1759540,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "LIE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 47.26666666,
+      "longitude": 9.53333333
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 160,
+    "currencies": [],
+    "languages": [
+      "German"
+    ]
+  },
+  "LTU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 56,
+      "longitude": 24
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 65300,
+    "currencies": [],
+    "languages": [
+      "Lithuanian"
+    ]
+  },
+  "LUX": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 49.75,
+      "longitude": 6.16666666
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 2586,
+    "currencies": [],
+    "languages": [
+      "German",
+      "French",
+      "Luxembourgish"
+    ]
+  },
+  "MAC": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 22.16666666,
+      "longitude": 113.55
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 30,
+    "currencies": [],
+    "languages": [
+      "Portuguese",
+      "Chinese"
+    ]
+  },
+  "MDG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -20,
+      "longitude": 47
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 587041,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Malagasy"
+    ]
+  },
+  "MWI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -13.5,
+      "longitude": 34
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 118484,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Chewa"
+    ]
+  },
+  "MYS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 2.5,
+      "longitude": 112.5
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 330803,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Malay"
+    ]
+  },
+  "MDV": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 3.25,
+      "longitude": 73
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 300,
+    "currencies": [],
+    "languages": [
+      "Maldivian"
+    ]
+  },
+  "MLI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 17,
+      "longitude": -4
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 1240192,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "MLT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 35.83333333,
+      "longitude": 14.58333333
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 316,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Maltese"
+    ]
+  },
+  "MTQ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 14.666667,
+      "longitude": -61
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 1128,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "MRT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 20,
+      "longitude": -12
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 1030700,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "MUS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -20.28333333,
+      "longitude": 57.55
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 2040,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French",
+      "Mauritian Creole"
+    ]
+  },
+  "MEX": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 23,
+      "longitude": -102
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 1964375,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "MCO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 43.73333333,
+      "longitude": 7.4
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 2.02,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "MNG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 46,
+      "longitude": 105
+    },
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "areaKm2": 1564110,
+    "currencies": [],
+    "languages": [
+      "Mongolian"
+    ]
+  },
+  "MDA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 47,
+      "longitude": 29
+    },
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "areaKm2": 33846,
+    "currencies": [],
+    "languages": [
+      "Moldavian"
+    ]
+  },
+  "MNE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 42.5,
+      "longitude": 19.3
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 13812,
+    "currencies": [],
+    "languages": [
+      "Montenegrin"
+    ]
+  },
+  "MSR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 16.75,
+      "longitude": -62.2
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 102,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "MAR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 32,
+      "longitude": -5
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 446550,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "Berber"
+    ]
+  },
+  "MOZ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -18.25,
+      "longitude": 35
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 801590,
+    "currencies": [],
+    "languages": [
+      "Portuguese"
+    ]
+  },
+  "OMN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 21,
+      "longitude": 57
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 309500,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "NAM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -22,
+      "longitude": 17
+    },
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "areaKm2": 825615,
+    "currencies": [],
+    "languages": [
+      "Afrikaans",
+      "German",
+      "English",
+      "Herero",
+      "Khoekhoe",
+      "Kwangali",
+      "Lozi",
+      "Ndonga",
+      "Tswana"
+    ]
+  },
+  "NRU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -0.53333333,
+      "longitude": 166.91666666
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 21,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Nauru"
+    ]
+  },
+  "NPL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 28,
+      "longitude": 84
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 147181,
+    "currencies": [],
+    "languages": [
+      "Nepali"
+    ]
+  },
+  "NLD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 52.5,
+      "longitude": 5.75
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 41850,
+    "currencies": [],
+    "languages": [
+      "Dutch"
+    ]
+  },
+  "CUW": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 12.116667,
+      "longitude": -68.933333
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 444,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Dutch",
+      "Papiamento"
+    ]
+  },
+  "ABW": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 12.5,
+      "longitude": -69.96666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 180,
+    "currencies": [],
+    "languages": [
+      "Dutch",
+      "Papiamento"
+    ]
+  },
+  "SXM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.033333,
+      "longitude": -63.05
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 34,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French",
+      "Dutch"
+    ]
+  },
+  "BES": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 12.18,
+      "longitude": -68.25
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 328,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Dutch",
+      "Papiamento"
+    ]
+  },
+  "NCL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -21.5,
+      "longitude": 165.5
+    },
+    "continent": "Oceania",
+    "subregion": "Melanesia",
+    "areaKm2": 18575,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "VUT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -16,
+      "longitude": 167
+    },
+    "continent": "Oceania",
+    "subregion": "Melanesia",
+    "areaKm2": 12189,
+    "currencies": [],
+    "languages": [
+      "Bislama",
+      "English",
+      "French"
+    ]
+  },
+  "NZL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -41,
+      "longitude": 174
+    },
+    "continent": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "areaKm2": 270467,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Māori",
+      "New Zealand Sign Language"
+    ]
+  },
+  "NIC": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13,
+      "longitude": -85
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 130373,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "NER": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 16,
+      "longitude": 8
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 1267000,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "NGA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 10,
+      "longitude": 8
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 923768,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "NIU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -19.03333333,
+      "longitude": -169.86666666
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 260,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Niuean"
+    ]
+  },
+  "NFK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -29.03333333,
+      "longitude": 167.95
+    },
+    "continent": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "areaKm2": 36,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Norfuk"
+    ]
+  },
+  "NOR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 62,
+      "longitude": 10
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 323802,
+    "currencies": [],
+    "languages": [
+      "Norwegian Nynorsk",
+      "Norwegian Bokmål",
+      "Sami"
+    ]
+  },
+  "MNP": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15.2,
+      "longitude": 145.75
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 464,
+    "currencies": [],
+    "languages": [
+      "Carolinian",
+      "Chamorro",
+      "English"
+    ]
+  },
+  "UMI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 19.3,
+      "longitude": 166.633333
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 34.2,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "FSM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 6.91666666,
+      "longitude": 158.25
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 702,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "MHL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 9,
+      "longitude": 168
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 181,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Marshallese"
+    ]
+  },
+  "PLW": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 7.5,
+      "longitude": 134.5
+    },
+    "continent": "Oceania",
+    "subregion": "Micronesia",
+    "areaKm2": 459,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Palauan"
+    ]
+  },
+  "PAK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 30,
+      "longitude": 70
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 881912,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Urdu"
+    ]
+  },
+  "PAN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 9,
+      "longitude": -80
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 75417,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "PNG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -6,
+      "longitude": 147
+    },
+    "continent": "Oceania",
+    "subregion": "Melanesia",
+    "areaKm2": 462840,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Hiri Motu",
+      "Tok Pisin"
+    ]
+  },
+  "PRY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -23,
+      "longitude": -58
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 406752,
+    "currencies": [],
+    "languages": [
+      "Guaraní",
+      "Spanish"
+    ]
+  },
+  "PER": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -10,
+      "longitude": -76
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 1285216,
+    "currencies": [],
+    "languages": [
+      "Aymara",
+      "Quechua",
+      "Spanish"
+    ]
+  },
+  "PHL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13,
+      "longitude": 122
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 342353,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Filipino"
+    ]
+  },
+  "PCN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -25.06666666,
+      "longitude": -130.1
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 47,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "POL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 52,
+      "longitude": 20
+    },
+    "continent": "Europe",
+    "subregion": "Central Europe",
+    "areaKm2": 312679,
+    "currencies": [],
+    "languages": [
+      "Polish"
+    ]
+  },
+  "PRT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 39.5,
+      "longitude": -8
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 92090,
+    "currencies": [],
+    "languages": [
+      "Portuguese"
+    ]
+  },
+  "GNB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 12,
+      "longitude": -15
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 36125,
+    "currencies": [],
+    "languages": [
+      "Portuguese",
+      "Upper Guinea Creole"
+    ]
+  },
+  "TLS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -8.83333333,
+      "longitude": 125.91666666
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 14874,
+    "currencies": [],
+    "languages": [
+      "Portuguese",
+      "Tetum"
+    ]
+  },
+  "PRI": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.25,
+      "longitude": -66.5
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 8870,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Spanish"
+    ]
+  },
+  "QAT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 25.5,
+      "longitude": 51.25
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 11586,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "REU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -21.15,
+      "longitude": 55.5
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 2511,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "ROU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 46,
+      "longitude": 25
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 238391,
+    "currencies": [],
+    "languages": [
+      "Romanian"
+    ]
+  },
+  "RUS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 60,
+      "longitude": 100
+    },
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "areaKm2": 17098242,
+    "currencies": [],
+    "languages": [
+      "Russian"
+    ]
+  },
+  "RWA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -2,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 26338,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French",
+      "Kinyarwanda"
+    ]
+  },
+  "BLM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.5,
+      "longitude": -63.41666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 21,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "SHN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -15.95,
+      "longitude": -5.72
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 394,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "KNA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 17.33333333,
+      "longitude": -62.75
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 261,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "AIA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.25,
+      "longitude": -63.16666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 91,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "LCA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13.88333333,
+      "longitude": -60.96666666
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 616,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "MAF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.08333333,
+      "longitude": -63.95
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 53,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "SPM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 46.83333333,
+      "longitude": -56.33333333
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 242,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "VCT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13.25,
+      "longitude": -61.2
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 389,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "SMR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 43.76666666,
+      "longitude": 12.41666666
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 61,
+    "currencies": [],
+    "languages": [
+      "Italian"
+    ]
+  },
+  "STP": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 1,
+      "longitude": 7
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 964,
+    "currencies": [],
+    "languages": [
+      "Portuguese"
+    ]
+  },
+  "SAU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 25,
+      "longitude": 45
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 2149690,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "SEN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 14,
+      "longitude": -14
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 196722,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "SRB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 44,
+      "longitude": 21
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 88361,
+    "currencies": [],
+    "languages": [
+      "Serbian"
+    ]
+  },
+  "SYC": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -4.58333333,
+      "longitude": 55.66666666
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 452,
+    "currencies": [],
+    "languages": [
+      "Seychellois Creole",
+      "English",
+      "French"
+    ]
+  },
+  "SLE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 8.5,
+      "longitude": -11.5
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 71740,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "SGP": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 1.36666666,
+      "longitude": 103.8
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 710,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Malay",
+      "Tamil",
+      "Chinese"
+    ]
+  },
+  "SVK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 48.66666666,
+      "longitude": 19.5
+    },
+    "continent": "Europe",
+    "subregion": "Central Europe",
+    "areaKm2": 49037,
+    "currencies": [],
+    "languages": [
+      "Slovak"
+    ]
+  },
+  "VNM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 16.16666666,
+      "longitude": 107.83333333
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 331212,
+    "currencies": [],
+    "languages": [
+      "Vietnamese"
+    ]
+  },
+  "SVN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 46.11666666,
+      "longitude": 14.81666666
+    },
+    "continent": "Europe",
+    "subregion": "Central Europe",
+    "areaKm2": 20273,
+    "currencies": [],
+    "languages": [
+      "Slovene"
+    ]
+  },
+  "SOM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 10,
+      "longitude": 49
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 637657,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "Somali"
+    ]
+  },
+  "ZAF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -29,
+      "longitude": 24
+    },
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "areaKm2": 1221037,
+    "currencies": [],
+    "languages": [
+      "Afrikaans",
+      "English",
+      "Southern Ndebele",
+      "Northern Sotho",
+      "Southern Sotho",
+      "Swazi",
+      "Tswana",
+      "Tsonga",
+      "Venda",
+      "Xhosa",
+      "Zulu"
+    ]
+  },
+  "ZWE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -20,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 390757,
+    "currencies": [],
+    "languages": [
+      "Chibarwe",
+      "English",
+      "Kalanga",
+      "Khoisan",
+      "Ndau",
+      "Northern Ndebele",
+      "Chewa",
+      "Shona",
+      "Sotho",
+      "Tonga",
+      "Tswana",
+      "Tsonga",
+      "Venda",
+      "Xhosa",
+      "Zimbabwean Sign Language"
+    ]
+  },
+  "ESP": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 40,
+      "longitude": -4
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 505992,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "SSD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 7,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 619745,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "SDN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 1886068,
+    "currencies": [],
+    "languages": [
+      "Arabic",
+      "English"
+    ]
+  },
+  "ESH": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 24.5,
+      "longitude": -13
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 266000,
+    "currencies": [],
+    "languages": [
+      "Berber",
+      "Hassaniya",
+      "Spanish"
+    ]
+  },
+  "SUR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 4,
+      "longitude": -56
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 163820,
+    "currencies": [],
+    "languages": [
+      "Dutch"
+    ]
+  },
+  "SJM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 78,
+      "longitude": 20
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": -1,
+    "currencies": [],
+    "languages": [
+      "Norwegian"
+    ]
+  },
+  "SWZ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -26.5,
+      "longitude": 31.5
+    },
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "areaKm2": 17364,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Swazi"
+    ]
+  },
+  "SWE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 62,
+      "longitude": 15
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 450295,
+    "currencies": [],
+    "languages": [
+      "Swedish"
+    ]
+  },
+  "CHE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 47,
+      "longitude": 8
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 41284,
+    "currencies": [],
+    "languages": [
+      "French",
+      "Swiss German",
+      "Italian",
+      "Romansh"
+    ]
+  },
+  "SYR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 35,
+      "longitude": 38
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 185180,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "TJK": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 39,
+      "longitude": 71
+    },
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "areaKm2": 143100,
+    "currencies": [],
+    "languages": [
+      "Russian",
+      "Tajik"
+    ]
+  },
+  "THA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15,
+      "longitude": 100
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 513120,
+    "currencies": [],
+    "languages": [
+      "Thai"
+    ]
+  },
+  "TGO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 8,
+      "longitude": 1.16666666
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 56785,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "TKL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -9,
+      "longitude": -172
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 12,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Samoan",
+      "Tokelauan"
+    ]
+  },
+  "TON": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -20,
+      "longitude": -175
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 747,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Tongan"
+    ]
+  },
+  "TTO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 11,
+      "longitude": -61
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 5130,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "ARE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 24,
+      "longitude": 54
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 83600,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "TUN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 34,
+      "longitude": 9
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 163610,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "TUR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 39,
+      "longitude": 35
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 783562,
+    "currencies": [],
+    "languages": [
+      "Turkish"
+    ]
+  },
+  "TKM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 40,
+      "longitude": 60
+    },
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "areaKm2": 488100,
+    "currencies": [],
+    "languages": [
+      "Russian",
+      "Turkmen"
+    ]
+  },
+  "TCA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 21.75,
+      "longitude": -71.58333333
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 948,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "TUV": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -8,
+      "longitude": 178
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 26,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Tuvaluan"
+    ]
+  },
+  "UGA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 1,
+      "longitude": 32
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 241550,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Swahili"
+    ]
+  },
+  "UKR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 49,
+      "longitude": 32
+    },
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "areaKm2": 603500,
+    "currencies": [],
+    "languages": [
+      "Ukrainian"
+    ]
+  },
+  "MKD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 41.83333333,
+      "longitude": 22
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 25713,
+    "currencies": [],
+    "languages": [
+      "Macedonian"
+    ]
+  },
+  "EGY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 27,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 1002450,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "GBR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 54,
+      "longitude": -2
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 242900,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "GGY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 49.46666666,
+      "longitude": -2.58333333
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 78,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French",
+      "Guernésiais"
+    ]
+  },
+  "JEY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 49.25,
+      "longitude": -2.16666666
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 116,
+    "currencies": [],
+    "languages": [
+      "English",
+      "French",
+      "Jèrriais"
+    ]
+  },
+  "IMN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 54.25,
+      "longitude": -4.5
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 572,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Manx"
+    ]
+  },
+  "TZA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -6,
+      "longitude": 35
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 945087,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Swahili"
+    ]
+  },
+  "USA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 38,
+      "longitude": -97
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 9372610,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "VIR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.35,
+      "longitude": -64.933333
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 347,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "BFA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13,
+      "longitude": -2
+    },
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "areaKm2": 272967,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "URY": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -33,
+      "longitude": -56
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 181034,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "UZB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 41,
+      "longitude": 64
+    },
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "areaKm2": 447400,
+    "currencies": [],
+    "languages": [
+      "Russian",
+      "Uzbek"
+    ]
+  },
+  "VEN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 8,
+      "longitude": -66
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 916445,
+    "currencies": [],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  "WLF": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -13.3,
+      "longitude": -176.2
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 142,
+    "currencies": [],
+    "languages": [
+      "French"
+    ]
+  },
+  "WSM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -13.58333333,
+      "longitude": -172.33333333
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 2842,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Samoan"
+    ]
+  },
+  "YEM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 15,
+      "longitude": 48
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 527968,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "ZMB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -15,
+      "longitude": 30
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 752612,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "SCO": {
+    "capital": "Edinburgh",
+    "countryCoordinates": {
+      "latitude": 56.49,
+      "longitude": -4.2
+    },
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "areaKm2": 77933,
+    "currencies": [
+      "GBP"
+    ],
+    "languages": [
+      "English",
+      "Scottish Gaelic",
+      "Scots"
+    ]
+  },
+  "AFG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 33,
+      "longitude": 65
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 652230,
+    "currencies": [],
+    "languages": [
+      "Dari",
+      "Pashto",
+      "Turkmen"
+    ]
+  },
+  "ALB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 41,
+      "longitude": 20
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 28748,
+    "currencies": [],
+    "languages": [
+      "Albanian"
+    ]
+  },
+  "DZA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 28,
+      "longitude": 3
+    },
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "areaKm2": 2381741,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "ASM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -14.33333333,
+      "longitude": -170
+    },
+    "continent": "Oceania",
+    "subregion": "Polynesia",
+    "areaKm2": 199,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Samoan"
+    ]
+  },
+  "AND": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 42.5,
+      "longitude": 1.5
+    },
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "areaKm2": 468,
+    "currencies": [],
+    "languages": [
+      "Catalan"
+    ]
+  },
+  "AGO": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -12.5,
+      "longitude": 18.5
+    },
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "areaKm2": 1246700,
+    "currencies": [],
+    "languages": [
+      "Portuguese"
+    ]
+  },
+  "ATA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -90,
+      "longitude": 0
+    },
+    "continent": "Antarctic",
+    "subregion": "",
+    "areaKm2": 14000000,
+    "currencies": [],
+    "languages": []
+  },
+  "ATG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 17.05,
+      "longitude": -61.8
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 442,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "ARG": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -34,
+      "longitude": -64
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 2780400,
+    "currencies": [],
+    "languages": [
+      "Guaraní",
+      "Spanish"
+    ]
+  },
+  "ARM": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 40,
+      "longitude": 45
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 29743,
+    "currencies": [],
+    "languages": [
+      "Armenian"
+    ]
+  },
+  "AUS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -27,
+      "longitude": 133
+    },
+    "continent": "Oceania",
+    "subregion": "Australia and New Zealand",
+    "areaKm2": 7692024,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "AUT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 47.33333333,
+      "longitude": 13.33333333
+    },
+    "continent": "Europe",
+    "subregion": "Central Europe",
+    "areaKm2": 83871,
+    "currencies": [],
+    "languages": [
+      "Austro-Bavarian German"
+    ]
+  },
+  "AZE": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 40.5,
+      "longitude": 47.5
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 86600,
+    "currencies": [],
+    "languages": [
+      "Azerbaijani",
+      "Russian"
+    ]
+  },
+  "BHS": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 24.25,
+      "longitude": -76
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 13943,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "BHR": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 26,
+      "longitude": 50.55
+    },
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "areaKm2": 765,
+    "currencies": [],
+    "languages": [
+      "Arabic"
+    ]
+  },
+  "BGD": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 24,
+      "longitude": 90
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 147570,
+    "currencies": [],
+    "languages": [
+      "Bengali"
+    ]
+  },
+  "BRB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 13.16666666,
+      "longitude": -59.53333333
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 430,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "BEL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 50.83333333,
+      "longitude": 4
+    },
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "areaKm2": 30528,
+    "currencies": [],
+    "languages": [
+      "German",
+      "French",
+      "Dutch"
+    ]
+  },
+  "BLZ": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 17.25,
+      "longitude": -88.75
+    },
+    "continent": "Americas",
+    "subregion": "Central America",
+    "areaKm2": 22966,
+    "currencies": [],
+    "languages": [
+      "Belizean Creole",
+      "English",
+      "Spanish"
+    ]
+  },
+  "BMU": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 32.33333333,
+      "longitude": -64.75
+    },
+    "continent": "Americas",
+    "subregion": "North America",
+    "areaKm2": 54,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "BTN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 27.5,
+      "longitude": 90.5
+    },
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "areaKm2": 38394,
+    "currencies": [],
+    "languages": [
+      "Dzongkha"
+    ]
+  },
+  "BOL": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -17,
+      "longitude": -65
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 1098581,
+    "currencies": [],
+    "languages": [
+      "Aymara",
+      "Guaraní",
+      "Quechua",
+      "Spanish"
+    ]
+  },
+  "BIH": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 44,
+      "longitude": 18
+    },
+    "continent": "Europe",
+    "subregion": "Southeast Europe",
+    "areaKm2": 51209,
+    "currencies": [],
+    "languages": [
+      "Bosnian",
+      "Croatian",
+      "Serbian"
+    ]
+  },
+  "BWA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -22,
+      "longitude": 24
+    },
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "areaKm2": 582000,
+    "currencies": [],
+    "languages": [
+      "English",
+      "Tswana"
+    ]
+  },
+  "BVT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -54.43333333,
+      "longitude": 3.4
+    },
+    "continent": "Antarctic",
+    "subregion": "",
+    "areaKm2": 49,
+    "currencies": [],
+    "languages": [
+      "Norwegian"
+    ]
+  },
+  "BRA": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -10,
+      "longitude": -55
+    },
+    "continent": "Americas",
+    "subregion": "South America",
+    "areaKm2": 8515767,
+    "currencies": [],
+    "languages": [
+      "Portuguese"
+    ]
+  },
+  "IOT": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -6,
+      "longitude": 71.5
+    },
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "areaKm2": 60,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "VGB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 18.431383,
+      "longitude": -64.62305
+    },
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "areaKm2": 151,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  },
+  "BRN": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": 4.5,
+      "longitude": 114.66666666
+    },
+    "continent": "Asia",
+    "subregion": "South-Eastern Asia",
+    "areaKm2": 5765,
+    "currencies": [],
+    "languages": [
+      "Malay"
+    ]
+  },
+  "SLB": {
+    "capital": null,
+    "countryCoordinates": {
+      "latitude": -8,
+      "longitude": 159
+    },
+    "continent": "Oceania",
+    "subregion": "Melanesia",
+    "areaKm2": 28896,
+    "currencies": [],
+    "languages": [
+      "English"
+    ]
+  }
+}

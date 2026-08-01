@@ -28,6 +28,38 @@ console.log("Fetched at:", data.fetchedAt);
 
 const transformed = transform(data);
 if (transformed.preview?.matches) {
+  transformed.results = transformed.preview.matches
+    .filter(match =>
+      match.status === "finished" &&
+      match.home &&
+      match.away
+    )
+    .map(match => ({
+      match: match.id,
+      homeScore: match.homeScore,
+      awayScore: match.awayScore,
+      homePenaltyScore: match.homePenaltyScore,
+      awayPenaltyScore: match.awayPenaltyScore
+    }));
+}
+
+if (transformed.preview?.matches) {
+  transformed.results = transformed.preview.matches
+    .filter(match =>
+      match.status === "finished" &&
+      match.home &&
+      match.away
+    )
+    .map(match => ({
+      match: match.id,
+      homeScore: match.homeScore,
+      awayScore: match.awayScore,
+      homePenaltyScore: match.homePenaltyScore,
+      awayPenaltyScore: match.awayPenaltyScore
+    }));
+}
+
+if (transformed.preview?.matches) {
   transformed.teams = generateTeams(transformed.preview.matches);
 }
 

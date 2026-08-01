@@ -45,3 +45,5 @@ git push
 
 ```bash
 python3 -m http.server 8000 --bind 0.0.0.0 -d docs
+
+node scripts/update-worldcup.js
