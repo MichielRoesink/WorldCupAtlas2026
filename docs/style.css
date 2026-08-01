@@ -2524,90 +2524,18 @@ body.launch-screen .credits-story {
 
 /* =========================================================
    CUPATLAS — MOBIEL
-   Beginscherm: portrait en landscape toegestaan
-   Kaartscherm: landscape vereist
+   Beginscherm: portrait en landscape
+   Kaartscherm: geoptimaliseerd voor landscape
    ========================================================= */
 
-/* Standaard verborgen */
+/* Draaimelding niet meer gebruiken */
 .mobile-landscape-notice {
   display: none !important;
 }
 
 /* ---------------------------------------------------------
-   KAARTSCHERM OP TELEFOON IN PORTRAIT
-   --------------------------------------------------------- */
-
-@media screen and (max-width: 900px) and (orientation: portrait) {
-  body:not(.launch-screen) {
-    overflow: hidden !important;
-  }
-
-  body:not(.launch-screen) .mobile-landscape-notice {
-    position: fixed !important;
-    inset: 0 !important;
-    z-index: 2147483647 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    padding:
-      max(24px, env(safe-area-inset-top))
-      max(24px, env(safe-area-inset-right))
-      max(24px, env(safe-area-inset-bottom))
-      max(24px, env(safe-area-inset-left));
-
-    background:
-      radial-gradient(
-        circle at 50% 35%,
-        rgba(54, 121, 168, 0.98),
-        rgba(8, 34, 61, 1)
-      ) !important;
-  }
-
-  .mobile-landscape-notice-card {
-    width: min(340px, 88vw);
-    padding: 30px 24px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-
-    color: #ffffff;
-    text-align: center;
-
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 22px;
-
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
-  }
-
-  .mobile-rotate-icon {
-    font-size: 46px;
-    line-height: 1;
-  }
-
-  .mobile-landscape-notice-card strong {
-    font-size: 22px;
-    line-height: 1.2;
-  }
-
-  .mobile-landscape-notice-card span {
-    max-width: 270px;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 14px;
-    line-height: 1.5;
-  }
-}
-
-/* =========================================================
    OPENINGSSCHERM — MOBIEL PORTRAIT
-   ========================================================= */
+   --------------------------------------------------------- */
 
 @media screen and (max-width: 600px) and (orientation: portrait) {
   body.launch-screen {
@@ -2622,7 +2550,7 @@ body.launch-screen .credits-story {
   }
 
   body.launch-screen .atlas-launch-content {
-    width: 100% !important;
+    width: 100vw !important;
     height: 100dvh !important;
     min-height: 100dvh !important;
 
@@ -2630,7 +2558,8 @@ body.launch-screen .credits-story {
     padding:
       max(14px, env(safe-area-inset-top))
       18px
-      max(18px, env(safe-area-inset-bottom)) !important;
+      max(18px, env(safe-area-inset-bottom))
+      18px !important;
 
     display: flex !important;
     align-items: center !important;
@@ -2649,16 +2578,23 @@ body.launch-screen .credits-story {
   }
 
   body.launch-screen .launch-title {
+    margin: 0 !important;
+
     font-size: clamp(34px, 11vw, 48px) !important;
     line-height: 1.02 !important;
     letter-spacing: -0.035em !important;
+    text-align: center !important;
   }
 
   body.launch-screen .launch-subtitle {
     max-width: 300px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
     font-size: 12px !important;
     line-height: 1.55 !important;
     letter-spacing: 0.14em !important;
+    text-align: center !important;
   }
 
   body.launch-screen .atlas-launch-divider {
@@ -2672,6 +2608,7 @@ body.launch-screen .credits-story {
   }
 
   body.launch-screen .atlas-launch-form {
+    width: 100% !important;
     margin-top: 54px !important;
   }
 
@@ -2682,6 +2619,7 @@ body.launch-screen .credits-story {
   body.launch-screen .launch-tournament-card {
     width: 100% !important;
     min-width: 0 !important;
+    padding: 18px !important;
   }
 
   body.launch-screen .launch-card-content {
@@ -2695,23 +2633,74 @@ body.launch-screen .credits-story {
 
   body.launch-screen .launch-card-subtitle {
     font-size: 12px !important;
+    line-height: 1.35 !important;
   }
 
   body.launch-screen .launch-story {
+    position: fixed !important;
+
     right: 18px !important;
     bottom: 14px !important;
     left: auto !important;
+    top: auto !important;
 
     max-width: calc(100vw - 36px) !important;
+
     font-size: 13px !important;
-    white-space: normal !important;
+    line-height: 1.4 !important;
+
     text-align: right !important;
+    white-space: normal !important;
   }
 }
 
-/* =========================================================
-   KAART — MOBIEL LANDSCAPE
-   ========================================================= */
+/* ---------------------------------------------------------
+   OPENINGSSCHERM — MOBIEL LANDSCAPE
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  body.launch-screen {
+    overflow: hidden !important;
+  }
+
+  body.launch-screen .atlas-launch-screen,
+  body.launch-screen .atlas-launch-content {
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+  }
+
+  body.launch-screen .atlas-launch-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding:
+      max(8px, env(safe-area-inset-top))
+      max(18px, env(safe-area-inset-right))
+      max(8px, env(safe-area-inset-bottom))
+      max(18px, env(safe-area-inset-left)) !important;
+  }
+
+  body.launch-screen .atlas-launch-card {
+    width: min(760px, 92vw) !important;
+    max-height: 94dvh !important;
+
+    margin: 0 !important;
+    transform: scale(0.78) !important;
+    transform-origin: center !important;
+  }
+
+  body.launch-screen .launch-story {
+    right: 24px !important;
+    bottom: 12px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   KAARTSCHERM — MOBIEL LANDSCAPE
+   --------------------------------------------------------- */
 
 @media screen and (max-width: 900px) and (orientation: landscape) {
   body:not(.launch-screen) {
@@ -2725,12 +2714,10 @@ body.launch-screen .credits-story {
   body:not(.launch-screen) .atlas-hero,
   body:not(.launch-screen) .atlas-map-wrap,
   body:not(.launch-screen) .map-placeholder {
-    width: 100vw !important;
+    width: 100% !important;
     max-width: none !important;
-    min-width: 100vw !important;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
   }
 
   body:not(.launch-screen) .atlas-map-wrap {
@@ -2739,71 +2726,107 @@ body.launch-screen .credits-story {
 
   body:not(.launch-screen) .map-placeholder {
     height: 100% !important;
-    position: relative !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    border-radius: 0 !important;
     overflow: hidden !important;
   }
 
   body:not(.launch-screen) .map-placeholder svg,
   body:not(.launch-screen) svg.real-world-map {
     display: block !important;
+
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
   }
-}
 
-/* =========================================================
-   DEFINITIEVE MOBIELE CORRECTIES
-   ========================================================= */
+  .status-row {
+    position: absolute !important;
 
-@media screen and (max-width: 900px) and (orientation: landscape) {
-  body:not(.launch-screen),
-  body:not(.launch-screen) main,
-  body:not(.launch-screen) .atlas-page,
-  body:not(.launch-screen) .atlas-hero,
-  body:not(.launch-screen) .atlas-map-wrap {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 12px !important;
+
+    width: min(70vw, 720px) !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+
+    transform: translateX(-50%) !important;
+    z-index: 30 !important;
   }
 
-  body:not(.launch-screen) .map-placeholder {
-    width: 100% !important;
+  .status-chip {
+    width: auto !important;
     min-width: 0 !important;
+    height: 34px !important;
 
-    height: calc(100dvh - 48px) !important;
-    min-height: 0 !important;
-    max-height: none !important;
+    padding: 0 9px !important;
+    border-radius: 999px !important;
 
-    margin: 0 !important;
-    border-radius: 0 !important;
+    font-size: clamp(9px, 1.45vw, 11px) !important;
+    line-height: 34px !important;
+
+    white-space: nowrap !important;
   }
 
-  body:not(.launch-screen) .map-placeholder svg,
-  body:not(.launch-screen) svg.real-world-map {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    display: block !important;
+  .status-chip strong,
+  .status-chip .status-count {
+    font-size: clamp(13px, 1.75vw, 16px) !important;
+  }
+
+  #cupatlas-credits {
+    position: absolute !important;
+
+    right: 12px !important;
+    bottom: 54px !important;
+    left: auto !important;
+
+    width: 148px !important;
+
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+
+    z-index: 31 !important;
+  }
+
+  #cupatlas-credits .credits-story {
+    margin-top: 5px !important;
+
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+
+    white-space: normal !important;
   }
 
   #country-panel {
     position: fixed !important;
+
     top: 52px !important;
     left: 8px !important;
     right: auto !important;
     bottom: 8px !important;
 
-    width: min(340px, 44vw) !important;
+    width: min(330px, 42vw) !important;
     height: auto !important;
     max-height: calc(100dvh - 60px) !important;
 
     overflow-y: auto !important;
 
+    border-radius: 15px !important;
+
     transform: translateX(calc(-100% - 20px)) !important;
     opacity: 0 !important;
     pointer-events: none !important;
+
+    transition:
+      transform 280ms ease,
+      opacity 220ms ease !important;
 
     z-index: 10000 !important;
   }

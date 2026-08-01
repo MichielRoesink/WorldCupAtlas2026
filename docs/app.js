@@ -1866,7 +1866,7 @@ const launchButton =
   document.getElementById("launch-enter");
 
 if (launchScreen && launchButton) {
-  launchButton.addEventListener("click", () => {
+launchButton.addEventListener("click", async () => {
   const selectedTournament =
     launchButton.dataset.tournament;
 
@@ -1874,19 +1874,32 @@ if (launchScreen && launchButton) {
     return;
   }
 
+  /* Probeer op mobiele apparaten automatisch
+     naar landscape te schakelen */
+  try {
+    if (screen.orientation?.lock) {
+      await screen.orientation.lock("landscape");
+    }
+  } catch (error) {
+    console.log(
+      "Landscape kon door de browser niet automatisch worden geactiveerd.",
+      error
+    );
+  }
+
   launchScreen.classList.add("is-closing");
 
-setTimeout(() => {
-  document.body.classList.remove("launch-screen");
-  launchScreen.hidden = true;
+  setTimeout(() => {
+    document.body.classList.remove("launch-screen");
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      renderStage("groups");
-    });
-  });
-}, 700);
+    launchScreen.hidden = true;
 
+    renderStage("groups");
+
+    /* Laat de kaart opnieuw zijn beschikbare
+       afmetingen bepalen */
+    window.dispatchEvent(new Event("resize"));
+  }, 700);
 });
 }
 
