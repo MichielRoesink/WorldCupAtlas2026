@@ -1878,8 +1878,13 @@ if (launchScreen && launchButton) {
 
 setTimeout(() => {
   document.body.classList.remove("launch-screen");
-  renderStage("groups");
   launchScreen.hidden = true;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      renderStage("groups");
+    });
+  });
 }, 700);
 
 });
