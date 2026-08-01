@@ -1029,8 +1029,17 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides, p
   mapContainer.innerHTML = "";
   tooltip.style.display = "none";
 
-  const width = mapContainer.clientWidth;
-  const height = mapContainer.clientHeight;
+  const mapBounds = mapContainer.getBoundingClientRect();
+
+  const width = Math.max(
+    1,
+    Math.round(mapBounds.width)
+  );
+
+  const height = Math.max(
+    1,
+    Math.round(mapBounds.height)
+  );
 
   const svg = d3.select(mapContainer)
     .append("svg")
@@ -1881,4 +1890,39 @@ setTimeout(() => {
   updateClubPanelVisibility();
 
   panelToggle.addEventListener("change", updateClubPanelVisibility);
+}
+
+let viewportRedrawTimer = null;
+
+function redrawAtlasForViewport() {
+  clearTimeout(viewportRedrawTimer);
+
+  viewportRedrawTimer = setTimeout(() => {
+    if (document.body.classList.contains("launch-screen")) {
+      return;
+    }
+
+    if (typeof renderStage === "function") {
+      void renderStage(currentStage);
+    }
+  }, 300);
+}
+
+window.addEventListener(
+  "resize",
+  redrawAtlasForViewport
+);
+
+window.addEventListener(
+  "orientationchange",
+  () => {
+    setTimeout(redrawAtlasForViewport, 400);
+  }
+);
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener(
+    "resize",
+    redrawAtlasForViewport
+  );
 }
