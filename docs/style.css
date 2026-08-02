@@ -3281,8 +3281,9 @@ body.launch-screen .credits-story {
      ===================================================== */
 
   body:not(.launch-screen) .tooltip {
-    display: none !important;
-  }
+  z-index: 2000 !important;
+  pointer-events: none !important;
+}
 }
 
 /* =========================================================
