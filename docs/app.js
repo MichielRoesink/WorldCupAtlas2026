@@ -1957,3 +1957,234 @@ if (window.visualViewport) {
     redrawAtlasForViewport
   );
 }
+
+function setupMobileMapGestures() {
+  const mapContainer = document.querySelector(".map-placeholder");
+
+  if (!mapContainer || mapContainer.dataset.mobileGesturesReady === "true") {
+    return;
+  }
+
+  mapContainer.dataset.mobileGesturesReady = "true";
+
+  let scale = 1;
+  let translateX = 0;
+  let translateY = 0;
+
+  const pointers = new Map();
+
+  let startDistance = 0;
+  let startScale = 1;
+
+  let startCenterX = 0;
+  let startCenterY = 0;
+
+  let startTranslateX = 0;
+  let startTranslateY = 0;
+
+  let previousX = 0;
+  let previousY = 0;
+
+  function mobileLandscapeActive() {
+    return window.matchMedia(
+      "(max-width: 900px) and (orientation: landscape) and (pointer: coarse)"
+    ).matches;
+  }
+
+  function getMapSvg() {
+    return mapContainer.querySelector(
+      "svg.real-world-map, svg"
+    );
+  }
+
+  function clamp(value, minimum, maximum) {
+    return Math.min(maximum, Math.max(minimum, value));
+  }
+
+  function constrainPosition() {
+    const maximumX =
+      ((scale - 1) * mapContainer.clientWidth) / 2;
+
+    const maximumY =
+      ((scale - 1) * mapContainer.clientHeight) / 2;
+
+    translateX = clamp(
+      translateX,
+      -maximumX,
+      maximumX
+    );
+
+    translateY = clamp(
+      translateY,
+      -maximumY,
+      maximumY
+    );
+  }
+
+  function applyTransform() {
+    const svg = getMapSvg();
+
+    if (!svg) {
+      return;
+    }
+
+    constrainPosition();
+
+    svg.style.transformOrigin = "center center";
+    svg.style.willChange = "transform";
+
+    svg.style.transform =
+      `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+  }
+
+  function getTwoPointers() {
+    return Array.from(pointers.values()).slice(0, 2);
+  }
+
+  function getDistance(first, second) {
+    return Math.hypot(
+      second.x - first.x,
+      second.y - first.y
+    );
+  }
+
+  function getCenter(first, second) {
+    return {
+      x: (first.x + second.x) / 2,
+      y: (first.y + second.y) / 2
+    };
+  }
+
+  mapContainer.addEventListener("pointerdown", event => {
+    if (!mobileLandscapeActive()) {
+      return;
+    }
+
+    mapContainer.setPointerCapture(event.pointerId);
+
+    pointers.set(event.pointerId, {
+      x: event.clientX,
+      y: event.clientY
+    });
+
+    if (pointers.size === 1) {
+      previousX = event.clientX;
+      previousY = event.clientY;
+    }
+
+    if (pointers.size === 2) {
+      const [first, second] = getTwoPointers();
+      const center = getCenter(first, second);
+
+      startDistance = getDistance(first, second);
+      startScale = scale;
+
+      startCenterX = center.x;
+      startCenterY = center.y;
+
+      startTranslateX = translateX;
+      startTranslateY = translateY;
+    }
+  });
+
+  mapContainer.addEventListener("pointermove", event => {
+    if (
+      !mobileLandscapeActive() ||
+      !pointers.has(event.pointerId)
+    ) {
+      return;
+    }
+
+    pointers.set(event.pointerId, {
+      x: event.clientX,
+      y: event.clientY
+    });
+
+    if (pointers.size === 1) {
+      const deltaX = event.clientX - previousX;
+      const deltaY = event.clientY - previousY;
+
+      translateX += deltaX;
+      translateY += deltaY;
+
+      previousX = event.clientX;
+      previousY = event.clientY;
+    }
+
+    if (pointers.size >= 2) {
+      const [first, second] = getTwoPointers();
+      const center = getCenter(first, second);
+
+      const currentDistance =
+        getDistance(first, second);
+
+      scale = clamp(
+        startScale * (currentDistance / startDistance),
+        1,
+        4
+      );
+
+      translateX =
+        startTranslateX +
+        (center.x - startCenterX);
+
+      translateY =
+        startTranslateY +
+        (center.y - startCenterY);
+    }
+
+    applyTransform();
+    event.preventDefault();
+  });
+
+  function removePointer(event) {
+    pointers.delete(event.pointerId);
+
+    if (pointers.size === 1) {
+      const remainingPointer =
+        Array.from(pointers.values())[0];
+
+      previousX = remainingPointer.x;
+      previousY = remainingPointer.y;
+    }
+  }
+
+  mapContainer.addEventListener(
+    "pointerup",
+    removePointer
+  );
+
+  mapContainer.addEventListener(
+    "pointercancel",
+    removePointer
+  );
+
+  /* Dubbel tikken zet de kaart terug naar normaal */
+  mapContainer.addEventListener("dblclick", event => {
+    if (!mobileLandscapeActive()) {
+      return;
+    }
+
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+
+    applyTransform();
+    event.preventDefault();
+  });
+
+  /*
+   * Als D3 de SVG opnieuw tekent,
+   * blijft de ingestelde zoom behouden.
+   */
+  const mapObserver = new MutationObserver(() => {
+    requestAnimationFrame(applyTransform);
+  });
+
+  mapObserver.observe(mapContainer, {
+    childList: true,
+    subtree: true
+  });
+}
+
+setupMobileMapGestures();

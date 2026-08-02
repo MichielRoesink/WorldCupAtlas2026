@@ -2978,3 +2978,259 @@ body.launch-screen .credits-story {
     white-space: normal !important;
   }
 }
+
+/* =========================================================
+   CUPATLAS — ALLEEN MOBIELE LANDSCAPE
+   Laptop blijft ongewijzigd
+   ========================================================= */
+
+@media screen and (max-width: 900px)
+  and (orientation: landscape)
+  and (pointer: coarse) {
+
+  :root {
+    --mobile-toolbar-height: 48px;
+  }
+
+  /* -------------------------
+     BOVENRAND: ALLES OP 1 REGEL
+     ------------------------- */
+
+  .atlas-toolbar {
+    width: 100% !important;
+    height: var(--mobile-toolbar-height) !important;
+    min-height: var(--mobile-toolbar-height) !important;
+
+    display: grid !important;
+    grid-template-columns:
+      minmax(180px, 1.15fr)
+      minmax(320px, 2fr)
+      minmax(250px, 1.25fr) !important;
+
+    align-items: center !important;
+    gap: 8px !important;
+
+    padding: 0 10px !important;
+    overflow: hidden !important;
+  }
+
+  .atlas-toolbar,
+  .atlas-toolbar * {
+    white-space: nowrap !important;
+  }
+
+  .atlas-toolbar > * {
+    min-width: 0 !important;
+  }
+
+  .current-cup-name {
+    margin: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+
+    font-size: clamp(12px, 1.8vw, 16px) !important;
+    line-height: 1 !important;
+  }
+
+  .timeline {
+    min-width: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+
+    gap: clamp(7px, 1.2vw, 15px) !important;
+    overflow: hidden !important;
+  }
+
+  .timeline button,
+  .timeline-stage,
+  .stage-button {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+
+    font-size: clamp(9px, 1.3vw, 12px) !important;
+    line-height: var(--mobile-toolbar-height) !important;
+  }
+
+  .map-club-control {
+    min-width: 0 !important;
+    justify-self: end !important;
+
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+
+    font-size: clamp(9px, 1.3vw, 12px) !important;
+  }
+
+  /* Probeer ook de klok en datum op één regel te houden */
+  .atlas-clock,
+  .toolbar-clock,
+  .clock-wrap,
+  .toolbar-right {
+    min-width: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+
+    gap: 5px !important;
+    font-size: clamp(8px, 1.15vw, 11px) !important;
+  }
+
+  /* -------------------------
+     KAART
+     ------------------------- */
+
+  body:not(.launch-screen) .atlas-map-wrap {
+    height: calc(100dvh - var(--mobile-toolbar-height)) !important;
+  }
+
+  body:not(.launch-screen) .map-placeholder {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    overflow: hidden !important;
+
+    touch-action: none !important;
+  }
+
+  body:not(.launch-screen) .map-placeholder svg,
+  body:not(.launch-screen) svg.real-world-map {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+    transform-origin: center center;
+  }
+
+  /* -------------------------
+     DRIE STATUSBLOKKEN OP 1 RIJ
+     ------------------------- */
+
+  .status-row {
+    position: absolute !important;
+
+    left: 14px !important;
+    right: 190px !important;
+    bottom: 12px !important;
+    top: auto !important;
+
+    width: auto !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+
+    transform: none !important;
+    z-index: 40 !important;
+  }
+
+  .status-chip {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 34px !important;
+
+    padding: 0 8px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+
+    border-radius: 999px !important;
+
+    font-size: clamp(8px, 1.25vw, 11px) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .status-chip strong,
+  .status-chip .status-count {
+    font-size: clamp(12px, 1.55vw, 16px) !important;
+    line-height: 1 !important;
+  }
+
+  /* -------------------------
+     CREDITS RECHTS LATEN STAAN
+     ------------------------- */
+
+  #cupatlas-credits {
+    position: absolute !important;
+
+    right: 12px !important;
+    bottom: 9px !important;
+    left: auto !important;
+
+    width: 165px !important;
+
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+
+    z-index: 41 !important;
+  }
+
+  #cupatlas-credits strong {
+    font-size: 13px !important;
+  }
+
+  #cupatlas-credits .credits-story {
+    margin-top: 4px !important;
+
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  /* -------------------------
+     COUNTRYPANEL:
+     LINKS, ONDER DE BOVENRAND,
+     HELE HOOGTE TOT BENEDEN
+     ------------------------- */
+
+  #country-panel {
+    position: fixed !important;
+
+    top: var(--mobile-toolbar-height) !important;
+    left: 0 !important;
+    right: auto !important;
+    bottom: 0 !important;
+
+    width: min(370px, 46vw) !important;
+    height: auto !important;
+    max-height: none !important;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+
+    border-radius: 0 18px 18px 0 !important;
+
+    transform: translateX(-105%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+
+    transition:
+      transform 260ms ease,
+      opacity 200ms ease !important;
+
+    z-index: 100000 !important;
+  }
+
+  #country-panel.is-visible {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .country-panel-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+  }
+}
