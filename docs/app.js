@@ -1086,8 +1086,38 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides, p
 
   const mapCountries = topojson.feature(world, world.objects.countries);
 
-  const projection = d3.geoNaturalEarth1()
-    .fitExtent([[24, 24], [width - 24, height - 24]], mapCountries);
+  const mobileLandscape = window.matchMedia(
+  "(max-width: 900px) and (orientation: landscape) and (pointer: coarse)"
+).matches;
+
+const projectionPadding = mobileLandscape
+  ? {
+      left: 44,
+      top: 58,
+      right: 44,
+      bottom: 34
+    }
+  : {
+      left: 24,
+      top: 24,
+      right: 24,
+      bottom: 24
+    };
+
+const projection = d3.geoNaturalEarth1()
+  .fitExtent(
+    [
+      [
+        projectionPadding.left,
+        projectionPadding.top
+      ],
+      [
+        width - projectionPadding.right,
+        height - projectionPadding.bottom
+      ]
+    ],
+    mapCountries
+  );
 
   const path = d3.geoPath().projection(projection);
 

@@ -3560,3 +3560,112 @@ body.launch-screen .credits-story {
     z-index: 50 !important;
   }
 }
+
+/* =========================================================
+   CUPATLAS — LAATSTE MOBIELE CORRECTIES
+   ========================================================= */
+
+@media screen and (max-width: 900px)
+  and (orientation: landscape)
+  and (pointer: coarse) {
+
+  /* -----------------------------------------------------
+     TIJD EN DATUM IETS NAAR LINKS
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) #nl-clock {
+    position: relative !important;
+    right: 12px !important;
+
+    padding-right: 4px !important;
+  }
+
+
+  /* -----------------------------------------------------
+     STATUSBLOKKEN KLEINER
+     Positie blijft hetzelfde
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .status-row,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row {
+
+    width: min(49vw, 510px) !important;
+  }
+
+  body:not(.launch-screen) .status-row .map-status,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row > .map-status {
+
+    gap: 7px !important;
+  }
+
+  body:not(.launch-screen) .status-chip {
+    height: 27px !important;
+
+    padding: 0 6px !important;
+
+    gap: 5px !important;
+
+    box-shadow:
+      0 3px 10px rgba(15, 23, 42, .14) !important;
+  }
+
+  /*
+     Het lettertype blijft ongeveer zoals het nu is.
+  */
+
+  body:not(.launch-screen) .status-chip span,
+  body:not(.launch-screen) .status-chip strong,
+  body:not(.launch-screen) .status-chip .status-count {
+    font-size: clamp(11px, 1.4vw, 14px) !important;
+  }
+
+  body:not(.launch-screen) .status-chip label {
+    font-size: clamp(8px, 1vw, 10px) !important;
+  }
+
+
+  /* -----------------------------------------------------
+     GEOPEND CLUB-LAYERSBLOK NAAR CIRCA 60%
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .atlas-overlay .map-club-control,
+  body:not(.launch-screen) #club-panel .map-club-control,
+  body:not(.launch-screen) .club-panel .map-club-control {
+    width: 96px !important;
+    min-width: 96px !important;
+
+    padding: 5px 6px !important;
+
+    border-radius: 10px !important;
+  }
+
+  body:not(.launch-screen) .map-club-title {
+    margin-bottom: 3px !important;
+
+    font-size: 6px !important;
+    line-height: 1 !important;
+    letter-spacing: .08em !important;
+  }
+
+  body:not(.launch-screen) .club-layer-option {
+    min-height: 18px !important;
+
+    gap: 3px !important;
+
+    font-size: 6.5px !important;
+    line-height: 1 !important;
+  }
+
+  body:not(.launch-screen) .club-layer-logo {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  body:not(.launch-screen) .club-layer-check {
+    width: 9px !important;
+    height: 9px !important;
+    margin: 0 !important;
+  }
+}
