@@ -3153,7 +3153,7 @@ body.launch-screen .credits-story {
     top: calc(var(--mobile-toolbar-height) + 8px) !important;
     left: 8px !important;
     right: auto !important;
-    bottom: 8px !important;
+    bottom: 2px !important;
 
     width: min(300px, 42vw) !important;
     max-width: 300px !important;
@@ -4634,7 +4634,7 @@ body:not(.launch-screen) .status-chip label {
 
   color: #334155;
 
-  font-size: 1.1em;
+  font-size: 1.6em;
   font-weight: 900;
   line-height: 1;
 
@@ -4732,15 +4732,14 @@ body:not(.launch-screen) .status-chip label {
   }
 
   body:not(.launch-screen) .country-panel-meta {
-    margin-top: 3px !important;
+  margin-top: 1px !important;
   }
 
   body:not(.launch-screen) .country-panel-row {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-
-    line-height: 1.1 !important;
-  }
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+  line-height: 1.05 !important;
+}
 
   body:not(.launch-screen) .country-panel-section {
     margin-top: 5px !important;
