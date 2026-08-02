@@ -4073,7 +4073,7 @@ body.launch-screen .credits-story {
   body:not(.launch-screen) #club-layers-toggle {
     position: relative !important;
 
-    right: 12px !important;
+    right: 35px !important;
 
     padding-right: 4px !important;
 
@@ -4141,10 +4141,13 @@ body.launch-screen .credits-story {
   body:not(.launch-screen) .status-chip {
     width: 100% !important;
     min-width: 0 !important;
+    min-height: 0 !important;
 
     height: 16px !important;
 
     padding: 0 5px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 
     gap: 4px !important;
 
@@ -4152,23 +4155,31 @@ body.launch-screen .credits-story {
 
     box-shadow:
       0 2px 7px rgba(15, 23, 42, .12) !important;
-  }
+}
 
-  /*
-     Lettertype bewust NIET verder verkleinen.
-  */
 
-  body:not(.launch-screen) .status-chip span,
-  body:not(.launch-screen) .status-chip strong,
-  body:not(.launch-screen) .status-chip .status-count {
+/*
+   Lettertype bewust NIET verder verkleinen.
+*/
+
+body:not(.launch-screen) .status-chip span,
+body:not(.launch-screen) .status-chip strong,
+body:not(.launch-screen) .status-chip .status-count {
     font-size: 11px !important;
     line-height: 1 !important;
-  }
 
-  body:not(.launch-screen) .status-chip label {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body:not(.launch-screen) .status-chip label {
     font-size: 8px !important;
     line-height: 1 !important;
-  }
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 }
 
 
@@ -4242,7 +4253,7 @@ body.launch-screen .credits-story {
     max-height: none !important;
 
     margin: 0 !important;
-    padding: 78px 0 0 !important;
+    padding: 105px 0 0 !important;
 
     display: block !important;
 
@@ -4356,7 +4367,7 @@ body.launch-screen .credits-story {
     right: 18px !important;
 
     top: auto !important;
-    bottom: 28px !important;
+    bottom: 10px !important;
 
     width: auto !important;
     max-width: none !important;
@@ -4518,7 +4529,7 @@ body.launch-screen .credits-story {
     right: 18px !important;
 
     top: auto !important;
-    bottom: 132px !important;
+    bottom: 114px !important;
 
     width: auto !important;
     max-width: none !important;
