@@ -4546,3 +4546,218 @@ body:not(.launch-screen) .status-chip label {
     transform: none !important;
   }
 }
+
+/* =====================================================
+   COUNTRYPANEL — DEFINITIEVE FIJNAFSTELLING
+   Desktop + mobiel
+   ===================================================== */
+
+
+/* -----------------------------------------------------
+   Vlag en landnaam bovenaan gelijk uitlijnen
+   ----------------------------------------------------- */
+
+.country-panel-title-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+.country-panel-flag {
+  flex: 0 0 auto !important;
+  align-self: flex-start !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  line-height: 1 !important;
+}
+
+.country-panel-title-row h2 {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  line-height: 1.05 !important;
+}
+
+
+/* -----------------------------------------------------
+   Header en informatie iets compacter
+   Previous matches komt hierdoor hoger
+   ----------------------------------------------------- */
+
+.country-panel-header {
+  margin-bottom: 6px !important;
+}
+
+.country-panel-confederation {
+  margin-top: 3px !important;
+  margin-bottom: 2px !important;
+}
+
+.country-panel-status {
+  margin-top: 4px !important;
+}
+
+.country-panel-meta {
+  margin-top: 7px !important;
+}
+
+.country-panel-row {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+
+  line-height: 1.15 !important;
+}
+
+.country-panel-section {
+  margin-top: 8px !important;
+}
+
+.country-panel-section-title {
+  margin-top: 0 !important;
+  margin-bottom: 5px !important;
+}
+
+
+/* -----------------------------------------------------
+   Pijltje achter Previous matches
+   Geen app.js-wijziging nodig
+   ----------------------------------------------------- */
+
+.previous-matches .country-panel-section-title::after {
+  content: "↓";
+
+  display: inline-block;
+
+  margin-left: 6px;
+
+  color: #334155;
+
+  font-size: 1.1em;
+  font-weight: 900;
+  line-height: 1;
+
+  transform: translateY(1px);
+
+  animation: countryPanelScrollHint 1.4s ease-in-out infinite;
+}
+
+@keyframes countryPanelScrollHint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+
+/* -----------------------------------------------------
+   Duidelijke zwarte sluit-X zonder cirkel
+   ----------------------------------------------------- */
+
+.country-panel-close {
+  position: absolute !important;
+
+  top: 10px !important;
+  right: 12px !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 2px 4px !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  color: #111827 !important;
+
+  font-family: Arial, sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  opacity: 1 !important;
+
+  z-index: 10 !important;
+}
+
+.country-panel-close:hover {
+  color: #000000 !important;
+  transform: scale(1.08);
+}
+
+.country-panel-close:focus-visible {
+  outline: 2px solid #111827 !important;
+  outline-offset: 2px !important;
+}
+
+
+/* -----------------------------------------------------
+   Mobiel nog iets compacter
+   ----------------------------------------------------- */
+
+@media screen and (max-width: 900px)
+  and (orientation: landscape)
+  and (pointer: coarse) {
+
+  body:not(.launch-screen) .country-panel-title-row {
+    gap: 7px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-header {
+    margin-bottom: 4px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-flag {
+    font-size: 25px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-confederation {
+    margin-top: 1px !important;
+    margin-bottom: 1px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-status {
+    margin-top: 2px !important;
+    padding: 3px 6px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-meta {
+    margin-top: 3px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-row {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+
+    line-height: 1.1 !important;
+  }
+
+  body:not(.launch-screen) .country-panel-section {
+    margin-top: 5px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-section-title {
+    margin-bottom: 3px !important;
+  }
+
+  body:not(.launch-screen) .country-panel-close {
+    top: 6px !important;
+    right: 8px !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    font-size: 27px !important;
+    line-height: 1 !important;
+  }
+}
