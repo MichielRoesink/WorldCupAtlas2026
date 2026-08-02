@@ -14,6 +14,20 @@ async function main() {
   const provider = getProvider(config.provider);
   const data = await provider.fetchWorldCupData();
 
+  /*
+ * Bescherm bestaande CupAtlas-data wanneer de externe
+ * provider geen wedstrijden teruggeeft.
+ */
+if (
+  !data ||
+  !Array.isArray(data.matches) ||
+  data.matches.length === 0
+) {
+  console.warn(
+    "Provider returned no matches. Existing World Cup data is preserved."
+  );
+  return;
+}
   fs.mkdirSync(config.output.raw, { recursive: true });
 
   const outputFile = path.join(config.output.raw, "fixtures.json");
