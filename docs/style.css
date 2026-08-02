@@ -2698,290 +2698,10 @@ body.launch-screen .credits-story {
   }
 }
 
-/* ---------------------------------------------------------
-   KAARTSCHERM — MOBIEL LANDSCAPE
-   --------------------------------------------------------- */
-
-@media screen and (max-width: 900px) and (orientation: landscape) {
-  body:not(.launch-screen) {
-    width: 100vw !important;
-    height: 100dvh !important;
-    overflow: hidden !important;
-  }
-
-  body:not(.launch-screen) main,
-  body:not(.launch-screen) .atlas-page,
-  body:not(.launch-screen) .atlas-hero,
-  body:not(.launch-screen) .atlas-map-wrap,
-  body:not(.launch-screen) .map-placeholder {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-  }
-
-  body:not(.launch-screen) .atlas-map-wrap {
-    height: calc(100dvh - 48px) !important;
-  }
-
-  body:not(.launch-screen) .map-placeholder {
-    height: 100% !important;
-    min-height: 0 !important;
-    max-height: none !important;
-
-    border-radius: 0 !important;
-    overflow: hidden !important;
-  }
-
-  body:not(.launch-screen) .map-placeholder svg,
-  body:not(.launch-screen) svg.real-world-map {
-    display: block !important;
-
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-  }
-
-  .status-row {
-    position: absolute !important;
-
-    left: 50% !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: 12px !important;
-
-    width: min(70vw, 720px) !important;
-
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px !important;
-
-    transform: translateX(-50%) !important;
-    z-index: 30 !important;
-  }
-
-  .status-chip {
-    width: auto !important;
-    min-width: 0 !important;
-    height: 34px !important;
-
-    padding: 0 9px !important;
-    border-radius: 999px !important;
-
-    font-size: clamp(9px, 1.45vw, 11px) !important;
-    line-height: 34px !important;
-
-    white-space: nowrap !important;
-  }
-
-  .status-chip strong,
-  .status-chip .status-count {
-    font-size: clamp(13px, 1.75vw, 16px) !important;
-  }
-
-  #cupatlas-credits {
-    position: absolute !important;
-
-    right: 12px !important;
-    bottom: 54px !important;
-    left: auto !important;
-
-    width: 148px !important;
-
-    font-size: 9px !important;
-    line-height: 1.25 !important;
-    text-align: left !important;
-
-    z-index: 31 !important;
-  }
-
-  #cupatlas-credits .credits-story {
-    margin-top: 5px !important;
-
-    font-size: 10px !important;
-    line-height: 1.25 !important;
-
-    white-space: normal !important;
-  }
-
-  #country-panel {
-    position: fixed !important;
-
-    top: 52px !important;
-    left: 8px !important;
-    right: auto !important;
-    bottom: 8px !important;
-
-    width: min(330px, 42vw) !important;
-    height: auto !important;
-    max-height: calc(100dvh - 60px) !important;
-
-    overflow-y: auto !important;
-
-    border-radius: 15px !important;
-
-    transform: translateX(calc(-100% - 20px)) !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-
-    transition:
-      transform 280ms ease,
-      opacity 220ms ease !important;
-
-    z-index: 10000 !important;
-  }
-
-  #country-panel.is-visible {
-    transform: translateX(0) !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-}
-
 /* =========================================================
-   MOBIELE KAART — TOOLBAR EN STATUSBLOKKEN
-   ========================================================= */
-
-@media screen and (max-width: 900px) and (orientation: landscape) {
-  /* Bovenbalk */
-  .atlas-toolbar {
-    width: 100% !important;
-    height: 48px !important;
-
-    display: grid !important;
-    grid-template-columns:
-      minmax(190px, 1.15fr)
-      minmax(390px, 2.3fr)
-      minmax(150px, 0.9fr) !important;
-
-    align-items: center !important;
-    gap: 8px !important;
-
-    padding: 0 12px !important;
-    overflow: hidden !important;
-  }
-
-  /* Toernooikeuze links */
-  .current-cup-name {
-    min-width: 0 !important;
-    margin: 0 !important;
-
-    font-size: clamp(13px, 2vw, 17px) !important;
-    line-height: 1 !important;
-
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
-  /* Fasen in het midden */
-  .timeline {
-    min-width: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(8px, 1.5vw, 18px) !important;
-
-    overflow: hidden !important;
-  }
-
-  .timeline button,
-  .timeline-stage,
-  .stage-button {
-    min-width: 0 !important;
-    padding: 0 !important;
-
-    font-size: clamp(10px, 1.55vw, 14px) !important;
-    line-height: 48px !important;
-
-    white-space: nowrap !important;
-  }
-
-  /* Club Layers rechts */
-  .map-club-control {
-    justify-self: end !important;
-    min-width: 0 !important;
-
-    font-size: clamp(10px, 1.45vw, 13px) !important;
-    white-space: nowrap !important;
-  }
-
-  /* Statusblokken: ruimte vrijlaten voor credits */
-  .status-row {
-    position: absolute !important;
-
-    left: 18px !important;
-    right: 190px !important;
-    bottom: 14px !important;
-    top: auto !important;
-
-    width: auto !important;
-
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-
-    transform: none !important;
-    z-index: 30 !important;
-  }
-
-  .status-chip {
-    width: 100% !important;
-    min-width: 0 !important;
-    height: 36px !important;
-
-    padding: 0 8px !important;
-    border-radius: 999px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 7px !important;
-
-    font-size: clamp(9px, 1.35vw, 12px) !important;
-    line-height: 1 !important;
-    white-space: nowrap !important;
-  }
-
-  .status-chip strong,
-  .status-chip .status-count {
-    font-size: clamp(13px, 1.75vw, 17px) !important;
-    line-height: 1 !important;
-  }
-
-  /* Credits apart rechts */
-  #cupatlas-credits {
-    position: absolute !important;
-
-    right: 14px !important;
-    bottom: 10px !important;
-    left: auto !important;
-
-    width: 158px !important;
-
-    font-size: 9px !important;
-    line-height: 1.25 !important;
-    text-align: left !important;
-
-    z-index: 31 !important;
-  }
-
-  #cupatlas-credits strong {
-    font-size: 14px !important;
-  }
-
-  #cupatlas-credits .credits-story {
-    margin-top: 5px !important;
-    font-size: 10px !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;
-  }
-}
-
-/* =========================================================
-   CUPATLAS — ALLEEN MOBIELE LANDSCAPE
-   Laptop blijft ongewijzigd
+   CUPATLAS — DEFINITIEVE MOBIELE KAART
+   Alleen landscape + touchscreen
+   Vervangt alle oude mobiele kaart-CSS vanaf regel 2701
    ========================================================= */
 
 @media screen and (max-width: 900px)
@@ -2992,111 +2712,263 @@ body.launch-screen .credits-story {
     --mobile-toolbar-height: 48px;
   }
 
-  /* -------------------------
-     BOVENRAND: ALLES OP 1 REGEL
-     ------------------------- */
+  /* =====================================================
+     BASIS
+     ===================================================== */
 
-  .atlas-toolbar {
+  html,
+  body {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body:not(.launch-screen) .atlas-page,
+  body:not(.launch-screen) .atlas-hero {
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+
+  /* =====================================================
+     BOVENBALK
+     ALLES OP ÉÉN REGEL
+     ===================================================== */
+
+  body:not(.launch-screen) .atlas-toolbar {
+    position: relative !important;
+
     width: 100% !important;
     height: var(--mobile-toolbar-height) !important;
     min-height: var(--mobile-toolbar-height) !important;
+    max-height: var(--mobile-toolbar-height) !important;
+
+    margin: 0 !important;
+    padding: 0 14px !important;
 
     display: grid !important;
     grid-template-columns:
-      minmax(180px, 1.15fr)
-      minmax(320px, 2fr)
-      minmax(250px, 1.25fr) !important;
+      minmax(190px, 1fr)
+      minmax(330px, 2fr)
+      minmax(110px, .65fr) !important;
 
     align-items: center !important;
-    gap: 8px !important;
+    column-gap: 8px !important;
 
-    padding: 0 10px !important;
+    overflow: hidden !important;
+    flex-wrap: nowrap !important;
+
+    z-index: 200 !important;
+  }
+
+
+  /* -----------------------------------------------------
+     CUPNAAM LINKS
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .toolbar-left {
+    min-width: 0 !important;
+    height: 48px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
     overflow: hidden !important;
   }
 
-  .atlas-toolbar,
-  .atlas-toolbar * {
-    white-space: nowrap !important;
-  }
-
-  .atlas-toolbar > * {
-    min-width: 0 !important;
-  }
-
-  .current-cup-name {
+  body:not(.launch-screen) .toolbar-left h1,
+  body:not(.launch-screen) .toolbar-left strong,
+  body:not(.launch-screen) .toolbar-title {
     margin: 0 !important;
+
+    font-size: clamp(15px, 2.15vw, 21px) !important;
+    line-height: 48px !important;
+    white-space: nowrap !important;
+
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-
-    font-size: clamp(12px, 1.8vw, 16px) !important;
-    line-height: 1 !important;
   }
 
-  .timeline {
+
+  /* =====================================================
+     TOERNOOIFASES MIDDEN
+     ===================================================== */
+
+  body:not(.launch-screen) .timeline-bar {
     min-width: 0 !important;
+    height: 48px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-wrap: nowrap !important;
 
-    gap: clamp(7px, 1.2vw, 15px) !important;
+    gap: clamp(3px, .7vw, 8px) !important;
+
     overflow: hidden !important;
+    white-space: nowrap !important;
   }
 
-  .timeline button,
-  .timeline-stage,
-  .stage-button {
+  body:not(.launch-screen) .timeline-stage {
     flex: 0 0 auto !important;
-    min-width: 0 !important;
-    padding: 0 !important;
 
-    font-size: clamp(9px, 1.3vw, 12px) !important;
-    line-height: var(--mobile-toolbar-height) !important;
+    margin: 0 !important;
+    padding: 0 2px !important;
+
+    border-radius: 0 !important;
+
+    font-size: clamp(9px, 1.45vw, 13px) !important;
+    line-height: 48px !important;
+    font-weight: 700 !important;
+
+    white-space: nowrap !important;
   }
 
-  .map-club-control {
+  body:not(.launch-screen) .timeline-stage.active {
+    font-weight: 900 !important;
+  }
+
+
+  /* =====================================================
+     RECHTERKANT BOVENBALK
+     Alleen klok / normale toolbar-elementen
+     ===================================================== */
+
+  body:not(.launch-screen) .toolbar-right {
     min-width: 0 !important;
-    justify-self: end !important;
+    height: 48px !important;
 
     display: flex !important;
     align-items: center !important;
-    flex-wrap: nowrap !important;
-
-    font-size: clamp(9px, 1.3vw, 12px) !important;
-  }
-
-  /* Probeer ook de klok en datum op één regel te houden */
-  .atlas-clock,
-  .toolbar-clock,
-  .clock-wrap,
-  .toolbar-right {
-    min-width: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
+    justify-content: flex-end !important;
     flex-wrap: nowrap !important;
 
     gap: 5px !important;
-    font-size: clamp(8px, 1.15vw, 11px) !important;
+    overflow: hidden !important;
   }
 
-  /* -------------------------
+  body:not(.launch-screen) #nl-clock {
+    min-width: 0 !important;
+    width: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+
+    white-space: nowrap !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-time {
+    font-size: clamp(10px, 1.5vw, 13px) !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-date,
+  body:not(.launch-screen) #nl-clock span {
+    margin: 0 !important;
+    font-size: clamp(8px, 1.1vw, 10px) !important;
+  }
+
+
+  /* =====================================================
+     CLUB LAYERS
+     NIET permanent in bovenbalk
+     Alleen zichtbaar wanneer eigen schuifpaneel open staat
+     ===================================================== */
+
+  body:not(.launch-screen) .atlas-toolbar > .map-club-control,
+  body:not(.launch-screen) .toolbar-right > .map-club-control {
+    display: none !important;
+  }
+
+  /*
+     Wanneer het bestaande bedienings-/schuifpaneel zichtbaar is,
+     mag Club Layers daarin wel verschijnen.
+  */
+
+  body:not(.launch-screen) [data-club-panel]:not([hidden])
+    .map-club-control,
+  body:not(.launch-screen) .club-panel:not([hidden])
+    .map-club-control,
+  body:not(.launch-screen) #club-panel:not([hidden])
+    .map-club-control {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+
+    width: auto !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 6px 8px !important;
+
+    font-size: 10px !important;
+  }
+
+  body:not(.launch-screen) .map-club-control > span {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    text-align: left !important;
+  }
+
+  body:not(.launch-screen) .map-club-control label {
+    margin-top: 3px !important;
+
+    gap: 5px !important;
+
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+
+    text-align: left !important;
+  }
+
+
+  /* =====================================================
      KAART
-     ------------------------- */
+     ===================================================== */
 
   body:not(.launch-screen) .atlas-map-wrap {
+    position: relative !important;
+
+    width: 100vw !important;
     height: calc(100dvh - var(--mobile-toolbar-height)) !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
   }
 
   body:not(.launch-screen) .map-placeholder {
+    position: absolute !important;
+    inset: 0 !important;
+
     width: 100% !important;
     height: 100% !important;
     min-height: 0 !important;
 
     margin: 0 !important;
+    padding: 0 !important;
+
     overflow: hidden !important;
 
+    border-radius: 0 !important;
+
+    /*
+       NODIG VOOR DE HUIDIGE WERKENDE
+       PINCH-ZOOM EN PAN.
+    */
     touch-action: none !important;
   }
 
@@ -3106,131 +2978,309 @@ body.launch-screen .credits-story {
     height: 100% !important;
 
     display: block !important;
+
     transform-origin: center center;
   }
 
-  /* -------------------------
-     DRIE STATUSBLOKKEN OP 1 RIJ
-     ------------------------- */
 
-  .status-row {
+  /* =====================================================
+     STATUSBLOKKEN
+     Klein en onderaan
+     ===================================================== */
+
+  body:not(.launch-screen) .status-row,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row {
+
     position: absolute !important;
 
-    left: 14px !important;
-    right: 190px !important;
-    bottom: 12px !important;
+    left: 12px !important;
+    right: 178px !important;
+    bottom: 9px !important;
     top: auto !important;
 
     width: auto !important;
+    height: auto !important;
 
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
 
     transform: none !important;
+
     z-index: 40 !important;
   }
 
-  .status-chip {
+  body:not(.launch-screen) .status-row .map-status,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row > .map-status {
+
+    position: static !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 7px !important;
+
+    transform: none !important;
+  }
+
+  body:not(.launch-screen) .status-chip {
     width: 100% !important;
     min-width: 0 !important;
-    height: 34px !important;
+    max-width: none !important;
 
-    padding: 0 8px !important;
+    height: 30px !important;
+
+    margin: 0 !important;
+    padding: 0 7px !important;
 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
+
+    gap: 5px !important;
 
     border-radius: 999px !important;
 
-    font-size: clamp(8px, 1.25vw, 11px) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+
+    box-shadow:
+      0 4px 12px rgba(15, 23, 42, .16) !important;
+  }
+
+  body:not(.launch-screen) .status-chip span,
+  body:not(.launch-screen) .status-chip strong,
+  body:not(.launch-screen) .status-chip .status-count {
+    margin: 0 !important;
+
+    font-size: clamp(11px, 1.45vw, 14px) !important;
     line-height: 1 !important;
+    font-weight: 900 !important;
+  }
+
+  body:not(.launch-screen) .status-chip label {
+    margin: 0 !important;
+
+    font-size: clamp(8px, 1.05vw, 10px) !important;
+    line-height: 1 !important;
+
     white-space: nowrap !important;
   }
 
-  .status-chip strong,
-  .status-chip .status-count {
-    font-size: clamp(12px, 1.55vw, 16px) !important;
-    line-height: 1 !important;
-  }
 
-  /* -------------------------
-     CREDITS RECHTS LATEN STAAN
-     ------------------------- */
+  /* =====================================================
+     CREDITS
+     Klein, rechtsonder
+     ===================================================== */
 
-  #cupatlas-credits {
+  body:not(.launch-screen) #cupatlas-credits {
     position: absolute !important;
 
-    right: 12px !important;
-    bottom: 9px !important;
+    right: 10px !important;
+    bottom: 7px !important;
     left: auto !important;
+    top: auto !important;
 
-    width: 165px !important;
+    width: 158px !important;
 
-    font-size: 9px !important;
-    line-height: 1.2 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+
+    gap: 1px !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+    text-align: left !important;
+
+    opacity: .78 !important;
 
     z-index: 41 !important;
+
+    pointer-events: none !important;
   }
 
-  #cupatlas-credits strong {
-    font-size: 13px !important;
+  body:not(.launch-screen) #cupatlas-credits strong {
+    margin: 0 !important;
+
+    font-size: 12px !important;
+    line-height: 1.1 !important;
   }
 
-  #cupatlas-credits .credits-story {
-    margin-top: 4px !important;
+  body:not(.launch-screen) #cupatlas-credits span,
+  body:not(.launch-screen) #cupatlas-credits small {
+    margin: 0 !important;
 
-    font-size: 9px !important;
-    line-height: 1.2 !important;
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+  }
+
+  body:not(.launch-screen)
+    #cupatlas-credits .credits-story {
+
+    margin-top: 3px !important;
+
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+
     white-space: normal !important;
   }
 
-  /* -------------------------
-     COUNTRYPANEL:
-     LINKS, ONDER DE BOVENRAND,
-     HELE HOOGTE TOT BENEDEN
-     ------------------------- */
 
-  #country-panel {
+  /* =====================================================
+     COUNTRYPANEL
+     CSS gebruikt nu dezelfde class als app.js: is-open
+     ===================================================== */
+
+  body:not(.launch-screen) #country-panel {
     position: fixed !important;
 
-    top: var(--mobile-toolbar-height) !important;
-    left: 0 !important;
+    top: calc(var(--mobile-toolbar-height) + 8px) !important;
+    left: 8px !important;
     right: auto !important;
-    bottom: 0 !important;
+    bottom: 8px !important;
 
-    width: min(370px, 46vw) !important;
-    height: auto !important;
+    width: min(300px, 42vw) !important;
+    max-width: 300px !important;
     max-height: none !important;
+
+    margin: 0 !important;
+    padding: 14px !important;
 
     overflow-x: hidden !important;
     overflow-y: auto !important;
-    overscroll-behavior: contain;
 
-    border-radius: 0 18px 18px 0 !important;
+    background: rgba(255, 255, 255, .97) !important;
 
-    transform: translateX(-105%) !important;
+    border-radius: 16px !important;
+
+    box-shadow:
+      0 16px 40px rgba(15, 23, 42, .28) !important;
+
     opacity: 0 !important;
+    visibility: hidden !important;
     pointer-events: none !important;
 
+    transform: translateX(calc(-100% - 20px)) !important;
+
     transition:
-      transform 260ms ease,
-      opacity 200ms ease !important;
+      transform .25s ease,
+      opacity .20s ease,
+      visibility .20s ease !important;
 
-    z-index: 100000 !important;
+    z-index: 1000 !important;
   }
 
-  #country-panel.is-visible {
-    transform: translateX(0) !important;
+  body:not(.launch-screen) #country-panel.is-open {
     opacity: 1 !important;
+    visibility: visible !important;
     pointer-events: auto !important;
+
+    transform: translateX(0) !important;
   }
 
-  .country-panel-header {
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 5 !important;
+  body:not(.launch-screen) #country-panel h2 {
+    margin: 0 !important;
+
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-header {
+
+    margin-bottom: 8px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-flag {
+
+    font-size: 25px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-confederation {
+
+    font-size: 9px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-status {
+
+    margin-top: 5px !important;
+    padding: 4px 7px !important;
+
+    font-size: 9px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-meta {
+
+    margin-top: 8px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-row {
+
+    padding: 5px 0 !important;
+
+    font-size: 10px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-section {
+
+    margin-top: 10px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-section-title {
+
+    margin-bottom: 6px !important;
+
+    font-size: 10px !important;
+  }
+
+  body:not(.launch-screen)
+    .country-panel-close {
+
+    position: absolute !important;
+
+    top: 7px !important;
+    right: 8px !important;
+
+    width: 27px !important;
+    height: 27px !important;
+
+    padding: 0 !important;
+
+    font-size: 20px !important;
+    line-height: 25px !important;
+
+    z-index: 2 !important;
+  }
+
+
+  /* =====================================================
+     TOOLTIP OP TOUCHSCREEN NIET NODIG
+     ===================================================== */
+
+  body:not(.launch-screen) .tooltip {
+    display: none !important;
   }
 }
