@@ -1160,25 +1160,17 @@ zoomLayer
     return `country status-${status}`;
   })
   .style("fill", d => {
-    if (
-      document.body.classList.contains(
-        "launch-screen"
-      )
-    ) {
-      return "#ffffff";
-    }
+  const tournamentData = tournament[d.id];
 
-    const tournamentData = tournament[d.id];
+  const status = tournamentData
+    ? tournamentData.status
+    : "not_participating";
 
-    const status = tournamentData
-      ? tournamentData.status
-      : "not_participating";
-
-    return (
-      statusColors[status] ||
-      statusColors.unknown
-    );
-  })
+  return (
+    statusColors[status] ||
+    statusColors.unknown
+  );
+})
   .style("filter", d => {
     const status =
       tournament[d.id]?.status ||
@@ -1268,16 +1260,12 @@ zoomLayer
     .attr("cy", d => projection([d.lon, d.lat])[1])
     .attr("r", 2)
     .style("fill", d => {
-        if (document.body.classList.contains("launch-screen")) {
-          return "#ffffff";
-        }
+      const mapId = codeToMapId[d.code];
+      const team = mapId ? tournament[mapId] : null;
+      const status = team ? team.status : "not_participating";
 
-        const mapId = codeToMapId[d.code];
-        const team = mapId ? tournament[mapId] : null;
-        const status = team ? team.status : "not_participating";
-
-        return statusColors[status] || statusColors.unknown;
-      })
+      return statusColors[status] || statusColors.unknown;
+    })
     .style("stroke", "none")
     .style("stroke-width", 1.5)
     .style("cursor", "pointer")
