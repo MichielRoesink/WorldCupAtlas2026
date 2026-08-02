@@ -4089,7 +4089,7 @@ body.launch-screen .credits-story {
   body:not(.launch-screen) #nl-clock {
     position: relative !important;
 
-    right: 8px !important;
+    right: 30px !important;
 
     width: 118px !important;
     min-width: 118px !important;
@@ -4121,7 +4121,7 @@ body.launch-screen .credits-story {
     right: auto !important;
     bottom: 12px !important;
 
-    width: 330px !important;
+    width: 240px !important;
 
     transform: translateX(-50%) !important;
   }
@@ -4142,7 +4142,7 @@ body.launch-screen .credits-story {
     width: 100% !important;
     min-width: 0 !important;
 
-    height: 22px !important;
+    height: 16px !important;
 
     padding: 0 5px !important;
 
