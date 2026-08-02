@@ -4031,3 +4031,506 @@ body.launch-screen .credits-story {
     z-index: 10 !important;
   }
 }
+
+/* =========================================================
+   CUPATLAS — MOBILE FINAL POLISH
+   Startscherm + kaart
+   ========================================================= */
+
+
+/* =========================================================
+   KAART — LANDSCAPE MOBIEL
+   ========================================================= */
+
+@media screen and (max-width: 900px)
+  and (orientation: landscape)
+  and (pointer: coarse) {
+
+  /* -----------------------------------------------------
+     TOOLBAR
+     Iets meer ruimte voor Club Layers + klok
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .atlas-toolbar {
+    grid-template-columns:
+      minmax(205px, 1.05fr)
+      minmax(350px, 1.65fr)
+      minmax(155px, .72fr)
+      minmax(125px, .58fr) !important;
+
+    column-gap: 4px !important;
+
+    padding-left: 10px !important;
+    padding-right: 18px !important;
+  }
+
+
+  /* -----------------------------------------------------
+     CLUB LAYERS SCHUIFKNOP IETS NAAR LINKS
+     zodat klok en switch elkaar niet raken
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) #club-layers-toggle {
+    position: relative !important;
+
+    right: 12px !important;
+
+    padding-right: 4px !important;
+
+    overflow: visible !important;
+  }
+
+
+  /* -----------------------------------------------------
+     KLOK
+     Niet meer over Club Layers heen
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) #nl-clock {
+    position: relative !important;
+
+    right: 8px !important;
+
+    width: 118px !important;
+    min-width: 118px !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-time,
+  body:not(.launch-screen) #nl-clock-date {
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+  }
+
+
+  /* -----------------------------------------------------
+     STATUSBLOKKEN
+     Positie blijft exact gecentreerd waar hij nu staat.
+     Alleen de pillen zelf worden veel compacter.
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .status-row,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row {
+
+    left: 50% !important;
+    right: auto !important;
+    bottom: 12px !important;
+
+    width: 330px !important;
+
+    transform: translateX(-50%) !important;
+  }
+
+  body:not(.launch-screen) .status-row .map-status,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row > .map-status {
+
+    width: 100% !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+
+    gap: 7px !important;
+  }
+
+  body:not(.launch-screen) .status-chip {
+    width: 100% !important;
+    min-width: 0 !important;
+
+    height: 22px !important;
+
+    padding: 0 5px !important;
+
+    gap: 4px !important;
+
+    border-radius: 999px !important;
+
+    box-shadow:
+      0 2px 7px rgba(15, 23, 42, .12) !important;
+  }
+
+  /*
+     Lettertype bewust NIET verder verkleinen.
+  */
+
+  body:not(.launch-screen) .status-chip span,
+  body:not(.launch-screen) .status-chip strong,
+  body:not(.launch-screen) .status-chip .status-count {
+    font-size: 11px !important;
+    line-height: 1 !important;
+  }
+
+  body:not(.launch-screen) .status-chip label {
+    font-size: 8px !important;
+    line-height: 1 !important;
+  }
+}
+
+
+
+/* =========================================================
+   STARTSCHERM — PORTRAIT MOBIEL
+   ========================================================= */
+
+@media screen and (max-width: 600px)
+  and (orientation: portrait) {
+
+  body.launch-screen {
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+  }
+
+
+  body.launch-screen .atlas-launch-screen {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+  }
+
+
+  /* -----------------------------------------------------
+     HOOFDCONTAINER
+     ----------------------------------------------------- */
+
+  body.launch-screen .atlas-launch-content {
+    position: relative !important;
+
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 18px !important;
+
+    display: block !important;
+
+    overflow: hidden !important;
+  }
+
+
+  /* -----------------------------------------------------
+     BOVENSTE DEEL
+     Welcome to CupAtlas volledig zichtbaar
+     en bewust wat lager op het scherm
+     ----------------------------------------------------- */
+
+  body.launch-screen .atlas-launch-card {
+    position: static !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 78px 0 0 !important;
+
+    display: block !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+
+    transform: none !important;
+
+    overflow: visible !important;
+  }
+
+
+  body.launch-screen .atlas-launch-header {
+    position: static !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    text-align: center !important;
+
+    transform: none !important;
+  }
+
+
+  body.launch-screen .launch-title {
+    position: static !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: 43px !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.035em !important;
+
+    text-align: center !important;
+
+    transform: none !important;
+
+    overflow: visible !important;
+  }
+
+
+  /*
+     Als Welcome en CupAtlas aparte spans zijn,
+     staan ze netjes onder elkaar.
+  */
+
+  body.launch-screen .launch-title span {
+    display: block !important;
+  }
+
+
+  /* -----------------------------------------------------
+     SUBTITLE
+     ----------------------------------------------------- */
+
+  body.launch-screen .launch-subtitle {
+    position: static !important;
+
+    width: 100% !important;
+    max-width: 310px !important;
+
+    margin: 48px auto 0 !important;
+    padding: 0 !important;
+
+    font-size: 11px !important;
+    line-height: 1.55 !important;
+    letter-spacing: .17em !important;
+
+    text-align: center !important;
+
+    transform: none !important;
+  }
+
+
+  /* -----------------------------------------------------
+     DECORATIEVE LIJN
+     ----------------------------------------------------- */
+
+  body.launch-screen .atlas-launch-divider {
+    position: static !important;
+
+    width: 150px !important;
+
+    margin: 34px auto 0 !important;
+
+    transform: none !important;
+  }
+
+
+  body.launch-screen .atlas-launch-globe {
+    display: none !important;
+  }
+
+
+  /* =====================================================
+     TOERNOOIKIEZER
+     Compact, breed en onderaan
+     ===================================================== */
+
+  body.launch-screen .atlas-launch-form {
+    position: absolute !important;
+
+    left: 18px !important;
+    right: 18px !important;
+
+    top: auto !important;
+    bottom: 28px !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: none !important;
+
+    overflow: visible !important;
+  }
+
+
+  body.launch-screen .launch-tournament-list {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  /* -----------------------------------------------------
+     TOERNOOIKAART
+     Geen verticale FIFA / World / Cup / 2026 meer
+     ----------------------------------------------------- */
+
+  body.launch-screen .launch-tournament-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    min-height: 0 !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    padding: 16px 18px !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto !important;
+
+    grid-template-rows:
+      auto
+      auto !important;
+
+    column-gap: 14px !important;
+    row-gap: 8px !important;
+
+    align-items: center !important;
+
+    border-radius: 18px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+  }
+
+
+  body.launch-screen .launch-card-content {
+    grid-column: 1 !important;
+    grid-row: 1 / 3 !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  body.launch-screen .launch-card-eyebrow,
+  body.launch-screen .launch-card-label {
+    margin: 0 0 4px !important;
+
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+    letter-spacing: .12em !important;
+  }
+
+
+  body.launch-screen .launch-card-title {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    font-size: 21px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.02em !important;
+
+    white-space: nowrap !important;
+
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+
+    overflow: visible !important;
+  }
+
+
+  body.launch-screen .launch-card-subtitle {
+    margin: 5px 0 0 !important;
+
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+
+    white-space: normal !important;
+  }
+
+
+  /* -----------------------------------------------------
+     ENTER-knop rechts in de kaart
+     ----------------------------------------------------- */
+
+  body.launch-screen .launch-card-enter,
+  body.launch-screen .atlas-launch-enter {
+    grid-column: 2 !important;
+    grid-row: 1 / 3 !important;
+
+    align-self: center !important;
+
+    width: auto !important;
+    min-width: 78px !important;
+    height: 38px !important;
+
+    margin: 0 !important;
+    padding: 0 13px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 6px !important;
+
+    border-radius: 12px !important;
+
+    font-size: 10px !important;
+    line-height: 1 !important;
+    letter-spacing: .08em !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  /* -----------------------------------------------------
+     SLOGAN
+     Net boven de toernooikaart
+     ----------------------------------------------------- */
+
+  body.launch-screen .launch-story {
+    position: absolute !important;
+
+    left: 18px !important;
+    right: 18px !important;
+
+    top: auto !important;
+    bottom: 132px !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+
+    text-align: center !important;
+    white-space: nowrap !important;
+
+    transform: none !important;
+  }
+}
