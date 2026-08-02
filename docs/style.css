@@ -3669,3 +3669,365 @@ body.launch-screen .credits-story {
     margin: 0 !important;
   }
 }
+
+/* =========================================================
+   CUPATLAS — MOBIELE EINDCORRECTIES
+   Kaartscherm + startscherm
+   ========================================================= */
+
+
+/* =========================================================
+   1. KAARTSCHERM — MOBIEL LANDSCAPE
+   ========================================================= */
+
+@media screen and (max-width: 900px)
+  and (orientation: landscape)
+  and (pointer: coarse) {
+
+  /* -----------------------------------------------------
+     TIJD EN DATUM VERDER NAAR LINKS
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) #nl-clock {
+    position: relative !important;
+    right: 28px !important;
+
+    width: 112px !important;
+    min-width: 112px !important;
+
+    padding-right: 4px !important;
+    overflow: visible !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-time,
+  body:not(.launch-screen) #nl-clock-date {
+    overflow: visible !important;
+    text-overflow: clip !important;
+  }
+
+
+  /* -----------------------------------------------------
+     STATUSBLOKKEN CIRCA 50% KLEINER
+     EN GECENTREERD ONDERAAN
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .status-row,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row {
+
+    position: absolute !important;
+
+    left: 50% !important;
+    right: auto !important;
+    bottom: 12px !important;
+    top: auto !important;
+
+    width: min(43vw, 455px) !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    transform: translateX(-50%) !important;
+
+    z-index: 40 !important;
+  }
+
+  body:not(.launch-screen) .status-row .map-status,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row > .map-status {
+
+    width: 100% !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 7px !important;
+  }
+
+  body:not(.launch-screen) .status-chip {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: 25px !important;
+
+    padding: 0 5px !important;
+
+    gap: 4px !important;
+
+    border-radius: 999px !important;
+
+    box-shadow:
+      0 3px 9px rgba(15, 23, 42, .13) !important;
+  }
+
+  body:not(.launch-screen) .status-chip span,
+  body:not(.launch-screen) .status-chip strong,
+  body:not(.launch-screen) .status-chip .status-count {
+    font-size: clamp(10px, 1.2vw, 12px) !important;
+    line-height: 1 !important;
+  }
+
+  body:not(.launch-screen) .status-chip label {
+    font-size: clamp(7px, .9vw, 9px) !important;
+    line-height: 1 !important;
+  }
+
+
+  /* -----------------------------------------------------
+     CLUB LAYERS — CLUBNAMEN KLEINER
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .club-layer-option {
+    min-height: 16px !important;
+
+    gap: 3px !important;
+
+    font-size: 7px !important;
+    line-height: 1.05 !important;
+  }
+
+  body:not(.launch-screen) .club-layer-option span,
+  body:not(.launch-screen) .club-layer-option strong {
+    font-size: 7px !important;
+    line-height: 1.05 !important;
+  }
+
+  body:not(.launch-screen) .map-club-title {
+    font-size: 6px !important;
+    line-height: 1 !important;
+  }
+
+  body:not(.launch-screen) .club-layer-logo {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  body:not(.launch-screen) .club-layer-check {
+    width: 9px !important;
+    height: 9px !important;
+  }
+}
+
+
+/* =========================================================
+   2. STARTSCHERM — MOBIEL PORTRAIT
+   ========================================================= */
+
+@media screen and (max-width: 600px)
+  and (orientation: portrait) {
+
+  body.launch-screen {
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body.launch-screen .atlas-launch-screen {
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+
+    overflow: hidden !important;
+  }
+
+  body.launch-screen .atlas-launch-content {
+    position: relative !important;
+
+    width: 100vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+
+    margin: 0 !important;
+
+    padding:
+      max(18px, env(safe-area-inset-top))
+      16px
+      max(18px, env(safe-area-inset-bottom))
+      16px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    overflow: hidden !important;
+  }
+
+
+  /* -----------------------------------------------------
+     HOOFDTITEL VOLLEDIG ZICHTBAAR
+     ----------------------------------------------------- */
+
+  body.launch-screen .atlas-launch-card {
+    position: static !important;
+
+    width: 100% !important;
+    max-width: 390px !important;
+    height: 100% !important;
+    max-height: none !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    transform: none !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  body.launch-screen .atlas-launch-header {
+    flex: 0 0 auto !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding-top: 4px !important;
+
+    text-align: center !important;
+  }
+
+  body.launch-screen .launch-title {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+    font-size: clamp(38px, 12vw, 52px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.04em !important;
+
+    text-align: center !important;
+
+    overflow: visible !important;
+  }
+
+  body.launch-screen .launch-title span {
+    display: inline !important;
+  }
+
+  body.launch-screen .launch-subtitle {
+    width: 100% !important;
+    max-width: 320px !important;
+
+    margin: 62px auto 0 !important;
+
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    letter-spacing: .18em !important;
+
+    text-align: center !important;
+  }
+
+  body.launch-screen .atlas-launch-divider {
+    flex: 0 0 auto !important;
+
+    width: min(210px, 65vw) !important;
+
+    margin: 72px auto 0 !important;
+  }
+
+  body.launch-screen .atlas-launch-globe {
+    display: none !important;
+  }
+
+
+  /* -----------------------------------------------------
+     TOERNOOIBLOK ONDERAAN
+     ----------------------------------------------------- */
+
+  body.launch-screen .atlas-launch-form {
+    position: absolute !important;
+
+    left: 16px !important;
+    right: 16px !important;
+    bottom: calc(28px + env(safe-area-inset-bottom)) !important;
+    top: auto !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: block !important;
+  }
+
+  body.launch-screen .launch-tournament-list {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+  }
+
+  body.launch-screen .launch-tournament-card {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    margin: 0 !important;
+    padding: 18px 20px !important;
+
+    border-radius: 22px !important;
+
+    box-sizing: border-box !important;
+  }
+
+  body.launch-screen .launch-card-content {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body.launch-screen .launch-card-eyebrow {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.launch-screen .launch-card-title {
+    max-width: 100% !important;
+
+    margin-top: 8px !important;
+
+    font-size: 27px !important;
+    line-height: 1.05 !important;
+
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  body.launch-screen .launch-card-subtitle {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+
+
+  /* Slogan binnen het onderste blok houden */
+
+  body.launch-screen .launch-story {
+    position: absolute !important;
+
+    right: 34px !important;
+    bottom: calc(42px + env(safe-area-inset-bottom)) !important;
+    left: 34px !important;
+    top: auto !important;
+
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+
+    text-align: right !important;
+    white-space: nowrap !important;
+
+    z-index: 10 !important;
+  }
+}
