@@ -3284,3 +3284,163 @@ body.launch-screen .credits-story {
     display: none !important;
   }
 }
+
+/* =========================================================
+   CUPATLAS — MOBIELE FIJNAFSTELLING
+   ========================================================= */
+
+@media screen and (max-width: 900px)
+  and (orientation: landscape)
+  and (pointer: coarse) {
+
+  /* -----------------------------------------------------
+     1. KAART IETS ONDER DE BOVENBALK LATEN BEGINNEN
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .atlas-map-wrap {
+    height: calc(
+      100dvh - var(--mobile-toolbar-height) - 4px
+    ) !important;
+  }
+
+  body:not(.launch-screen) .map-placeholder {
+    top: 4px !important;
+    bottom: 0 !important;
+    height: auto !important;
+  }
+
+
+  /* -----------------------------------------------------
+     2. TIJD EN DATUM WEER ZICHTBAAR
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .atlas-toolbar {
+    grid-template-columns:
+      minmax(260px, 1.15fr)
+      minmax(430px, 2fr)
+      minmax(300px, 1.25fr) !important;
+  }
+
+  body:not(.launch-screen) .toolbar-right {
+    overflow: visible !important;
+    gap: 12px !important;
+  }
+
+  body:not(.launch-screen) #nl-clock {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+
+    min-width: 105px !important;
+    width: 105px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-time {
+    display: block !important;
+
+    font-size: 11px !important;
+    line-height: 1.05 !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-date {
+    display: block !important;
+
+    margin-top: 2px !important;
+
+    font-size: 8px !important;
+    line-height: 1.05 !important;
+  }
+
+  body:not(.launch-screen) #nl-clock span {
+    display: block !important;
+  }
+
+
+  /* -----------------------------------------------------
+     3. CLUB LAYERS-PANEEL NAAR CIRCA 60%
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .map-club-control:not([hidden]) {
+    width: 160px !important;
+    min-width: 160px !important;
+
+    padding: 8px 10px !important;
+
+    gap: 3px !important;
+
+    border-radius: 14px !important;
+  }
+
+  body:not(.launch-screen)
+    .map-club-control:not([hidden]) > span {
+
+    font-size: 8px !important;
+    line-height: 1 !important;
+    letter-spacing: .08em !important;
+  }
+
+  body:not(.launch-screen)
+    .map-club-control:not([hidden]) label {
+
+    margin-top: 4px !important;
+
+    gap: 5px !important;
+
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+  }
+
+  body:not(.launch-screen)
+    .map-club-control:not([hidden]) input {
+
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 !important;
+  }
+
+  body:not(.launch-screen)
+    .map-club-control:not([hidden]) img {
+
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+
+  /* -----------------------------------------------------
+     4. STATUSBLOKKEN SMALLER MAKEN
+     Lettergrootte blijft gelijk
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .status-row,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row {
+
+    left: 50% !important;
+    right: auto !important;
+
+    width: min(68vw, 760px) !important;
+
+    transform: translateX(-50%) !important;
+  }
+
+  body:not(.launch-screen) .status-chip {
+    height: 30px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+
+  /* -----------------------------------------------------
+     5. CREDITS IETS VERDER NAAR RECHTS
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) #cupatlas-credits {
+    right: 2px !important;
+  }
+}
