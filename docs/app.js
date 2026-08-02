@@ -1079,6 +1079,10 @@ function drawMap(world, countries, tournament, matches, results, mapOverrides, p
   .attr("fill", "url(#oceanGradient)")
   .on("mousemove", () => {
     tooltip.style.display = "none";
+  })
+  .on("click", () => {
+    tooltip.style.display = "none";
+    closeCountryPanel();
   });
   
   const zoomLayer = svg.append("g")
