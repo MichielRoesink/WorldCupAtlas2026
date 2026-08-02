@@ -3286,7 +3286,8 @@ body.launch-screen .credits-story {
 }
 
 /* =========================================================
-   CUPATLAS — MOBIELE FIJNAFSTELLING
+   CUPATLAS — MOBIELE FIJNAFSTELLING 2
+   Vervangt het vorige blok vanaf regel 3288
    ========================================================= */
 
 @media screen and (max-width: 900px)
@@ -3294,153 +3295,268 @@ body.launch-screen .credits-story {
   and (pointer: coarse) {
 
   /* -----------------------------------------------------
-     1. KAART IETS ONDER DE BOVENBALK LATEN BEGINNEN
-     ----------------------------------------------------- */
-
-  body:not(.launch-screen) .atlas-map-wrap {
-    height: calc(
-      100dvh - var(--mobile-toolbar-height) - 4px
-    ) !important;
-  }
-
-  body:not(.launch-screen) .map-placeholder {
-    top: 4px !important;
-    bottom: 0 !important;
-    height: auto !important;
-  }
-
-
-  /* -----------------------------------------------------
-     2. TIJD EN DATUM WEER ZICHTBAAR
+     BOVENBALK: vier echte onderdelen op één regel
      ----------------------------------------------------- */
 
   body:not(.launch-screen) .atlas-toolbar {
+    display: grid !important;
     grid-template-columns:
-      minmax(260px, 1.15fr)
-      minmax(430px, 2fr)
-      minmax(300px, 1.25fr) !important;
+      minmax(210px, 1.05fr)
+      minmax(355px, 1.65fr)
+      minmax(145px, .72fr)
+      minmax(115px, .58fr) !important;
+
+    align-items: center !important;
+    column-gap: 6px !important;
+
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 10px !important;
+
+    overflow: hidden !important;
   }
 
-  body:not(.launch-screen) .toolbar-right {
-    overflow: visible !important;
-    gap: 12px !important;
-  }
+  /* Cupnaam */
 
-  body:not(.launch-screen) #nl-clock {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    justify-content: center !important;
-
-    min-width: 105px !important;
-    width: 105px !important;
+  body:not(.launch-screen) #tournament-picker {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
-    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+
+    overflow: hidden !important;
   }
 
-  body:not(.launch-screen) #nl-clock-time {
-    display: block !important;
+  body:not(.launch-screen) #overlay-tournament-select {
+    width: 100% !important;
+    min-width: 0 !important;
 
-    font-size: 11px !important;
-    line-height: 1.05 !important;
+    padding: 0 !important;
+
+    font-size: clamp(15px, 2.1vw, 20px) !important;
+    line-height: 48px !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
-  body:not(.launch-screen) #nl-clock-date {
-    display: block !important;
+  /* Fases */
 
-    margin-top: 2px !important;
+  body:not(.launch-screen) .timeline-bar {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
 
-    font-size: 8px !important;
-    line-height: 1.05 !important;
+    padding: 0 !important;
+    gap: clamp(3px, .65vw, 8px) !important;
+
+    overflow: hidden !important;
   }
 
-  body:not(.launch-screen) #nl-clock span {
-    display: block !important;
+  body:not(.launch-screen) .timeline-stage {
+    padding: 0 1px !important;
+    font-size: clamp(9px, 1.35vw, 12px) !important;
+    line-height: 48px !important;
   }
 
+  /* Club Layers-knop rechtsboven */
 
-  /* -----------------------------------------------------
-     3. CLUB LAYERS-PANEEL NAAR CIRCA 60%
-     ----------------------------------------------------- */
+  body:not(.launch-screen) #club-layers-toggle {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
 
-  body:not(.launch-screen) .map-club-control:not([hidden]) {
-    width: 160px !important;
-    min-width: 160px !important;
-
-    padding: 8px 10px !important;
-
-    gap: 3px !important;
-
-    border-radius: 14px !important;
-  }
-
-  body:not(.launch-screen)
-    .map-club-control:not([hidden]) > span {
-
-    font-size: 8px !important;
-    line-height: 1 !important;
-    letter-spacing: .08em !important;
-  }
-
-  body:not(.launch-screen)
-    .map-club-control:not([hidden]) label {
-
-    margin-top: 4px !important;
-
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
     gap: 5px !important;
 
-    font-size: 10px !important;
-    line-height: 1.1 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
   }
 
-  body:not(.launch-screen)
-    .map-club-control:not([hidden]) input {
+  body:not(.launch-screen) #club-layers-toggle > span {
+    font-size: clamp(10px, 1.45vw, 13px) !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
 
-    width: 14px !important;
-    height: 14px !important;
+  body:not(.launch-screen) #club-layers-toggle .mini-switch {
+    flex: 0 0 auto !important;
+    transform: scale(.72) !important;
+    transform-origin: center right !important;
+  }
+
+  /* Klok nu echt in de vierde kolom */
+
+  body:not(.launch-screen) #nl-clock {
+    position: static !important;
+
+    min-width: 0 !important;
+    width: 100% !important;
+    height: 48px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: grid !important;
+    grid-template-columns: 13px auto !important;
+    grid-template-rows: 15px 12px !important;
+    column-gap: 4px !important;
+    row-gap: 0 !important;
+
+    align-content: center !important;
+    justify-content: end !important;
+
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+
+  body:not(.launch-screen) #nl-clock .toolbar-icon {
+    grid-column: 1 !important;
+    grid-row: 1 / 3 !important;
+
+    align-self: center !important;
+
+    width: 12px !important;
+    height: 12px !important;
+
     margin: 0 !important;
   }
 
-  body:not(.launch-screen)
-    .map-club-control:not([hidden]) img {
+  body:not(.launch-screen) #nl-clock-time {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
 
-    width: 20px !important;
-    height: 20px !important;
+    display: block !important;
+
+    font-size: 10px !important;
+    line-height: 13px !important;
+  }
+
+  body:not(.launch-screen) #nl-clock-date {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+
+    font-size: 7px !important;
+    line-height: 10px !important;
+
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body:not(.launch-screen) #nl-clock .clock-separator {
+    display: none !important;
   }
 
 
   /* -----------------------------------------------------
-     4. STATUSBLOKKEN SMALLER MAKEN
-     Lettergrootte blijft gelijk
+     KAART: exact onder de balk
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .atlas-map-wrap {
+    height: calc(100dvh - 48px) !important;
+  }
+
+  body:not(.launch-screen) .map-placeholder {
+    top: 0 !important;
+    bottom: 0 !important;
+    height: 100% !important;
+  }
+
+
+  /* -----------------------------------------------------
+     GEOPEND CLUB-LAYERSBLOK KLEINER
+     ----------------------------------------------------- */
+
+  body:not(.launch-screen) .atlas-overlay .map-club-control {
+    width: 150px !important;
+    min-width: 150px !important;
+
+    padding: 7px 9px !important;
+
+    border-radius: 13px !important;
+  }
+
+  body:not(.launch-screen) .map-club-title {
+    margin-bottom: 4px !important;
+
+    font-size: 8px !important;
+    line-height: 1 !important;
+  }
+
+  body:not(.launch-screen) .club-layer-option {
+    min-height: 25px !important;
+
+    gap: 5px !important;
+
+    font-size: 9px !important;
+    line-height: 1 !important;
+  }
+
+  body:not(.launch-screen) .club-layer-logo {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  body:not(.launch-screen) .club-layer-check {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+
+  /* -----------------------------------------------------
+     STATUSBLOKKEN: duidelijk smaller en links van credits
      ----------------------------------------------------- */
 
   body:not(.launch-screen) .status-row,
   body:not(.launch-screen)
     .atlas-map-wrap > .status-row {
 
-    left: 50% !important;
+    left: 14px !important;
     right: auto !important;
+    bottom: 10px !important;
 
-    width: min(68vw, 760px) !important;
+    width: min(62vw, 650px) !important;
 
-    transform: translateX(-50%) !important;
+    transform: none !important;
+  }
+
+  body:not(.launch-screen) .status-row .map-status,
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row > .map-status {
+
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
   }
 
   body:not(.launch-screen) .status-chip {
-    height: 30px !important;
-    padding-left: 7px !important;
-    padding-right: 7px !important;
+    height: 29px !important;
+
+    padding: 0 6px !important;
   }
 
 
   /* -----------------------------------------------------
-     5. CREDITS IETS VERDER NAAR RECHTS
+     CREDITS RECHTSONDER, LOS VAN STATUSBLOKKEN
      ----------------------------------------------------- */
 
   body:not(.launch-screen) #cupatlas-credits {
-    right: 2px !important;
+    right: 5px !important;
+    bottom: 9px !important;
+
+    width: 145px !important;
+
+    z-index: 50 !important;
   }
 }
