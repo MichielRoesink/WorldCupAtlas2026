@@ -1355,23 +1355,39 @@ zoomLayer
   .style("filter", "drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25))");
 
     fcgMarkers
-      .on("mousemove", (event, d) => {
-        const country = Object.values(countries)
-          .find(item => item.code === d.code);
+  .on("mousemove", (event, d) => {
+    const country = Object.values(countries)
+      .find(item => item.code === d.code);
 
-        tooltip.style.display = "block";
-        tooltip.style.left = `${event.pageX + 15}px`;
-        tooltip.style.top = `${event.pageY + 15}px`;
+    tooltip.style.display = "block";
+    tooltip.style.left = `${event.pageX + 15}px`;
+    tooltip.style.top = `${event.pageY + 15}px`;
 
-        tooltip.innerHTML = `
-        <strong>FC Groningen connection</strong><br>
-        ${country?.flag || "🌍"} ${country?.name || d.code}<br>
-        ${d.players.map(player => player.name).join("<br>")}
-      `;
-      })
-      .on("mouseleave", () => {
-        tooltip.style.display = "none";
-      });
+    tooltip.innerHTML = `
+      <strong>FC Groningen connection</strong><br>
+      ${country?.flag || "🌍"} ${country?.name || d.code}<br>
+      ${d.players.map(player => player.name).join("<br>")}
+    `;
+  })
+  .on("click", (event, d) => {
+    event.stopPropagation();
+
+    const country = Object.values(countries)
+      .find(item => item.code === d.code);
+
+    tooltip.style.display = "block";
+    tooltip.style.left = `${event.pageX + 12}px`;
+    tooltip.style.top = `${event.pageY + 12}px`;
+
+    tooltip.innerHTML = `
+      <strong>FC Groningen connection</strong><br>
+      ${country?.flag || "🌍"} ${country?.name || d.code}<br>
+      ${d.players.map(player => player.name).join("<br>")}
+    `;
+  })
+  .on("mouseleave", () => {
+    tooltip.style.display = "none";
+  });
   }
   if (clubLayers.ajax && appState.ajaxLayerData) {
     const ajaxMarkerData = Object.entries(appState.ajaxLayerData.connections)
@@ -1409,22 +1425,39 @@ zoomLayer
   .style("filter", "drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25))");
 
     ajaxMarkers
-      .on("mousemove", (event, d) => {
-        const country = Object.values(countries)
-          .find(item => item.code === d.code);
+  .on("mousemove", (event, d) => {
+    const country = Object.values(countries)
+      .find(item => item.code === d.code);
 
-        tooltip.style.display = "block";
-        tooltip.style.left = `${event.pageX + 15}px`;
-        tooltip.style.top = `${event.pageY + 15}px`;
-        tooltip.innerHTML = `
-        <strong>AFC Ajax connection</strong><br>
-        ${country?.flag || "🌍"} ${country?.name || d.code}<br>
-        ${d.players.map(player => player.name).join("<br>")}
-      `;
-      })
-      .on("mouseleave", () => {
-        tooltip.style.display = "none";
-      });
+    tooltip.style.display = "block";
+    tooltip.style.left = `${event.pageX + 15}px`;
+    tooltip.style.top = `${event.pageY + 15}px`;
+
+    tooltip.innerHTML = `
+      <strong>AFC Ajax connection</strong><br>
+      ${country?.flag || "🌍"} ${country?.name || d.code}<br>
+      ${d.players.map(player => player.name).join("<br>")}
+    `;
+  })
+  .on("click", (event, d) => {
+    event.stopPropagation();
+
+    const country = Object.values(countries)
+      .find(item => item.code === d.code);
+
+    tooltip.style.display = "block";
+    tooltip.style.left = `${event.pageX + 12}px`;
+    tooltip.style.top = `${event.pageY + 12}px`;
+
+    tooltip.innerHTML = `
+      <strong>AFC Ajax connection</strong><br>
+      ${country?.flag || "🌍"} ${country?.name || d.code}<br>
+      ${d.players.map(player => player.name).join("<br>")}
+    `;
+  })
+  .on("mouseleave", () => {
+    tooltip.style.display = "none";
+  });
   }
 
   console.log("matches:", matches);
@@ -1608,6 +1641,16 @@ function renderStage(stage) {
       });
     }
   }
+
+  /*
+ * In de groepsfase zijn alle 48 deelnemende landen groen,
+ * ongeacht welke fase volgens de actuele data actief is.
+ */
+if (stage === "groups") {
+  Object.values(mapTournament).forEach(team => {
+    team.status = "in_race";
+  });
+}
 
   Object.values(mapTournament).forEach(team => {
     if (
