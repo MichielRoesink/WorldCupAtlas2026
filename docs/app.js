@@ -1867,22 +1867,35 @@ const launchButton =
 
 if (launchScreen && launchButton) {
 launchButton.addEventListener("click", async () => {
-  const selectedTournament =
-    launchButton.dataset.tournament;
+  const selectedTournament = launchButton.dataset.tournament;
 
   if (!selectedTournament) {
     return;
   }
 
-  /* Probeer op mobiele apparaten automatisch
-     naar landscape te schakelen */
+  /*
+   * Een browser staat orientation-lock meestal alleen toe
+   * wanneer de pagina eerst fullscreen is geworden.
+   */
   try {
+  const isMobile =
+  window.matchMedia("(max-width: 900px)").matches &&
+  ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
+  if (isMobile) {
+  const fullscreenTarget = document.documentElement;
+
+    if (!document.fullscreenElement && fullscreenTarget.requestFullscreen) {
+      await fullscreenTarget.requestFullscreen();
+    }
+
     if (screen.orientation?.lock) {
       await screen.orientation.lock("landscape");
     }
+  }
   } catch (error) {
-    console.log(
-      "Landscape kon door de browser niet automatisch worden geactiveerd.",
+    console.warn(
+      "Fullscreen of automatische landscape-stand werd niet toegestaan:",
       error
     );
   }
@@ -1891,14 +1904,14 @@ launchButton.addEventListener("click", async () => {
 
   setTimeout(() => {
     document.body.classList.remove("launch-screen");
-
     launchScreen.hidden = true;
 
-    renderStage("groups");
-
-    /* Laat de kaart opnieuw zijn beschikbare
-       afmetingen bepalen */
-    window.dispatchEvent(new Event("resize"));
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        renderStage("groups");
+        window.dispatchEvent(new Event("resize"));
+      });
+    });
   }, 700);
 });
 }

@@ -2837,3 +2837,144 @@ body.launch-screen .credits-story {
     pointer-events: auto !important;
   }
 }
+
+/* =========================================================
+   MOBIELE KAART — TOOLBAR EN STATUSBLOKKEN
+   ========================================================= */
+
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  /* Bovenbalk */
+  .atlas-toolbar {
+    width: 100% !important;
+    height: 48px !important;
+
+    display: grid !important;
+    grid-template-columns:
+      minmax(190px, 1.15fr)
+      minmax(390px, 2.3fr)
+      minmax(150px, 0.9fr) !important;
+
+    align-items: center !important;
+    gap: 8px !important;
+
+    padding: 0 12px !important;
+    overflow: hidden !important;
+  }
+
+  /* Toernooikeuze links */
+  .current-cup-name {
+    min-width: 0 !important;
+    margin: 0 !important;
+
+    font-size: clamp(13px, 2vw, 17px) !important;
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Fasen in het midden */
+  .timeline {
+    min-width: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(8px, 1.5vw, 18px) !important;
+
+    overflow: hidden !important;
+  }
+
+  .timeline button,
+  .timeline-stage,
+  .stage-button {
+    min-width: 0 !important;
+    padding: 0 !important;
+
+    font-size: clamp(10px, 1.55vw, 14px) !important;
+    line-height: 48px !important;
+
+    white-space: nowrap !important;
+  }
+
+  /* Club Layers rechts */
+  .map-club-control {
+    justify-self: end !important;
+    min-width: 0 !important;
+
+    font-size: clamp(10px, 1.45vw, 13px) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Statusblokken: ruimte vrijlaten voor credits */
+  .status-row {
+    position: absolute !important;
+
+    left: 18px !important;
+    right: 190px !important;
+    bottom: 14px !important;
+    top: auto !important;
+
+    width: auto !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+
+    transform: none !important;
+    z-index: 30 !important;
+  }
+
+  .status-chip {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 36px !important;
+
+    padding: 0 8px !important;
+    border-radius: 999px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+
+    font-size: clamp(9px, 1.35vw, 12px) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .status-chip strong,
+  .status-chip .status-count {
+    font-size: clamp(13px, 1.75vw, 17px) !important;
+    line-height: 1 !important;
+  }
+
+  /* Credits apart rechts */
+  #cupatlas-credits {
+    position: absolute !important;
+
+    right: 14px !important;
+    bottom: 10px !important;
+    left: auto !important;
+
+    width: 158px !important;
+
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+
+    z-index: 31 !important;
+  }
+
+  #cupatlas-credits strong {
+    font-size: 14px !important;
+  }
+
+  #cupatlas-credits .credits-story {
+    margin-top: 5px !important;
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+  }
+}
