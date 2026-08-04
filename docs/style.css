@@ -721,12 +721,14 @@ main {
     font-weight:800;
 }
 
-.status-chip label{
-    font-size:.82rem;
-    white-space:nowrap;
+.status-chip label {
+    font-size: .82rem;
+    white-space: normal;
+    line-height: 1.1;
 }
 
 .status-chip.participating {
+    max-width: 260px;
     background: rgba(24, 49, 83, .94);
 }
 
@@ -910,14 +912,6 @@ main {
   filter: drop-shadow(0 2px 5px rgba(0,0,0,.35));
 }
 
-.status-chip.participating {
-  max-width: 260px;
-}
-
-.status-chip label {
-  white-space: normal;
-  line-height: 1.1;
-}
 .tournament-bar {
   display: flex;
   justify-content: space-between;
