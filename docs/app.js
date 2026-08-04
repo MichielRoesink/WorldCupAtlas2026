@@ -1783,16 +1783,60 @@ function setupTimeline() {
     });
   });
 }
-function setupLayerControls() {
-  const fcgToggle = document.getElementById("fcg-layer-toggle");
-  const ajaxToggle = document.getElementById("ajax-layer-toggle");
 
+function setupLayerControls() {
+  const fcgToggle =
+    document.getElementById("fcg-layer-toggle");
+
+  const ajaxToggle =
+    document.getElementById("ajax-layer-toggle");
+
+  const mobileClubSelect =
+    document.getElementById("mobile-club-select");
+
+  const mobileClubMode = window.matchMedia(
+    "(max-width: 900px) and (orientation: landscape) and (pointer: coarse)"
+  );
+
+  function syncMobileDropdown() {
+    if (!mobileClubSelect) return;
+
+    if (clubLayers.fcg) {
+      mobileClubSelect.value = "fcg";
+    } else if (clubLayers.ajax) {
+      mobileClubSelect.value = "ajax";
+    } else {
+      mobileClubSelect.value = "";
+    }
+  }
+
+  function syncDesktopCheckboxes() {
+    if (fcgToggle) {
+      fcgToggle.checked = clubLayers.fcg;
+    }
+
+    if (ajaxToggle) {
+      ajaxToggle.checked = clubLayers.ajax;
+    }
+  }
+
+  /*
+   * Bestaande desktopbediening.
+   * Op desktop kunnen meerdere clubs actief zijn.
+   */
   if (fcgToggle) {
     fcgToggle.checked = clubLayers.fcg;
 
     fcgToggle.addEventListener("change", () => {
       clubLayers.fcg = fcgToggle.checked;
-      console.log("FC Groningen layer:", clubLayers.fcg);
+
+      syncMobileDropdown();
+
+      console.log(
+        "FC Groningen layer:",
+        clubLayers.fcg
+      );
+
       renderStage(currentStage);
     });
   }
@@ -1802,9 +1846,51 @@ function setupLayerControls() {
 
     ajaxToggle.addEventListener("change", () => {
       clubLayers.ajax = ajaxToggle.checked;
-      console.log("AFC Ajax layer:", clubLayers.ajax);
+
+      syncMobileDropdown();
+
+      console.log(
+        "AFC Ajax layer:",
+        clubLayers.ajax
+      );
+
       renderStage(currentStage);
     });
+  }
+
+  /*
+   * Mobiele dropdown.
+   * Op mobiel kan steeds maar één club actief zijn.
+   */
+  if (mobileClubSelect) {
+    syncMobileDropdown();
+
+    mobileClubSelect.addEventListener(
+      "change",
+      () => {
+        if (!mobileClubMode.matches) {
+          return;
+        }
+
+        const selectedClub =
+          mobileClubSelect.value;
+
+        clubLayers.fcg =
+          selectedClub === "fcg";
+
+        clubLayers.ajax =
+          selectedClub === "ajax";
+
+        syncDesktopCheckboxes();
+
+        console.log(
+          "Mobile club layer:",
+          selectedClub || "none"
+        );
+
+        renderStage(currentStage);
+      }
+    );
   }
 }
 
@@ -1915,80 +2001,172 @@ const CLUBS = {
 };
 
 function setupClubPanelToggle() {
-  const panelToggle = document.getElementById("club-layers-panel-toggle");
-  const clubPanel = document.querySelector(".map-club-control");
+  const panelToggle =
+    document.getElementById("club-layers-panel-toggle");
 
-  if (!panelToggle || !clubPanel) return;
+  const desktopClubPanel =
+    document.querySelector(".map-club-control");
+
+  const mobileClubSelectWrap =
+    document.getElementById("mobile-club-select-wrap");
+
+  const mobileClubSelect =
+    document.getElementById("mobile-club-select");
+
+  if (!panelToggle || !desktopClubPanel) return;
+
+  function isMobileClubMode() {
+    return window.matchMedia(
+      "(max-width: 900px) and (orientation: landscape) and (pointer: coarse)"
+    ).matches;
+  }
+
+  function resetClubLayers() {
+    clubLayers.fcg = false;
+    clubLayers.ajax = false;
+
+    const fcgToggle =
+      document.getElementById("fcg-layer-toggle");
+
+    const ajaxToggle =
+      document.getElementById("ajax-layer-toggle");
+
+    if (fcgToggle) {
+      fcgToggle.checked = false;
+    }
+
+    if (ajaxToggle) {
+      ajaxToggle.checked = false;
+    }
+
+    if (mobileClubSelect) {
+      mobileClubSelect.value = "";
+    }
+  }
 
   function updateClubPanelVisibility() {
-    clubPanel.hidden = !panelToggle.checked;
+    const mobileMode = isMobileClubMode();
+    const isEnabled = panelToggle.checked;
+
+    /*
+     * Desktop:
+     * toon het bestaande paneel met de twee vinkjes.
+     */
+    desktopClubPanel.hidden =
+      !isEnabled || mobileMode;
+
+    /*
+     * Mobiel:
+     * toon alleen de dropdown.
+     */
+    if (mobileClubSelectWrap) {
+      mobileClubSelectWrap.hidden =
+        !isEnabled || !mobileMode;
+    }
+
+    /*
+     * Wanneer de hoofdschakelaar uitgaat,
+     * worden alle clublagen uitgeschakeld.
+     */
+    if (!isEnabled) {
+      resetClubLayers();
+
+      if (appState.world) {
+        renderStage(currentStage);
+      }
+    }
   }
 
   const launchScreen =
-  document.getElementById("atlas-launch-screen");
+    document.getElementById("atlas-launch-screen");
 
-const launchButton =
-  document.getElementById("launch-enter");
+  const launchButton =
+    document.getElementById("launch-enter");
 
-if (launchScreen && launchButton) {
-launchButton.addEventListener("click", async () => {
-  const selectedTournament = launchButton.dataset.tournament;
+  if (launchScreen && launchButton) {
+    launchButton.addEventListener("click", async () => {
+      const selectedTournament =
+        launchButton.dataset.tournament;
 
-  if (!selectedTournament) {
-    return;
+      if (!selectedTournament) {
+        return;
+      }
+
+      /*
+       * Een browser staat orientation-lock meestal alleen toe
+       * wanneer de pagina eerst fullscreen is geworden.
+       */
+      try {
+        const isMobile =
+          window.matchMedia("(max-width: 900px)").matches &&
+          (
+            "ontouchstart" in window ||
+            navigator.maxTouchPoints > 0
+          );
+
+        if (isMobile) {
+          const fullscreenTarget =
+            document.documentElement;
+
+          if (
+            !document.fullscreenElement &&
+            fullscreenTarget.requestFullscreen
+          ) {
+            await fullscreenTarget.requestFullscreen();
+          }
+
+          if (screen.orientation?.lock) {
+            await screen.orientation.lock("landscape");
+          }
+        }
+      } catch (error) {
+        console.warn(
+          "Fullscreen of automatische landscape-stand werd niet toegestaan:",
+          error
+        );
+      }
+
+      launchScreen.classList.add("is-closing");
+
+      setTimeout(() => {
+        document.body.classList.remove("launch-screen");
+        launchScreen.hidden = true;
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            renderStage("groups");
+            window.dispatchEvent(
+              new Event("resize")
+            );
+
+            updateClubPanelVisibility();
+          });
+        });
+      }, 700);
+    });
   }
 
   /*
-   * Een browser staat orientation-lock meestal alleen toe
-   * wanneer de pagina eerst fullscreen is geworden.
+   * Club Layers begint uitgeschakeld.
    */
-  try {
-  const isMobile =
-  window.matchMedia("(max-width: 900px)").matches &&
-  ("ontouchstart" in window || navigator.maxTouchPoints > 0);
-
-  if (isMobile) {
-  const fullscreenTarget = document.documentElement;
-
-    if (!document.fullscreenElement && fullscreenTarget.requestFullscreen) {
-      await fullscreenTarget.requestFullscreen();
-    }
-
-    if (screen.orientation?.lock) {
-      await screen.orientation.lock("landscape");
-    }
-  }
-  } catch (error) {
-    console.warn(
-      "Fullscreen of automatische landscape-stand werd niet toegestaan:",
-      error
-    );
-  }
-
-  launchScreen.classList.add("is-closing");
-
-  setTimeout(() => {
-    document.body.classList.remove("launch-screen");
-    launchScreen.hidden = true;
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        renderStage("groups");
-        window.dispatchEvent(new Event("resize"));
-      });
-    });
-  }, 700);
-});
-}
-
-  // Bedieningspaneel standaard verborgen
   panelToggle.checked = false;
+  resetClubLayers();
   updateClubPanelVisibility();
 
-  panelToggle.addEventListener("change", updateClubPanelVisibility);
-}
+  panelToggle.addEventListener(
+    "change",
+    updateClubPanelVisibility
+  );
 
-let viewportRedrawTimer = null;
+  /*
+   * Wanneer de schermstand verandert,
+   * wisselen we tussen desktoppaneel en mobiele dropdown.
+   */
+  window.addEventListener(
+    "resize",
+    updateClubPanelVisibility
+  );
+}
 
 function redrawAtlasForViewport() {
   clearTimeout(viewportRedrawTimer);
