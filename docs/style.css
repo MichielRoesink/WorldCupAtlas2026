@@ -1812,10 +1812,7 @@ main {
         0 14px 34px rgba(0, 0, 0, 0.16),
         inset 0 1px rgba(255, 255, 255, 0.12);
 
-    transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        box-shadow 0.22s ease;
+    transition: all .25s ease;
 }
 
 .launch-tournament-card:hover {
@@ -1904,12 +1901,6 @@ main {
     box-shadow: none;
 }
 
-/* Oude donkere achtergrondlagen volledig uitschakelen */
-.atlas-launch-card::before,
-.atlas-launch-card::after {
-    display: none;
-}
-
 /* ==========================================================
    CUPATLAS AIR — LIGHT LAUNCH PANEL
 ========================================================== */
@@ -1964,26 +1955,6 @@ main {
 .atlas-launch-globe {
     filter: drop-shadow(0 18px 30px rgba(40, 70, 110, 0.18));
 }
-
-.launch-tournament-card {
-    width: min(430px, 100%);
-    min-height: 74px;
-
-    background: rgba(26, 58, 96, 0.22);
-    border: 1px solid rgba(255,255,255,0.22);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    box-shadow:
-        0 14px 34px rgba(0,0,0,.16),
-        inset 0 1px rgba(255,255,255,.12);
-
-    border-radius: 18px;
-
-    transition: all .25s ease;
-}
-
 
 /* ==========================================================
    LAUNCH SCREEN TORUNAMENT SELECTOR
