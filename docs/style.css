@@ -4705,6 +4705,12 @@ body:not(.launch-screen) .status-chip label {
    Mobiel nog iets compacter
    ----------------------------------------------------- */
 
+
+/* Standaard niet zichtbaar */
+.mobile-club-select {
+  display: none;
+}
+
 @media screen and (max-width: 900px)
   and (orientation: landscape)
   and (pointer: coarse) {
@@ -4759,4 +4765,77 @@ body:not(.launch-screen) .status-chip label {
     font-size: 27px !important;
     line-height: 1 !important;
   }
+
+  /* =====================================================
+   CLUB LAYERS — MOBIELE DROPDOWN
+   ===================================================== */
+
+/* Mobiel: dropdown tonen wanneer JS hidden verwijdert */
+body:not(.launch-screen) .mobile-club-select:not([hidden]) {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+
+  position: fixed !important;
+  top: calc(var(--mobile-toolbar-height) + 6px) !important;
+  right: 34px !important;
+
+  padding: 5px 7px !important;
+
+  background: rgba(255, 255, 255, .96) !important;
+  border-radius: 9px !important;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, .15) !important;
+
+  z-index: 950 !important;
+}
+
+body:not(.launch-screen) .mobile-club-select label {
+  font-size: 8px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+body:not(.launch-screen) #mobile-club-select {
+  width: 115px !important;
+  height: 24px !important;
+
+  padding: 0 5px !important;
+
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 6px !important;
+  background: #ffffff !important;
+
+  font-size: 9px !important;
+  font-weight: 600 !important;
+
+  cursor: pointer !important;
+  }
+
+  /* =====================================================
+   FASEKIEZER — PIJLTJE BIJ ACTIEVE FASE
+   Alleen mobiel
+   ===================================================== */
+
+body:not(.launch-screen) .timeline-stage.active {
+  position: relative !important;
+}
+
+body:not(.launch-screen) .timeline-stage.active::after {
+  content: "▼";
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: -8px !important;
+
+  transform: translateX(-50%) !important;
+
+  font-size: 8px !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+
+  opacity: .75 !important;
+  pointer-events: none !important;
+}
+
 }
