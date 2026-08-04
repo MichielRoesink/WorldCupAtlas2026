@@ -907,20 +907,6 @@ main {
 }
 
 .live-team {
-  width: 66px;
-  font-size: 0.72rem;
-}
-
-.live-team strong {
-  font-size: 0.72rem;
-}
-
-.live-flag {
-  width: 18px;
-  height: 14px;
-}
-
-.live-team {
   width: 70px;
   text-align: center;
   font-size: 0.72rem;
@@ -960,24 +946,6 @@ main {
   box-shadow: 0 8px 22px rgba(15, 23, 42, .12);
 }
 
-.live-team {
-  width: 70px;
-  text-align: center;
-  font-size: 0.72rem;
-  overflow: hidden;
-}
-
-.live-team strong {
-  display: block;
-  font-size: 0.72rem;
-  white-space: nowrap;
-}
-
-.live-flag {
-  width: 20px;
-  height: 15px;
-  object-fit: cover;
-}
 .live-map-path {
   fill: none;
   stroke: #facc15;
@@ -990,23 +958,9 @@ main {
   font-size: 24px;
   filter: drop-shadow(0 3px 6px rgba(0,0,0,.35));
 }
-.live-map-path {
-  fill: none;
-  stroke: #facc15;
-  stroke-width: 3;
-  stroke-dasharray: 8 8;
-  opacity: 0.9;
-}
 .live-map-ball {
   font-size: 24px;
   filter: drop-shadow(0 3px 6px rgba(0,0,0,.35));
-}
-.live-map-path {
-  fill: none;
-  stroke: #facc15;
-  stroke-width: 3;
-  stroke-dasharray: 8 8;
-  opacity: 0.9;
 }
 
 .map-placeholder {
