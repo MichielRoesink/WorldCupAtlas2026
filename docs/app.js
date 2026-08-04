@@ -1,5 +1,5 @@
 const liveNowContainer = document.getElementById("live-now");
-const CURRENT_CUP = "worldcup-2026";
+let currentCup = "worldcup-2026";
 let currentStage = "groups";
 const clubLayers = {
   fcg: false,
@@ -19,9 +19,12 @@ function getCapitalInfoByCode(code) {
   return countryCapitalCoordinates[capitalCode] || null;
 }
 let appState = {};
+let controlsInitialized = false;
 const DEV_MODE = false;
 const DEV_MATCH_ID = 84;
-const DATA_PATH = `data/cups/${CURRENT_CUP}`;
+function getCupDataPath(cupId = currentCup) {
+  return `data/cups/${cupId}`;
+}
 const todayMatchesContainer = document.getElementById("today-matches");
 const currentCupName = document.getElementById("current-cup-name");
 const bracketContainer = document.getElementById("knockout-bracket");
@@ -132,13 +135,16 @@ function renderBracket(matches, countries) {
     `;
   }).join("");
 }
-async function loadData() {
+async function loadData(cupId = currentCup) {
+  const dataPath = getCupDataPath(cupId);
+
   const [
     world,
     countries,
     teams,
     matches,
     preview,
+    results,
     tournamentInfo,
     mapOverrides,
     clubLayerData,
@@ -147,17 +153,19 @@ async function loadData() {
   ] = await Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
     d3.json("data/countries.json"),
-    d3.json(`${DATA_PATH}/teams.json`),
-    d3.json(`${DATA_PATH}/matches.json`),
-    d3.json(`${DATA_PATH}/preview.json`),
-    d3.json(`${DATA_PATH}/tournament.json`),
+    d3.json(`${dataPath}/teams.json`),
+    d3.json(`${dataPath}/matches.json`),
+    d3.json(`${dataPath}/preview.json`),
+    d3.json(`${dataPath}/results.json`),
+    d3.json(`${dataPath}/tournament.json`),
     d3.json("data/map-overrides.json"),
-    loadClubLayer("fc-groningen"),
-    loadClubLayer("afc-ajax"),
+    loadClubLayer("fc-groningen", cupId),
+    loadClubLayer("afc-ajax", cupId),
     d3.json("https://www.thestatsapi.com/world-cup/data/fixtures.json")
   ]);
 
   return {
+    cupId,
     world,
     countries,
     teams,
@@ -167,11 +175,7 @@ async function loadData() {
 
     // Alleen voor gespeelde wedstrijden in het landenpaneel.
     preview,
-
-    // Behoud de bestaande interface, maar meng previewresultaten
-    // niet meer met de kaartdata.
-    results: [],
-
+    results,
     tournamentInfo,
     mapOverrides,
     clubLayerData,
@@ -234,11 +238,11 @@ function applyResultsToTournament(
     const winnerId = codeToMapId[winner];
     const loserId = codeToMapId[loser];
 
-    const roundName = String(match.round || "")
-      .trim()
-      .toLowerCase();
+    const roundName =
+      normalizeRound(match.round);
 
-    const isFinal = roundName === "final";
+    const isFinal =
+      roundName === "final";
 
     if (winnerId && tournament[winnerId]) {
       tournament[winnerId].status =
@@ -546,7 +550,6 @@ function getResult(matchId, results) {
 }
 
 function getWinner(match, results) {
-
   const result = getResult(match.id, results);
 
   if (!result) return null;
@@ -559,8 +562,32 @@ function getWinner(match, results) {
     return match.away;
   }
 
+  /*
+   * Bij een gelijke stand na verlenging bepaalt
+   * de penaltyreeks de winnaar.
+   */
+  const homePenalties =
+    result.homePenaltyScore;
+
+  const awayPenalties =
+    result.awayPenaltyScore;
+
+  if (
+    Number.isFinite(homePenalties) &&
+    Number.isFinite(awayPenalties)
+  ) {
+    if (homePenalties > awayPenalties) {
+      return match.home;
+    }
+
+    if (awayPenalties > homePenalties) {
+      return match.away;
+    }
+  }
+
   return null;
 }
+
 function getMatchesPlayed(countryCode, results, matches) {
 
   return results.filter(result => {
@@ -1488,40 +1515,84 @@ zoomLayer
 
 }
 
+
+function normalizeRound(round) {
+  const value = String(round || "")
+    .trim()
+    .toLowerCase();
+
+  if (value.includes("group")) {
+    return "groups";
+  }
+
+  if (
+    value === "r32" ||
+    value === "round of 32"
+  ) {
+    return "r32";
+  }
+
+  if (
+    value === "r16" ||
+    value === "round of 16"
+  ) {
+    return "r16";
+  }
+
+  if (
+    value === "qf" ||
+    value === "quarter-final" ||
+    value === "quarter-finals" ||
+    value === "quarterfinal" ||
+    value === "quarterfinals"
+  ) {
+    return "qf";
+  }
+
+  if (
+    value === "sf" ||
+    value === "semi-final" ||
+    value === "semi-finals" ||
+    value === "semifinal" ||
+    value === "semifinals"
+  ) {
+    return "sf";
+  }
+
+  if (
+    value === "third" ||
+    value === "third place" ||
+    value === "third-place play-off"
+  ) {
+    return "third";
+  }
+
+  if (value === "final") {
+    return "final";
+  }
+
+  return value;
+}
+
 function getVisibleMatches(matches, stage) {
-  if (stage === "groups") {
-    return matches.filter(m =>
-      String(m.round).toLowerCase().includes("group")
-    );
-  }
+  return matches.filter(match => {
+    const normalizedRound =
+      normalizeRound(match.round);
 
-  if (stage === "r32") {
-    return matches.filter(m => m.round === "r32");
-  }
+    if (stage === "groups") {
+      return normalizedRound === "groups";
+    }
 
-  if (stage === "r16") {
-    return matches.filter(m => m.round === "r16");
-  }
+    if (stage === "final") {
+      return normalizedRound === "final";
+    }
 
-  if (stage === "qf") {
-    return matches.filter(m => m.round === "qf");
-  }
+    if (stage === "winner") {
+      return false;
+    }
 
-  if (stage === "sf") {
-    return matches.filter(m => m.round === "sf");
-  }
-
-  if (stage === "final") {
-    return matches.filter(m =>
-      m.round === "final" || m.round === "third"
-    );
-  }
-
-  if (stage === "winner") {
-    return [];
-  }
-
-  return matches;
+    return normalizedRound === stage;
+  });
 }
 
 function detectCurrentStage(matches) {
@@ -1540,6 +1611,18 @@ function detectCurrentStage(matches) {
   }
 
   return "final";
+}
+
+function updateTimelineForTournament(tournamentInfo) {
+  const availableStages =
+    tournamentInfo?.year === 2022
+      ? ["groups", "r16", "qf", "sf", "final", "winner"]
+      : ["groups", "r32", "r16", "qf", "sf", "final", "winner"];
+
+  document.querySelectorAll(".timeline-stage").forEach(button => {
+    button.hidden =
+      !availableStages.includes(button.dataset.stage);
+  });
 }
 
 function setActiveTimelineStage(stage) {
@@ -1568,6 +1651,18 @@ function getStageParticipantCodes(matches, stage) {
       .flatMap(m => [m.home, m.away])
       .filter(Boolean)
   );
+}
+
+function getTournamentWinnerCode(matches, results) {
+  const finalMatch = matches.find(
+    match => normalizeRound(match.round) === "final"
+  );
+
+  if (!finalMatch) {
+    return null;
+  }
+
+  return getWinner(finalMatch, results);
 }
 
 function renderStage(stage) {
@@ -1605,87 +1700,140 @@ function renderStage(stage) {
     codeToMapId
   );
 
-  const actualStage = detectCurrentStage(appState.preview.matches);
+  if (stage === "winner") {
+  const winnerCode = getTournamentWinnerCode(
+    appState.matches,
+    appState.results
+  );
+
+  Object.values(mapTournament).forEach(team => {
+    team.status = "out";
+  });
+
+  if (winnerCode) {
+    const winnerMapId = codeToMapId[winnerCode];
+
+    if (
+      winnerMapId &&
+      mapTournament[winnerMapId]
+    ) {
+      mapTournament[winnerMapId].status = "winner";
+      mapTournament[winnerMapId].note =
+        "World champion";
+    }
+  }
+}
+
+  const stageSourceMatches =
+  Array.isArray(appState.preview?.matches) &&
+  appState.preview.matches.length > 0
+    ? appState.preview.matches
+    : appState.matches;
+
+  const actualStage =
+    detectCurrentStage(stageSourceMatches);
+
   const selectedStageIsPast =
     stageRank(stage) < stageRank(actualStage);
 
-  if (selectedStageIsPast) {
-    const participantCodes = getStageParticipantCodes(
-      appState.preview.matches,
-      stage
-    );
-
-    Object.values(mapTournament).forEach(team => {
-      team.status = "out";
-    });
-
-    if (stage === "groups") {
-      Object.values(mapTournament).forEach(team => {
-        team.status = "in_race";
-      });
-    } else {
-      participantCodes.forEach(code => {
-        const mapId = codeToMapId[code];
-
-        if (mapId && mapTournament[mapId]) {
-          mapTournament[mapId].status = "in_race";
-        }
-      });
-    }
-  }
-
-  /*
- * In de groepsfase zijn alle 48 deelnemende landen groen,
- * ongeacht welke fase volgens de actuele data actief is.
+/*
+ * De kaartstatus wordt volledig bepaald door de fase
+ * die de gebruiker op dit moment bekijkt.
+ *
+ * Resultaten uit latere rondes mogen een eerdere fase
+ * nooit beïnvloeden.
  */
+Object.values(mapTournament).forEach(team => {
+  team.status = "out";
+  team.note = "";
+});
+
 if (stage === "groups") {
+  /*
+   * In de groepsfase zijn alle deelnemers actief.
+   */
   Object.values(mapTournament).forEach(team => {
     team.status = "in_race";
   });
-}
 
-  Object.values(mapTournament).forEach(team => {
-    if (
-      team.status === "playing" ||
-      team.status === "upcoming"
+} else if (stage === "winner") {
+  /*
+   * Alleen de winnaar van de echte finale wordt goud.
+   *
+   * Eerst proberen we de uitslag uit results.json.
+   * Als die koppeling ontbreekt, gebruiken we de scores
+   * die rechtstreeks in preview.json staan.
+   */
+  const finalMatch = stageSourceMatches.find(
+    match => normalizeRound(match.round) === "final"
+  );
+
+  let winnerCode = finalMatch
+    ? getWinner(finalMatch, appState.results)
+    : null;
+
+  if (!winnerCode && finalMatch) {
+    if (finalMatch.homeScore > finalMatch.awayScore) {
+      winnerCode = finalMatch.home;
+
+    } else if (
+      finalMatch.awayScore > finalMatch.homeScore
     ) {
-      team.status = "in_race";
-    }
-  });
+      winnerCode = finalMatch.away;
 
-  if (stage === "final") {
-  const finalMatch = appState.preview.matches.find(
-    match => match.round === "final"
-  );
+    } else if (
+      Number.isFinite(finalMatch.homePenaltyScore) &&
+      Number.isFinite(finalMatch.awayPenaltyScore)
+    ) {
+      if (
+        finalMatch.homePenaltyScore >
+        finalMatch.awayPenaltyScore
+      ) {
+        winnerCode = finalMatch.home;
 
-  if (finalMatch) {
-    [finalMatch.home, finalMatch.away].forEach(code => {
-      const mapId = codeToMapId[code];
-
-      if (mapId && mapTournament[mapId]) {
-        mapTournament[mapId].status = "in_race";
+      } else if (
+        finalMatch.awayPenaltyScore >
+        finalMatch.homePenaltyScore
+      ) {
+        winnerCode = finalMatch.away;
       }
-    });
+    }
   }
-}
 
-if (stage === "winner") {
-  const finalMatch = appState.preview.matches.find(
-    match => match.round === "final"
-  );
-
-  if (finalMatch) {
-    const winnerCode =
-      finalMatch.homeScore > finalMatch.awayScore
-        ? finalMatch.home
-        : finalMatch.away;
-
+  if (winnerCode) {
     const winnerMapId = codeToMapId[winnerCode];
 
-    if (winnerMapId && mapTournament[winnerMapId]) {
+    if (
+      winnerMapId &&
+      mapTournament[winnerMapId]
+    ) {
       mapTournament[winnerMapId].status = "winner";
+      mapTournament[winnerMapId].note =
+        "World champion";
     }
   }
+
+} else {
+  /*
+   * Voor R32, R16, QF, SF en Final worden uitsluitend
+   * de deelnemers van de geselecteerde fase groen.
+   */
+  const participantCodes =
+    getStageParticipantCodes(
+      stageSourceMatches,
+      stage
+    );
+
+  participantCodes.forEach(code => {
+    const mapId = codeToMapId[code];
+
+    if (
+      mapId &&
+      mapTournament[mapId]
+    ) {
+      mapTournament[mapId].status = "in_race";
+    }
+  });
 }
 
   const liveMatches = selectedStageIsPast
@@ -1931,13 +2079,77 @@ date = date.charAt(0).toUpperCase() + date.slice(1);
 updateNetherlandsClock();
 setInterval(updateNetherlandsClock, 1000);
 
-async function loadClubLayer(club) {
-  return d3.json(`data/club-layers/worldcup-2026/${club}.json`);
+async function loadClubLayer(club, cupId = currentCup) {
+  try {
+    return await d3.json(
+      `data/club-layers/${cupId}/${club}.json`
+    );
+  } catch (error) {
+    console.warn(
+      `No club-layer data for ${club} in ${cupId}.`,
+      error
+    );
+
+    return {
+      club,
+      connections: {}
+    };
+  }
 }
 
-loadData().then(({ world, countries, teams, matches, preview, results, tournamentInfo, mapOverrides, clubLayerData, ajaxLayerData, worldCupSchedule }) => {
-  if (currentCupName) { currentCupName.textContent = tournamentInfo.name; }
-  const codeToMapId = buildCountryCodeIndex(countries, mapOverrides);
+function getTournamentSelectors() {
+  return [
+    document.getElementById("cup-select"),
+    document.getElementById("tournament-select"),
+    document.getElementById("overlay-tournament-select")
+  ].filter(Boolean);
+}
+
+function syncTournamentSelectors(cupId) {
+  getTournamentSelectors().forEach(select => {
+    select.value = cupId;
+  });
+}
+
+async function handleTournamentChange(cupId) {
+  if (!cupId || cupId === currentCup) {
+    syncTournamentSelectors(currentCup);
+    return;
+  }
+
+  await loadTournament(cupId);
+  syncTournamentSelectors(cupId);
+}
+
+async function loadTournament(cupId) {
+  const {
+    world,
+    countries,
+    teams,
+    matches,
+    preview,
+    results,
+    tournamentInfo,
+    mapOverrides,
+    clubLayerData,
+    ajaxLayerData,
+    worldCupSchedule
+  } = await loadData(cupId);
+
+  currentCup = cupId;
+  syncTournamentSelectors(cupId);
+  currentStage = "groups";
+
+  if (currentCupName) {
+    currentCupName.textContent = tournamentInfo.name;
+  }
+
+  updateTimelineForTournament(tournamentInfo);
+
+  const codeToMapId = buildCountryCodeIndex(
+    countries,
+    mapOverrides
+  );
 
   const tournament = {};
 
@@ -1951,7 +2163,9 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
       };
     }
   });
+
   advanceWinners(matches, results);
+
   const derivedTournament =
     deriveTournamentFromMatches(
       tournament,
@@ -1965,7 +2179,9 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
     results,
     codeToMapId
   );
+
   appState = {
+    cupId,
     world,
     countries,
     teams,
@@ -1976,16 +2192,53 @@ loadData().then(({ world, countries, teams, matches, preview, results, tournamen
     mapOverrides,
     clubLayerData,
     ajaxLayerData,
-    scheduleFixtures: worldCupSchedule.fixtures,
+    scheduleFixtures:
+      worldCupSchedule?.fixtures || [],
     derivedTournament
   };
 
-  currentStage = detectCurrentStage(preview.matches);
+  currentStage = "groups";
 
-  setupTimeline();
-  setupLayerControls();
-  setupClubPanelToggle();
+  /*
+   * Klikhandlers en schakelaars slechts één keer instellen.
+   * Anders worden bij iedere toernooiwissel dubbele
+   * event listeners toegevoegd.
+   */
+  if (!controlsInitialized) {
+    setupTimeline();
+    setupLayerControls();
+    setupClubPanelToggle();
+
+    getTournamentSelectors().forEach(select => {
+      select.addEventListener("change", async event => {
+        try {
+          await handleTournamentChange(event.target.value);
+        } catch (error) {
+          console.error(
+            `Could not switch tournament to ${event.target.value}:`,
+            error
+          );
+
+          syncTournamentSelectors(currentCup);
+        }
+      });
+    });
+
+    controlsInitialized = true;
+  }
+
   renderStage(currentStage);
+}
+
+
+/*
+ * Eerste toernooi laden.
+ */
+loadTournament(currentCup).catch(error => {
+  console.error(
+    `Could not load tournament ${currentCup}:`,
+    error
+  );
 });
 
 const CLUBS = {
@@ -2080,16 +2333,24 @@ function setupClubPanelToggle() {
   const launchScreen =
     document.getElementById("atlas-launch-screen");
 
-  const launchButton =
-    document.getElementById("launch-enter");
+  const launchButtons =
+    document.querySelectorAll(
+    ".launch-tournament-card[data-tournament]"
+    );
 
-  if (launchScreen && launchButton) {
-    launchButton.addEventListener("click", async () => {
+  if (launchScreen && launchButtons.length) {
+    launchButtons.forEach(launchButton => {
+      launchButton.addEventListener("click", async () => {
+
       const selectedTournament =
         launchButton.dataset.tournament;
 
       if (!selectedTournament) {
         return;
+      }
+
+      if (selectedTournament !== currentCup) {
+        await loadTournament(selectedTournament);
       }
 
       /*
@@ -2142,9 +2403,10 @@ function setupClubPanelToggle() {
             updateClubPanelVisibility();
           });
         });
-      }, 700);
+  }, 700);
     });
-  }
+  });
+}
 
   /*
    * Club Layers begint uitgeschakeld.

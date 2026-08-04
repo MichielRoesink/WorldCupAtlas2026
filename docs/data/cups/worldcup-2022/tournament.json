@@ -1,0 +1,12 @@
+{
+  "id": "worldcup-2022",
+  "name": "FIFA World Cup 2022",
+  "year": 2022,
+  "type": "world_cup",
+  "hosts": [
+    "QAT"
+  ],
+  "teams": 32,
+  "matches": 64,
+  "status": "finished"
+}

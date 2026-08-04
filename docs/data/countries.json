@@ -1771,6 +1771,14 @@
     "fifaRanking": 171,
     "population": 43844111
   },
+  "9002": {
+  "code": "WAL",
+  "name": "Wales",
+  "flag": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+  "confederation": "UEFA",
+  "fifaRanking": 19,
+  "population": null
+},
   "008": {
     "code": "ALB",
     "name": "Albania",

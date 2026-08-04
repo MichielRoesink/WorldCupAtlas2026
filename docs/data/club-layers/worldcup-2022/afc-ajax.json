@@ -1,0 +1,109 @@
+{
+  "club": "AFC Ajax",
+  "connections": {
+    "ARG": [
+      {
+        "name": "Geronimo Rulli",
+        "connection": "Former AFC Ajax player"
+      },
+      {
+        "name": "Lisandro Martinez",
+        "connection": "Former AFC Ajax player"
+      },
+      {
+        "name": "Nicolas Tagliafico",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "CMR": [
+      {
+        "name": "Andre Onana",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "COL": [
+      {
+        "name": "Davinson Sanchez",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "CIV": [
+      {
+        "name": "Sebastien Haller",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "CRO": [
+      {
+        "name": "Josip Sutalo",
+        "connection": "Current AFC Ajax player"
+      }
+    ],
+    "ENG": [
+      {
+        "name": "Jordan Henderson",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "GHA": [
+      {
+        "name": "Mohammed Kudus",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "JPN": [
+      {
+        "name": "Ko Itakura",
+        "connection": "Current AFC Ajax player"
+      },
+      {
+        "name": "Takehiro Tomiyasu",
+        "connection": "Current AFC Ajax player"
+      }
+    ],
+    "MEX": [
+      {
+        "name": "Edson Alvarez",
+        "connection": "Former AFC Ajax player"
+      },
+      {
+        "name": "Jorge Sanchez",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "NED": [
+      {
+        "name": "Wout Weghorst",
+        "connection": "Current AFC Ajax player"
+      },
+      {
+        "name": "Brian Brobbey",
+        "connection": "Former AFC Ajax player"
+      },
+      {
+        "name": "Frenkie de Jong",
+        "connection": "Former AFC Ajax player"
+      },
+      {
+        "name": "Matthijs de Ligt",
+        "connection": "Former AFC Ajax player"
+      },
+      {
+        "name": "Ryan Gravenberch",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "POR": [
+      {
+        "name": "Francisco Conceicao",
+        "connection": "Former AFC Ajax player"
+      }
+    ],
+    "USA": [
+      {
+        "name": "Sergino Dest",
+        "connection": "Former AFC Ajax player"
+      }
+    ]
+  }
+}

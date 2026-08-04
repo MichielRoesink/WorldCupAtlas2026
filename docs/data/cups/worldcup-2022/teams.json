@@ -1,0 +1,130 @@
+[
+  {
+    "code": "QAT",
+    "status": "out"
+  },
+  {
+    "code": "ECU",
+    "status": "out"
+  },
+  {
+    "code": "SEN",
+    "status": "out"
+  },
+  {
+    "code": "NLD",
+    "status": "out"
+  },
+  {
+    "code": "GBR",
+    "status": "out"
+  },
+  {
+    "code": "IRN",
+    "status": "out"
+  },
+  {
+    "code": "USA",
+    "status": "out"
+  },
+  {
+    "code": "WAL",
+    "status": "out"
+  },
+  {
+    "code": "ARG",
+    "status": "winner"
+  },
+  {
+    "code": "SAU",
+    "status": "out"
+  },
+  {
+    "code": "MEX",
+    "status": "out"
+  },
+  {
+    "code": "POL",
+    "status": "out"
+  },
+  {
+    "code": "FRA",
+    "status": "out"
+  },
+  {
+    "code": "AUS",
+    "status": "out"
+  },
+  {
+    "code": "DNK",
+    "status": "out"
+  },
+  {
+    "code": "TUN",
+    "status": "out"
+  },
+  {
+    "code": "ESP",
+    "status": "out"
+  },
+  {
+    "code": "CRI",
+    "status": "out"
+  },
+  {
+    "code": "DEU",
+    "status": "out"
+  },
+  {
+    "code": "JPN",
+    "status": "out"
+  },
+  {
+    "code": "BEL",
+    "status": "out"
+  },
+  {
+    "code": "CAN",
+    "status": "out"
+  },
+  {
+    "code": "MAR",
+    "status": "out"
+  },
+  {
+    "code": "HRV",
+    "status": "out"
+  },
+  {
+    "code": "BRA",
+    "status": "out"
+  },
+  {
+    "code": "SRB",
+    "status": "out"
+  },
+  {
+    "code": "CHE",
+    "status": "out"
+  },
+  {
+    "code": "CMR",
+    "status": "out"
+  },
+  {
+    "code": "PRT",
+    "status": "out"
+  },
+  {
+    "code": "GHA",
+    "status": "out"
+  },
+  {
+    "code": "URY",
+    "status": "out"
+  },
+  {
+    "code": "KOR",
+    "status": "out"
+  }
+]
