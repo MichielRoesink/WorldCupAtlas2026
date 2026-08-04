@@ -82,15 +82,6 @@ main {
     flex: 1;
 }
 
-.map-placeholder{
-    margin-top:120px;
-
-    height:calc(100vh - 280px);
-    min-height:650px;
-
-    overflow:hidden;
-}
-
 .stats-card p {
     background: #f8fafc;
     border-radius: 10px;
@@ -701,7 +692,6 @@ main {
 
 .map-placeholder {
   height: calc(100vh - 230px);
-  min-height: 680px;
 }
 
 .world-stats {
