@@ -4819,22 +4819,25 @@ body:not(.launch-screen) #mobile-club-select {
 
 body:not(.launch-screen) .timeline-stage.active {
   position: relative !important;
+  padding-bottom: 9px !important;
+  line-height: 39px !important;
 }
 
 body:not(.launch-screen) .timeline-stage.active::after {
-  content: "▼";
-  position: absolute !important;
+  content: "▲";
 
+  position: absolute !important;
   left: 50% !important;
-  bottom: -8px !important;
+  bottom: 3px !important;
 
   transform: translateX(-50%) !important;
 
+  color: #ffffff !important;
   font-size: 8px !important;
   line-height: 1 !important;
   font-weight: 900 !important;
 
-  opacity: .75 !important;
+  opacity: .9 !important;
   pointer-events: none !important;
 }
 
