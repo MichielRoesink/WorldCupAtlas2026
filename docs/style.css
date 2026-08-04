@@ -679,18 +679,22 @@ main {
   border-top: 4px solid #dc2626;
 }
 
-.map-status{
-    position:absolute;
+.map-status {
+    position: absolute;
 
     top: 310px;
     left: 58%;
     transform: translateX(-50%);
 
-    display:flex;
-    justify-content:flex-start;
-    gap:12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    flex-wrap: wrap;
 
-    z-index:40;
+    gap: 14px;
+
+    z-index: 40;
 }
 
 .status-chip {
@@ -758,13 +762,6 @@ main {
 .status-chip.playing {
   background: rgba(250, 204, 21, .96);
   color: #111827;
-}
-
-.map-status {
-    display: flex;
-    justify-content: flex-start;
-    gap: 12px;
-    flex: 1;
 }
 
 .status-row {
@@ -1281,13 +1278,6 @@ main {
   background: transparent;
   color: #ffffff;
   font-weight: 800;
-}
-
-.map-status {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
 }
 
 .status-upcoming {
