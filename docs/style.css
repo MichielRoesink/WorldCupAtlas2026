@@ -2678,6 +2678,11 @@ body.launch-screen .credits-story {
   }
 
   body:not(.launch-screen) .timeline-stage.active {
+    position: relative !important;
+
+    padding-bottom: 9px !important;
+
+    line-height: 39px !important;
     font-weight: 900 !important;
   }
 
@@ -3881,12 +3886,6 @@ body:not(.launch-screen) #mobile-club-select {
    FASEKIEZER — PIJLTJE BIJ ACTIEVE FASE
    Alleen mobiel
    ===================================================== */
-
-body:not(.launch-screen) .timeline-stage.active {
-  position: relative !important;
-  padding-bottom: 9px !important;
-  line-height: 39px !important;
-}
 
 body:not(.launch-screen) .timeline-stage.active::after {
   content: "▲";
