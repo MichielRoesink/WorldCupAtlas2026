@@ -3666,14 +3666,14 @@ body:not(.launch-screen) .status-chip label {
   }
 
   body:not(.launch-screen) .country-panel-meta {
-  margin-top: 1px !important;
+    margin-top: 1px !important;
   }
 
   body:not(.launch-screen) .country-panel-row {
-  padding-top: 1px !important;
-  padding-bottom: 1px !important;
-  line-height: 1.05 !important;
-}
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    line-height: 1.05 !important;
+  }
 
   body:not(.launch-screen) .country-panel-section {
     margin-top: 5px !important;
@@ -3686,81 +3686,154 @@ body:not(.launch-screen) .status-chip label {
   body:not(.launch-screen) .country-panel-close {
     top: 6px !important;
     right: 8px !important;
-
     width: auto !important;
     height: auto !important;
-
     font-size: 27px !important;
     line-height: 1 !important;
   }
 
   /* =====================================================
-   CLUB LAYERS — MOBIELE DROPDOWN
-   ===================================================== */
+     CLUB LAYERS — MOBIELE DROPDOWN
+     ===================================================== */
 
-/* Mobiel: dropdown tonen wanneer JS hidden verwijdert */
-body:not(.launch-screen) .mobile-club-select:not([hidden]) {
-  display: flex !important;
-  align-items: center !important;
-  gap: 6px !important;
+  body:not(.launch-screen)
+    .mobile-club-select:not([hidden]) {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
 
-  position: fixed !important;
-  top: calc(var(--mobile-toolbar-height) + 6px) !important;
-  right: 34px !important;
+    position: fixed !important;
+    top: calc(var(--mobile-toolbar-height) + 6px) !important;
+    right: 34px !important;
 
-  padding: 5px 7px !important;
+    padding: 5px 7px !important;
 
-  background: rgba(255, 255, 255, .96) !important;
-  border-radius: 9px !important;
-  box-shadow: 0 3px 10px rgba(15, 23, 42, .15) !important;
+    background: rgba(255, 255, 255, .96) !important;
+    border-radius: 9px !important;
+    box-shadow:
+      0 3px 10px rgba(15, 23, 42, .15) !important;
 
-  z-index: 950 !important;
-}
+    z-index: 950 !important;
+  }
 
-body:not(.launch-screen) .mobile-club-select label {
-  font-size: 8px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
-}
+  body:not(.launch-screen) .mobile-club-select label {
+    font-size: 8px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
 
-body:not(.launch-screen) #mobile-club-select {
-  width: 115px !important;
-  height: 24px !important;
+  body:not(.launch-screen) #mobile-club-select {
+    width: 115px !important;
+    height: 24px !important;
 
-  padding: 0 5px !important;
+    padding: 0 5px !important;
 
-  border: 1px solid #cbd5e1 !important;
-  border-radius: 6px !important;
-  background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    background: #ffffff !important;
 
-  font-size: 9px !important;
-  font-weight: 600 !important;
+    font-size: 9px !important;
+    font-weight: 600 !important;
 
-  cursor: pointer !important;
+    cursor: pointer !important;
   }
 
   /* =====================================================
-   FASEKIEZER — PIJLTJE BIJ ACTIEVE FASE
-   Alleen mobiel
-   ===================================================== */
+     FASEKIEZER — PIJLTJE BIJ ACTIEVE FASE
+     Alleen mobiel
+     ===================================================== */
 
-body:not(.launch-screen) .timeline-stage.active::after {
-  content: "▲";
+  body:not(.launch-screen)
+    .timeline-stage.active::after {
+    content: "▲";
 
-  position: absolute !important;
-  left: 50% !important;
-  bottom: 3px !important;
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 3px !important;
 
-  transform: translateX(-50%) !important;
+    transform: translateX(-50%) !important;
 
-  color: #ffffff !important;
-  font-size: 8px !important;
-  line-height: 1 !important;
-  font-weight: 900 !important;
+    color: #ffffff !important;
+    font-size: 8px !important;
+    line-height: 1 !important;
+    font-weight: 900 !important;
 
-  opacity: .9 !important;
-  pointer-events: none !important;
+    opacity: .9 !important;
+    pointer-events: none !important;
+  }
 }
 
+
+/* =====================================================
+   DESKTOP — HERSTEL UITLIJNING EN TOERNOOILIJST
+   ===================================================== */
+
+@media screen and (min-width: 901px) {
+
+  /* Statusblokken terug op hun eerdere positie */
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row {
+    position: absolute !important;
+
+    left: 58% !important;
+    right: auto !important;
+    bottom: 135px !important;
+    top: auto !important;
+
+    width: max-content !important;
+    margin: 0 !important;
+
+    transform: translateX(-50%) !important;
+
+    z-index: 40 !important;
+  }
+
+  body:not(.launch-screen)
+    .atlas-map-wrap > .status-row > .map-status {
+    position: static !important;
+
+    width: max-content !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+
+    gap: 14px !important;
+
+    transform: none !important;
+  }
+
+  /* Credits terug rechtsonder */
+  body:not(.launch-screen) #cupatlas-credits {
+    position: absolute !important;
+
+    right: 24px !important;
+    bottom: 24px !important;
+    left: auto !important;
+    top: auto !important;
+
+    width: 220px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* Geselecteerde toernooinaam in de toolbar */
+  body:not(.launch-screen)
+    #overlay-tournament-select {
+    color: #ffffff !important;
+    background: transparent !important;
+  }
+
+  /* Opties in de geopende dropdown leesbaar */
+  body:not(.launch-screen)
+    #overlay-tournament-select option {
+    color: #0f172a !important;
+    background: #ffffff !important;
+  }
 }

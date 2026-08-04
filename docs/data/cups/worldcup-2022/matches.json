@@ -1,0 +1,21 @@
+[
+  { "id": 49, "round": "r16", "home": "NLD", "away": "USA", "date": "2022-12-03", "status": "finished", "winnerGoesTo": 57 },
+  { "id": 50, "round": "r16", "home": "ARG", "away": "AUS", "date": "2022-12-03", "status": "finished", "winnerGoesTo": 57 },
+  { "id": 51, "round": "r16", "home": "FRA", "away": "POL", "date": "2022-12-04", "status": "finished", "winnerGoesTo": 59 },
+  { "id": 52, "round": "r16", "home": "GBR", "away": "SEN", "date": "2022-12-04", "status": "finished", "winnerGoesTo": 59 },
+  { "id": 53, "round": "r16", "home": "JPN", "away": "HRV", "date": "2022-12-05", "status": "finished", "winnerGoesTo": 58 },
+  { "id": 54, "round": "r16", "home": "BRA", "away": "KOR", "date": "2022-12-05", "status": "finished", "winnerGoesTo": 58 },
+  { "id": 55, "round": "r16", "home": "MAR", "away": "ESP", "date": "2022-12-06", "status": "finished", "winnerGoesTo": 60 },
+  { "id": 56, "round": "r16", "home": "PRT", "away": "CHE", "date": "2022-12-06", "status": "finished", "winnerGoesTo": 60 },
+
+  { "id": 57, "round": "qf", "home": "NLD", "away": "ARG", "date": "2022-12-09", "status": "finished", "winnerGoesTo": 61 },
+  { "id": 58, "round": "qf", "home": "HRV", "away": "BRA", "date": "2022-12-09", "status": "finished", "winnerGoesTo": 61 },
+  { "id": 59, "round": "qf", "home": "GBR", "away": "FRA", "date": "2022-12-10", "status": "finished", "winnerGoesTo": 62 },
+  { "id": 60, "round": "qf", "home": "MAR", "away": "PRT", "date": "2022-12-10", "status": "finished", "winnerGoesTo": 62 },
+
+  { "id": 61, "round": "sf", "home": "ARG", "away": "HRV", "date": "2022-12-13", "status": "finished", "winnerGoesTo": 64 },
+  { "id": 62, "round": "sf", "home": "FRA", "away": "MAR", "date": "2022-12-14", "status": "finished", "winnerGoesTo": 64 },
+
+  { "id": 63, "round": "third", "home": "HRV", "away": "MAR", "date": "2022-12-17", "status": "finished" },
+  { "id": 64, "round": "final", "home": "ARG", "away": "FRA", "date": "2022-12-18", "status": "finished" }
+]

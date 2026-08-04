@@ -60,30 +60,54 @@
 
       <div class="atlas-launch-form">
         <div class="launch-tournament-list">
-          <button
-            id="launch-enter"
-            class="launch-tournament-card"
-            type="button"
-            data-tournament="worldcup-2026">
+<button
+  class="launch-tournament-card"
+  type="button"
+  data-tournament="worldcup-2026">
 
-          <div class="launch-card-content">
-  <div class="launch-card-label">
-    Tournament:
+  <div class="launch-card-content">
+    <div class="launch-card-label">
+      Upcoming tournament
+    </div>
+
+    <div class="launch-card-title">
+      FIFA World Cup 2026
+    </div>
+
+    <div class="launch-card-subtitle">
+      United States • Canada • Mexico
+    </div>
   </div>
 
-  <div class="launch-card-title">
-    FIFA World Cup 2026
+  <span class="launch-card-enter">
+    Explore
+    <span aria-hidden="true">→</span>
+  </span>
+</button>
+
+<button
+  class="launch-tournament-card"
+  type="button"
+  data-tournament="worldcup-2022">
+
+  <div class="launch-card-content">
+    <div class="launch-card-label">
+      Previous tournament
+    </div>
+
+    <div class="launch-card-title">
+      FIFA World Cup 2022
+    </div>
+
+    <div class="launch-card-subtitle">
+      Qatar
+    </div>
   </div>
 
-  <div class="launch-card-subtitle">
-    United States • Canada • Mexico
-  </div>
-</div>
-
-<span class="launch-card-enter">
-  Enter
-  <span aria-hidden="true">→</span>
-</span>
+  <span class="launch-card-enter">
+    Explore
+    <span aria-hidden="true">→</span>
+  </span>
 </button>
 
 </div>
@@ -97,7 +121,8 @@
   <label for="cup-select">Cup</label>
 
   <select id="cup-select">
-    <option>Loading...</option>
+    <option value="worldcup-2026">FIFA World Cup 2026</option>
+    <option value="worldcup-2022">FIFA World Cup 2022</option>
   </select>
 </section>
 <main class="atlas-page">
@@ -107,6 +132,7 @@
 
   <select id="tournament-select">
     <option value="worldcup-2026">FIFA World Cup 2026</option>
+    <option value="worldcup-2022">FIFA World Cup 2022</option>
   </select>
 </div>
     <div class="atlas-topline">
@@ -119,6 +145,7 @@
     <div id="tournament-picker">
     <select id="overlay-tournament-select">
         <option value="worldcup-2026">FIFA World Cup 2026</option>
+        <option value="worldcup-2022">FIFA World Cup 2022</option>
     </select>
 </div>
 

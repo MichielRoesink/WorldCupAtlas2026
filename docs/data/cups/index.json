@@ -3,5 +3,10 @@
     "id": "worldcup-2026",
     "name": "FIFA World Cup 2026",
     "status": "live"
+  },
+  {
+    "id": "worldcup-2022",
+    "name": "FIFA World Cup 2022",
+    "status": "finished"
   }
 ]
