@@ -1709,13 +1709,10 @@ main {
     font-weight: 750;
     line-height: 1.05;
     letter-spacing: -0.045em;
-    color: #ffffff;
 }
 
 .launch-title span {
     display: inline;
-    color: #68b7ff;
-    text-shadow: 0 0 28px rgba(60, 160, 255, 0.25);
 }
 
 .launch-subtitle {
@@ -1727,7 +1724,6 @@ main {
     letter-spacing: 0.22em;
     text-align: center;
     text-transform: uppercase;
-    color: rgba(220, 234, 250, 0.68);
 }
 
 /* Scheidingslijn compacter */
@@ -1745,7 +1741,6 @@ main {
 
 .atlas-launch-pick {
     margin-bottom: 2px;
-    color: rgba(155, 199, 244, 0.85);
 }
 
 /* Select en knop dezelfde nette breedte */
@@ -1759,7 +1754,6 @@ main {
     text-align: center;
     font-size: 0.76rem;
     letter-spacing: 0.05em;
-    color: rgba(195, 214, 237, 0.52);
 }
 
 /* Kleinere schermen */
@@ -1905,44 +1899,9 @@ main {
    Definitieve visuele stijl
 ========================================================== */
 
-/* Hoofdpaneel */
-
-/* Titel */
-.launch-title {
-    color: #29465f;
-}
-
-.launch-title span {
-    color: #4f91bd;
-    text-shadow: none;
-}
-
-/* Ondertitel */
-.launch-subtitle {
-    color: rgba(67, 91, 112, 0.72);
-}
-
-/* Scheidingslijn */
-.atlas-launch-divider {
-    border-color: rgba(82, 113, 139, 0.16);
-}
-
 .atlas-launch-divider::after {
     background: #d8b866;
     box-shadow: none;
-}
-
-/* Footer */
-.atlas-launch-footer {
-    color: rgba(72, 94, 112, 0.55);
-}
-
-/* Wereldbol rustiger en zachter */
-.atlas-launch-globe {
-    filter:
-        saturate(0.82)
-        brightness(1.12)
-        drop-shadow(0 14px 22px rgba(48, 87, 115, 0.18));
 }
 
 /* Oude donkere achtergrondlagen volledig uitschakelen */
@@ -1955,40 +1914,10 @@ main {
    CUPATLAS AIR — LIGHT LAUNCH PANEL
 ========================================================== */
 
-
 .atlas-launch-header {
     background: transparent;
     box-shadow: none;
 }
-
-.launch-title {
-    color: #15314d;
-}
-
-.launch-title span {
-    color: #3185d6;
-    text-shadow: none;
-}
-
-.launch-subtitle {
-    color: rgba(38, 70, 100, 0.62);
-}
-
-.atlas-launch-divider {
-    border-color: rgba(44, 103, 158, 0.14);
-}
-
-.atlas-launch-pick {
-    color: rgba(44, 103, 158, 0.72);
-}
-
-.atlas-launch-footer {
-    color: rgba(38, 70, 100, 0.48);
-}
-
-/* ==========================================================
-   CUPATLAS AIR — DEFINITIEVE LICHTE LAUNCH CARD
-========================================================== */
 
 /* ==========================================================
    CUPATLAS AIR — OPEN LAUNCH SCREEN
