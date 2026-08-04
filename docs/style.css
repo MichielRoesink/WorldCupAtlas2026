@@ -203,27 +203,6 @@ main {
     margin-bottom: 20px;
 }
 
-.stat {
-    flex: 1;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 16px;
-    text-align: center;
-}
-
-.stat span {
-    font-size: 2.8rem;
-    font-weight: 700;
-    display: block;
-}
-
-.stat small {
-    display: block;
-    margin-top: 6px;
-    color: #64748b;
-    font-size: 0.9rem;
-}
 .map-placeholder {
     height: calc(100vh - 170px);
     min-height: 680px;
@@ -489,47 +468,6 @@ main {
 
 }
 
-.stat strong {
-    display: block;
-    margin-top: 6px;
-    font-size: 0.95rem;
-    color: #0f172a;
-}
-
-.stat small {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.78rem;
-    line-height: 1.3;
-    color: #64748b;
-}
-
-.stat-in-race {
-    border-top: 4px solid #15803d;
-}
-
-.stat-out {
-    border-top: 4px solid #dc2626;
-}
-.stat strong {
-    display: block;
-    margin-top: 10px;
-}
-
-.stat small {
-    display: block;
-    margin-top: 6px;
-}
-.stat-in-race {
-    background: #f0fdf4;
-    border-top: 4px solid #15803d;
-}
-
-.stat-out {
-    background: #fef2f2;
-    border-top: 4px solid #dc2626;
-}
-
 .live-meta {
   display: flex;
   align-items: center;
@@ -733,10 +671,12 @@ main {
 
 .stat-in-race {
   background: rgba(21, 128, 61, .92);
+  border-top: 4px solid #15803d;
 }
 
 .stat-out {
   background: rgba(220, 38, 38, .92);
+  border-top: 4px solid #dc2626;
 }
 
 .map-status{
