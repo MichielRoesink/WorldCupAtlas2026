@@ -2771,29 +2771,6 @@ body.launch-screen .credits-story {
      CUPNAAM LINKS
      ----------------------------------------------------- */
 
-  body:not(.launch-screen) .toolbar-left {
-    min-width: 0 !important;
-    height: 48px !important;
-
-    display: flex !important;
-    align-items: center !important;
-
-    overflow: hidden !important;
-  }
-
-  body:not(.launch-screen) .toolbar-left h1,
-  body:not(.launch-screen) .toolbar-left strong,
-  body:not(.launch-screen) .toolbar-title {
-    margin: 0 !important;
-
-    font-size: clamp(15px, 2.15vw, 21px) !important;
-    line-height: 48px !important;
-    white-space: nowrap !important;
-
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-  }
-
 
   /* =====================================================
      TOERNOOIFASES MIDDEN
@@ -2842,19 +2819,6 @@ body.launch-screen .credits-story {
      Alleen klok / normale toolbar-elementen
      ===================================================== */
 
-  body:not(.launch-screen) .toolbar-right {
-    min-width: 0 !important;
-    height: 48px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    flex-wrap: nowrap !important;
-
-    gap: 5px !important;
-    overflow: hidden !important;
-  }
-
   body:not(.launch-screen) #nl-clock {
     min-width: 0 !important;
     width: auto !important;
@@ -2887,34 +2851,14 @@ body.launch-screen .credits-story {
      Alleen zichtbaar wanneer eigen schuifpaneel open staat
      ===================================================== */
 
-  body:not(.launch-screen) .atlas-toolbar > .map-club-control,
-  body:not(.launch-screen) .toolbar-right > .map-club-control {
-    display: none !important;
+  body:not(.launch-screen) .atlas-toolbar > .map-club-control {
+  display: none !important;
   }
 
   /*
      Wanneer het bestaande bedienings-/schuifpaneel zichtbaar is,
      mag Club Layers daarin wel verschijnen.
   */
-
-  body:not(.launch-screen) [data-club-panel]:not([hidden])
-    .map-club-control,
-  body:not(.launch-screen) .club-panel:not([hidden])
-    .map-club-control,
-  body:not(.launch-screen) #club-panel:not([hidden])
-    .map-club-control {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-
-    width: auto !important;
-    min-width: 0 !important;
-
-    margin: 0 !important;
-    padding: 6px 8px !important;
-
-    font-size: 10px !important;
-  }
 
   body:not(.launch-screen) .map-club-control > span {
     font-size: 9px !important;
